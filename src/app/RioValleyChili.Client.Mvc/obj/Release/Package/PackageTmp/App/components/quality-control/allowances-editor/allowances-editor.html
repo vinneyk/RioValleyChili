@@ -1,0 +1,169 @@
+﻿<div class="panel panel-primary">
+  <div class="panel-heading">
+    <span>Create Allowance</span>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group form-group-sm">
+          <label class="control-label" for="allowance-key-entry">Customer</label>
+          <input type="text" class="form-control" id="allowance-key-entry" data-bind="value: customerData, autocomplete: { source: $parent.customers, allowNewValues: false, label: 'Name', value: 'CompanyKey', autoFocus: true }">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group form-group-sm">
+          <label class="control-label" for="allowance-type-selector">Allowance Type</label>
+          <select class="form-control" id="allowance-type-selector" data-bind="value: type, options: types, optionsCaption: 'Customer'"></select>
+        </div>
+      </div>
+      <div class="col-xs-12 allowance-table-wrapper">
+        <div class="form-group form-group-sm allowance-table-select" data-bind="template: { if: keyTemplate, name: keyTemplate }">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="text-right">
+        <button class="btn btn-primary" data-bind="command: createAllowance"><i class="fa fa-plus"></i> Create allowance</button>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span>Customers</span>
+  </div>
+  <div class="table-responsive allowance-table-container">
+    <table class="table table-hover table-condensed allowance-table">
+      <thead>
+        <tr>
+          <th class="allowance-table-tools">
+            <button class="btn btn-link invisible"><i class="fa fa-trash fa-fw"></i></button>
+          </th>
+          <th>Customer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ko foreach: allowances.customers -->
+        <tr>
+          <td><button class="btn btn-link" data-bind="command: $parent.deleteAllowance"><i class="fa fa-trash fa-fw"></i></button></td>
+          <td data-bind="text: CustomerName"></td>
+        </tr>
+        <!-- /ko -->
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span>Contracts</span>
+  </div>
+  <div class="table-responsive allowance-table-container">
+    <table class="table table-hover table-condensed allowance-table">
+      <thead>
+        <tr>
+          <th class="allowance-table-tools">
+            <button class="btn btn-link invisible"><i class="fa fa-trash fa-fw"></i></button>
+          </th>
+          <th>Customer</th>
+          <th>Contract</th>
+          <th>Term Start</th>
+          <th>Term End</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ko foreach: allowances.contracts -->
+        <tr>
+          <td><button class="btn btn-link" data-bind="command: $parent.deleteAllowance"><i class="fa fa-trash fa-fw"></i></button></td>
+          <td data-bind="text: CustomerName"></td>
+          <td data-bind="text: ContractKey"></td>
+          <td data-bind="text: TermBegin | toDate"></td>
+          <td data-bind="text: TermEnd | toDate"></td>
+        </tr>
+        <!-- /ko -->
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span>Customer Orders</span>
+  </div>
+  <div class="table-responsive allowance-table-container">
+    <table class="table table-hover table-condensed allowance-table">
+      <thead>
+        <tr>
+          <th class="allowance-table-tools">
+            <button class="btn btn-link invisible"><i class="fa fa-trash fa-fw"></i></button>
+          </th>
+          <th>Customer</th>
+          <th>Order</th>
+          <th>Order Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ko foreach: allowances.customerOrders -->
+        <tr>
+          <td><button class="btn btn-link" data-bind="command: $parent.deleteAllowance"><i class="fa fa-trash fa-2x fa-fw"></i></button></td>
+          <td data-bind="text: CustomerName"></td>
+          <td data-bind="text: OrderKey"></td>
+          <td data-bind="text: OrderNumber"></td>
+        </tr>
+        <!-- /ko -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script id="allowances-contract" type="text/html">
+  <table class="table table-condensed table-hover clickable">
+    <thead>
+      <tr>
+        <th>Contract</th>
+        <th>Customer Contract</th>
+        <th>Status</th>
+        <th>Broker</th>
+        <th>Begin Date</th>
+        <th>End Date</th>
+      </tr>
+    </thead>
+    <tbody class="nowhitespace allowance-table-body" data-bind="foreach: contracts, click: selectContractItem">
+      <tr data-bind="css: { 'info': $data === $parent.selectedContract() }">
+        <td data-bind="text: ContractNumber"></td>
+        <td data-bind="text: CustomerContractKey"></td>
+        <td data-bind="text: ContractStatus | contractStatus"></td>
+        <td data-bind="text: BrokerCompanyName"></td>
+        <td data-bind="text: TermBegin"></td>
+        <td data-bind="text: TermEnd"></td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-primary btn-block" data-bind="command: getContracts">Load Contracts</button>
+</script>
+<script id="allowances-order" type="text/html">
+  <table class="table table-hover table-condensed clickable">
+    <thead>
+      <tr>
+        <th>Order #</th>
+        <th>Movement</th>
+        <th>Status</th>
+        <th>Shipment Date</th>
+        <th>Order Received</th>
+        <th>Customer</th>
+        <th>Broker</th>
+      </tr>
+    </thead>
+    <tbody class="nowhitespace allowance-table-body" data-bind="foreach: orders, click: selectOrder">
+      <tr data-bind="css: { 'info': $data === $parent.selectedOrder() }">
+        <td data-bind="text: OrderNum"></td>
+        <td data-bind="text: MovementKey"></td>
+        <td data-bind="text: OrderStatus | orderStatus"></td>
+        <td data-bind="text: ShipmentDate | toDate"></td>
+        <td data-bind="text: DateOrderReceived | toDate"></td>
+        <td data-bind="text: Customer.Name"></td>
+        <td data-bind="text: Broker.Name"></td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-primary btn-block" data-bind="command: getOrders">Load Orders</button>
+</script>
+

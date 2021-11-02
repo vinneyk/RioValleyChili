@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F27F89E6-F2D2-46F8-8C9B-467FD9EE8333}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RioValleyChili.Services.Tests</RootNamespace>
+    <AssemblyName>RioValleyChili.Services.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\..\Rio Valley Chili Internal\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Testing|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Testing\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EF-Projectors, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EF-Projectors.1.0.7.0\lib\net45\EF-Projectors.dll</HintPath>
+    </Reference>
+    <Reference Include="EF-Split-Projector, Version=0.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EF-Split-Projector.0.15-alpha\lib\net45\EF-Split-Projector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FizzWare.NBuilder, Version=3.0.1.0, Culture=neutral, PublicKeyToken=5651b03e12e42c12, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\NBuilder.3.0.1.1\lib\FizzWare.NBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.1.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\LinqKit.1.1.1\lib\net45\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.0.10827.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Ploeh.AutoFixture">
+      <HintPath>..\..\..\packages\AutoFixture.2.16.2\lib\net35\Ploeh.AutoFixture.dll</HintPath>
+    </Reference>
+    <Reference Include="Ploeh.SemanticComparison">
+      <HintPath>..\..\..\packages\AutoFixture.2.16.2\lib\net35\Ploeh.SemanticComparison.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.Core, Version=1.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Core.1.4.6\lib\net45\Solutionhead.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.Data, Version=1.4.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Data.1.4.7\lib\net45\Solutionhead.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.EntityKey">
+      <HintPath>..\..\..\packages\Solutionhead.EntityKey.1.0.0\lib\net45\Solutionhead.EntityKey.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.EntityParser, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.EntityParser.2.0.2\lib\net45\Solutionhead.EntityParser.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.Services, Version=1.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Services.1.4.6\lib\net45\Solutionhead.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.TestFoundations, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.TestFoundations.1.0.4\lib\net45\Solutionhead.TestFoundations.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\..\..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Acceptance Tests\Calculate Attribute Weighted Averages.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Calculate Attribute Weighted Averages.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Acceptance Tests\Get Inventory Items To Pick A Batch.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Get Inventory Items To Pick A Batch.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Acceptance Tests\Set Picked Inventory For Production Batch.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Set Picked Inventory For Production Batch.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Acceptance Tests\Steps\Base\ServiceAcceptanceTestsBase.cs" />
+    <Compile Include="Acceptance Tests\Steps\SetPickedInventoryForProductionBatchSteps.cs" />
+    <Compile Include="AssertExtensions.cs" />
+    <Compile Include="AssertExtensionsTests.cs" />
+    <Compile Include="Acceptance Tests\Steps\CalculateAttributeWeightedAveragesSteps.cs" />
+    <Compile Include="Acceptance Tests\Steps\GetInventoryItemsToPickABatchSteps.cs" />
+    <Compile Include="Helpers\DataModelExtensions\AdditiveLotExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\AdditiveProductExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\AttributeNameExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ChileLotExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ChileMaterialsReceivedExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ChileProductAttributeRangeExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ChileProductExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ChileProductIngredientExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\CompanyExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ContactAddressExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ContactExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ContractExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ContractItemExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\CustomerExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\CustomerNoteExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\CustomerOrderExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\CustomerOrderItemExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\CustomerOrderPickedItemExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\CustomerProductAttributeRangeExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\CustomerProductCodeExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ChileMaterialsReceivedItemExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\EmployeeExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\FacilityExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\InventoryShipmentOrderExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\InventoryAdjustmentExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\InventoryAdjustmentItemExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\InventoryExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\InventoryPickOrderExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\InventoryPickOrderItemExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\InventoryTransactionExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\InventoryTreatmentExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\InventoryTreatmentForAttributeExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\LotAttributeExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\LotAttributeDefectExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\LotContractAllowanceExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\LotCustomerAllowanceExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\LotCustomerOrderAllowanceExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\LotDefectExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\LotExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\LotProductionResultItemExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ChileLotProductionExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\NotebookExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\NoteExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\PackagingLotExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\PackagingProductExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\PackScheduleExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ProductExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ProductionBatchTargetParametersExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\PickedInventoryExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\PickedInventoryItemExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ProductionBatchExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\LotProductionResultsExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ProductionResultItemExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ProductionScheduleExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\SalesQuoteExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\SalesQuoteItemExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\SampleOrderExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\SampleOrderItemExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\SampleOrderItemMatchExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\SampleOrderItemSpecExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\SampleOrderJournalExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\ShipmentInformationExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\TreatmentOrderExtensions.cs" />
+    <Compile Include="Helpers\DataModelExtensions\LocationExtensions.cs" />
+    <Compile Include="Helpers\DateTimeExtensions.cs" />
+    <Compile Include="Helpers\EquivalentHelper.cs" />
+    <Compile Include="Helpers\LotKeyTestHelper.cs" />
+    <Compile Include="Helpers\LotTypeTestHelper.cs" />
+    <Compile Include="Helpers\ParameterExtensions\AddressExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\ICreatePackScheduleParametersExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\IDehydratedMaterialsReceivedItemParametersExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\IReceiveInventoryItemParametersExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\IReceiveInventoryParametersExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\ISalesQuoteParametersExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\ISampleOrderItemParametersExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\ISetAttributeRangeParametersExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\ISetDehydratedMaterialsReceivedParametersExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\ISetSampleMatchParametersExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\ISetSampleOrderJournalEntryParametersExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\ISetSampleOrderParametersExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\ISetSampleSpecsParametersExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\ISetShipmentInformationExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\IUpdatePackScheduleParametersExtensions.cs" />
+    <Compile Include="Helpers\ParameterExtensions\ShippingLabelExtensions.cs" />
+    <Compile Include="Helpers\RVCIntegrationTestHelper.cs" />
+    <Compile Include="IntegrationTests\DBConnectionStatusTests.cs" />
+    <Compile Include="IntegrationTests\Parameters\AddLotAttributesParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\BatchResultItemParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\ContactAddressParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\ContractItemParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateAdditiveProductParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateChileProductParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateCompanyParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateContactParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateContractParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateCustomerNoteParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateMillAndWetdownParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreatePackagingProductParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\ChileMaterialsReceivedItemParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\ChileMaterialsReceivedParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateInventoryAdjustmentParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateLotDefectParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateNoteParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreatePackScheduleParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateProductionBatchParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateProductionBatchResultsParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateIntraWarehouseOrderParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateProductionScheduleParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateProductParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateTreatmentOrderParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\InventoryAdjustmentParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\IUpdateFacilityParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\LotAllowanceParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\MillAndWetdownPickedItemParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\MillAndWetdownResultItemParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\ReceiveTreatmentOrderParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\RemoveCustomerChileProductAttributeRangesParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\RemoveLotDefectResolutionParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\RemovePackScheduleParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\ResolveLotDefectParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SalesQuoteItemParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SalesQuoteParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SampleOrderItemParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetAttributeRangeParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetChileProductAttributeRangesParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetChileProductIngredientParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetChileProductIngredientsParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetContractsStatusParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetCustomerProductAttributeRangesParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetInventoryPickOrderItemParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetLotAttributeParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetLotHoldStatusParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetLotPackagingReceivedParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetLotStatusParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetPickedInventoryItemParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetPickedInventoryParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetSampleMatchParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetSampleOrderJournalEntryParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetSampleOrderParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetSampleSpecsParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\ShippingInstructions.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdateAdditiveProductParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdateChileProductParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdateContactParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdateCustomerNoteParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdateIntraWarehouseOrderParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdateMillAndWetdownParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdateNoteParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdatePackagingProductParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdatePackScheduleParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdateProductionBatchParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdateProductionResultsParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdateProductionScheduleParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdateProductParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdateTreatmentOrderParameters.cs" />
+    <Compile Include="IntegrationTests\Services\CompanyServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\SalesServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\DataContextTests.cs" />
+    <Compile Include="IntegrationTests\Services\MaterialsReceivedServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\EmployeeServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\IntraWarehouseOrderServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\InventoryServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\InventoryAdjustmentsServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\InventoryShipmentOrderServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\MillAndWetdownServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\NotebookServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\PackScheduleServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\ProductionResultsServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\ProductionScheduleServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\ProductionServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\ProductServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\LotServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\FacilityServiceTests.cs" />
+    <Compile Include="IntegrationTests\Parameters\CreateSalesOrderParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SalesOrderItemParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetOrderHeaderParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetShipmentInformationWithStatus.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetShippingInstructions.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetTransitInformation.cs" />
+    <Compile Include="IntegrationTests\Parameters\Shipment.cs" />
+    <Compile Include="IntegrationTests\Parameters\TestUpdateInterWarehouseOrderParameters.cs" />
+    <Compile Include="IntegrationTests\Parameters\UpdateSalesOrderParameters.cs" />
+    <Compile Include="IntegrationTests\Services\SampleOrderServiceTests.cs" />
+    <Compile Include="UnitTests\Keys\DateSquenceKeyTestsBase.cs" />
+    <Compile Include="UnitTests\Keys\InventoryShipmentOrderKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\InventoryTransactionKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\SalesQuoteItemKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\SalesQuoteKeyTests.cs" />
+    <Compile Include="UnitTests\LocationDescriptionHelperTests.cs" />
+    <Compile Include="UnitTests\SplitQueryTests.cs" />
+    <Compile Include="IntegrationTests\Services\TestBases\GetInventoryOrderTestsBase.cs" />
+    <Compile Include="IntegrationTests\Services\TestBases\SetInventoryPickOrderTestsBase.cs" />
+    <Compile Include="IntegrationTests\Services\TestBases\SetPickedInventoryTestsBase.cs" />
+    <Compile Include="IntegrationTests\Services\TestBases\ServiceIntegrationTestBase.cs" />
+    <Compile Include="IntegrationTests\Services\TestBases\SetShipmentTestsBase.cs" />
+    <Compile Include="IntegrationTests\Services\TreatmentOrderServiceTests.cs" />
+    <Compile Include="IntegrationTests\Services\WarehouseOrderServiceTests.cs" />
+    <Compile Include="Acceptance Tests\Steps\Shared Contexts\SharedContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IntegrationTests\Parameters\SetInventoryPickOrderParameters.cs" />
+    <Compile Include="UnitTests\AstaCalculatorTests.cs" />
+    <Compile Include="UnitTests\Keys\AdditiveProductKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\AdditiveTypeKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\AttributeNameKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\ChileProductAttributeRangeKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\ChileProductIngredientKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\ChileProductKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\ChileTypeKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\CompanyKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\CompanyTypeRecordKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\ContactAddressKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\ContactKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\ContractItemKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\ContractKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\CustomerKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\CustomerOrderItemKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\CustomerOrderKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\CustomerOrderPickedItemKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\CustomerProductAttributeRangeKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\CustomerProductCodeKeyTest.cs" />
+    <Compile Include="UnitTests\Keys\DehydratedMaterialsReceivedItemKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\EmployeeKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\InstructionKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\IntraWarehouseMovementOrderKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\InventoryAdjustmentItemKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\InventoryAdjustmentKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\InventoryKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\NotebookKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\NoteKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\PickedInventoryItemKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\PickedInventoryKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\KeyTestsBase.cs" />
+    <Compile Include="UnitTests\Keys\LocationKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\LotAttributeKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\LotDefectKeyTest.cs" />
+    <Compile Include="UnitTests\Keys\LotDefectResolutionKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\LotKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\LotAttributeDefectKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\InventoryPickOrderItemKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\MovementOrderKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\ProductionResultItemKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\PackagingProductKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\PackScheduleKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\ProductionScheduleKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\ShipmentInformationKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\ProductKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\TreatmentOrderKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\WarehouseKeyTests.cs" />
+    <Compile Include="UnitTests\Keys\WorkTypeKeyTests.cs" />
+    <Compile Include="UnitTests\LotStatusHelperTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\app\RioValleyChili.Business.Core\RioValleyChili.Business.Core.csproj">
+      <Project>{8C1D922C-F8EE-43CF-B7CF-F75FFF37156A}</Project>
+      <Name>RioValleyChili.Business.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\RioValleyChili.Client.Mvc\RioValleyChili.Client.Mvc.csproj">
+      <Project>{9AE6169C-2597-441A-A025-F0A146D7B883}</Project>
+      <Name>RioValleyChili.Client.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\RioValleyChili.Core\RioValleyChili.Core.csproj">
+      <Project>{b4a2b7da-4f15-4b75-a65f-025c32564ea0}</Project>
+      <Name>RioValleyChili.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\RioValleyChili.Data.DataSeeders\RioValleyChili.Data.DataSeeders.csproj">
+      <Project>{85D65F40-441A-4EF2-9247-996F00501568}</Project>
+      <Name>RioValleyChili.Data.DataSeeders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\RioValleyChili.Data.Models\RioValleyChili.Data.Models.csproj">
+      <Project>{12191B6E-B491-4398-83D2-4878ECBDAFD1}</Project>
+      <Name>RioValleyChili.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\RioValleyChili.Services.Interfaces\RioValleyChili.Services.Interfaces.csproj">
+      <Project>{3E39194C-CC95-4A72-83D1-02C8572D2804}</Project>
+      <Name>RioValleyChili.Services.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\RioValleyChili.Services.Models\RioValleyChili.Services.Models.csproj">
+      <Project>{9824AB54-2038-489D-97EA-176FE0F0CBA8}</Project>
+      <Name>RioValleyChili.Services.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\RioValleyChili.Services.OldContextSynchronization\RioValleyChili.Services.OldContextSynchronization.csproj">
+      <Project>{F6A20D58-18ED-49DE-B66A-FA3D7763FD46}</Project>
+      <Name>RioValleyChili.Services.OldContextSynchronization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\RioValleyChili.Services.Utilities\RioValleyChili.Services.Utilities.csproj">
+      <Project>{5097E4E2-948C-48C9-9857-A035961A6CA3}</Project>
+      <Name>RioValleyChili.Services.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\RioValleyChili.Data\RioValleyChili.Data.csproj">
+      <Project>{913719C1-AB84-4D23-A9D0-4637A5B14CFA}</Project>
+      <Name>RioValleyChili.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\app\RioValleyChili.Services\RioValleyChili.Services.csproj">
+      <Project>{C8EE53F8-2D06-4AB3-AF2E-908CCBADB663}</Project>
+      <Name>RioValleyChili.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Acceptance Tests\Calculate Attribute Weighted Averages.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Calculate Attribute Weighted Averages.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Acceptance Tests\Get Inventory Items To Pick A Batch.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Get Inventory Items To Pick A Batch.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Acceptance Tests\Set Picked Inventory For Production Batch.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Set Picked Inventory For Production Batch.feature.cs</LastGenOutput>
+    </None>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favico-32x32.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,50 @@
+﻿<section data-bind="visible: !isLoaded()">
+  <div class="text-center well">
+    <i class="fa fa-spinner fa-pulse fa-3x"></i>
+  </div>
+</section>
+<!-- ko if: isLoaded -->
+<div class="checkbox" data-bind="visible: isCustomerSpecAvailable">
+  <label>
+    <input type="checkbox" data-bind="checked: isUsingCustomerSpec, enable: isCustomerSpecAvailable"> Use Customer Spec
+  </label>
+</div>
+<!-- ko template: {
+  name: 'default-lot-inventory-listing-template',
+  afterRender: floatHeader
+  } -->
+<!-- /ko -->
+<!-- /ko -->
+
+<script id="default-lot-inventory-listing-template" type="text/html">
+  <section data-bind="visible: errors().length > 0">
+    <div class="alert alert-danger" style="padding: 5px;">
+      <ul class="list-unstyled" data-bind="foreach: errors">
+        <li>
+          <b data-bind="text: $data"></b> contains invalid quantities picked
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section data-bind="visible: specWarnings().length > 0" style="padding: 0; margin-bottom: -20px;">
+    <div class="alert alert-warning" style="padding: 5px;">
+      <ul class="list-unstyled list-inline">
+        <li><b>Attributes out of spec: </b></li>
+        <!-- ko foreach: specWarnings -->
+        <li>
+          <span data-bind="text: Key" class="label label-default"></span> 
+        </li>
+        <!-- /ko -->
+      </ul>
+    </div>
+  </section>
+  <section>
+    <!-- ko foreach: pickingTableViewModels -->
+    <div class="panel panel-default" data-bind="visible: $parent.showTable($data)">
+      <div class="pick-table-wrap" data-bind="growToWindowHeight: { offset: 110 }">
+        <inventory-picking-table params="input: $data, hideTheoretical: $parent.hideTheoretical, exports: $data.exports"></inventory-picking-table>
+      </div>
+    </div>
+    <!-- /ko -->
+  </section>
+</script>

@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Lot Trace";
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+}
+
+@section controlPanel {
+<fieldset>
+  <legend>Lot Trace Controls</legend>
+  <input class="form-control" type="text" data-bind="textinput: searchKey.formattedLot">
+  <input type="button" value="Trace Inputs" data-bind="command: traceInput">
+  <input type="button" value="Trace Outputs" data-bind="command: traceOutput">
+</fieldset>
+<fieldset>
+  <legend>Trace Report</legend>
+  <input type="button" value="Print Trace" data-bind="command: printTrace">
+</fieldset>
+}
+
+<section style="font-size: .9em">
+  <h2>Lot Trace</h2>
+
+  <div class="well" data-bind="visible: !traces.inputs() && !traces.outputs()">
+    <b>Search for a lot to begin</b>
+  </div>
+
+  <div id="trace-inputs" class="panel panel-primary" data-bind="visible: traces.inputs">
+    <div class="panel-heading clickable" data-bind="click: toggleInputs">
+      <i class="fa fa-caret-down pull-right" data-bind="css: { 'fa-rotate-180': inputsVisible }"></i><h4 class="panel-title">Lot Inputs</h4>
+    </div>
+    <div class="panel-body" data-bind="slideVisible: inputsVisible">
+      <ul class="lot-trace-inputs" data-bind="foreach: traces.inputs">
+        <li>
+          <ul class="list-inline lot-path lot-path-inputs">
+            <!-- ko foreach: LotPath -->
+            <li>
+              <span data-bind="text: $data"></span> <i class="fa fa-caret-left"></i>
+            </li>
+            <!-- /ko -->
+            <li>[<b data-bind="text: Treatment"></b>]</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="trace-outputs" class="panel panel-primary" data-bind="visible: traces.outputs">
+    <div class="panel-heading clickable" data-bind="click: toggleOutputs">
+      <i class="fa fa-caret-down pull-right" data-bind="css: { 'fa-rotate-180': outputsVisible }"></i><h4 class="panel-title">Lot Outputs</h4>
+    </div>
+    <div class="panel-body" data-bind="foreach: traces.outputs, slideVisible: outputsVisible">
+      <div class="lot-trace-outputs">
+        <h4>
+          <ul class="list-inline lot-path" data-bind="foreach: LotPath">
+            <li><span data-bind="text: $data"></span> <i class="fa fa-caret-right"></i></li>
+          </ul>
+        </h4>
+
+
+        <div class="lot-trace-output-data">
+          <!-- ko ifnot: Inputs.length -->
+          <h5>No Inputs found for <span data-bind="text: $parent.lotKey"></span></h5>
+          <!-- /ko -->
+          <!-- ko if: Inputs.length -->
+          <h5>Inputs from <span data-bind="text: $parent.lotKey"></span></h5>
+          <ul class="list-unstyled trace-output-contents" data-bind="foreach: Inputs">
+            <li><span data-bind="text: LotKey"></span> <span data-bind="text: Treatment"></span></li>
+          </ul>
+          <!-- /ko -->
+          <!-- ko ifnot: Orders.length -->
+          <h5>No Orders for <span data-bind="text: $parent.lotKey"></span></h5>
+          <!-- /ko -->
+          <!-- ko if: Orders.length -->
+          <h5>Orders with this lot:</h5>
+          <div class="lot-trace-output-table">
+            <table class="table table-condensed">
+              <tbody data-bind="foreach: Orders">
+                <tr>
+                  <td data-bind="text: Treatment"></td>
+                  <td data-bind="text: OrderNumber"></td>
+                  <td data-bind="text: ShipmentDate | toDate"></td>
+                  <td data-bind="text: CustomerName"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /ko -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<loading-screen params="isVisible: loadingInput,
+  displayMessage: 'Loading Inputs'">
+</loading-screen>
+
+<loading-screen params="isVisible: loadingOutput,
+  displayMessage: 'Loading Outputs'">"
+</loading-screen>
+
+@section scripts {
+    <script src="~/App/build/lotTrace.bundle.js?v=@Html.AppVersion()"></script>
+}

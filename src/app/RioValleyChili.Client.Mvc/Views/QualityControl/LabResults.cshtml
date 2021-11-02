@@ -1,0 +1,231 @@
+﻿@{
+    Html.SetPageTitles("Lab Results", "Lab Results", "Enter and review lab results", "Quality Control");
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+}
+
+<!-- ko if: isLoadingExtendedResults -->
+<div class="alert alert-info text-center">
+  Loading more data (page {{ pagesLoaded }}) <i class="fa fa-spinner fa-pulse"></i>
+</div>
+<!-- /ko -->
+
+<loading-screen params="displayMessage: 'Loading...', isVisible: isWorking"> </loading-screen>
+<loading-screen params="displayMessage: 'Fetching results...', isVisible: isLoadingResults"> </loading-screen>
+<loading-screen params="displayMessage: 'Saving results...', isVisible: !saveLabResultCommand.canExecute()"> </loading-screen>
+<lab-result-summary-table params="selected: summaryData.selected,
+    position: summaryData.position,
+    filters: summaryData.filters,
+    attributeList: summaryData.attrs,
+    exports: summaryData.exports,
+    pageSize: summaryData.pageSize,
+    onNewPageSet: summaryData.onNewPageSet">
+</lab-result-summary-table>
+
+<!-- ko if: isInit -->
+<section id="lab-result-editor" data-bind="popup: LabResult, closePopupCommand: closeLabResultCommand, if: LabResult">
+    <hgroup data-bind="with: LabResult">
+        <h2 data-bind="text: LotKey">Edit Lab Result</h2>
+        <h3 data-bind="text: Product.ProductCodeAndName"></h3>
+    </hgroup>
+    <section data-bind="with: editorData">
+        <lab-results-editor params="input: input,
+        data: data, 
+        attrs: $parent.summaryData.attrs,
+        exports: exports">
+        </lab-results-editor>
+    </section>
+</section>
+<!-- /ko -->
+
+@section controlPanel
+{
+  <fieldset data-bind="slideVisible: isShowingHistory">
+    <legend>Lot History Controls</legend>
+    <input type="button" value="Close" data-bind="command: closeLotHistory">
+  </fieldset>
+    <form data-bind="slideVisible: !isShowingHistory()">
+        <fieldset>
+            <legend>Lot Navigation</legend>
+            <div data-bind="ifnot: LabResult">
+                <input type="submit" value="Get More Results" data-bind="command: getResults">
+            </div>
+            <div data-bind="if: LabResult">
+                <div class="input-group">
+                    <input class="form-control" type="text" data-bind="value: lotKeyToSearch.formattedLot, valueUpdate: 'input', disable: isLoadingResults">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit" data-bind="command: searchKey"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+            <br>
+            <div data-bind="visible: !LabResult()">
+                <lot-filter-controls params="filters: filtersData.filters,
+                mode: 'qualityControl',
+                startingLotKey: true,
+                disable: isWorking"></lot-filter-controls>
+            </div>
+            <div data-bind="slideVisible: LabResult">
+                <input type="button" data-bind="command: navigatePrev" value="Previous">
+                <input type="button" data-bind="command: navigateNext" value="Next">
+            </div>
+        </fieldset>
+    </form>
+
+    <section data-bind="visible: !LabResult()">
+      <fieldset>
+        <legend>Composite Lot</legend>
+        <input type="button" value="Enter Composite Lots" data-bind="command: showCompositeModal">
+      </fieldset>
+
+      <fieldset>
+        <legend><i class="fa fa-clipboard"></i> Reports</legend>
+
+        @Html.ActionLink("Lab Results", MVC.Reporting.QualityControlReporting.LabResults(), new { @class = "button", target="_blank" })
+      </fieldset>
+    </section>
+
+    <section data-bind="slideVisible: LabResult() && !isShowingHistory()">
+      <fieldset>
+        <legend>Lab Result Controls</legend>
+        <input type="button" data-bind="command: saveLabResultCommand" value="Save Changes" class="save" />
+        <input type="button" data-bind="command: closeLabResultCommand, value: isDirty() ? 'Cancel' : 'Close', css: { 'delete': isDirty }" value="Cancel">
+      </fieldset>
+
+      <fieldset>
+        <legend>Lot History</legend>
+        <input type="button" data-bind="command: showLotHistory" value="Show Lot History">
+      </fieldset>
+
+      <fieldset>
+        <legend>Copy Lab Data</legend>
+        <input type="button" value="Copy Lot" data-bind="command: toggleLotCopy, value: isShowingCopyLot() ? 'Close' : 'Copy Attributes'">
+        <div data-bind="slideVisible: isShowingCopyLot">
+          <form>
+            <div class="input-group">
+              <input class="form-control" type="search" data-bind="textInput: copyLotKey.formattedLot" placeholder="Copy from Lot...">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit" data-bind="command: copyFromLot"><i class="fa fa-copy"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </fieldset>
+    </section>
+}
+
+<section data-bind="popup: isShowingHistory, closePopupCommand: closeLotHistory.execute">
+
+  <section data-bind="ifnot: lotHistory">
+    <div class="well text-center"><i class="fa fa-spinner fa-pulse fa-3x"></i></div>
+  </section>
+  <section data-bind="if: lotHistory">
+    <lot-attr-history 
+    params="input: lotHistory,
+      attrs: attrList"></lot-attr-history>
+  </section>
+</section>
+
+<!-- Composite lot modal -->
+<section>
+    <div class="modal fade" id="compositeModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" data-bind="with: compositeData">
+                <div class="modal-header">
+                    <button class="close"><span aria-hidden="true" aria-label="Close" data-bind="command: $parent.hideCompositeModal">&times;</span></button>
+                    <h4 class="modal-title">Composite Lot</h4>
+                </div>
+                <div class="modal-body">
+                    <section>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h5 class="panel-title">Lot Ranges</h5>
+                            </div>
+                            <table class="table" data-bind="tabOnEnter: true">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Start lot</th>
+                                        <th>End lot</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- ko foreach: lotRanges -->
+                                    <tr data-bind="css: { 'has-error': !isRangeValid() }">
+                                        <td>
+                                            <button class="btn btn-link" data-bind="command: $parent.removeLotRange"><i class="fa fa-times fa-lg"></i></button>
+                                        </td>
+                                        <td data-bind="validationElement: startLot">
+                                            <input class="form-control" type="text" data-bind="textInput: startLot.formattedLot">
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <span data-bind="text: lotBase"></span><span class="text-muted" data-bind="text: lotPlaceholder"></span>
+                                                    </span>
+                                                    <input class="form-control" type="text" maxlength="3" data-bind="textInput: endLotIndex">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- /ko -->
+                                </tbody>
+                            </table>
+                            <div class="panel-footer">
+                                <button class="btn btn-default" data-bind="command: addLotRange">
+                                    <i class="fa fa-plus-square-o"></i> Add Range
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h5 class="panel-title">Included Attributes</h5>
+                            </div>
+                            <div class="panel-body">
+                                <button class="btn btn-default" data-bind="click: selectAllAttrs">Select All</button>
+                                <button class="btn btn-default" data-bind="click: deselectAllAttrs">Select None</button>
+                            </div>
+                            <table class="table table-condensed table-hover" data-bind="tabOnEnter: true">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Attr</th>
+                                        <th>Value</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: editableAttrs">
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" data-bind="checked: checked, disable: Key === 'AstaC'" tabindex="-1">
+                                        </td>
+                                        <td data-bind="text: Key"></td>
+                                        <td data-bind="validationElement: Value">
+                                            <input class="form-control" data-bind="fixed: Value, decimalOptions: { precision: 3, commas: true }">
+                                        </td>
+                                        <td data-bind="validationElement: AttributeDate">
+                                            <input class="form-control" type="text" data-bind="datePicker: AttributeDate">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" data-bind="command: $parent.hideCompositeModal">Close</button>
+                    <button class="btn btn-primary" type="button" data-bind="command: $parent.saveComposite">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Composite lot modal -->
+
+@section scripts
+{
+    <script src="~/App/build/labResults.bundle.js?v=@Html.AppVersion()?v=@Html.AppVersion()"></script>
+}
+

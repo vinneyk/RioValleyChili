@@ -1,0 +1,36 @@
+﻿@model ShutDownModel
+
+@{
+    Html.SetPageTitles("Shut Down", "Website Shut Down");
+}
+
+@using(Html.BeginForm())
+{
+    <div style="border: 4px solid #b22222; padding: 0 10px; font-size: 1.5em; background-color: #fff">
+        <h2>WARNING: </h2>
+        <p>
+            When you deactive the website, <strong>all other users will be kicked off the site and all unsaved changes will be lost.</strong>
+            Please communicate with your coworkers to allow all everone to save their work before the website goes off-line.
+        </p>
+        <p><strong>Once shut down, the site will not be restarted until the following day.</strong></p>
+    </div>
+    
+    <fieldset>
+        <legend>Website Shut Down</legend>
+        <ol class="tabular">
+            <li>
+                @Html.LabelFor(m => m.ProblematicFeature)
+                @Html.DropDownListFor(m => m.ProblematicFeature, Model.Features)
+                @Html.ValidationMessageFor(m => m.ProblematicFeature)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Comment)
+                @Html.EditorFor(m => m.Comment)
+                @Html.ValidationMessageFor(m => m.Comment)
+            </li>
+            <li>
+                <input type="submit" value="Proceed with Shutdown" />
+            </li>
+        </ol>
+    </fieldset>
+}

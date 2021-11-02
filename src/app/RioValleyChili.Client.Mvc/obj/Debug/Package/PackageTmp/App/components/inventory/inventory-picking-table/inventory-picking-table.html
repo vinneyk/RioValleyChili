@@ -1,0 +1,171 @@
+﻿<div class="table-responsive">
+  <table class="reset table table-condensed table-condensed-sm no-wrap" data-bind="validationOptions: {
+    errorElementClass: 'danger',
+    insertMessages: false,
+    decorateElementOnModified: false
+    },
+    sortableTable: allInventoryItems,
+    floatThead: allInventoryItems,
+    ">
+    <thead>
+      <tr>
+        <th data-sort="Product.ProductCode">Product<br />Code</th>
+        <th data-sort="Product.ProductName">Product Nm.</th>
+        <th data-sort="LotKey">Lot</th>
+        <th data-sort="ToteKey">Tote</th>
+        <th data-sort="CustomerName" class="truncate" style="max-width: 120px;">Customer</th>
+        <th data-sort="Treatment.TreatmentNameShort">Trtmt.</th>
+        <th data-bind="visible: !isViewOnly">Quantity</th>
+        <th data-bind="visible: !isViewOnly">Weight</th>
+        <th data-sort="QuantityAvailable">Qty. Avail.</th>
+        <th data-sort="TotalWeightAvailable">Weight Avail.</th>
+        <th data-sort="PackagingDescription">Packaging</th>
+        <th data-sort="LocationName">Location</th>
+        <th data-sort="WarehouseName">Warehouse</th>
+        <th data-sort="HoldType">Holds</th>
+        <!-- ko template: 'lot-attribute-thead-cells' --><!-- /ko -->
+        <th>Packaging Received</th>
+        <th>Notes</th>
+      </tr>
+      <!-- ko if: isShowingHeader -->
+      <!-- ko template: hideTheoretical ? 'hideTheoretical' : 'showTheoretical' -->
+      <!-- /ko -->
+      <!-- /ko -->
+    </thead>
+    <tbody data-bind="foreach: $data.initiallyPickedItems">
+      <tr class="success reset" data-bind="validationElement: QuantityPicked">
+        <!-- ko template: 'core-lot-tbody-cells-bundle' --><!-- /ko -->
+      </tr>
+    </tbody>
+    <tbody data-bind="foreach: { data: $data.pickableItems, afterAdd: $parentContext.$parent.reflowTable }">
+      <tr data-bind="validationElement: QuantityPicked">
+        <!-- ko template: 'core-lot-tbody-cells-bundle' --><!-- /ko -->
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script id="lot-attribute-thead-cells" type="text/html">
+  <th data-sort="LoBac">LoBac</th>
+  <!-- ko foreach: attributeHeader -->
+  <th data-bind="text: $data.Key, attr: { 'data-sort': 'orderedAttributes[' + $index() + '].Value' }" style="white-space: nowrap"></th><!-- /ko -->
+</script>
+
+<script id="core-lot-tbody-cells-bundle" type="text/html">
+  <td style="white-space: nowrap;" class="truncate" data-bind="text: Product.ProductCode"></td>
+  <td style="white-space: nowrap;" class="truncate" data-bind="text: Product.ProductName"></td>
+  <td style="white-space: nowrap" data-bind="text: LotKey"></td>
+  <td style="white-space: nowrap" data-bind="text: ToteKey"></td>
+  <td data-bind="text: CustomerName" class="truncate" style="max-width: 120px;"></td>
+  <td data-bind="text: Treatment.TreatmentNameShort"></td>
+  <td data-bind="visible: !$parent.isViewOnly">
+    <input type="text" class="form-control input-small" data-bind="value: QuantityPicked, valueUpdate: 'input', disable: $parent.isReadOnly || !ValidForPicking">
+  </td>
+  <td data-bind="visible: !$parent.isViewOnly, text: WeightPicked | number"></td>
+  <td data-bind="text: QuantityAvailable | number"></td>
+  <td data-bind="text: TotalWeightAvailable | number"></td>
+  <td data-bind="text: PackagingDescription"></td>
+  <td data-bind="text: LocationName"></td>
+  <td data-bind="text: WarehouseName"></td>
+  <td data-bind="text: holdDescription"></td>
+  <td>
+    <input type="checkbox" disabled="disabled" tabindex="-1" data-bind="checked: LoBac" />
+  </td>
+  <!-- ko foreach: orderedAttributes -->
+  <td data-bind="css: { 'danger': outOfRange }" style="min-width: 30px">
+    <i class="fa" data-bind="css: {
+      'fa-arrow-up': ko.unwrap( outOfRange ) > 0,
+      'fa-arrow-down': ko.unwrap( outOfRange ) < 0
+    }"></i> <!-- ko text: formattedValue --><!-- /ko -->
+    </td>
+  <!-- /ko -->
+  <td data-bind="text: ReceivedPackagingName"></td>
+  <td data-bind="text: Notes"></td>
+</script>
+
+<script id="showTheoretical" type="text/html">
+  <tr class="info">
+    <td colspan="15">
+      <span><b data-bind="text: targetProductName"></b></span>
+      <!-- ko if: targetWeight -->
+      (Pounds picked: <span data-bind="text: totalPoundsPicked() | toNumber, css: { 'text-danger': isPickedWeightOverTarget }"></span>
+      <!-- ko if: $parent.orderItemKey -->
+      / <span data-bind="text: targetWeight() | toNumber"></span> lbs
+      <!-- /ko -->
+      )
+      <!-- /ko -->
+    </td>
+    <!-- ko foreach: theoreticalAttributeValues -->
+    <td data-bind="text: $data | tryRoundedNumber: '-'"></td><!-- /ko -->
+    <td colspan="2"></td>
+  </tr>
+  <tr class="info">
+    <td class="text-right" colspan="15">
+      <div class="pull-left">
+        <strong data-bind="text: $parent.targetProductName">Target Product</strong>
+      </div><span data-bind="if: hasProductSpec">Target Min: </span>
+    </td>
+    <!-- ko foreach: attributeHeader -->
+    <td data-bind="text: minTargetValue | tryNumber:'-',
+    attr: {
+    'title': overridden ? productMinTargetValue : '' 
+    },
+    css: {
+      'strong-em': overridden,
+      'cursor-help': overridden
+    }"></td><!-- /ko -->
+    <td colspan="2"></td>
+  </tr>
+  <tr class="info">
+    <td class="text-right" colspan="15">&nbsp;<span data-bind="if: hasProductSpec">Target Max: </span></td>
+    <!-- ko foreach: attributeHeader -->
+    <td data-bind="text: maxTargetValue | tryNumber:'-',
+    attr: {
+      'title': overridden ? productMaxTargetValue : ''
+    },
+    css: {
+      'strong-em': overridden,
+      'cursor-help': overridden
+    }"></td><!-- /ko -->
+    <td colspan="2"></td>
+  </tr>
+</script>
+
+<script id="hideTheoretical" type="text/html">
+  <tr class="info">
+    <td colspan="11">
+      <label data-bind="text: targetProductName"></label>
+      <!-- ko if: targetWeight -->
+      <!-- ko template: 'targetWeightChunk' --><!-- /ko -->
+      <!-- /ko -->
+    </td>
+    <td class="text-right" colspan="5">
+      <span data-bind="if: hasProductSpec">Target Min: </span>
+    </td>
+    <!-- ko foreach: attributeHeader -->
+    <td data-bind="text: minTargetValue | tryNumber:'-'"></td><!-- /ko -->
+    <td colspan="2"></td>
+  </tr>
+  <tr class="info">
+    <td class="text-right" colspan="15">&nbsp;<span data-bind="if: hasProductSpec">Target Min: </span></td>
+    <!-- ko foreach: attributeHeader -->
+    <td data-bind="text: maxTargetValue | tryNumber:'-'"></td><!-- /ko -->
+    <td colspan="2"></td>
+  </tr>
+</script>
+
+<script id="targetWeightChunk" type="text/html">
+  <!-- NOTE: This component can't currently get a proper sum of picked items with orderItemKey is in use. -->
+
+  <!-- ko if: ko.unwrap( $parent.orderItemKey ) && ko.unwrap( targetWeight ) -->
+  ( Target Weight:
+  <span data-bind="text: targetWeight() | toNumber"></span> lbs )
+  <!-- /ko -->
+
+  <!-- ko if: !ko.unwrap( $parent.orderItemKey ) && ko.unwrap( targetWeight ) -->
+  ( Weight picked:
+  <span data-bind="text: totalPoundsPicked() | toNumber, css: { 'text-danger': isPickedWeightOverTarget }"></span>
+  /
+  <span data-bind="text: targetWeight() | toNumber"></span> lbs )
+  <!-- /ko -->
+</script>

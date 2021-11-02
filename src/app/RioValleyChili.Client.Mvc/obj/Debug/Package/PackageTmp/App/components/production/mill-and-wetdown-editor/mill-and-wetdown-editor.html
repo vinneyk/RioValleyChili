@@ -1,0 +1,232 @@
+﻿<!-- ko if: hasData -->
+<h2 data-bind="text: headerText"></h2>
+<!-- ko with: displayData -->
+<div class="panel panel-default" data-bind="if: !$parent.isEditing()">
+  <!-- ko template: 'template-mw-display' --><!-- /ko -->
+</div>
+<!-- /ko -->
+<!-- ko with: editorData -->
+<div class="panel panel-default" data-bind="if: $parent.isEditing() && $parent.isShowingComponents()">
+  <!-- ko template: 'template-mw-edit' --><!-- /ko -->
+</div>
+<!-- /ko -->
+<!-- /ko -->
+
+<script id="template-mw-display" type="text/html">
+  <div class="panel-heading">
+    <div class="container-fluid">
+      <section data-bind="template: 'mill-wetdown-header-display'">
+      </section>
+    </div>
+  </div>
+  <div class="panel-body">
+    <section data-bind="template: 'template-mw-input-materials-display'">
+    </section>
+
+    <h3>Inventory Outputs</h3>
+    <section data-bind="template: 'template-mw-output-inventory-display'">
+    </section>
+  </div>
+</script>
+
+<script id="template-mw-edit" type="text/html">
+  <div class="panel-heading">
+    <div class="container-fluid">
+      <section data-bind="template: 'mill-wetdown-header-edit'">
+      </section>
+    </div>
+  </div>
+  <div class="panel-body">
+    <section data-bind="template: 'template-mw-input-materials-edit'">
+    </section>
+
+    <h3>Inventory Outputs</h3>
+    <output-picker params="input: outputInput,
+    options: $parent.options,
+    exports: $parent.exports.outputs">
+    </output-picker>
+  </div>
+</script>
+
+<script id="mill-wetdown-header-display" type="text/html">
+  <div class="form-horizontal">
+      <div class="row">
+          <div class="col-sm-6 col-md-4">
+              <div class="form-group">
+                <label class="control-label col-sm-4">Product</label>
+                <div class="col-sm-8 form-control-static" data-bind="text: ChileProductName"></div>
+              </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="form-group">
+                <label class="control-label col-sm-4">Shift</label>
+                <div class="form-control-static col-sm-8" data-bind="text: ShiftKey"></div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="form-group">
+              <label class="control-label col-sm-4">Line</label>
+              <span class="form-control-static col-sm-8" data-bind="text: ProductionLineDescription"></span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="form-group">
+              <label class="control-label col-sm-4">Production Start</label>
+              <span class="form-control-static col-sm-8" data-bind="text: ProductionBegin | toDate"></span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="form-group">
+              <label class="control-label col-sm-4">Production End</label>
+              <span class="form-control-static col-sm-8" data-bind="text: ProductionEnd | toDate"></span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="form-group">
+              <label class="control-label col-sm-4">Total Time</label>
+              <span class="form-control-static col-sm-8" data-bind="text: $parent.totalTime | secToHrMin"></span>
+            </div>
+          </div>
+      </div>
+  </div>
+</script>
+
+<script id="template-mw-input-materials-display" type="text/html">
+    <h3>Material Inputs</h3>
+    <div>
+        <table class="table table-striped reset">
+            <thead>
+                <tr>
+                    <th>Lot</th>
+                    <th>Tote</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Packaging</th>
+                    <th class="calc">Weight</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: PickedItems">
+                <tr>
+                    <td data-bind="text: LotKey"></td>
+                    <td data-bind="text: ToteKey"></td>
+                    <td data-bind="text: Product.ProductName"></td>
+                    <td data-bind="text: QuantityPicked"></td>
+                    <td data-bind="text: PackagingProduct.ProductName"></td>
+                    <td data-bind="text: TotalWeightPicked" class="calc"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" style="text-align: right">Total Weight:</td>
+                    <td data-bind="text: $parent.totalPickedWeight" class="calc"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</script>
+
+<script id="template-mw-output-inventory-display" type="text/html">
+    <div>
+        <table class="table table-striped reset">
+            <thead>
+                <tr>
+                    <th>Packaging</th>
+                    <th>Quantity</th>
+                    <th>Location</th>
+                    <th class="info">Weight</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: ResultItems">
+                <tr>
+                    <td data-bind="text: PackagingProduct.ProductName"></td>
+                    <td data-bind="text: QuantityProduced"></td>
+                    <td data-bind="text: Location.Description"></td>
+                    <td data-bind="text: TotalWeightProduced" class="info"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan='3' style="text-align: right">Total Weight:</td>
+                    <td data-bind="text: $parent.totalOutputWeight" class="info"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</script>
+
+<script id="mill-wetdown-header-edit" type="text/html">
+  <div class="form-horizontal">
+      <div class="form-group" data-bind="validationElement: OutputChileLotKey">
+          <label class="control-label col-sm-4 col-md-3 col-lg-2" for="lotKey">Lot</label>
+          <div class="col-sm-4 col-md-3 col-lg-2">
+              <input id="lotKey" type="text" data-bind="value: OutputChileLotKey.formattedLot, valueUpdate: 'input'" class="form-control" />
+              <input type="hidden" data-bind="value: OutputChileLotKey" />
+          </div>
+          <!-- <div data-bind="ajaxStatus: checkDuplicateLotKeyCommand" class="col-sm-8 bg-warning"></div> -->
+      </div>
+      <div class="form-group">
+          <label class="control-label col-sm-4 col-md-3 col-lg-2">Production Date</label>
+          <div class="col-sm-4 col-md-3 col-lg-2">
+              <p class="form-control-static" data-bind="text: OutputChileLotKey.formattedDate"></p>
+          </div>
+      </div>
+      <div class="form-group" data-bind="validationElement: ShiftKey">
+          <label class="control-label col-sm-4 col-md-3 col-lg-2" for="shift">Shift</label>
+          <div class="col-sm-4 col-md-3 col-lg-2">
+              <input id="shift" type="text" data-bind="value: ShiftKey" class="form-control" />
+          </div>
+      </div>
+      <div class="form-group" data-bind="validationElement: ProductionLineKey">
+          <label class="control-label col-sm-4 col-md-3 col-lg-2" for="produtionLineSelect">Line</label>
+          <div class="col-sm-4 col-md-3 col-lg-2">
+              <select data-bind="value: ProductionLineKey, options: $parent.options.productionLineOptions, optionsText: 'Description', optionsValue: 'LocationKey', optionsCaption: ' '" class="form-control" id="produtionLineSelect"></select>
+          </div>
+      </div>
+      <div class="form-group" data-bind="css: { 'has-error': !ProductionBeginDate.isValid() || !ProductionBeginTime.isValid() }">
+          <label class="control-label col-sm-4 col-md-3 col-lg-2" for="productionBeginDate">Production Start</label>
+          <div class="col-sm-4 col-md-3 col-lg-2">
+              <input type="text" data-bind="value: ProductionBeginDate, datePicker: true" class="form-control" id="productionBeginDate" />
+          </div>
+          <div class="col-sm-3 col-md-2">
+              <input type="text" data-bind="value: ProductionBeginTime" class="form-control" maxlength="5" />
+          </div>
+      </div>
+      <div class="form-group" data-bind="css: { 'has-error': !ProductionEndDate.isValid() || !ProductionEndTime.isValid() }">
+          <label class="control-label col-sm-4 col-md-3 col-lg-2" for="productionEndDate">Production End</label>
+          <div class="col-sm-4 col-md-3 col-lg-2">
+              <input type="text" data-bind="value: ProductionEndDate, datePicker: true" class="form-control" id="productionEndDate" />
+          </div>
+          <div class="col-sm-3 col-md-2">
+              <input type="text" data-bind="value: ProductionEndTime" class="form-control" maxlength="5" />
+          </div>
+      </div>
+      <div class="form-group" data-bind="validationElement: TotalTime">
+          <label class="control-label col-sm-4 col-md-3 col-lg-2">Total Time:</label>
+          <div class="col-sm-4 col-md-3 col-lg-2">
+            <p class="form-control-static" data-bind="css: { 'text-danger': !TotalTime.isValid() }, text: TotalTime | secToHrMin"></p>
+          </div>
+      </div>
+      <div class="form-group" data-bind="validationElement: ChileProductKey">
+          <label class="control-label col-sm-4 col-md-3 col-lg-2" for="productSelect">Product</label>
+          <div class="col-sm-4">
+              <product-selector params="productsSource: $parent.options.chileProductOptions,
+              selectedValue: ChileProductKey,
+              optionsDisplay: 'ProductCodeAndName'">
+              </product-selector>
+          </div>
+      </div>
+  </div>
+</script>
+
+<script id="template-mw-input-materials-edit" type="text/html">
+    <div class="input-materials reset">
+      <tote-picker params="input: dehyInput,
+      exports: $parent.exports.totes">
+      </tote-picker>
+      <other-materials-picker params="input: otherMatsInput,
+      defaults: $parent.defaults,
+      exports: $parent.exports.otherMats">
+      </other-materials-picker>
+    </div>
+</script>
+

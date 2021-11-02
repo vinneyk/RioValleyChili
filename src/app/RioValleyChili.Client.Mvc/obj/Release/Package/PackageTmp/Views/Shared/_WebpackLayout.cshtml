@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_LayoutMain.cshtml";
+}
+@section htmlHead{
+    @Html.Partial("_WebpackHtmlHead")
+    @RenderSection("htmlHead", false)
+}
+
+@section controlPanel {
+    @RenderSection("controlPanel", false)
+}
+
+@section featured {
+    @RenderSection("featured", false)
+}
+
+@section absolute {
+    @RenderSection("absolute", false)
+}
+
+@section scripts {
+    @RenderSection("scripts", false)
+}
+
+@RenderBody()

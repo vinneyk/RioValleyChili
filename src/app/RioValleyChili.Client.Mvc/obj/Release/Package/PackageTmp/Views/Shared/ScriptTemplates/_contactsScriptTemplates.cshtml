@@ -1,0 +1,68 @@
+﻿@{
+    Html.PushJavaScriptResource(Url.Content("~/Scripts/app/viewModels/shared/companyContactsViewModel.js"));
+}
+
+@Html.Partial("_addressScriptTemplates")
+
+<script type="text/html" id="contact-summary-template">
+    <header data-bind="text: nameDisplay"></header>
+    <p data-bind="text: PhoneNumber"></p>
+    <p><a data-bind="text: EMailAddress, attr: { href: emailUrl }, visible: displayEmailAddress"></a></p>
+</script>
+
+<script type="text/html" id="contact-details-template">
+
+    <article class="contact">
+        <header>
+            <div style="background-color: #ccc; padding: 5px; margin: 10px 0;">
+                <input type="button" value="Save" data-bind="command: saveCommand" class="save" />
+                <input type="button" value="Undo Changes" data-bind="command: cancelEditsCommand, visible: hasChanges() && !isNew()" />
+                <input type="button" value="Delete Contact" data-bind="command: $parent.deleteContactCommand, visible: !isNew()" class="delete" style="float: right;" />
+            </div>
+            <section data-bind="template: { name: 'header-display', ifnot: isEditing }"></section>
+            <section data-bind="template: { name: 'header-editor', if: isEditing }"></section>
+        </header>
+
+        <section>
+            <h4>Addresses</h4>
+            <input type="button" data-bind="command: newAddressCommand" value="New Address" />
+            <ul data-bind="foreach: Addresses" class="addresses">
+                <li data-bind="template: { name: isEditing() ? 'address-editor' : 'address-display' }"></li>
+            </ul>
+        </section>
+    </article>
+</script>
+
+<script type="text/html" id="header-display">
+    <strong data-bind="text: nameDisplay"></strong>
+    <p data-bind="text: PhoneNumber"></p>
+    <p><a data-bind="text: EMailAddress, attr: { href: emailUrl }, visible: displayEmailAddress"></a></p>
+    <input type="button" value="Edit" data-bind="command: beginEditingCommand" class="link" />
+</script>
+
+<script type="text/html" id="header-editor">
+    <fieldset>
+        <legend>Contact Information</legend>
+        <ol class="tabular" data-bind="attr: {id: ContactKey }">
+            <li>
+                <label>Name</label>
+                <input data-bind="value: Name" />
+            </li>
+            <li>
+                <label>Phone Number</label>
+                <input data-bind="value: PhoneNumber" />
+            </li>
+            <li>
+                <label>Email Address</label>
+                <input data-bind="value: EMailAddress" type="email" />
+            </li>
+        </ol>
+    </fieldset>
+</script>
+
+<style>
+    article.contact p {
+        margin: 0;
+        line-height: 1.5em;
+    }
+</style>

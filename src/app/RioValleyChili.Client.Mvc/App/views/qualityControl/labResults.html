@@ -1,0 +1,65 @@
+﻿<div class="fxs-blade-locked fxs-blade fxs-bladesize-wide">
+    <div class="fxs-blade-header">
+        <div class="fxs-blade-statusbar-wrapper">
+            <div class="fxs-blade-statusbar">Saving data...</div>
+        </div>
+
+        <span class="fxs-blade-actions">
+            <button title="Maximize" class="fxs-blade-maximizeOrRestore" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path class="msportalfx-svg-c01" d="M 3 4 v 12 h 14 V 4 H 3 Z M 5 14 V 6 h 10 v 8 H 5 Z" /></svg>
+            </button>
+
+            <button title="Close" class="fxs-blade-close" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><polygon class="msportalfx-svg-c01" points="16.894,5.414 15.48,4 10.436,9.044 5.414,4.023 4,5.437 9.022,10.458 4.022,15.458 5.436,16.872 10.436,11.872 15.458,16.894 16.872,15.48 11.85,10.458" /></svg>
+            </button>
+        </span>
+
+        <div class="fxs-blade-title">
+            <div class="fxs-blade-title-text-container">
+                <h2>Lab Results</h2>
+            </div>
+        </div>
+    </div>
+    
+    <div class="fxs-blade-content" style="height: calc(100% - 117px); padding: 0;" data-bind="template: {name: 'lots-with-attributes-template' }"></div>
+</div>
+
+<script id="lots-with-attributes-template" type="text/html">
+    <table id="lotSummaryTable" class="clickable">
+        <thead>
+            <tr>
+                <th>Lot</th>
+                <th>Product</th>
+                <th>Production Status</th>
+                <th>Quality State</th>
+                <th class="calc" rowspan="2">Hold</th>
+                <th class="calc">LoBac</th>
+
+                <th class="calc">Asta Calc</th>
+
+                <!-- ko foreach: attributes -->
+                <th data-bind="text: $data.Key" style="white-space: nowrap"></th>
+                <!-- /ko -->
+            </tr>
+        </thead>
+        <!--<tbody data-bind="template: { name: 'labResultRowTemplate', foreach: labResultSummaries }"></tbody>-->
+    </table>
+</script>
+
+<script type="text/html" id="labResultRowTemplate">
+    <tr data-bind="fadeVisible: true, tooltip: tooltipText, tooltipTrack: true, click: $parent.selectLot">
+        <td style="white-space: nowrap" data-bind="text: LotKey"></td>
+        <td style="white-space: nowrap" data-bind="text: Product.ProductName"></td>
+        <td style="white-space: nowrap" data-bind="text: ProductionStatus.displayValue"></td>
+        <td style="white-space: nowrap" data-bind="text: QualityStatus.displayValue"></td>
+        <td class="calc" data-bind="text: HoldType.displayValue, tooltip: HoldDescription"></td>
+        <td class="calc"><input type="checkbox" readonly="readonly" data-bind="checked: LoBac" /></td>
+
+        <td class="calc" data-bind="text: AstaCalc"></td>
+
+        <!-- ko template: { foreach: Attributes } -->
+        <td data-bind="text: Value, css: {defect: hasUnresolvedDefect, 'bacteria': Defect && Defect.DefectType() === rvc.helpers.defectTypes.Bacterial.key, 'actionable': Defect && Defect.DefectType() === rvc.helpers.defectTypes.ActionableDefect.key }"></td>
+        <!-- /ko -->
+
+    </tr>
+</script>

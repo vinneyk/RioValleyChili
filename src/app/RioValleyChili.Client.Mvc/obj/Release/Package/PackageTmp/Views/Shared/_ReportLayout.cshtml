@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "_LayoutMain.cshtml";
+    ViewBag.IncludeCvp = false;
+}
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/jquery.plugins.slimscroll.js"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2014.1.528/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2014.1.528/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2014.1.528/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+    
+    <script src="http://cdn.kendostatic.com/2013.2.918/js/kendo.web.min.js"></script>
+    <!--kendo.mobile.min.js - optional, if gestures/touch support is required-->
+    @*<script src="http://cdn.kendostatic.com/2013.2.918/js/kendo.mobile.min.js"></script>*@
+    
+    @RenderSection("scripts", false)
+}
+
+@section htmlHead
+{
+    <script type="text/javascript" src="~/Scripts/jquery-2.1.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="~/Content/kendo/2014.1.528/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2014.1.528/kendo.flat.min.css" rel="stylesheet" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.plugins.slimscroll.js"></script>
+    
+    @RenderSection("htmlHead", false)
+
+    <style>
+        #reportViewerContainer {
+            position: relative;
+            min-height: 700px;
+        }
+
+        #reportViewer {
+            position: absolute;
+            left: 5px;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            font-family: 'segoe ui', 'ms sans serif';
+            overflow: hidden;
+        }
+
+        hgroup.title {
+            visibility: collapse;
+            margin: 0;
+            padding: 0;
+            height: 0;
+        }
+    </style>
+}
+
+
+<div id="reportViewerContainer">
+    <div id="reportViewer" class="k-widget">
+        Loading report...
+    </div>
+</div>
+
+@RenderBody()

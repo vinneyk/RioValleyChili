@@ -1,0 +1,52 @@
+﻿<form data-bind="submit: addToteCommand.execute">
+  <h3>Dehy Materials</h3>
+  <div class="form-inline">
+    <div class="form-group">
+      <label class="sr-only" for="toteText">Tote Number</label>
+      <input class="form-control" id="toteText" type="text" data-bind="value: tote.formattedTote, valueUpdate: 'input'" placeholder="Tote" maxlength="10" />
+    </div>
+    <div class="form-group">
+      <button type="submit" data-bind="enable: addToteCommand.canExecute" class="btn btn-default reset">Add Tote</button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-striped reset" data-bind="fadeVisible: inventoryItems().length > 0">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Tote</th>
+      <th>Lot</th>
+      <th>Product</th>
+      <th>Packaging</th>
+      <th>Location</th>
+      <th>Treatment</th>
+      <th>Quantity</th>
+      <th class="info">Weight (lbs)</th>
+    </tr>
+  </thead>
+  <tbody data-bind="foreach: inventoryItems">
+    <tr data-bind="css: { 'active': QuantityPicked() === 0 }">
+      <td>
+        <button type="button" class="btn btn-link btn-xs btn-block" data-bind="command: $parent.removeToteCommand">
+          <i class="fa fa-times fa-lg" tabindex="-1"></i>
+        </button>
+      </td>
+      <td><span data-bind="text: ToteKey.formattedTote"></span></td>
+      <td><span data-bind="text: LotKey"></span></td>
+      <td><span data-bind="text: Product.ProductName"></span></td>
+      <td><span data-bind="text: PackagingProduct.ProductName"></span></td>
+      <td><span data-bind="text: Location.Description"></span></td>
+      <td><span data-bind="text: InventoryTreatment.TreatmentNameShort"></span></td>
+      <td><select data-bind="value: QuantityPicked, options: $parent.range(Quantity()+1)" tabindex="-1" class="form-control"></select></td>
+      <td class="info"><span data-bind="text: WeightPicked"></span></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="8"></td>
+      <td data-bind="text: 'Total: ' + totalWeightPicked()" class="info"></td>
+    </tr>
+  </tfoot>
+</table>
+

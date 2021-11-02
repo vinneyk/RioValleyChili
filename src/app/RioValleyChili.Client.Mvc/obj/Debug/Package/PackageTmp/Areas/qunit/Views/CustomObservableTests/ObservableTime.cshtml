@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Observable Time";
+}
+
+<h2>Observable Time</h2>
+@section tests
+{
+    <script src="http://code.jquery.com/qunit/qunit-1.11.0.js"></script>
+    <script src="~/Scripts/knockout-2.3.0.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date-format.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date.parse.js"></script>
+    <script src="~/Scripts/ko.extenders.date.js"></script>
+    <script src="~/Scripts/sh.knockout.customObservables.js"></script>
+    <script type="text/javascript">
+        module("Initialized with non-time values");
+        test("Value is null", function() {
+            var systemUnderTest = ko.observableTime();
+            equal(null, systemUnderTest());
+        });
+
+        module("Initialized as Date object");
+
+        test("Value is as expected", function() {
+            var date = new Date("1/1/2014 01:00");
+            var systemUnderTest = ko.observableTime(date, "HH:MM");
+            equal("01:00", systemUnderTest());
+        });
+
+        test("Converts to 24h clock.", function() {
+            var date = new Date("1/1/2014 1:00 PM");
+            var systemUnderTest = ko.observableTime(date, "HH:MM");
+            equal("13:00", systemUnderTest());
+        });
+
+        test("Applies supplied formatting (trim leading zero).", function() {
+            var date = new Date("1/1/2014 03:00 AM");
+            var systemUnderTest = ko.observableTime(date, "H:MM");
+            equal("3:00", systemUnderTest());
+        });
+
+        test("Applies supplied formatting (preserve leading zero).", function() {
+            var date = new Date("1/1/2014 03:00 AM");
+            var systemUnderTest = ko.observableTime(date, "HH:MM");
+            equal("03:00", systemUnderTest());
+        });
+
+        module("Initialized as ISO Date string");
+
+        test("Time value is converted to local timezone.", function () {
+            var date = "2014-02-18T03:00:00";
+            var hours = new Date(date).getHours(); // get converted local time
+            var systemUnderTest = ko.observableTime(date, "H:MM");
+            equal(hours + ":00", systemUnderTest());
+        });
+
+        module("Initialized as free-form string");
+        test("Value is as expected (Hour only)", function() {
+            var date = "5";
+            var systemUnderTest = ko.observableTime(date, "HH:MM");
+            equal("05:00", systemUnderTest());
+        });
+
+        module("Initialized as free-form string");
+        test("Value is as expected (excluded semi-colon)", function() {
+            var date = "500";
+            var systemUnderTest = ko.observableTime(date, "HH:MM");
+            equal("05:00", systemUnderTest());
+        });
+    </script>
+}

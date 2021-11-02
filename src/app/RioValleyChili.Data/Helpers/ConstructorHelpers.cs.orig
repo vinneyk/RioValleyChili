@@ -1,0 +1,141 @@
+using System;
+using RioValleyChili.Data.Models;
+
+namespace RioValleyChili.Data.Helpers
+{
+    public static class ConstructorHelpers
+    {
+        public static ChileProduct CreateChileProduct(int inventoryItemId, string productName, InventoryItemType chileProductType, ChileType chileType, ChileProductAttributes chileProductAttributes = null)
+        {
+            var chileProduct = new ChileProduct
+            {
+                Name = productName,
+                InventoryItemType = chileProductType,
+                InventoryItemTypeId = chileProductType.Id,
+                Id = inventoryItemId,
+                ChileType = chileType,
+                ChileTypeId = chileType.Id,
+                ProductAttributes = chileProductAttributes
+            };
+
+            if(chileProductAttributes != null)
+            {
+                chileProductAttributes.InventoryItemTypeId = chileProduct.InventoryItemTypeId;
+                chileProductAttributes.ChileProductId = chileProduct.Id;
+                chileProductAttributes.ChileProduct = chileProduct;
+            }
+
+            return chileProduct;
+        }
+
+        public static ChileProductAttributes CreateChileProductAttributes(int granulation, int maxAsta, int minAsta, int maxScan, int minScan, int maxScoville, int minScoville)
+        {
+            return new ChileProductAttributes
+                       {
+                           MinGranulation = granulation,
+                           MaxGranulation = granulation,
+                           MaxAsta = maxAsta,
+                           MinAsta = minAsta,
+                           MaxScan = maxScan,
+                           MinScan = minScan,
+                           MaxScoville = maxScoville,
+                           MinScoville = minScoville
+                       };
+        }
+
+        public static ChileProductIngredient CreateChileProductIngredient(ChileProduct chileProduct, AdditiveType additiveType, double percentage)
+        {
+            return new ChileProductIngredient
+                       {
+                           ChileProductInventoryItemTypeId = chileProduct.InventoryItemTypeId,
+                           ChileProductId = chileProduct.Id,
+                           AdditiveTypeId = additiveType.Id,
+                           Percentage = percentage,
+                           ChileProduct = chileProduct,
+                           Ingredient = additiveType
+                       };
+        }
+
+        public static PackSchedule CreatePackSchedule(ChileProduct productToCreate, DateTime dateCreated, WorkType workType, PackagingProduct packagingType, int productionLine, DateTime scheduledProductionDate, int sequentialNumber)
+        {
+            return new PackSchedule
+                       {
+                           ChileProduct = productToCreate,
+                           ChileProductId = productToCreate.Id,
+                           ChileInventoryItemType = productToCreate.InventoryItemType,
+                           ChileInventoryItemTypeId = productToCreate.InventoryItemTypeId,                           
+                           PackagingProduct = packagingType,
+                           PackagingProductId = packagingType.Id,
+                           PackagingInventoryTypeId = packagingType.InventoryItemTypeId,                           
+                           ProductionLine = productionLine,
+                           WorkType = workType,
+                           WorkTypeId = workType.Id,
+                           DateCreated = dateCreated,
+                           ScheduledProductionDate = scheduledProductionDate,
+                           SequentialNumber = sequentialNumber
+                       };
+        }
+
+        public static ProductionBatch CreateProductionBatch(PackSchedule packSchedule, int numberOfPackagingUnits, int sequentialNumber)
+        {
+            return new ProductionBatch
+                       {
+                           ProductionBatchDate = packSchedule.DateCreated,
+                           ProductionBatchSequence = sequentialNumber,
+                           NumberOfPackagingUnits = numberOfPackagingUnits,
+                           PackSchedule = packSchedule,
+                           PackScheduleSequentialNumber = packSchedule.SequentialNumber
+                       };
+        }
+
+        public static ProductionBatchItem CreateProductionBatchItem(InventoryQuantityByLocation inventoryItem, ProductionBatch productionBatch, int quantity)
+        {
+            return new ProductionBatchItem
+                       {
+                           ProductionBatch = productionBatch,
+                           ProductionBatchSequence = productionBatch.ProductionBatchSequence,
+                           ProductionBatchDate = productionBatch.ProductionBatchDate,
+                           InputInventoryQuantityByLocation = inventoryItem,
+                           InventoryDateCreated = inventoryItem.InventoryDateCreated,
+                           InventorySequence = inventoryItem.InventorySequence,
+                           InventoryItemTypeId = inventoryItem.InventoryItemTypeId,
+                           InventoryWarehouseLocationId = inventoryItem.WarehouseLocationId,
+                           Quantity = quantity
+                       };
+        }
+
+        public static ProductionBatchInstructionReference CreateProductionBatchInstructionReference(ProductionBatch batch, Instruction instruction, int order)
+        {
+            return new ProductionBatchInstructionReference
+                       {
+                           ProductionBatch = batch,
+                           ProductionBatchDate = batch.ProductionBatchDate,
+                           ProductionBatchSequence = batch.ProductionBatchSequence,
+                           Instruction = instruction,
+                           InstructionId = instruction.Id,
+                           InstructionOrder = order
+                       };
+        }
+
+        [Obsolete]
+        public static ChileInventory CreateChileInventoryItem(ProductionBatch productionBatch)
+        {
+            throw new NotSupportedException();
+
+            if (productionBatch.PackSchedule == null)
+            {
+                throw new InvalidOperationException("The PackSchedule property of the supplied productionBatch must not be null.");
+            }
+
+            return new ChileInventory
+                       {
+                           ChileProduct = productionBatch.PackSchedule.ChileProduct,
+                           ProductId = productionBatch.PackSchedule.ChileProductId,
+                           LotSequence = productionBatch.ProductionBatchSequence,
+                           PackagingProduct = productionBatch.PackSchedule.PackagingProduct,
+                           PackagingInventoryItemTypeId = productionBatch.PackSchedule.PackagingProduct.InventoryItemTypeId,
+                           PackagingProductId = productionBatch.PackSchedule.PackagingProduct.Id
+                       };
+        }
+    }
+}

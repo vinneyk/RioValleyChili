@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3E39194C-CC95-4A72-83D1-02C8572D2804}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RioValleyChili.Services.Interfaces</RootNamespace>
+    <AssemblyName>RioValleyChili.Services.Interfaces</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\..\Rio Valley Chili Internal\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
+    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
+    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
+    <SccProvider>Mercurial Source Control Package</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Testing|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Testing\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Solutionhead.Services, Version=1.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Services.1.4.6\lib\net45\Solutionhead.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\OrderShippingServiceComponent\ISetShipmentInformation.cs" />
+    <Compile Include="Abstract\OrderShippingServiceComponent\ISetShippingInstructions.cs" />
+    <Compile Include="Abstract\OrderShippingServiceComponent\ISetTransitInformation.cs" />
+    <Compile Include="Abstract\OrderShippingServiceComponent\IShipmentDetailReturn.cs" />
+    <Compile Include="Abstract\OrderShippingServiceComponent\IShipmentInformationReturn.cs" />
+    <Compile Include="Abstract\OrderShippingServiceComponent\IShipmentSummaryReturn.cs" />
+    <Compile Include="Abstract\OrderShippingServiceComponent\IShippingInstructions.cs" />
+    <Compile Include="Abstract\OrderShippingServiceComponent\ITransitInformation.cs" />
+    <Compile Include="ICompanyService.cs" />
+    <Compile Include="ISalesService.cs" />
+    <Compile Include="IMaterialsReceivedService.cs" />
+    <Compile Include="IEmployeesService.cs" />
+    <Compile Include="IIntraWarehouseOrderService.cs" />
+    <Compile Include="IInventoryAdjustmentsService.cs" />
+    <Compile Include="IInventoryService.cs" />
+    <Compile Include="IInventoryShipmentOrderService.cs" />
+    <Compile Include="IMillAndWetDownService.cs" />
+    <Compile Include="INotebookService.cs" />
+    <Compile Include="IProductionService.cs" />
+    <Compile Include="IProductionResultsService.cs" />
+    <Compile Include="IProductService.cs" />
+    <Compile Include="ILotService.cs" />
+    <Compile Include="ISampleOrderService.cs" />
+    <Compile Include="ITreatmentOrderService.cs" />
+    <Compile Include="IWarehouseOrderService.cs" />
+    <Compile Include="IFacilityService.cs" />
+    <Compile Include="Parameters\Common\AllowanceParameters.cs" />
+    <Compile Include="Parameters\Common\FilterCustomerContractsParameters.cs" />
+    <Compile Include="Parameters\Common\FilterSalesOrdersParameters.cs" />
+    <Compile Include="Parameters\Common\FilterInterWarehouseOrderParameters.cs" />
+    <Compile Include="Parameters\Common\FilterInventoryAdjustments.cs" />
+    <Compile Include="Parameters\Common\FilterInventoryForPickingContextParameters.cs" />
+    <Compile Include="Parameters\Common\FilterInventoryParameters.cs" />
+    <Compile Include="Parameters\Common\FilterInventoryParametersBase.cs" />
+    <Compile Include="Parameters\Common\FilterLotParameters.cs" />
+    <Compile Include="Parameters\Common\ChileMaterialsReceivedFilters.cs" />
+    <Compile Include="Parameters\Common\FilterProductionScheduleParameters.cs" />
+    <Compile Include="Parameters\Common\FilterSalesQuotesParameters.cs" />
+    <Compile Include="Parameters\Common\FilterSampleOrdersParameters.cs" />
+    <Compile Include="Parameters\Common\GetObjectParameters.cs" />
+    <Compile Include="Parameters\Common\ISetOrderHeaderParameters.cs" />
+    <Compile Include="Parameters\Common\ISetOrderParameters.cs" />
+    <Compile Include="Parameters\Common\ISetPickedInventoryItemCodesParameters.cs" />
+    <Compile Include="Parameters\Common\IUserIdentifiable.cs" />
+    <Compile Include="Parameters\CompanyService\FilterCompanyParameters.cs" />
+    <Compile Include="Parameters\CompanyService\FilterContactsParameters.cs" />
+    <Compile Include="Parameters\CompanyService\IContactParameters.cs" />
+    <Compile Include="Parameters\CompanyService\ICreateCompanyParameters.cs" />
+    <Compile Include="Parameters\CompanyService\ICreateContactParameters.cs" />
+    <Compile Include="Parameters\CompanyService\ICreateCustomerNoteParameters.cs" />
+    <Compile Include="Parameters\CompanyService\ISetCompanyParameters.cs" />
+    <Compile Include="Parameters\CompanyService\IUpdateContactParameters.cs" />
+    <Compile Include="Parameters\CompanyService\IUpdateCompanyParameters.cs" />
+    <Compile Include="Parameters\SalesService\IContractItem.cs" />
+    <Compile Include="Parameters\SalesService\ICreateCustomerContractParameters.cs" />
+    <Compile Include="Parameters\SalesService\ICreateSalesOrderParameters.cs" />
+    <Compile Include="Parameters\SalesService\ISalesQuoteParameters.cs" />
+    <Compile Include="Parameters\SalesService\ISalesOrderItem.cs" />
+    <Compile Include="Parameters\SalesService\IRemoveCustomerChileProductAttributeRangesParameters.cs" />
+    <Compile Include="Parameters\SalesService\ISetContractsStatusParameters.cs" />
+    <Compile Include="Parameters\SalesService\ISetSalesOrderParameters.cs" />
+    <Compile Include="Parameters\SalesService\ISetCustomerProductAttributeRangesParameters.cs" />
+    <Compile Include="Parameters\SalesService\IUpdateCustomerContractParameters.cs" />
+    <Compile Include="Parameters\SalesService\IUpdateSalesOrderParameters.cs" />
+    <Compile Include="Parameters\MaterialsReceivedService\ICreateChileVarietyParameters.cs" />
+    <Compile Include="Parameters\MaterialsReceivedService\ICreateChileMaterialsReceivedItemParameters.cs" />
+    <Compile Include="Parameters\MaterialsReceivedService\ICreateChileMaterialsReceivedParameters.cs" />
+    <Compile Include="Parameters\MaterialsReceivedService\IUpdateChileMaterialsReceivedItemParameters.cs" />
+    <Compile Include="Parameters\MaterialsReceivedService\IUpdateChileMaterialsReceivedParameters.cs" />
+    <Compile Include="Parameters\EmployeeService\ICreateEmployeeParameters.cs" />
+    <Compile Include="Parameters\EmployeeService\IActivateEmployeeParameters.cs" />
+    <Compile Include="Parameters\EmployeeService\IUpdateEmployeeParameters.cs" />
+    <Compile Include="Parameters\ICancelTransactionParameters.cs" />
+    <Compile Include="Parameters\IntraWarehouseOrderService\ICreateIntraWarehouseOrderParameters.cs" />
+    <Compile Include="Parameters\IntraWarehouseOrderService\IIntraWarehouseOrderParameters.cs" />
+    <Compile Include="Parameters\IntraWarehouseOrderService\IUpdateIntraWarehouseOrderParameters.cs" />
+    <Compile Include="Parameters\InventoryAdjustmentsService\ICreateInventoryAdjustmentParameters.cs" />
+    <Compile Include="Parameters\InventoryAdjustmentsService\IInventoryAdjustmentParameters.cs" />
+    <Compile Include="Parameters\InventoryService\GetInventoryReceivedParameters.cs" />
+    <Compile Include="Parameters\InventoryService\IReceiveInventoryItemParameters.cs" />
+    <Compile Include="Parameters\InventoryService\IReceiveInventoryParameters.cs" />
+    <Compile Include="Parameters\InventoryShipmentOrderService\IPostParameters.cs" />
+    <Compile Include="Parameters\InventoryShipmentOrderService\ISetInventoryShipmentInformationParameters.cs" />
+    <Compile Include="Parameters\LotService\IAddLotAttributesParameters.cs" />
+    <Compile Include="Parameters\LotService\ILotAllowanceParameters.cs" />
+    <Compile Include="Parameters\LotService\ILotAttributeInfoParameters.cs" />
+    <Compile Include="Parameters\LotService\ILotHold.cs" />
+    <Compile Include="Parameters\LotService\ISetLotPackagingReceivedParameters.cs" />
+    <Compile Include="Parameters\LotService\ISetLotStatusParameters.cs" />
+    <Compile Include="Parameters\MillAndWetdownService\ICreateMillAndWetdownParameters.cs" />
+    <Compile Include="Parameters\MillAndWetdownService\IMillAndWetdownPickedItemParameters.cs" />
+    <Compile Include="Parameters\MillAndWetdownService\IMillandWetdownResultItemParameters.cs" />
+    <Compile Include="Parameters\NotebookService\ICreateNoteParameters.cs" />
+    <Compile Include="Parameters\NotebookService\IUpdateNoteParameters.cs" />
+    <Compile Include="Parameters\OrderInventoryServiceComponent\ISetInventoryPickOrderItemParameters.cs" />
+    <Compile Include="Parameters\OrderInventoryServiceComponent\ISetInventoryPickOrderParameters.cs" />
+    <Compile Include="Parameters\PackScheduleService\ICreatePackScheduleParameters.cs" />
+    <Compile Include="Parameters\PackScheduleService\ICreateProductionBatchParameters.cs" />
+    <Compile Include="Parameters\PackScheduleService\ICreateProductionScheduleParameters.cs" />
+    <Compile Include="Parameters\PackScheduleService\IRemovePackScheduleParameters.cs" />
+    <Compile Include="Parameters\PackScheduleService\ISetProductionScheduleItemParameters.cs" />
+    <Compile Include="Parameters\PackScheduleService\IUpdatePackScheduleParameters.cs" />
+    <Compile Include="Parameters\PackScheduleService\IUpdateProductionBatchParameters.cs" />
+    <Compile Include="Parameters\PackScheduleService\IUpdateProductionScheduleParameters.cs" />
+    <Compile Include="Parameters\PickInventoryServiceComponent\IIntraWarehouseOrderPickedItemParameters.cs" />
+    <Compile Include="Parameters\PickInventoryServiceComponent\IPickedInventoryItemParameters.cs" />
+    <Compile Include="Parameters\PickInventoryServiceComponent\ISetPickedInventoryParameters.cs" />
+    <Compile Include="Parameters\ProductionResultsService\IBatchResultItemParameters.cs" />
+    <Compile Include="Parameters\ProductionResultsService\ICreateProductionBatchResultsParameters.cs" />
+    <Compile Include="Parameters\ProductionResultsService\IProductionBatchResultsParameters.cs" />
+    <Compile Include="Parameters\ProductionResultsService\IUpdateProductionBatchResultsParameters.cs" />
+    <Compile Include="Parameters\ProductService\IAdditiveProductParameters.cs" />
+    <Compile Include="Parameters\ProductService\IChileProductParameters.cs" />
+    <Compile Include="Parameters\ProductService\ICreateProductParameters.cs" />
+    <Compile Include="Parameters\ProductService\IPackagingProductParameters.cs" />
+    <Compile Include="Parameters\ProductService\IRemoveChileProductIngredientParameters.cs" />
+    <Compile Include="Parameters\ProductService\ISetAttributeRangeParameters.cs" />
+    <Compile Include="Parameters\ProductService\ISetChileProductAttributeRangesParameters.cs" />
+    <Compile Include="Parameters\ProductService\ISetChileProductIngredientParameters.cs" />
+    <Compile Include="Parameters\LotService\IAttributeValueParameters.cs" />
+    <Compile Include="Parameters\LotService\ICreateLotDefectParameters.cs" />
+    <Compile Include="Parameters\LotService\IDefectResolutionParameters.cs" />
+    <Compile Include="Parameters\LotService\IResolveLotDefectParameters.cs" />
+    <Compile Include="Parameters\LotService\ISetLotAttributeParameters.cs" />
+    <Compile Include="Parameters\LotService\ISetLotHoldStatusParameters.cs" />
+    <Compile Include="Parameters\ProductService\ISetChileProductIngredientsParameters.cs" />
+    <Compile Include="Parameters\SampleOrderService\ISampleOrderItemParameters.cs" />
+    <Compile Include="Parameters\SampleOrderService\ISetSampleOrderJournalEntryParameters.cs" />
+    <Compile Include="Parameters\SampleOrderService\ISetSampleMatchParameters.cs" />
+    <Compile Include="Parameters\SampleOrderService\ISetSampleOrderParameters.cs" />
+    <Compile Include="Parameters\SampleOrderService\ISetSampleSpecsParameters.cs" />
+    <Compile Include="Parameters\TreatmentOrderService\ICreateTreatmentOrderParameters.cs" />
+    <Compile Include="Parameters\TreatmentOrderService\IReceiveTreatmentOrderParameters.cs" />
+    <Compile Include="Parameters\TreatmentOrderService\IUpdateTreatmentOrderParameters.cs" />
+    <Compile Include="Parameters\WarehouseOrderService\IUpdateInterWarehouseOrderParameters.cs" />
+    <Compile Include="Parameters\WarehouseOrderService\IWarehouseOrderParameters.cs" />
+    <Compile Include="Parameters\WarehouseOrderService\UpdateIntraWarehouseOrderParameters.cs" />
+    <Compile Include="Parameters\WarehouseService\ICreateFacilityParameters.cs" />
+    <Compile Include="Parameters\WarehouseService\ICreateLocationParameters.cs" />
+    <Compile Include="Parameters\WarehouseService\ISaveLocationParameters.cs" />
+    <Compile Include="Parameters\WarehouseService\IUpdateFacilityParameters.cs" />
+    <Compile Include="Parameters\WarehouseService\IUpdateLocationParameters.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Returns\CompanyService\IBrokerDetailReturn.cs" />
+    <Compile Include="Returns\CompanyService\ICompanyDetailReturn.cs" />
+    <Compile Include="Returns\CompanyService\ICompanyHeaderReturn.cs" />
+    <Compile Include="Returns\CompanyService\ICompanySummaryReturn.cs" />
+    <Compile Include="Returns\CompanyService\IContactAddressReturn.cs" />
+    <Compile Include="Returns\CompanyService\IContactSummaryReturn.cs" />
+    <Compile Include="Returns\CompanyService\ICustomerDetailReturn.cs" />
+    <Compile Include="Returns\InventoryServices\IInventoryCycleCountReportReturn.cs" />
+    <Compile Include="Returns\LotService\ILotHistoryReturn.cs" />
+    <Compile Include="Returns\LotService\ILotInputTraceReturn.cs" />
+    <Compile Include="Returns\LotService\ILotOutputTraceReturn.cs" />
+    <Compile Include="Returns\SalesService\IContractItemReturn.cs" />
+    <Compile Include="Returns\SalesService\IContractItemShipmentSummaryReturn.cs" />
+    <Compile Include="Returns\SalesService\IContractShipmentSummaryReturn.cs" />
+    <Compile Include="Returns\SalesService\ICustomerChileProductAttributeRangeReturn.cs" />
+    <Compile Include="Returns\SalesService\ICustomerChileProductAttributeRanges.cs" />
+    <Compile Include="Returns\SalesService\ICustomerContractBaseReturn.cs" />
+    <Compile Include="Returns\SalesService\ICustomerContractOrderItemReturn.cs" />
+    <Compile Include="Returns\SalesService\ICustomerContractOrderReturn.cs" />
+    <Compile Include="Returns\SalesService\ICustomerContractDetailReturn.cs" />
+    <Compile Include="Returns\SalesService\ICustomerContractOrdersReturn.cs" />
+    <Compile Include="Returns\SalesService\ICustomerContractSummaryReturn.cs" />
+    <Compile Include="Returns\SalesService\ISalesOrderDetailReturn.cs" />
+    <Compile Include="Returns\SalesService\ISalesOrderItemReturn.cs" />
+    <Compile Include="Returns\SalesService\ISalesOrderSummaryReturn.cs" />
+    <Compile Include="Returns\SalesService\ICustomerProductCodeReturn.cs" />
+    <Compile Include="Returns\MaterialsReceivedService\IChileMaterialsReceivedRecapReturn.cs" />
+    <Compile Include="Returns\MaterialsReceivedService\IChileVarietyReturn.cs" />
+    <Compile Include="Returns\MaterialsReceivedService\IChileMaterialsReceivedDetailReturn.cs" />
+    <Compile Include="Returns\MaterialsReceivedService\IChileMaterialsReceivedItemReturn.cs" />
+    <Compile Include="Returns\MaterialsReceivedService\IChileMaterialsReceivedSummaryReturn.cs" />
+    <Compile Include="Returns\EmployeeService\IEmployeeDetailsReturn.cs" />
+    <Compile Include="Returns\EmployeeService\IEmployeeSummaryReturn.cs" />
+    <Compile Include="Returns\IAttributesByProductType.cs" />
+    <Compile Include="Returns\IBatchPickedInventoryItemReturn.cs" />
+    <Compile Include="Returns\IInventoryOrderDetailReturn.cs" />
+    <Compile Include="Returns\IInventoryOrderSummaryReturn.cs" />
+    <Compile Include="Returns\InventoryServices\IPickableInventoryInitializer.cs" />
+    <Compile Include="Returns\InventoryServices\IPickableInventoryReturn.cs" />
+    <Compile Include="Returns\InventoryServices\IPickableInventorySummaryReturn.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\ISalesOrderAcknowledgementReturn.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\ISalesOrderInvoice.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\ISalesOrderItemInternalAcknowledgement.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\ISalesOrderInternalAcknowledgementReturn.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\IPendingOrderDetails.cs" />
+    <Compile Include="Returns\IPickOrderItemReturn.cs" />
+    <Compile Include="Returns\IPickOrderDetailReturn.cs" />
+    <Compile Include="Returns\IInventoryPickOrderSummaryReturn.cs" />
+    <Compile Include="Returns\IntraWarehouseOrderService\IIntraWarehouseOrderDetailReturn.cs" />
+    <Compile Include="Returns\IntraWarehouseOrderService\IIntraWarehouseOrderSummaryReturn.cs" />
+    <Compile Include="Returns\InventoryAdjustmentsService\IInventoryAdjustmentReturn.cs" />
+    <Compile Include="Returns\InventoryAdjustmentsService\IInventoryAdjustmentItemReturn.cs" />
+    <Compile Include="Returns\InventoryServices\IInventorySummaryReturn.cs" />
+    <Compile Include="Returns\InventoryServices\IInventoryTransactionReturn.cs" />
+    <Compile Include="Returns\InventoryServices\ILotAttributeDefectReturn.cs" />
+    <Compile Include="Returns\InventoryServices\ILotAttributeReturn.cs" />
+    <Compile Include="Returns\InventoryServices\IInventoryProductReturn.cs" />
+    <Compile Include="Returns\InventoryServices\IInventoryReturn.cs" />
+    <Compile Include="Returns\InventoryServices\IInventoryTreatmentReturn.cs" />
+    <Compile Include="Returns\InventoryServices\ILotDefectReturn.cs" />
+    <Compile Include="Returns\InventoryServices\ILotDefectResolutionReturn.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\ICustomerNoteReturn.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\ICustomerNotesReturn.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\IInternalOrderAcknowledgementReturn.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\IInventoryShipmentOrderBillOfLadingReturn.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\IInventoryShipmentOrderCertificateOfAnalysisReturn.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\IInventoryShipmentOrderPackingListReturn.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\IInventoryShipmentOrderPickSheetReturn.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\IShipmentOrderSummaryReturn.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\IInventoryShipmentOrderItemAnalysisReturn.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\IPackingListPickedInventoryItem.cs" />
+    <Compile Include="Returns\InventoryShipmentOrderService\IPickSheetItemReturn.cs" />
+    <Compile Include="Returns\IPickedInventoryItemReturn.cs" />
+    <Compile Include="Returns\IPickedInventoryDetailReturn.cs" />
+    <Compile Include="Returns\IPickedInventorySummaryReturn.cs" />
+    <Compile Include="Returns\LotService\ICreateLotDefectReturn.cs" />
+    <Compile Include="Returns\LotService\IDehydratedMaterialsReceivedItemBaseReturn.cs" />
+    <Compile Include="Returns\LotService\ILotContractAllowanceReturn.cs" />
+    <Compile Include="Returns\LotService\ILotCustomerAllowanceReturn.cs" />
+    <Compile Include="Returns\LotService\ILotCustomerOrderAllowanceReturn.cs" />
+    <Compile Include="Returns\LotService\ILotStatInfoReturn.cs" />
+    <Compile Include="Returns\LotService\ILotSummaryReturn.cs" />
+    <Compile Include="Returns\LotService\IWeightedLotAttributeReturn.cs" />
+    <Compile Include="Returns\LotService\IDehydratedInputReturn.cs" />
+    <Compile Include="Returns\LotService\ILabReportChileLotReturn.cs" />
+    <Compile Include="Returns\LotService\ILabReportChileProduct.cs" />
+    <Compile Include="Returns\LotService\ILabReportReturn.cs" />
+    <Compile Include="Returns\LotService\ILotBaseReturn.cs" />
+    <Compile Include="Returns\LotService\ILotQualitySingleSummaryReturn.cs" />
+    <Compile Include="Returns\LotService\ILotQualitySummariesReturn.cs" />
+    <Compile Include="Returns\LotService\ILotQualitySummaryReturn.cs" />
+    <Compile Include="Returns\MillAndWetdownService\IMillAndWetdownDetailReturn.cs" />
+    <Compile Include="Returns\MillAndWetdownService\IMillAndWetdownPickedItemReturn.cs" />
+    <Compile Include="Returns\MillAndWetdownService\IMillAndWetdownResultItemReturn.cs" />
+    <Compile Include="Returns\MillAndWetdownService\IMillAndWetdownSummaryReturn.cs" />
+    <Compile Include="Returns\NotebookService\INotebookReturn.cs" />
+    <Compile Include="Returns\NotebookService\INoteReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\IChileProductAdditiveIngredientSummaryReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\ICreateProductionBatchReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\IPackScheduleBaseParametersReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\IPackScheduleBaseReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\IPackScheduleDetailReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\IPackSchedulePickSheetReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\IPackScheduleSummaryReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\IProductionBatchDetailReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\IProductionBatchForPickingReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\IProductionBatchMaterialsSummaryReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\IProductionBatchPackagingMaterialSummaryReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\IProductionBatchSummaryReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\IProductionPacketBatchReturn.cs" />
+    <Compile Include="Returns\PackScheduleService\IProductionPacketReturn.cs" />
+    <Compile Include="Returns\ProductionResultsService\IProductionAdditiveInputsReportReturn.cs" />
+    <Compile Include="Returns\ProductionResultsService\IProductionRecapReportReturn.cs" />
+    <Compile Include="Returns\ProductionResultsService\IProductionResultBaseReturn.cs" />
+    <Compile Include="Returns\ProductionResultsService\IProductionResultDetailReturn.cs" />
+    <Compile Include="Returns\ProductionResultsService\IProductionResultItemReturn.cs" />
+    <Compile Include="Returns\ProductionResultsService\IProductionResultSummaryReturn.cs" />
+    <Compile Include="Returns\ProductionScheduleService\IProductionScheduleDetailReturn.cs" />
+    <Compile Include="Returns\ProductionScheduleService\IProductionScheduleReportReturn.cs" />
+    <Compile Include="Returns\ProductionScheduleService\IProductionScheduleSummaryReturn.cs" />
+    <Compile Include="Returns\ProductionScheduleService\IScheduledProductionBatchReturn.cs" />
+    <Compile Include="Returns\ProductionService\IWorkTypeReturn.cs" />
+    <Compile Include="Returns\ProductService\IAdditiveProductReturn.cs" />
+    <Compile Include="Returns\ProductService\IAdditiveTypeReturn.cs" />
+    <Compile Include="Returns\ProductService\IChileProductDetailReturn.cs" />
+    <Compile Include="Returns\ProductService\IChileProductReturn.cs" />
+    <Compile Include="Returns\ProductService\IChileTypeSummaryReturn.cs" />
+    <Compile Include="Returns\ProductService\IPackagingProductReturn.cs" />
+    <Compile Include="Returns\ProductService\IProductAttributeRangeReturn.cs" />
+    <Compile Include="Returns\ProductService\IProductIngredientReturn.cs" />
+    <Compile Include="Returns\ProductService\IProductKeyNameReturn.cs" />
+    <Compile Include="Returns\ProductService\IProductReturn.cs" />
+    <Compile Include="Returns\LotService\IResolutionsByDefectTypeReturn.cs" />
+    <Compile Include="Returns\SalesService\ISalesQuoteDetailReturn.cs" />
+    <Compile Include="Returns\SalesService\ISalesQuoteItemReturn.cs" />
+    <Compile Include="Returns\SalesService\ISalesQuoteSummaryReturn.cs" />
+    <Compile Include="Returns\SampleOrderService\ISalesQuoteReportReturn.cs" />
+    <Compile Include="Returns\SampleOrderService\ISampleOrderMatchingSummaryReportReturn.cs" />
+    <Compile Include="Returns\SampleOrderService\ISampleOrderDetailReturn.cs" />
+    <Compile Include="Returns\SampleOrderService\ISampleOrderItemMatchReturn.cs" />
+    <Compile Include="Returns\SampleOrderService\ISampleOrderItemReturn.cs" />
+    <Compile Include="Returns\SampleOrderService\ISampleOrderItemSpecReturn.cs" />
+    <Compile Include="Returns\SampleOrderService\ISampleOrderJournalEntryReturn.cs" />
+    <Compile Include="Returns\SampleOrderService\ISampleOrderRequestReportReturn.cs" />
+    <Compile Include="Returns\SampleOrderService\ISampleOrderSummaryReturn.cs" />
+    <Compile Include="Returns\SampleOrderService\IUserSummaryReturn.cs" />
+    <Compile Include="Returns\TreatmentOrderService\ITreatmentOrderDetailReturn.cs" />
+    <Compile Include="Returns\TreatmentOrderService\ITreatmentOrderSummaryReturn.cs" />
+    <Compile Include="Returns\WarehouseOrderService\IInventoryShipmentOrderSummaryReturn.cs" />
+    <Compile Include="Returns\WarehouseOrderService\IInventoryShipmentOrderDetailReturn.cs" />
+    <Compile Include="Returns\WarehouseService\IFacilityDetailReturn.cs" />
+    <Compile Include="Returns\WarehouseService\ILocationReturn.cs" />
+    <Compile Include="Returns\WarehouseService\IFacilitySummaryReturn.cs" />
+    <Compile Include="Returns\WarehouseService\IShippingLabelReturn.cs" />
+    <Compile Include="ServiceCompositions\IPickInventoryServiceComponent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RioValleyChili.Core\RioValleyChili.Core.csproj">
+      <Project>{b4a2b7da-4f15-4b75-a65f-025c32564ea0}</Project>
+      <Name>RioValleyChili.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favico-32x32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,43 @@
+﻿<div class="fxs-portal-content fxs-panorama">
+    <div class="fxs-panorama-homearea">
+        <header class="fxs-panable">
+            <div class="fxs-panorama-title">
+                <h1>Rio Valley Chili, Inc.</h1>
+            </div>
+            <!-- ko compose: {view: 'avatarMenu' } --><!-- /ko -->
+        </header>
+        
+        <section data-bind="compose: {model: 'viewModels/startboard', activate: false }, click: startboardItemClicked"></section>
+        
+    </div>
+    
+    <!-- ko with: selectedStartboardItem -->
+    <div class="fxs-journey-target fxs-journey">
+        <div class="fxs-journey-layout fxs-stacklayout fxs-stacklayout-horizontal">
+            <!-- ko foreach: { data: context.path, afterAdd: function() { func._afterAddChild.apply(func, arguments);} } -->
+            <div class="fxs-stacklayout-child" data-bind="compose: { model: $data, transition: 'entrance'}"></div>
+            <!-- /ko -->
+        </div>
+    </div>
+    <!-- /ko -->
+</div>
+
+<div class="fxs-portal-nav fxs-jumpBar">
+    <div class="fxs-jumpBar-container">
+        <div class="fxs-jumpBar-hub fxs-hubPane"></div>
+        <div class="fxs-jumpBar-nav fxs-navbar">
+            <div class="fxs-navbar-buttons">
+                <div class="fxs-navbar-start fxs-hubIcon">
+                    <a href="#">
+                        <div class="fxs-navbar-img fxs-hubIcon-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 21">
+                                <path class="msportalfx-svg-c01" d="M 26 14.99 c 0 -1.662 -1.347 -3.01 -3.009 -3.01 c -0.125 0 -0.248 0.01 -0.368 0.025 c 0.185 -0.676 0.286 -1.387 0.286 -2.121 c 0 -4.432 -3.592 -8.024 -8.024 -8.024 c -3.54 0 -6.542 2.293 -7.607 5.474 C 6.715 7.14 6.113 7.029 5.485 7.029 C 2.455 7.029 0 9.485 0 12.514 C 0 15.544 2.455 18 5.485 18 c 0.003 0 0.005 -0.001 0.007 -0.001 V 18 h 17.745 l -0.004 -0.013 C 24.782 17.864 26 16.571 26 14.99 Z" />
+                            </svg>
+                        </div>
+                        <div class="fxs-hubIcon-buttonText">Home</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

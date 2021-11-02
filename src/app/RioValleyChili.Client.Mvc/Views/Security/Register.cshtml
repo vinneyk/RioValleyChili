@@ -1,0 +1,49 @@
+@model RioValleyChili.Client.Mvc.Models.Security.RegisterModel
+
+@{
+    Html.SetPageTitles("Employee Registration", "Register Employee", "Use the form below to register an employee.");
+}
+
+<p class="message-info">
+    Passwords are required to be a minimum of @Membership.MinRequiredPasswordLength characters in length.
+</p>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm(MVC.Security.Register())) {
+    @Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.")
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <ol class="tabular">
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword)
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.EmployeeKey)
+                @Html.TextBoxFor(m => m.EmployeeKey)
+                @Html.ValidationMessageFor(m => m.EmployeeKey)
+                <span style="margin-left: 175px; padding: 5px; font-style: italic; color: #666; display: block; font-weight:lighter;">If this is a new employee, leave Employee ID empty.</span>
+            </li>
+        </ol>
+        <input type="submit" value="Register" />
+    </fieldset>
+}

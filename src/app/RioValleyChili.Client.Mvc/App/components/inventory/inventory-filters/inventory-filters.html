@@ -1,0 +1,36 @@
+<!-- 7 filters, don't foreach as inputs for now -->
+<fieldset>
+  <input type="button" value="Load more products" data-bind="click: fetchNextPage">
+  <legend>
+    Filters
+  </legend>
+  <div class="form-group form-group-sm">
+    <label class="control-label" for="filters-inventory-type">Type</label>
+    <select class="form-control" id="filters-inventory-type" name="Inventory Type" data-bind="value: inventoryType, options: inventoryType.options, optionsText: 'key', optionsCaption: ' '"></select>
+  </div>
+  <div class="form-group form-group-sm">
+    <label class="control-label" for="filters-lot-type">Lot Type</label>
+    <select class="form-control" id="filters-lot-type" name="Lot Type" data-bind="value: lotType, options: lotTypeOptions, optionsText: 'value', optionsCaption: ' '"></select>
+  </div>
+  <div class="form-group form-group-sm">
+    <label class="control-label" for="filters-ingredient-type">Ingredient</label>
+    <select class="form-control" id="filters-ingredient-type" name="Ingredient Type" data-bind="value: ingredientType, options: ingredientTypeOptions, optionsText: 'Description', optionsCaption: ' ', enable: hasIngredients"></select>
+  </div>
+  <div class="form-group form-group-sm">
+    <label class="control-label" for="filters-product-type">Product</label>
+    <select class="form-control" id="filters-product-type" name="Product Type" data-bind="value: productKey, options: productKeyOptions, optionsText: 'ProductCodeAndName', optionsCaption: ' '"></select>
+  </div>
+  <div class="form-group form-group-sm">
+    <label class="control-label" for="filters-packaging-product">Packaging</label>
+    <select class="form-control" id="filters-packaging-product" name="Packaging Product" data-bind="value: packagingProductKey, options: packagingProductKeyOptions, optionsText: 'ProductNameFull', optionsCaption: ' '"></select>
+  </div>
+  <div class="form-group form-group-sm">
+    <label class="control-label" for="filters-treatment-type">Treatment</label>
+    <select class="form-control" id="filters-treatment-type" name="Treatment Type" data-bind="value: treatmentKey, options: treatmentKey.options, optionsText: 'value', optionsCaption: ' '"></select>
+  </div>
+  <div class="form-group form-group-sm">
+    <label class="control-label" for="filters-lot">Lot</label>
+    <input class="form-control" id="filters-lot" type="text" data-bind="value: lotKey.formattedLot, valueUpdate: 'keypress'">
+  </div>
+</fieldset>
+

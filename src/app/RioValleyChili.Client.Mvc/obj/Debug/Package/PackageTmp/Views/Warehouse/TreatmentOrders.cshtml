@@ -1,0 +1,202 @@
+﻿@{
+    Layout = "~/Views/Shared/_WebPackLayout.cshtml";
+    Html.SetPageTitles("Inventory Treatment Orders", "Inventory Treatment Orders");
+}
+
+@section controlPanel
+{
+    <!-- ko if: currentEditorItem -->
+    <fieldset>
+        <legend><i class="fa fa-gear"></i> Treatment Order</legend>
+        <div data-bind="slideVisible: isEditorControlsShowing">
+            <input type="button" value="Delete" data-bind="command: deleteOrder, visible: !isNewMovement()" class="btn btn-danger delete">
+            <input type="button" value="Save Changes" data-bind="command: saveCommand" class="btn btn-primary">
+            <input type="button" value="Cancel" data-bind="command: cancelCommand" class="btn btn-warning">
+            <input type="button" value="Post and Close" data-bind="command: showPostAndCloseCommand, visible: showPostAndCloseCommand.canExecute" class="btn btn-default">
+            <input type="button" value="Return from Treatment" data-bind="click: setTreatmentModal, visible: isReceiveEnabled" class="btn btn-success">
+            <input type="button" value="Pick Inventory" data-bind="command: pickForItemCommand, visible: pickForItemCommand.canExecute" class="btn btn-default">
+        </div>
+        <div data-bind="slideVisible: isPostAndCloseShowing">
+            <input type="button" value="Save" data-bind="command: postAndCloseCommand">
+            <input type="button" value="Cancel" data-bind="command: cancelPostAndCloseCommand">
+        </div>
+    </fieldset>
+    <!-- /ko -->
+
+    <!-- ko if: isPickerLoaded -->
+    <div data-bind="visible: isPickerShowing">
+        <input type="button" value="Save" data-bind="command: inventoryPickerExports().saveCommand">
+        <input type="button" value="Revert" data-bind="command: inventoryPickerExports().revertCommand">
+        <input type="button" value="Cancel" data-bind="command: cancelPickerCommand">
+    </div>
+    <!-- /ko -->
+
+    <!-- ko ifnot: currentEditorItem -->
+    <fieldset data-bind="if: summaryExports">
+        <legend><i class="fa fa-gear"></i> Treatment Controls</legend>
+        <input type="button" value="Load More Results" data-bind="command: getNextResultsPageCommand">
+        <input type="button" value="New Treatment Order" data-bind="command: createNewMovement">
+
+        <div class="input-group">
+            <form data-bind="submit: searchForKey">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Go!</button>
+                    </span>
+                    <input class="reset form-control" type="text" placeholder="Transfer number..." data-bind="valueUpdate: 'input', value: searchBoxValue">
+                </div>
+            </form>
+            <br>
+
+            <ul class="link-list">
+                <li><a href="#shipped-orders">View Shipped Orders</a></li>
+                <li><a href="#unshipped-orders">View Pending Orders</a></li>
+                <li><a href="#received-orders">View Received Orders</a></li>
+            </ul>
+        </div>
+
+    </fieldset>
+    <!-- /ko -->    
+
+
+    <!-- ko if: isShowingReports -->
+    <fieldset data-bind="visible: currentEditorItem">
+        <legend><i class="fa fa-clipboard"></i> Reports</legend>
+
+        <!-- ko foreach: currentEditorItem().reports -->
+        <a data-bind="attr: { href: url }, text: name" class="button"></a>
+        <!--/ko -->
+    </fieldset>
+    <!--/ko -->
+    <!-- ko if: currentMovement -->
+    <fieldset data-bind="slideVisible: isFiltersShowing">
+        <legend><i class="fa fa-filter"></i> Filters</legend>
+        <input type="button" value="Load Inventory Items" data-bind="command: loadInventoryCommand"/>
+        <div class="checkbox">
+            <label class="control-label">
+                <input type="checkbox" data-bind="checked: filterHoldForTreatment" id="filter-hold-for-treatment" /> Filter TBT
+            </label>
+        </div>
+        <inventory-filters params="input: filtersInput, enableFacilityFilter: true, exports: filtersExports, mode: 'inventory'"></inventory-filters>
+    </fieldset>
+    <!-- /ko -->
+
+    <fieldset data-bind="ifnot: currentEditorItem">
+        <legend><i class="fa fa-filter"></i> Filters</legend>
+        <div class="form-group form-group-sm">
+            <label class="control-label">Origin</label>
+            <select class="form-control" data-bind="value: filters.originFacilityKeyFilter, options: warehouses, optionsText: 'FacilityName', optionsValue: 'FacilityKey', optionsCaption: ' '"></select>
+        </div>
+
+        <div class="form-group form-group-sm">
+            <label class="control-label">Destination</label>
+            <select class="form-control" data-bind="value: filters.destinationFacilityKeyFilter, options: warehouses, optionsText: 'FacilityName', optionsValue: 'FacilityKey', optionsCaption: ' '"></select>
+        </div>
+
+        <div class="form-group form-group-sm">
+            <label class="control-label">Beginning Shipment Date</label>
+            <input type="text" class="form-control" data-bind="value: filters.beginningShipmentDateFilter, datePickerSm: true">
+        </div>
+
+        <div class="form-group form-group-sm">
+            <label class="control-label">Ending Shipment Date</label>
+            <input type="text" class="form-control" data-bind="value: filters.endingShipmentDateFilter, datePickerSm: true">
+        </div>
+
+        <div class="form-group form-group-sm">
+            <label class="control-label">Status</label>
+            <select class="form-control" data-bind="value: filters.shipmentStatusFilter, options: filters.shipmentStatusFilter.options, optionsText: 'value', optionsValue: 'key', optionsCaption: ' '"></select>
+        </div>
+        <input type="button" value="Apply Filters" data-bind="command: getNewResultsPageCommand">
+    </fieldset>
+
+}
+
+@section scripts
+{
+    <script src="~/App/build/treatmentOrders.bundle.js?v=@Html.AppVersion()"></script>
+}
+
+<loading-screen params="isVisible: isWorking, displayMessage: loadingMessage"></loading-screen>
+<div class="container-fluid">
+    <div data-bind="popup: currentEditorItem, closePopupCommand: cancelCommand">
+        <treatment-order-editor 
+            params="values: currentMovement,
+                    warehouseOptions: warehouses,
+                    rinconLocations: rinconLocations,
+                    pickCommand: pickForItemCommand,
+                    exports: treatmentOrderEditor">
+        </treatment-order-editor>
+
+        <div data-bind="popup: isPickerShowing, visible: isPickerShowing">
+            <inventory-picker params="args: inventoryPickerInputs.args,
+                pickedInventoryItems: inventoryPickerInputs.pickedInventoryItems,
+                pickingContext: inventoryPickerInputs.pickingContext,
+                pickingContextKey: inventoryPickerInputs.pickingContextKey,
+                filters: filtersExports,
+                pageSize: inventoryPickerInputs.pageSize,
+                customerKey: inventoryPickerInputs.customerKey,
+                customerLotCode: inventoryPickerInputs.customerLotCode,
+                customerProductCode: inventoryPickerInputs.customerProductCode,
+                exports: inventoryPickerExports">
+            </inventory-picker>
+        </div>
+    </div>
+
+    <treatment-order-summary
+        params="filters: filters, 
+                setTreatmentModal: setTreatmentModal, 
+                exports: summaryExports"></treatment-order-summary>
+</div>
+
+<div data-bind="popup: isPostAndCloseShowing, closePopupCommand: cancelPostAndCloseCommand">
+    <post-and-close-inventory-order params="pickedInventoryItems: inventoryPickerInputs.pickedInventoryItems,
+                                            orderKey: inventoryPickerInputs.pickingContextKey,
+                                            destinationLocationOptions: destinationWarehouseLocations,
+                                            requiresDestinationLocation: true,
+                                            exports: postAndCloseExports">
+    </post-and-close-inventory-order>
+</div>
+
+<div class="modal fade" id="treatmentModal" tabindex="-1" role="dialog" aria-labelledby="treatmentModalLabel" style="z-index: 105000">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="treatmentModalLabel">Receive Order</h4>
+            </div>
+            <div class="modal-body form-horizontal" data-bind="with: treatmentModal">
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="">Order #</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" data-bind="value: orderNumber" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="">Treatment Facility</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" data-bind="value: treatmentFacility" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="">Treatment Applied</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" data-bind="value: treatmentApplied" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="">Placed in Row</label>
+                    <div class="col-sm-9">
+                        <select id="" class="form-control" data-bind="value: placedInRow, options: $parent.rinconLocations, optionsText: 'Description', optionsValue: 'LocationKey', optionsCaption: ' '"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bind="command: receiveTreatmentOrderCommand">Receive Order</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<loading-screen params="isVisible: postAndCloseCommand.isExecuting, displayMessage: 'Posting Treatment Order...'"></loading-screen>

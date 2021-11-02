@@ -1,0 +1,30 @@
+﻿<hgroup>
+    <h2 data-bind="text: customer().Name"></h2>
+    <h3 data-bind="text: product().ProductNameFull"></h3>
+</hgroup>
+
+<table class="condensed">
+    <thead>
+        <tr>
+            <th></th>
+            <th colspan="2" style="text-align: center">Min Value</th>
+            <th colspan="2" style="text-align: center">Max Value</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>Cust. Spec</th>
+            <th class="calc">Prod. Spec</th>
+            <th>Cust. Spec</th>
+            <th class="calc">Prod. Spec</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: currentCustomerSpec">
+        <tr>
+            <td data-bind="text: key"></td>
+            <td><input class="short" data-bind="value: customerSpecMinValue" /></td>
+            <td data-bind="text: productSpecMinValue" class="calc"></td>
+            <td><input class="short" data-bind="value: customerSpecMaxValue" /></td>
+            <td data-bind="text: productSpecMaxValue" class="calc"></td>
+        </tr>
+    </tbody>
+</table>

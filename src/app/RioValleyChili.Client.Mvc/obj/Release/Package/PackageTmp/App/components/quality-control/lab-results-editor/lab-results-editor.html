@@ -1,0 +1,155 @@
+﻿<!-- ko with: labResult -->
+<div class="row">
+  <div class="col-lg-8">
+    <div class="row">
+      <div class="form-group col-sm-6 col-md-4">
+        <label for="editor-quality-status">Attribute Status</label>
+        <div class="dropdown">
+          <button id="dLabel" class="btn btn-default btn-block btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <!-- ko text: header.qualityStatus.displayValue --><!-- /ko -->
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" data-bind="foreach: { data: lotStatuses, as: 'status' }" aria-labelledby="dLabel">
+            <li>
+              <button type="button" class="btn btn-link" data-bind="text: status.value,
+                click: $parents[1].overrideLotStatus">
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="form-group col-sm-6 col-md-4">
+        <label for="editor-production-status">Production Status</label>
+        <p class="form-control-static" data-bind="text: header.productionStatus.displayValue"></p>
+      </div>
+      <div class="form-group col-sm-6 col-md-4">
+        <label for="editor-customer">Customer</label>
+        <p class="form-control-static" data-bind="text: header.customer"></p>
+      </div>
+      <div class="form-group col-sm-6 col-md-4">
+        <label for="editor-old-lot-stat">Access LotStat</label>
+        <p class="form-control-static">
+          <kbd data-bind="text: header.oldSystemLotStat"></kbd>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="row">
+      <div class="form-group col-xs-12">
+        <label for="editor-notes">Notes</label>
+        <textarea id="editor-notes" class="form-control vertical-resize" rows="5" data-bind="value: header.notes"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#editor-attrs-tab" role="tab" data-toggle="tab">Attributes</a></li>
+      <li role="presentation"><a href="#editor-notes-tab" role="tab" data-toggle="tab">Hold <span class="badge" data-bind="visible: cacheData.holdType">!</span></a></li>
+      <li role="presentation"><a href="#allowances-tab" role="tab" data-toggle="tab">Allowances <span class="badge" data-bind="text: allowancesEditor.totalAllowances">0</span></a></li>
+    </ul>
+    <!-- /Nav Tabs -->
+    <br>
+
+    <!-- Tab panes -->
+    <section class="tab-content">
+      <section role="tabpanel" class="tab-pane active" id="editor-attrs-tab">
+        <div class="container-fluid">
+          <div class="table-responsive" data-bind="visible: attrs().length > 0">
+            <table class="table table-condensed" id="lab-result-editor-table" data-bind="validationOptions: $parent.validationOpts, tabOnEnter: true">
+              <thead class="no-text-wrap">
+                <tr>
+                  <th>Name</th>
+                  <th class="lr-table-head">Spec</th>
+                  <th></th>
+                  <th class="lr-table-head">Value</th>
+                  <th class="lr-table-head">Date</th>
+                  <th>Defect Resolution</th>
+                </tr>
+              </thead>
+              <tbody data-bind="foreach: attrs">
+                <tr data-bind="css: defectClass">
+                  <th style="width: 100px" class="no-text-wrap" data-bind="text: AttributeKey"></th>
+                  <td class="no-text-wrap"><span data-bind="text: MinValue | toNumber "></span> - <span data-bind="text: MaxValue | toNumber "></span></td>
+                  <td style="width: 20px"><i data-bind="attr: { class: 'fa fa-fw ' + (NewValue() == null ? 'fa-ban' : (isTheoreticalValue() ? 'fa-calculator' : 'fa-flask')) }" /></td>
+                  <td style="width: 150px" class="no-text-wrap">
+                    <input type="text" class="form-control" data-bind="fixed: NewValue, enable: isEditable, decimalOptions: { precision: 3, commas: true }">
+                  </td>
+                  <td class="no-text-wrap" data-bind="validationElement: AttributeDate"><input type="text" class="form-control" data-bind="value: AttributeDate, enable: isEditable"></td>
+                  <td>
+                    <!-- ko if: showResolution -->
+                    <span data-bind="with: Resolution">
+                      {{ ResolutionType.displayValue }}: {{ Description }}
+                    </span>
+                    <!-- /ko -->
+                    <!-- ko if: showDefectResolutionUI -->
+                    <div data-bind="with: Resolution">
+                      <div class="input-group" data-bind="validationElement: ResolutionType">
+                        <div class="input-group-btn">
+                          <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bind="css: ResolutionType.isValid() ? 'btn-default' : 'btn-danger'"><!-- ko text: ResolutionType.displayValue() || 'Select type' --><!-- /ko --> <span class="caret"></span></button>
+                          <ul class="dropdown-menu" data-bind="foreach: ResolutionType.options">
+                            <li><a href="#" data-bind="click: $parent.setResolutionType, text: $data.value"></a></li>
+                          </ul>
+                        </div>
+                        <input type="text" class="form-control" data-bind="value: Description">
+                        <div class="input-group-btn">
+                          <button class="btn btn-default" data-bind="command: $parent.cancelResolution, visible: $parent.isResolving">&times;</button>
+                        </div>
+                      </div>
+                      <span class="validationMessage" data-bind="validationMessage: ResolutionType"></span>
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko if: resolveDefect.canExecute -->
+                    <button class="btn btn-default btn-block btn-sm" data-bind="command: resolveDefect">Resolve</button>
+                    <!-- /ko -->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bg-warning well">
+            <label>
+              <input type="checkbox" data-bind="checked: OverrideOldContextLotAsCompleted"> Accept all defects
+            </label>
+          </div>
+
+        </div>
+      </section>
+      <section role="tabpanel" class="tab-pane" id="editor-notes-tab">
+        <div class="container-fluid" data-bind="with: qualityHold">
+          <div class="row">
+            <div class="col-xs-12">
+              <label>Quality Hold</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <select class="form-control" data-bind="value: holdType, options: holdType.options, optionsText: 'value', optionsValue: 'key', optionsCaption: '-Select hold type-'"></select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12" data-bind="slideVisible: holdType() != null">
+              <div class="form-group">
+                <textarea class="form-control vertical-resize" data-bind="value: description" rows="5" placeholder="Description"></textarea>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="pull-right"><button class="btn btn-primary" data-bind="command: $parents[1].saveQualityHold">Save Quality Hold</button></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section role="tabpanel" class="tab-pane" id="allowances-tab">
+        <allowances-editor params="input: allowancesEditor.input, exports: allowancesEditor.exports">
+      </section>
+    </section>
+  </div>
+</div>
+<!-- /ko -->

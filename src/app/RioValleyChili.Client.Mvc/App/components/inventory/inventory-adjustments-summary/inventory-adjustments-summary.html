@@ -1,0 +1,24 @@
+﻿<section>
+  <div class="panel panel-default">
+    <div class="table-responsive">
+      <table class="table table-hover table-condensed no-wrap">
+        <thead>
+          <tr>
+            <th>Adjustment Key</th>
+            <th class="text-right">Date</th>
+            <th class="text-right">Adj. Count</th>
+            <th style="width: 100%">User</th>
+          </tr>
+        </thead>
+        <tbody class="clickable" data-bind="foreach: adjustmentSummaries, click: selectSummary">
+          <tr>
+            <td data-bind="text: InventoryAdjustmentKey"></td>
+            <td class="text-right" data-bind="text: AdjustmentDate | toDate"></td>
+            <td class="text-right" data-bind="text: Items && Items.length | number"></td>
+            <td data-bind="text: User"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

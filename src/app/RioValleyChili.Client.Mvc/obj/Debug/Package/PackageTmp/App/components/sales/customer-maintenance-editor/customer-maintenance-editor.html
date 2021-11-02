@@ -1,0 +1,132 @@
+﻿<!-- ko with: editor -->
+<section data-bind="with: companyData">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group" data-bind="validationElement: CompanyName">
+            <label class="control-label" for="editor-company-name">Company Name</label>
+            <input class="form-control" id="editor-company-name" type="text" data-bind="textinput: CompanyName, enable: $parent.isNew">
+          </div>
+          <div class="form-group" data-bind="visible: $parent.isCustomer">
+            <label>Broker</label>
+            <product-selector
+              params="selectedValue: BrokerCompany,
+                productsSource: $parent.options.brokers,
+                optionsDisplay: 'Name',
+                optionsValue: 'CompanyKey'">
+            </product-selector>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input class="checkbox" id="editor-company-name" type="checkbox" data-bind="checked: Active">
+              Active
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-6" data-bind="validationElement: CompanyTypes, validationOptions: { decorateElementOnModified: false } ">
+          <label class="control-label">Company Types</label>
+          <div class="row">
+            <ul class="list-unstyled" data-bind="foreach: CompanyTypes">
+              <li class="col-sm-6 col-md-4">
+              <div class="checkbox">
+                <label class="break-word">
+                  <input class="checkbox" id="editor-company-name" type="checkbox" data-bind="checked: value">
+                  <span class="no-word-break" data-bind="text: name"></span>
+                </label>
+              </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-bind="if: !isNew">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Contact Editor</h3>
+    </div>
+    <div class="panel-body">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#contacts" aria-controls="contacts" role="tab" data-toggle="tab">Contacts</a></li>
+        <li role="presentation" data-bind="visible: isCustomer"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile Notes</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <br>
+        <div role="tabpanel" class="tab-pane active" id="contacts" data-bind="with: contactEditorData">
+          <contact-picker
+            params="companyKey: companyKey,
+            options: options,
+              selected: selected">
+          </contact-picker>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4 class="panel-title">Profile Notes</h4>
+            </div>
+            <div class="panel-body">
+              <button class="btn btn-default btn-sm pull-right" data-bind="click: startNewNote, visible: !noteEditorData()"><i class="fa fa-plus"></i> Add Note</button>
+
+              <!-- ko with: noteEditorData -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h5 class="panel-title" data-bind="text: NoteKey ? 'Edit Note' : 'New Note'">New Note</h5>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label class="control-label" for="editor-new-note">Note Type</label>
+                    <input type="text" class="form-control"
+                      data-bind="value: NoteType,
+                        autocomplete: {
+                          source: $parent.options.noteTypes,
+                          autoFocus: true,
+                          allowNewValues: true }">
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="editor-new-note">Note</label>
+                    <textarea id="editor-new-note" class="form-control vertical-resize" rows="5" data-bind="textinput: Text"></textarea>
+                  </div>
+                </div>
+                <div class="panel-footer text-right">
+                  <button class="btn btn-default" data-bind="click: $parent.cancelNote">Close</button>
+                  <button class="btn btn-primary" data-bind="command: $parent.saveNote">Save</button>
+                </div>
+              </div>
+              <!-- /ko -->
+
+              <div class="well" data-bind="visible: profileNotes().length === 0">No profile notes have been made</div>
+            </div>
+            <div class="table-responsive" data-bind="visible: profileNotes().length > 0">
+              <table class="table table-hover clickable">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Date</th>
+                    <th>User</th>
+                    <th>Type</th>
+                    <th style="width: 100%">Note</th>
+                  </tr>
+                </thead>
+                <tbody data-bind="foreach: profileNotes, click: editNote">
+                  <tr>
+                    <td class="valign-middle"><button class="btn btn-link" data-bind="click: $parent.deleteNote, clickBubble: false"><i class="fa fa-times"></i></button></td>
+                    <td class="valign-middle" data-bind="text: TimeStamp | toDate"></td>
+                    <td class="valign-middle" data-bind="text: CreatedByUser.Name"></td>
+                    <td class="valign-middle" data-bind="text: NoteType"></td>
+                    <td class="valign-middle" data-bind="text: Text"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /ko -->

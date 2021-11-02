@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "ObservableDate Tests";
+}
+
+<h2>ObservableDate Tests</h2>
+
+@section tests
+{
+    <script src="http://code.jquery.com/qunit/qunit-1.11.0.js"></script>
+    <script src="~/Scripts/knockout-2.3.0.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date-format.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date.parse.js"></script>
+    <script src="~/Scripts/ko.extenders.date.js"></script>
+    <script src="~/Scripts/sh.knockout.customObservables.js"></script>
+    <script type="text/javascript">
+
+        module("Initialization Tests");
+
+        test("Value is null when initialized without value parameter.",
+            function() {
+                var systemUnderTest = ko.observableDate();
+                ok("Initialized ok.");
+                equal(null, systemUnderTest());
+            });
+
+        test("Value is correct when initialized with valid date object.",
+            function () {
+                var val = new Date();
+                var systemUnderTest = ko.observableDate(val, 'm/d/yyyy');
+                equal(systemUnderTest(), val.format('m/d/yyyy'));
+            });
+
+        test("Value is correct when initialized with valid date string.",
+            function() {
+                var systemUnderTest = ko.observableDate('1/1/2014', 'm/d/yyyy');
+                equal(systemUnderTest(), '1/1/2014');
+            });
+
+        test("Time is truncated when initialized with valid datetime string.",
+            function() {
+                var systemUnderTest = ko.observableDate('1/1/2014 8:00 PM', 'm/d/yyyy');
+                equal(systemUnderTest(), '1/1/2014');
+            });
+
+        test("Value is set properly when initialized with valid ISO formatted date.",
+            function() {
+                var systemUnderTest = ko.observableDate("2013-10-08T12:50:00", 'm/d/yyyy');
+                equal(systemUnderTest(), '10/8/2013');
+            });
+        
+        test("When format parameter is omitted, default format is applied.",
+            function() {
+                var date = new Date();
+                var systemUnderTest = ko.observableDate(date);
+                equal(systemUnderTest(), date.format(ko.observableDate.defaultFormat));
+            });
+
+
+        module("Updating Observable");
+
+        test("Updated value has truncated time when value is valid date time.",
+            function() {
+                var systemUnderTest = ko.observableDate();
+                systemUnderTest('5/17/1983 9:00 PM');
+                equal(systemUnderTest(), '5/17/1983');
+            });
+
+        test("Updated value is null when input is invalid.",
+            function() {
+                var systemUnderTest = ko.observableDate();
+                systemUnderTest('blah');
+                equal(systemUnderTest(), null);
+            });
+
+        test("Updated Value is set properly when with valid ISO formatted date.",
+            function () {
+                var systemUnderTest = ko.observableDate(null, 'm/d/yyyy');
+                systemUnderTest("2013-10-08T12:50:00");
+                equal(systemUnderTest(), '10/8/2013');
+            });
+
+
+        
+    </script>
+}

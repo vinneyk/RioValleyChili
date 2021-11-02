@@ -1,0 +1,107 @@
+﻿@{
+    Html.PushJavaScriptResource(Url.Content("~/Scripts/app/helpers/ajaxStatusHelper.js"));
+    Html.PushJavaScriptResource(Url.Content("~/Scripts/app/helpers/EsmHelper.js"));
+    Html.PushJavaScriptResource(Url.Content("~/Scripts/app/viewModels/inventoryOrders/inventoryPickOrderViewModel.js"));
+}
+
+<style>
+    a.change-type {
+        display: inline-block;
+        white-space: nowrap;
+        font-size: .8em;
+        line-height: 1em;
+    }
+</style>
+
+@Html.Partial("ScriptTemplates/_ResultsScriptTemplates")
+
+<script type="text/html" id="inventory-pick-order">
+    <section data-bind="with: InventoryPickOrderViewModel">
+        <!-- ko template: { name: 'result-messages-template', data: saveCommand.results } -->
+        <!-- /ko -->
+
+        <fieldset>
+            <legend>Inventory Pick Order</legend>            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Treatment</th>
+                        <th>Packaging</th>
+                        <th>Quantity</th>
+                        <th>Weight</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody data-bind="template: { name: 'pick-order-item', foreach: PickOrderItems }"></tbody>
+                <tbody data-bind="template: { name: 'pick-order-item-new', foreach: newItems, if: isEditing }"></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"></td>
+                        <td data-bind="text: TotalQuantityPicked"></td>
+                        <td data-bind="text: TotalWeightPicked" style="white-space: nowrap"></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </fieldset>
+    </section>
+
+</script>
+
+<script type="text/html" id="pick-order-item">
+    <tr>
+        <td data-bind="text: ProductName"></td>
+        <td data-bind="text: TreatmentKey.displayValue"></td>
+        <td data-bind="text: ProductName"></td>
+
+        <!-- ko if: $parent.isEditing -->
+        <td><input type="number" data-bind="value: Quantity"/></td>
+        <td data-bind="text: TotalWeight"></td>
+        <td><input type="button" data-bind="command: $parent.removeItemCommand" value="Remove" /></td>
+        <!-- /ko -->
+
+        <!-- ko ifnot: $parent.isEditing -->
+        <td data-bind="text: Quantity"></td>
+        <td data-bind="text: TotalWeight" colspan="2"></td>
+        <!-- /ko -->
+    </tr>
+</script>
+
+<script type="text/html" id="pick-order-item-new">
+    <tr data-bind="if: !ProductType()">
+        <td colspan="6" style="font-style: italic; background-color: #D5D5D5;">            
+            <label for="productType">Add New Order Item</label>
+            <select id="productType" data-bind="value: ProductType, options: ProductType.options, optionsText: 'value', optionsCaption: ' ', optionsValue: 'key'"></select>
+        </td>
+    </tr>    
+    <tr data-bind="if: ProductType()" style="vertical-align: top; line-height: 2.2em">
+        <td>
+            <select data-bind="options: productOptions, optionsText: 'ProductFullName', optionsCaption: ' ', value: Product"></select>
+            <a href="#" class="change-type" data-bind="click: function () { ProductType(null); }">Change Product Type</a>
+        </td>
+        <td><select data-bind="options: TreatmentKey.options, value: TreatmentKey, optionsText: 'value', optionsValue: 'key'"></select></td>
+        <td><select data-bind="options: $parent.packagingProductOptions, optionsText: 'ProductName', optionsCaption: ' ', value: Packaging"></select></td>
+        <td><input type="number" data-bind="value: Quantity" /></td>
+        <td data-bind="text: TotalWeight"></td>
+        <td><input type="button" value="Remove" data-bind="click: $parent.removeItem" /></td>
+    </tr>    
+</script>
+
+<script id="inventory-pick-order-controls" type="text/html">
+    <!-- ko with: InventoryPickOrderViewModel -->
+    <input type="button" data-bind="command: saveCommand, visible: !saveCommand.ignore()" value="Save" class="save" />
+    <!-- ko template: { name: 'inventory-pick-order-controls-base' } --><!-- /ko -->
+    <!-- /ko -->
+</script>
+
+<script id="inventory-pick-order-controls-nosave" type="text/html">
+    <!-- ko with: InventoryPickOrderViewModel -->
+    <!-- ko template: { name: 'inventory-pick-order-controls-base' } --><!-- /ko -->
+    <!-- /ko -->
+</script>
+
+<script id="inventory-pick-order-controls-base" type="text/html">
+    <input type="button" data-bind="command: beginEditingCommand, visible: beginEditingCommand.canExecute" value="Edit Pick Order" />
+    <input type="button" data-bind="command: cancelEditsCommand, value: hasChanges() ? 'Undo Pick Order Changes' : 'Cancel', css: { 'delete': hasChanges}, visible: cancelEditsCommand.canExecute" value="Cancel" />
+</script>

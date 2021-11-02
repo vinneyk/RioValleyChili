@@ -1,0 +1,114 @@
+﻿
+
+@{
+    ViewBag.Title = "Facility Maintenance";
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+}
+
+@section controlPanel
+{
+<section data-bind="slideVisible: isShowingSummaries">
+  <fieldset>
+    <legend>Facility Controls</legend>
+    <input type="button" value="Create new facility" data-bind="command: startNewFacility">
+  </fieldset>
+</section>
+<section data-bind="slideVisible: isEditingInfo">
+  <fieldset>
+    <legend>Facility Controls</legend>
+    <input class="save" type="button" value="Save" data-bind="command: saveFacilityInfo">
+    <input type="button" value="Close" data-bind="command: closeEditorUI">
+  </fieldset>
+</section>
+<section data-bind="slideVisible: isEditingLocations() && !isEditingInfo()">
+  <fieldset>
+    <legend>Facility Controls</legend>
+    <input type="button" value="Edit Facility Info" data-bind="command: editFacilityInfo">
+  </fieldset>
+  <fieldset>
+    <legend>Location Controls</legend>
+    <input class="save" type="button" value="Save All" data-bind="command: saveAllLocations">
+    <input type="button" value="Close" data-bind="command: closeLocationEditorUI">
+  </fieldset>
+  <fieldset>
+    <legend>Street Controls</legend>
+    <input type="button" value="Create New Street" data-bind="command: startNewStreet">
+    <input type="button" value="Freeze Street" data-bind="command: freezeStreet">
+    <input type="button" value="Unfreeze Street" data-bind="command: unfreezeStreet">
+  </fieldset>
+</section>
+}
+
+<h2>Facility Maintenance</h2>
+
+<section data-bind="visible: !isInit()">
+  <div class="well text-center">
+    <i class="fa fa-spinner fa-pulse fa-3x"></i>
+  </div>
+</section>
+<section data-bind="visible: isInit">
+  <fm-summary params="input: summaryUI.input,
+  selected: summaryUI.selected,
+  exports: summaryUI.exports">
+  </fm-summary>
+</section>
+
+<div data-bind="popup: locationEditorUI.input(), closePopupCommand: closeLocationEditorUI, if: locationEditorUI.input">
+  <hgroup>
+    <h2>Edit Locations</h2>
+    <h3 data-bind="text: currentFacility() && currentFacility().FacilityName"></h3>
+  </hgroup>
+  <fm-location-editor params="input: locationEditorUI.input,
+    exports: locationEditorUI.exports">
+  </fm-location-editor>
+</div>
+
+<div data-bind="popup: editorUI.input(), closePopupCommand: closeEditorUI, if: editorUI.input">
+  <hgroup>
+    <h2>Edit Facility Info</h2>
+    <h3 data-bind="text: currentFacility() && currentFacility().FacilityName"></h3>
+  </hgroup>
+  <fm-editor params="input: editorUI.input,
+    options: options,
+    exports: editorUI.exports">
+  </fm-editor>
+</div>
+
+<loading-screen params="displayMessage: 'Freezing current street...', isVisible: isFreezing">
+</loading-screen>
+<loading-screen params="displayMessage: 'Unfreezing current street...', isVisible: isUnfreezing">
+</loading-screen>
+<loading-screen params="displayMessage: 'Loading locations...', isVisible: !getFacilityLocations.canExecute()">
+</loading-screen>
+<loading-screen params="displayMessage: 'Loading facility info...', isVisible: !getFacilityDetails.canExecute()">
+</loading-screen>
+<loading-screen params="displayMessage: 'Saving locations...', isVisible: isSavingAllLocations">
+</loading-screen>
+<loading-screen params="displayMessage: 'Saving facility info...', isVisible: isSavingInfo">
+</loading-screen>
+
+<div class="modal fade" id="new-street-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">New Street</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="control-label" for="new-street-input">Street Name</label>
+          <input id="new-street-input" class="form-control" type="text" data-bind="textinput: newStreetName">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bind="command: saveNewStreet">Save</button>
+        <button class="btn btn-default" data-bind="command: cancelNewStreet">Cancel</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+@section scripts
+{
+  <script src="~/App/build/facilityMaintenance.bundle.js?v=@Html.AppVersion()"></script>
+}

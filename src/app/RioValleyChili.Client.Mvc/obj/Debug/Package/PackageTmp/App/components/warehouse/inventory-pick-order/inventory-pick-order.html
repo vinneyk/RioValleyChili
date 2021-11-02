@@ -1,0 +1,84 @@
+﻿<!-- ko if: !isInit() -->
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <i class="fa fa-spinner fa-2x fa-pulse"></i>
+    </div>
+</div>
+<!-- /ko -->
+<!-- ko if: isInit -->
+<table class="reset table table-condensed table-striped">
+    <thead>
+        <tr class="small">
+            <th></th>
+            <th class="col-md-3">Product</th>
+            <th class="col-md-2">Customer</th>
+            <th>Customer Product Code</th>
+            <th>Customer Lot Code</th>
+            <th class="col-md-2">Packaging</th>
+            <th class="col-md-1">Treatment</th>
+            <th>Quantity</th>
+            <th>Total Weight</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: PickOrderItems">
+        <tr class="pick-order-item">
+            <td class="no-wrap">
+              <button class="btn btn-link" data-bind="command: $parent.removeItem"><i class="fa fa-times"></i></button>
+              <button class="btn btn-primary" data-bind="command: $parent.pickForItem, disable: !OrderItemKey || dirtyFlag.isDirty()">Pick</button>
+            </td>
+            <td>
+                <div class="input-group input-group-sm" data-bind="validationElement: Product">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" data-bind="html: currentTypeFilter, disable: $parent.isLocked">Type <span class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" data-bind="click: setFG">FG</a></li>
+                            <li><a href="#" data-bind="click: setWIP">WIP</a></li>
+                        </ul>
+                    </div><!-- /btn-group -->
+                    <select class="form-control product-select" data-bind="value: Product, options: productOptions, optionsText: 'ProductCodeAndName', optionsCaption: ' ', disable: $parent.isLocked"></select>
+                </div>
+            </td>
+            <td>
+                <div class="form-group-sm">
+                    <select class="form-control" data-bind="value: Customer, options: customerOptions, optionsText: 'Name', optionsCaption: ' ', disable: $parent.isLocked"></select>
+                </div>
+            </td>
+            <td>
+                <div class="form-group-sm">
+                    <input type="text" class="form-control" data-bind="value: CustomerProductCode, disable: $parent.isLocked" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group-sm">
+                    <input type="text" class="form-control" data-bind="value: CustomerLotCode, disable: $parent.isLocked" />
+                </div>
+            </td>
+            <td>
+                <div class="form-group-sm" data-bind="validationElement: Packaging">
+                    <select class="form-control" data-bind="value: Packaging, options: packageOptions, optionsText: 'ProductName', optionsCaption: ' ', disable: $parent.isLocked"></select>
+                </div>
+            </td>
+            <td>
+                <div class="form-group-sm" data-bind="validationElement: TreatmentKey">
+                    <select class="form-control" data-bind="value: TreatmentKey, options: TreatmentKey.options, optionsText: 'value', optionsValue: 'key', disable: $parent.isLocked"></select>
+                </div>
+            </td>
+            <td>
+                <div class="form-group-sm" data-bind="validationElement: Quantity">
+                    <input type="text" class="form-control" data-bind="value: Quantity, disable: $parent.isLocked" />
+                </div>
+            </td>
+            <td class="small">
+                <b data-bind="text: TotalWeight | number"></b>
+            </td>
+        </tr>
+    </tbody>
+    <tbody data-bind="ifnot: $parent.isLocked">
+        <tr>
+            <td colspan="9">
+                <a class="text-button" href="#" data-bind="click: addNewItem"><i class="icon-button fa fa-plus-square"></i> Add New Item</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- /ko -->

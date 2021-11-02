@@ -1,0 +1,118 @@
+﻿<div class="reset container-fluid">
+  <div class="panel panel-default" data-bind="if: currentMovement()">
+    <div class="panel-heading">
+      <hgroup>
+      <h2>Movement to Another Warehouse</h2>
+      <!-- ko if: isNewMovement -->
+      <h3>New Movement</h3>
+      <!-- /ko -->
+      <!-- ko ifnot: isNewMovement -->
+        <h3>
+          <!-- ko text: currentMovement().MovementKey --><!-- /ko -->
+          <span class="small">
+            (Move Num: <!-- ko text: currentMovement().MoveNum --><!-- /ko --> )
+          </span>
+        </h3>
+      <!-- /ko -->
+      </hgroup>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="form-group col-md-6 col-lg-3">
+          <label class="control-label">Ship From</label>
+          <select class="form-control" data-bind="value: currentMovement().OriginFacilityDetails, options: warehouses, optionsText: 'FacilityName', optionsCaption: ' ', disable: isLocked"></select>
+        </div>
+        <div class="form-group col-md-6 col-lg-3">
+          <label class="control-label">Ship To</label>
+          <select class="form-control" data-bind="value: currentMovement().DestinationFacilityDetails, options: warehouses, optionsText: 'FacilityName', optionsCaption: ' ', disable: isLocked"></select>
+        </div>
+        <div class="form-group col-md-6 col-lg-3" data-bind="validationElement: currentMovement().ShipmentDate">
+          <label class="control-label">Shipment Date </label>
+          <!-- ko if: isLocked -->
+          <input type="text" class="form-control" placeholder="mm/dd/yyyy" data-bind="value: currentMovement().ShipmentDate, disable: true">
+          <!-- /ko -->
+          <!-- ko ifnot: isLocked -->
+          <input type="text" class="form-control" placeholder="mm/dd/yyyy" data-bind="value: currentMovement().ShipmentDate, datePicker: true">
+          <!-- /ko -->
+        </div>
+        <div class="form-group col-md-6 col-lg-3">
+          <label class="control-label">Date Created </label>
+          <input type="text" class="form-control" data-bind="value: currentMovement().DateCreated, disable: true">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div data-bind="tabs: true">
+            <ul class="nav nav-tabs">
+              <li role="presentation"><a href="#shipping">Shipping Information</a></li>
+              <li role="presentation"><a href="#ordered">Items Ordered</a></li>
+              <li role="presentation"><a href="#notes">Notes</a></li>
+              <li role="presentation"><a href="#picked">Items Picked</a></li>
+            </ul>
+            <div id="shipping" class="reset">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label class="control-label">Customer PO</label>
+                  <input type="text" class="form-control" data-bind="value: currentMovement().PurchaseOrderNumber, disable: isLocked">
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="control-label">Date Order Received</label>
+                  <!-- ko if: isLocked -->
+                  <input type="text" class="form-control" data-bind="value: currentMovement().DateOrderReceived, disable: true">
+                  <!-- /ko -->
+                  <!-- ko ifnot: isLocked -->
+                  <input type="text" class="form-control" data-bind="value: currentMovement().DateOrderReceived, datePicker: true">
+                  <!-- /ko -->
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="control-label">Order Placed By</label>
+                  <input type="text" class="form-control" data-bind="value: currentMovement().OrderRequestedBy, disable: isLocked">
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="control-label">Order Taken By</label>
+                  <input type="text" class="form-control" data-bind="value: currentMovement().OrderTakenBy, disable: isLocked">
+                </div>
+              </div>
+              <shipment-editor params="input: currentMovement().Shipment, 
+                exports: shipmentExports, 
+                locked: isLocked">
+              </shipment-editor>
+            </div>
+            <div id="ordered">
+              <div class="table-responsive">
+                <inventory-pick-order 
+                  params="data: currentMovement().PickOrder, 
+                    pickForItem: pickCommand.execute,
+                    enablePicking: pickCommand.canExecute,
+                    exports: inventoryPickOrderExports, 
+                    locked: isLocked">
+                </inventory-pick-order>
+              </div>
+            </div>
+            <div id="notes">
+              <div class="form-group">
+                <label class="control-label">Special instructions that appear on the pick sheet</label>
+                <textarea class="form-control" rows="4" data-bind="value: currentMovement().ShippingInstructions().SpecialInstructions, disable: isLocked"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Internal instructions that appear on the pick sheet</label>
+                <textarea class="form-control" rows="4" data-bind="value: currentMovement().ShippingInstructions().InternalNotes, disable: isLocked"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="control-label">External instructions that appear on the bill of lading</label>
+                <textarea class="form-control" rows="4" data-bind="value: currentMovement().ShippingInstructions().ExternalNotes, disable: isLocked"></textarea>
+              </div>
+            </div>
+            <div id="picked">
+                <picked-inventory-items 
+                    params="input: currentMovement().PickedInventoryInput,
+                            exports: pickedInventoryItemsExports, 
+                            locked: isLocked">
+              </picked-inventory-items>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

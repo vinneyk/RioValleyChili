@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.ComponentModel.DataAnnotations;
+
+namespace RioValleyChili.Data.Models
+{
+    public class ChileInventoryItem : InventoryItem
+    {
+        public virtual int ChileProductId { get; set; }
+
+        public virtual int PackagingInventoryItemTypeId { get; set; }
+
+        public virtual int PackagingProductId { get; set; }
+
+        [ForeignKey("InventoryItemTypeId, ChileProductId")]
+        public virtual ChileProduct ChileProduct { get; set; }
+
+        [ForeignKey("PackagingInventoryItemTypeId, PackagingProductId")]
+        public virtual PackagingProduct PackagingProduct { get; set; }
+    }
+}

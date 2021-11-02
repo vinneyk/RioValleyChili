@@ -1,0 +1,133 @@
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\AutoMapper.Net4.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Adomd.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Cache.Database.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Cache.StackExchangeRedis.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.OpenXmlRendering.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Service.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Services.ServiceStack.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Services.WebApi.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.XpsRendering.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Mvc.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Silverlight.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.WebForms.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.WinForms.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Wpf.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChiliDataContextViews.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Client.Mvc.Tests.dll.config
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Client.Mvc.Tests.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Client.Mvc.Tests.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\AutoMapper.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\FizzWare.NBuilder.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Moq.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Ninject.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\nunit.framework.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Ploeh.AutoFixture.AutoMoq.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Ploeh.AutoFixture.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\PostSharp.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\PostSharp.Patterns.Common.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\PostSharp.Patterns.Model.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Client.Core.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Client.Mvc.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Client.Reporting.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Core.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Services.Interfaces.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Services.Models.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Solutionhead.Services.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.Helpers.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.Http.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.Http.WebHost.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.Mvc.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.Razor.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.WebPages.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\T4MVCExtensions.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\TechTalk.SpecFlow.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Thinktecture.IdentityModel.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Elmah.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.Optimization.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Ninject.Web.Common.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\WebActivatorEx.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Services.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Ninject.Web.Mvc.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\EntityFramework.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Telerik.Reporting.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Telerik.Reporting.Service.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Telerik.Reporting.Services.WebApi.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\LinqKit.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Services.Utilities.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Data.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Business.Core.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Solutionhead.Core.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Data.Models.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Solutionhead.EntityKey.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Services.OldContextSynchronization.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Solutionhead.Data.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\EF-Split-Projector.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\EF-Projectors.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Solutionhead.Data.EntityFramework.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Data.DataSeeders.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Client.Core.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Client.Mvc.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Client.Mvc.dll.config
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Client.Reporting.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Client.Reporting.dll.config
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Core.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Services.Interfaces.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Services.Models.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Services.Models.dll.config
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\AutoMapper.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Moq.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Moq.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Ninject.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\nunit.framework.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Ploeh.AutoFixture.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Ploeh.AutoFixture.AutoMoq.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\PostSharp.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\PostSharp.Patterns.Common.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\PostSharp.Patterns.Model.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Net.Http.Formatting.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.Helpers.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.Http.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.Http.WebHost.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.Mvc.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.Razor.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.WebPages.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Thinktecture.IdentityModel.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Thinktecture.IdentityModel.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\System.Web.Optimization.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Ninject.Web.Common.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Services.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\Ninject.Web.Mvc.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\EntityFramework.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Services.Utilities.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Services.Utilities.dll.config
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Data.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Data.dll.config
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Business.Core.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Business.Core.dll.config
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Data.Models.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Data.Models.dll.config
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Services.OldContextSynchronization.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Services.OldContextSynchronization.dll.config
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Data.DataSeeders.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Data.DataSeeders.dll.config
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\bin\Debug\RioValleyChili.Client.Mvc.Tests.pssym
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\obj\Debug\RioValleyChili.Client.Mvc.Tests.dll.postsharp
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\obj\Debug\RioValleyChili.Client.Mvc.Tests.dll
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\obj\Debug\RioValleyChili.Client.Mvc.Tests.pdb
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\obj\Debug\PostSharpHost.config
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\obj\Debug\RioValleyChili.Client.Mvc.Tests.csprojAssemblyReference.cache
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\obj\Debug\RioValleyChili.Client.Mvc.Tests.csproj.CopyComplete
+C:\ReposLocal\RVC\src\test\RioValleyChili.Client.Mvc.Tests\obj\Debug\RioValleyChili.Client.Mvc.Tests.csproj.CoreCompileInputs.cache

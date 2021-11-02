@@ -1,0 +1,36 @@
+﻿<section data-bind="popup: isPicking, if: isVisible() && isPicking()">
+  <section class="panel panel-default">
+    <section class="panel-heading">
+      <h3>Address Book</h3>
+    </section>
+    <section class="panel-body">
+      <div class="form-group">
+        <label class="control-label"></label>
+        <select class="form-control" data-bind="value: company, options: companies, optionsText: 'Name', optionsCaption: ' '"></select>
+      </div>
+
+      <section class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12" data-bind="foreach: buttons">
+            <button type="button" class="btn btn-primary" data-bind="text: text, click: callback, enable: $parent.inputData.selected()"></button>
+          </div>
+        </div>
+      </section>
+
+      <section data-bind="if: inputData.opts">
+        <br>
+        <contact-picker
+          params="options: inputData.opts,
+            companyKey: inputData.companyKey,
+            selected: inputData.selected">
+        </contact-picker>
+      </section>
+    </section>
+  </section>
+</section>
+
+<div class="modal-message" data-bind="fadeVisible: !toggleUI.canExecute()">
+    <div>Loading Contacts...</div>
+</div>
+
+

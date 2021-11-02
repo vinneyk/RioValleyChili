@@ -1,0 +1,29 @@
+﻿@model dynamic
+
+@{
+    Layout = "~/Views/Shared/_ReportLayout.cshtml";
+}
+
+@section htmlHead {
+    <link href="~/Content/Reporting/telerikReportViewer-9.0.15.324.css" rel="stylesheet" />
+}
+
+@section scripts {
+    <script src="~/Scripts/Reporting/telerikReportViewer-9.0.15.324.js"></script>
+        
+    <script type="text/javascript">
+        $("#reportViewer")
+            .telerik_ReportViewer({
+                serviceUrl: '@Url.Content("/api/reports/")',
+                templateUrl: '@Url.Content("~/Content/Reporting/telerikReportViewerTemplate-9.0.15.324.html")',
+                reportSource: {
+                    report: "@ViewBag.ReportType",
+                    parameters: @Html.Raw(ViewBag.ReportParameters),
+                }
+            });
+
+        $(function() {
+          $(".main-content").css("padding-right", "10px");
+        });
+    </script>
+}

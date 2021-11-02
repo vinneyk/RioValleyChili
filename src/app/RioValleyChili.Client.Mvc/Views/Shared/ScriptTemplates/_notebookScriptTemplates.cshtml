@@ -1,0 +1,63 @@
+﻿@{
+    if (ViewBag.PreAMD != null)
+    {
+        Html.PushJavaScriptResource(Url.Content("~/Scripts/app/helpers/ajaxStatusHelper.js"));
+        Html.PushJavaScriptResource(Url.Content("~/Scripts/app/viewModels/shared/notebookViewModel.js"));
+    }
+}
+
+@Html.Partial("ScriptTemplates/_ResultsScriptTemplates")
+
+<script id="notebook-template" type="text/html">
+    <div data-bind="with: notebookViewModel">
+        <span data-bind="ajaxStatus: loadNotebookCommand, visible: loadNotebookCommand.ajaxWorking"></span>
+        <div data-bind="template: { name: 'result-messages-template', data: saveNoteCommand.results }"></div>
+        
+        <div data-bind="template: {name: 'result-messages-template', data: loadNotebookCommand.results, if: loadNotebookCommand.ajaxFailure} "></div>
+        
+        <section data-bind="template: { name: '-note-template', foreach: notes }" class="notes"></section>
+        
+        <fieldset data-bind="with: newNote" class="newNote">
+            <legend>Create New Note</legend>
+            <textarea data-bind="value: Text" rows="3"></textarea>
+            <input type="button" value="Save Note" data-bind="command: $parent.saveNoteCommand" />
+        </fieldset>
+    </div>
+</script>
+
+<script id="-note-template" type="text/html">    
+    <p data-bind="text: Text"></p>
+    <footer>
+        <strong data-bind="text: User"></strong>:
+        <span data-bind="text: NoteDate.formattedDate"></span>
+    </footer>
+</script>
+
+<style>
+    #notes section {
+        border-bottom: 1px solid #ebeeef;
+        padding-bottom: 5px;
+        border-left: 3px solid transparent;
+        padding-left: 3px;
+    }
+
+        #notes section:hover {
+            border-left: 3px solid #8ba5c5;
+        }
+
+        #notes section > footer {
+            font-size: .7em;
+        }
+
+    #notes .newNote {
+        margin: 10px 0;
+        background-color: #ebeeef;
+        padding: 2px;
+    }
+
+        #notes .newNote textarea {
+            display: block;
+            width: 98%;
+            height: 80px;
+        }
+</style>

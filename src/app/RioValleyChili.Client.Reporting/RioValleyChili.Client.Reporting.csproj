@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{142A3CC8-18CA-4E20-BF46-B1A4AF9FE33B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RioValleyChili.Client.Reporting</RootNamespace>
+    <AssemblyName>RioValleyChili.Client.Reporting</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.1.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\LINQKit.1.1.1\lib\net45\LinqKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ploeh.AutoFixture">
+      <HintPath>..\..\..\packages\AutoFixture.3.20.4\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.Services, Version=1.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Services.1.4.6\lib\net45\Solutionhead.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Telerik.Reporting, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Adomd, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Adomd.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Cache.Database, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Cache.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Cache.StackExchangeRedis, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Cache.StackExchangeRedis.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.OpenXmlRendering, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.OpenXmlRendering.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Service, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Services.ServiceStack, Version=9.0.15.324, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Services.ServiceStack.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Services.WebApi, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Services.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.XpsRendering, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.XpsRendering.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Mvc, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Silverlight, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.WebForms, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.WinForms, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Wpf, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Wpf.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application.cs" />
+    <Compile Include="App_Start\AutoMapperConfiguration.cs" />
+    <Compile Include="App_Start\Configuration.cs" />
+    <Compile Include="Content\ReportStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\TelerikReportingMvcControllerBase.cs" />
+    <Compile Include="Controllers\TelerikReportsApiControllerBase.cs" />
+    <Compile Include="Core\ReportingConfiguration.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
+    <Compile Include="IEntityReport.cs" />
+    <Compile Include="MemberAccessPathBuilder.cs" />
+    <Compile Include="Models\AddressLabel.cs" />
+    <Compile Include="Models\ChileMaterialsReceivedRecapReportModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\InventoryCycleCountReportModel.cs" />
+    <Compile Include="Models\SalesOrderAcknowledgement.cs" />
+    <Compile Include="Models\SalesOrderInvoice.cs" />
+    <Compile Include="Models\ICustomerNotesContainer.cs" />
+    <Compile Include="Models\ProductionAdditiveInputs.cs" />
+    <Compile Include="Models\ProductionRecapReportModel.cs" />
+    <Compile Include="Models\PendingOrderDetails.cs" />
+    <Compile Include="Models\ProductionScheduleReportModel.cs" />
+    <Compile Include="Models\SalesQuoteReportModel.cs" />
+    <Compile Include="Models\SampleOrderMatchingSummaryReportModel.cs" />
+    <Compile Include="Models\SampleOrderRequestReportModel.cs" />
+    <Compile Include="Models\WarehouseOrderBillOfLading.cs" />
+    <Compile Include="Models\CustomerContract.cs" />
+    <Compile Include="Models\InternalOrderAcknowledgement.cs" />
+    <Compile Include="Models\LabResultsReportModel.cs" />
+    <Compile Include="Models\PackSchedulePickSheetReportModel.cs" />
+    <Compile Include="Models\ProductionBatchPacketReportModel.cs" />
+    <Compile Include="Models\InventoryShipmentOrderCertificateOfAnalysis.cs" />
+    <Compile Include="Models\WarehouseOrderPackingList.cs" />
+    <Compile Include="Models\WarehouseOrderPickSheet.cs" />
+    <Compile Include="NinjectReportResolver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\AddressLabelReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\AddressLabelReport.Designer.cs">
+      <DependentUpon>AddressLabelReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BillOfLadingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BillOfLadingReport.Designer.cs">
+      <DependentUpon>BillOfLadingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CertificateOfAnalysisReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CertificateOfAnalysisReport.Designer.cs">
+      <DependentUpon>CertificateOfAnalysisReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CustomerContract.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CustomerContract.Designer.cs">
+      <DependentUpon>CustomerContract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SalesQuoteReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SalesQuoteReport.Designer.cs">
+      <DependentUpon>SalesQuoteReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\InventoryCycleCountReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\InventoryCycleCountReport.Designer.cs">
+      <DependentUpon>InventoryCycleCountReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MiscOrderInternalAcknowledgementReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MiscOrderInternalAcknowledgementReport.Designer.cs">
+      <DependentUpon>MiscOrderInternalAcknowledgementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MiscOrderCustomerAcknowledgementReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MiscOrderCustomerAcknowledgementReport.Designer.cs">
+      <DependentUpon>MiscOrderCustomerAcknowledgementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MiscOrderInvoiceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MiscOrderInvoiceReport.Designer.cs">
+      <DependentUpon>MiscOrderInvoiceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PackingListBarcodeReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PackingListBarcodeReport.Designer.cs">
+      <DependentUpon>PackingListBarcodeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ChileProductReceivedRecapReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ChileProductReceivedRecapReport.Designer.cs">
+      <DependentUpon>ChileProductReceivedRecapReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CustomerOrderAcknowledgementReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CustomerOrderAcknowledgementReport.Designer.cs">
+      <DependentUpon>CustomerOrderAcknowledgementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CustomerContractDrawSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CustomerContractDrawSummaryReport.Designer.cs">
+      <DependentUpon>CustomerContractDrawSummaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CustomerNotesSubReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CustomerNotesSubReport.Designer.cs">
+      <DependentUpon>CustomerNotesSubReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CustomerOrderInvoiceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CustomerOrderInvoiceReport.Designer.cs">
+      <DependentUpon>CustomerOrderInvoiceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\LabResultsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\LabResultsReport.Designer.cs">
+      <DependentUpon>LabResultsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PackListShippingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PackListShippingLabel.Designer.cs">
+      <DependentUpon>PackListShippingLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PackSchedulePickSheetReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PackSchedulePickSheetReport.Designer.cs">
+      <DependentUpon>PackSchedulePickSheetReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PickListShippingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PickListShippingLabel.Designer.cs">
+      <DependentUpon>PickListShippingLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductionAdditiveInputsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductionAdditiveInputsReport.Designer.cs">
+      <DependentUpon>ProductionAdditiveInputsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductionBatchPacketReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductionBatchPacketReport.Designer.cs">
+      <DependentUpon>ProductionBatchPacketReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductionRecapReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductionRecapReport.Designer.cs">
+      <DependentUpon>ProductionRecapReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductionRecapReport_Details.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductionRecapReport_Details.Designer.cs">
+      <DependentUpon>ProductionRecapReport_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductionRecapReport_TestResults.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductionRecapReport_TestResults.Designer.cs">
+      <DependentUpon>ProductionRecapReport_TestResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductionRecapReport_TimeResults.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductionRecapReport_TimeResults.Designer.cs">
+      <DependentUpon>ProductionRecapReport_TimeResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductionRecapReport_WeightResults.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductionRecapReport_WeightResults.Designer.cs">
+      <DependentUpon>ProductionRecapReport_WeightResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\InhouseInvoiceCopyReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\InhouseInvoiceCopyReport.Designer.cs">
+      <DependentUpon>InhouseInvoiceCopyReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductionScheduleReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductionScheduleReport.Designer.cs">
+      <DependentUpon>ProductionScheduleReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportTypes.cs" />
+    <Compile Include="Reports\PendingOrderDetailsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PendingOrderDetailsReport.Designer.cs">
+      <DependentUpon>PendingOrderDetailsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SampleMatchSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SampleMatchSummary.Designer.cs">
+      <DependentUpon>SampleMatchSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SampleRequestReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SampleRequestReport.Designer.cs">
+      <DependentUpon>SampleRequestReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\WarehouseOrderPackingListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\WarehouseOrderPackingListReport.Designer.cs">
+      <DependentUpon>WarehouseOrderPackingListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\WarehouseOrderAcknowledgementReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\WarehouseOrderAcknowledgementReport.Designer.cs">
+      <DependentUpon>WarehouseOrderAcknowledgementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\WarehouseOrderPickSheetReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\WarehouseOrderPickSheetReport.Designer.cs">
+      <DependentUpon>WarehouseOrderPickSheetReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\SalesReportingService.cs" />
+    <Compile Include="Services\InventoryReportingService.cs" />
+    <Compile Include="Services\InventoryShipmentOrderReportingService.cs" />
+    <Compile Include="Services\LotReportingService.cs" />
+    <Compile Include="Services\MaterialsReceivedReportingService.cs" />
+    <Compile Include="Services\PackScheduleReportingService.cs" />
+    <Compile Include="Services\ProductionResultsReportingService.cs" />
+    <Compile Include="Services\ReportingService.cs" />
+    <Compile Include="Services\SampleOrderReportingService.cs" />
+    <Compile Include="UnitExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RioValleyChili.Client.Core\RioValleyChili.Client.Core.csproj">
+      <Project>{1006ba6a-696f-49a3-bea6-dd5b9060993b}</Project>
+      <Name>RioValleyChili.Client.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Core\RioValleyChili.Core.csproj">
+      <Project>{B4A2B7DA-4F15-4B75-A65F-025C32564EA0}</Project>
+      <Name>RioValleyChili.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Services.Interfaces\RioValleyChili.Services.Interfaces.csproj">
+      <Project>{3e39194c-cc95-4a72-83d1-02c8572d2804}</Project>
+      <Name>RioValleyChili.Services.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Client.Core\RioValleyChili.Client.Core.csproj">
+      <Name>RioValleyChili.Client.Core</Name>
+      <Project>{1006ba6a-696f-49a3-bea6-dd5b9060993b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Core\RioValleyChili.Core.csproj">
+      <Name>RioValleyChili.Core</Name>
+      <Project>{B4A2B7DA-4F15-4B75-A65F-025C32564EA0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Services.Interfaces\RioValleyChili.Services.Interfaces.csproj">
+      <Name>RioValleyChili.Services.Interfaces</Name>
+      <Project>{3e39194c-cc95-4a72-83d1-02c8572d2804}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Client.Core\RioValleyChili.Client.Core.csproj">
+      <Name>RioValleyChili.Client.Core</Name>
+      <Project>{1006ba6a-696f-49a3-bea6-dd5b9060993b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Core\RioValleyChili.Core.csproj">
+      <Name>RioValleyChili.Core</Name>
+      <Project>{B4A2B7DA-4F15-4B75-A65F-025C32564EA0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Services.Interfaces\RioValleyChili.Services.Interfaces.csproj">
+      <Name>RioValleyChili.Services.Interfaces</Name>
+      <Project>{3e39194c-cc95-4a72-83d1-02c8572d2804}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Client.Core\RioValleyChili.Client.Core.csproj">
+      <Name>RioValleyChili.Client.Core</Name>
+      <Project>{1006ba6a-696f-49a3-bea6-dd5b9060993b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Core\RioValleyChili.Core.csproj">
+      <Name>RioValleyChili.Core</Name>
+      <Project>{B4A2B7DA-4F15-4B75-A65F-025C32564EA0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Services.Interfaces\RioValleyChili.Services.Interfaces.csproj">
+      <Name>RioValleyChili.Services.Interfaces</Name>
+      <Project>{3e39194c-cc95-4a72-83d1-02c8572d2804}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\ReportStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReportStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AddressLabelReport.resx">
+      <DependentUpon>AddressLabelReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BillOfLadingReport.resx">
+      <DependentUpon>BillOfLadingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CertificateOfAnalysisReport.resx">
+      <DependentUpon>CertificateOfAnalysisReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CustomerContract.resx">
+      <DependentUpon>CustomerContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalesQuoteReport.resx">
+      <DependentUpon>SalesQuoteReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\InventoryCycleCountReport.resx">
+      <DependentUpon>InventoryCycleCountReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MiscOrderInternalAcknowledgementReport.resx">
+      <DependentUpon>MiscOrderInternalAcknowledgementReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MiscOrderCustomerAcknowledgementReport.resx">
+      <DependentUpon>MiscOrderCustomerAcknowledgementReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MiscOrderInvoiceReport.resx">
+      <DependentUpon>MiscOrderInvoiceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PackingListBarcodeReport.resx">
+      <DependentUpon>PackingListBarcodeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ChileProductReceivedRecapReport.resx">
+      <DependentUpon>ChileProductReceivedRecapReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CustomerOrderAcknowledgementReport.resx">
+      <DependentUpon>CustomerOrderAcknowledgementReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CustomerContractDrawSummaryReport.resx">
+      <DependentUpon>CustomerContractDrawSummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CustomerNotesSubReport.resx">
+      <DependentUpon>CustomerNotesSubReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CustomerOrderInvoiceReport.resx">
+      <DependentUpon>CustomerOrderInvoiceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\LabResultsReport.resx">
+      <DependentUpon>LabResultsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PackListShippingLabel.resx">
+      <DependentUpon>PackListShippingLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PackSchedulePickSheetReport.resx">
+      <DependentUpon>PackSchedulePickSheetReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PickListShippingLabel.resx">
+      <DependentUpon>PickListShippingLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductionAdditiveInputsReport.resx">
+      <DependentUpon>ProductionAdditiveInputsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductionBatchPacketReport.resx">
+      <DependentUpon>ProductionBatchPacketReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductionRecapReport.resx">
+      <DependentUpon>ProductionRecapReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductionRecapReport_Details.resx">
+      <DependentUpon>ProductionRecapReport_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductionRecapReport_TestResults.resx">
+      <DependentUpon>ProductionRecapReport_TestResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductionRecapReport_TimeResults.resx">
+      <DependentUpon>ProductionRecapReport_TimeResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductionRecapReport_WeightResults.resx">
+      <DependentUpon>ProductionRecapReport_WeightResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PendingOrderDetailsReport.resx">
+      <DependentUpon>PendingOrderDetailsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\InhouseInvoiceCopyReport.resx">
+      <DependentUpon>InhouseInvoiceCopyReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductionScheduleReport.resx">
+      <DependentUpon>ProductionScheduleReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SampleMatchSummary.resx">
+      <DependentUpon>SampleMatchSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SampleRequestReport.resx">
+      <DependentUpon>SampleRequestReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\WarehouseOrderPackingListReport.resx">
+      <DependentUpon>WarehouseOrderPackingListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\WarehouseOrderAcknowledgementReport.resx">
+      <DependentUpon>WarehouseOrderAcknowledgementReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\WarehouseOrderPickSheetReport.resx">
+      <DependentUpon>WarehouseOrderPickSheetReport.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Adomd.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Cache.Database.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Cache.StackExchangeRedis.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.OpenXmlRendering.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Service.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Services.ServiceStack.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Services.WebApi.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.XpsRendering.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Mvc.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Silverlight.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.WebForms.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.WinForms.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Wpf.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ReportService.svc" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="..\..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

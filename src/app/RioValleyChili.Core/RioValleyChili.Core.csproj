@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4A2B7DA-4F15-4B75-A65F-025C32564EA0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RioValleyChili.Core</RootNamespace>
+    <AssemblyName>RioValleyChili.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Testing|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Testing\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\IssueAttribute.cs" />
+    <Compile Include="BatchStatID.cs" />
+    <Compile Include="BatchTypeID.cs" />
+    <Compile Include="ChileMaterialsReceivedType.cs" />
+    <Compile Include="CompanyType.cs" />
+    <Compile Include="ContractStatus.cs" />
+    <Compile Include="ContractType.cs" />
+    <Compile Include="Interfaces\ILocationGroupNameReturn.cs" />
+    <Compile Include="Interfaces\Keys\ISalesQuoteItemKey.cs" />
+    <Compile Include="Interfaces\Keys\ISalesQuoteKey.cs" />
+    <Compile Include="SalesOrderStatus.cs" />
+    <Compile Include="DataLoadResults.cs" />
+    <Compile Include="DBConnectionStatus.cs" />
+    <Compile Include="DefectTypeEnum.cs" />
+    <Compile Include="Extensions\ChileStateExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Extensions\LotTypeExtensions.cs" />
+    <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Helpers\LocationDescriptionHelper.cs" />
+    <Compile Include="InstructionType.cs" />
+    <Compile Include="Interfaces\ILocationDescription.cs" />
+    <Compile Include="Interfaces\IProductionBatchTargetParameters.cs" />
+    <Compile Include="Interfaces\Keys\ICompanyAddressKey.cs" />
+    <Compile Include="Interfaces\Keys\ICompanyKey.cs" />
+    <Compile Include="Interfaces\Keys\ICompanyTypeRecordKey.cs" />
+    <Compile Include="Interfaces\Keys\IContactAddressKey.cs" />
+    <Compile Include="Interfaces\Keys\IContactKey.cs" />
+    <Compile Include="Interfaces\Keys\IContractItemKey.cs" />
+    <Compile Include="Interfaces\Keys\IContractKey.cs" />
+    <Compile Include="Interfaces\Keys\ICustomerNoteKey.cs" />
+    <Compile Include="Interfaces\Keys\ISalesOrderItemKey.cs" />
+    <Compile Include="Interfaces\Keys\ISalesOrderKey.cs" />
+    <Compile Include="Interfaces\Keys\ISalesOrderPickedItemKey.cs" />
+    <Compile Include="Interfaces\Keys\ICustomerProductCodeKey.cs" />
+    <Compile Include="Interfaces\Keys\ICustomerKey.cs" />
+    <Compile Include="Interfaces\Keys\ICustomerProductAttributeRangeKey.cs" />
+    <Compile Include="Interfaces\Keys\IChileMaterialsReceivedItemKey.cs" />
+    <Compile Include="Interfaces\Keys\IEmployeeKey.cs" />
+    <Compile Include="Interfaces\Keys\IInventoryAdjustmentItemKey.cs" />
+    <Compile Include="Interfaces\Keys\IInventoryShipmentOrderKey.cs" />
+    <Compile Include="Interfaces\Keys\IInventoryTransactionKey.cs" />
+    <Compile Include="Interfaces\Keys\IInventoryTreatmentForAttributeKey.cs" />
+    <Compile Include="Interfaces\Keys\ILotAttributeDefectKey.cs" />
+    <Compile Include="ChileStateEnum.cs" />
+    <Compile Include="ExtractIntoSolutionheadLibraryAttribute.cs" />
+    <Compile Include="IExceptionLogger.cs" />
+    <Compile Include="Interfaces\Keys\IAdditiveProductKey.cs" />
+    <Compile Include="Interfaces\Keys\IAdditiveTypeKey.cs" />
+    <Compile Include="Interfaces\Keys\IAttributeNameKey.cs" />
+    <Compile Include="Interfaces\Keys\IChileProductAttributeRangeKey.cs" />
+    <Compile Include="Interfaces\Keys\IChileProductIngredientKey.cs" />
+    <Compile Include="Interfaces\Keys\IChileProductKey.cs" />
+    <Compile Include="Interfaces\Keys\IChileTypeKey.cs" />
+    <Compile Include="Interfaces\Keys\IInstructionKey.cs" />
+    <Compile Include="Interfaces\Keys\IInstructionTypeKey.cs" />
+    <Compile Include="Interfaces\Keys\IIntraWarehouseOrderKey.cs" />
+    <Compile Include="Interfaces\Keys\ILocationKey.cs" />
+    <Compile Include="Interfaces\Keys\IInventoryAdjustmentKey.cs" />
+    <Compile Include="Interfaces\Keys\ILotAttributeKey.cs" />
+    <Compile Include="Interfaces\Keys\ILotDefectKey.cs" />
+    <Compile Include="Interfaces\Keys\ILotDefectResolutionKey.cs" />
+    <Compile Include="Interfaces\Keys\INotebookKey.cs" />
+    <Compile Include="Interfaces\Keys\INoteKey.cs" />
+    <Compile Include="Interfaces\Keys\IProductionBatchInstructionReferenceKey.cs" />
+    <Compile Include="Interfaces\Keys\ILotProductionResultItemKey.cs" />
+    <Compile Include="Interfaces\Keys\IPickedInventoryItemKey.cs" />
+    <Compile Include="Interfaces\Keys\IPickedInventoryKey.cs" />
+    <Compile Include="Interfaces\Keys\IInventoryTreatmentKey.cs" />
+    <Compile Include="Interfaces\Keys\ILotKey.cs" />
+    <Compile Include="Interfaces\Keys\IInventoryKey.cs" />
+    <Compile Include="Interfaces\Keys\IInventoryPickOrderItemKey.cs" />
+    <Compile Include="Interfaces\Keys\IInventoryPickOrderKey.cs" />
+    <Compile Include="Interfaces\Keys\IPackagingProductKey.cs" />
+    <Compile Include="Interfaces\Keys\IPackScheduleKey.cs" />
+    <Compile Include="Interfaces\Keys\IProductionScheduleItemKey.cs" />
+    <Compile Include="Interfaces\Keys\IProductionScheduleKey.cs" />
+    <Compile Include="Interfaces\Keys\IProductKey.cs" />
+    <Compile Include="Interfaces\Keys\ISampleOrderItemKey.cs" />
+    <Compile Include="Interfaces\Keys\ISampleOrderJournalEntryKey.cs" />
+    <Compile Include="Interfaces\Keys\ISampleOrderKey.cs" />
+    <Compile Include="Interfaces\Keys\IShipmentInformationKey.cs" />
+    <Compile Include="Interfaces\Keys\ITreatmentOrderKey.cs" />
+    <Compile Include="Interfaces\Keys\IFacilityKey.cs" />
+    <Compile Include="Interfaces\Keys\IWorkTypeKey.cs" />
+    <Compile Include="InventoryTransactionType.cs" />
+    <Compile Include="InventoryOrderEnum.cs" />
+    <Compile Include="InventoryShipmentOrderTypeEnum.cs" />
+    <Compile Include="InventoryType.cs" />
+    <Compile Include="KillSwitch.cs" />
+    <Compile Include="LocationType.cs" />
+    <Compile Include="LotQualityStatus.cs" />
+    <Compile Include="LotHoldType.cs" />
+    <Compile Include="LotProductionStatus.cs" />
+    <Compile Include="LotStat.cs" />
+    <Compile Include="LotTypeEnum.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\ProductionBatchTargetParameters.cs" />
+    <Compile Include="Models\ShippingLabel.cs" />
+    <Compile Include="OldContextSynchronizationSwitch.cs" />
+    <Compile Include="OrderStatus.cs" />
+    <Compile Include="PickedReason.cs" />
+    <Compile Include="ProductionType.cs" />
+    <Compile Include="ProductTypeEnum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResolutionTypeEnum.cs" />
+    <Compile Include="ShipmentStatus.cs" />
+    <Compile Include="tblOrderStatus.cs" />
+    <Compile Include="TransType.cs" />
+    <Compile Include="LocationStatus.cs" />
+    <Compile Include="FacilityType.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,48 @@
+﻿<section class="table-responsive">
+  <table class="reset table table-condensed table-striped table-hover">
+      <thead class="small">
+          <tr>
+              <th>Product</th>
+              <th>Lot Number</th>
+              <th>Packaging</th>
+              <th>Location</th>
+              <th>Treatment</th>
+              <th>Customer Product Code</th>
+              <th>Customer Lot Code</th>
+              <th>Quantity Picked</th>
+              <th>Net Weight</th>
+              <th>Gross Weight</th>
+          </tr>
+      </thead>
+      <tbody data-bind="foreach: PickedInventoryItems">
+          <tr>
+              <td class="small no-wrap" data-bind="text: ProductCodeAndName"></td>
+              <td class="small no-wrap" data-bind="text: LotNumber"></td>
+              <td class="small" data-bind="text: PackagingProductName"></td>
+              <td class="small" data-bind="text: LocationName"></td>
+              <td class="small" data-bind="text: TreatmentName"></td>
+              <td>
+                  <div class="form-group-sm">
+                      <input type="text" class="form-control" data-bind="value: CustomerProductCode, disable: $parent.isLocked" />
+                  </div>
+              </td>
+              <td>
+                  <div class="form-group-sm">
+                      <input type="text" class="form-control" data-bind="value: CustomerLotCode, disable: $parent.isLocked" />
+                  </div>
+              </td>
+              <td class="small" data-bind="text: QuantityPicked"></td>
+              <td class="small"><b data-bind="text: NetWeight | number"></b></td>
+              <td class="small"><b data-bind="text: GrossWeight | number"></b></td>
+          </tr>
+      </tbody>
+      <tfoot>
+          <tr>
+              <td colspan="7"></td>
+              <td data-bind="text: TotalQuantityPicked"></td>
+              <td><b data-bind="text: TotalNetWeightOfPickedItems | number"></b></td>
+              <td><b data-bind="text: TotalGrossWeightOfPickedItems | number"></b></td>
+          </tr>
+      </tfoot>
+  </table>
+</section>

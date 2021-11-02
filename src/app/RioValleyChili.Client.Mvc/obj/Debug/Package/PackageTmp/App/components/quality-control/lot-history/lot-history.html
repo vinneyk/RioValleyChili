@@ -1,0 +1,61 @@
+﻿<section data-bind="with: lotHistory">
+  <h2>Lot History</h2>
+  <hgroup>
+    <h3 data-bind="text: LotKey"></h2>
+    <h4 data-bind="text: Product.ProductCodeAndName"></h3>
+  </hgroup>
+
+  <section>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">Attribute History</h2>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Tester</th>
+              <th>Record Date</th>
+              <th>Quality Status</th>
+              <th>Production Status</th>
+              <th>LoBac</th>
+              <!-- ko foreach: AttributeNames -->
+              <th data-bind="text: Key"></th>
+              <!-- /ko -->
+              <th>Hold Type</th>
+              <th>Hold Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-bind="text: Employee.Name"></td>
+              <td data-bind="text: Timestamp | toDate"></td>
+              <td data-bind="text: QualityStatus | statusType: 'lotQualityStatusTypes'"></td>
+              <td data-bind="text: ProductionStatus | statusType: 'productionStatusTypes'"></td>
+              <td><input type="checkbox" data-bind="checked: LoBac"></td>
+              <!-- ko foreach: Attributes -->
+              <td class="text-right" data-bind="text: Value | toNumber"></td>
+              <!-- /ko -->
+              <td data-bind="text: HoldType | statusType: 'lotHoldTypes'"></td>
+              <td data-bind="text: HoldDescription"></td>
+            </tr>
+          </tbody>
+          <tbody data-bind="foreach: History">
+            <tr>
+              <td data-bind="text: Employee.Name"></td>
+              <td data-bind="text: Timestamp | toDate"></td>
+              <td data-bind="text: QualityStatus | statusType: 'lotQualityStatusTypes'"></td>
+              <td data-bind="text: ProductionStatus | statusType: 'productionStatusTypes'"></td>
+              <td><input type="checkbox" data-bind="checked: LoBac"></td>
+              <!-- ko foreach: Attributes -->
+              <td class="text-right" data-bind="text: Value"> </td>
+              <!-- /ko -->
+              <td data-bind="text: HoldType | statusType: 'lotHoldTypes'"></td>
+              <td data-bind="text: HoldDescription"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</section>

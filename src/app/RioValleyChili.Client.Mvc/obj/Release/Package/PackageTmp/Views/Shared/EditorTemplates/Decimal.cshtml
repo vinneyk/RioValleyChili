@@ -1,0 +1,15 @@
+﻿@using RioValleyChili.Client.Mvc.SolutionheadLibs.MvcClientSideBinding.Extensions
+@helper FormattedOrDefault ()
+{
+    if (ViewData.TemplateInfo.FormattedModelValue == ViewData.ModelMetadata.Model)
+    {
+        <text>@string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:0.00}", Model.ModelMetadata.Model)</text>
+    }
+    else
+    {
+        <text>@ViewData.TemplateInfo.FormattedModelValue</text>
+    }
+   
+}
+
+@Html.TextBox("", FormattedOrDefault(), Html.BuildHtmlAttributesForView<object>(new { @class = "text-box single-line", type = "number" }))

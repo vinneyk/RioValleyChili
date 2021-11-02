@@ -1,0 +1,46 @@
+﻿<loading-screen params="isVisible: isLoading, displayMessage: loadingMessage"></loading-screen>
+
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title"><a id="unshipped-orders"></a>Scheduled Movements</h4>
+        </div>
+        <section data-bind="template: { name: 'movements-table', data: unshippedOrders }"></section>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title"><a id="shipped-orders"></a>Posted Movements</h4>
+        </div>
+        <section data-bind="template: { name: 'movements-table', data: shippedOrders }"></section>
+    </div>
+</div>
+
+<!-- Knockout templates -->
+<script id="movements-table" type="text/html">
+    <table class="reset table table-condensed table-hover table-striped">
+        <tr>
+            <th>Ship From</th>
+            <th>Ship To</th>
+            <th>Move Num</th>
+            <th>Date Created</th>
+            <th>Shipment Date</th>
+            <th>Shipment Status</th>
+            <th class="col-sm-1">Pounds on Order</th>
+            <th class="col-sm-1">Pounds Picked</th>
+        </tr>
+        <tbody data-bind="template: { name: 'movements-tbody', foreach: $data }, click: $parent.setSelectedMovement"></tbody>
+    </table>
+</script>
+
+<script id="movements-tbody" type="text/html">
+    <tr data-bind="css: { info: isSelected }">
+        <td data-bind="text: OriginFacility.FacilityName"></td>
+        <td data-bind="text: DestinationFacility.FacilityName"></td>
+        <td data-bind="text: MoveNum"></td>
+        <td data-bind="text: DateCreated"></td>
+        <td data-bind="text: ShipmentDate"></td>
+        <td data-bind="text: Shipment.Status.displayValue"></td>
+        <td data-bind="text: PickOrder.PoundsOnOrder | number"></td>
+        <td data-bind="text: PickedInventory.PoundsPicked | number"></td>
+    </tr>
+</script>

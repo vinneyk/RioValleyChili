@@ -1,0 +1,13 @@
+﻿<h3>Address Book</h3>
+
+<div class="address-book">
+    <em data-bind="text: 'Company Key: ' + companyKey"></em>
+    <div data-bind="foreach: contacts">
+        <address-book-contact data-bind="css: {'active': $parent.isSelected($data)}"
+                              params="onSelect: $parent.select, details: $data"></address-book-contact>
+    </div>
+</div>
+
+<div class="modal-message" data-bind="fadeVisible: load.isExecuting">
+    <div>Loading Contacts...</div>
+</div>

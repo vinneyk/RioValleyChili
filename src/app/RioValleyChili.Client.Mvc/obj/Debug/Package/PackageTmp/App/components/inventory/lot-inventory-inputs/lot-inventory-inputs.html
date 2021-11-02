@@ -1,0 +1,48 @@
+﻿<div class="panel panel-default">
+  <div class="panel-heading">
+  	<h4>Input Materials</h4>
+  </div>
+  <div class="table-responsive">
+    <table class="reset table table-condensed table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Transaction Date</th>
+          <th>Transaction Type</th>
+          <th>Facility</th>
+          <th>Treatment</th>
+          <th>Quantity</th>
+          <th>Weight</th>
+          <th>Location</th>
+          <th>From Lot</th>
+          <th>Product</th>
+          <th>Pack Schedule</th>
+          <th>Tote</th>
+          <th>Employee Name</th>
+        </tr>
+      </thead>
+      <tbody data-bind="foreach: inputMaterialsData">
+        <tr>
+          <td data-bind="text: TransactionDate | toDateTime"></td>
+          <td data-bind="text: TransactionType"></td>
+          <td data-bind="text: FacilityName"></td>
+          <td data-bind="text: Treatment"></td>
+          <td data-bind="text: Quantity | number" class="text-right"></td>
+          <td data-bind="text: Weight | number" class="text-right"></td>
+          <td data-bind="text: FacilityLocationDescription"></td>
+          <td class="no-wrap" data-bind="text: SourceLotKey"></td>
+          <td data-bind="text: ProductName"></td>
+          <td class="no-wrap" data-bind="text: TransactionSourceReferenceKey"></td>
+          <td data-bind="text: ToteKey"></td>
+          <td data-bind="text: EmployeeName"></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5"></td>
+          <td data-bind="text: inputMaterialsTotalWeight | number" class="text-right"></td>
+          <td colspan="6"></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

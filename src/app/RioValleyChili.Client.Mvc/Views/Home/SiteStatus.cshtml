@@ -1,0 +1,38 @@
+﻿@model RioValleyChili.Client.Mvc.Models.Home.SiteStatusModel
+@{
+    var statusText = Model.KillswitchEngaged ? "Not Running" : "Running";
+}
+@{
+    Html.SetPageTitles(
+        String.Format("Site {0}", statusText),
+        String.Format("Website {0}", statusText));
+}
+
+@if (Model.KillswitchEngaged)
+{
+    if (Model.KillswitchEngagedTimeStamp.HasValue)
+    {
+        <p>Website is not currently running. It was shut down on @Model.KillswitchEngagedTimeStamp.Value.ToLongDateString() at @Model.KillswitchEngagedTimeStamp.Value.ToShortTimeString().</p>
+    }
+    else
+    {
+        <p>Website is not curretnly running. Timestamp not available.</p>
+    }
+}
+else
+{
+    <p>Website is currently running. @Html.ActionLink("Shut down website", MVC.Home.ShutDown())</p>
+    
+    <h3>Database Status</h3>
+    <ol class="tabular">
+        <li>
+            @Html.DisplayFieldsetFor(m => m.LastDataMigrationTimeStamp)
+        </li>
+        <li>
+            @Html.DisplayFieldsetFor(m => m.RioAccessSqlDatabaseConnected)
+        </li>
+        <li>
+            @Html.DisplayFieldsetFor(m => m.RvcDataDatabaseConnected)
+        </li>
+    </ol>
+}

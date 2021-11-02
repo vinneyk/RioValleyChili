@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/e96pp3sj178lp91s)](https://ci.appveyor.com/project/vinneyk/rio-valley-chili-internal)

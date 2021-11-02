@@ -1,0 +1,840 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CreateProductionBatchFailed" xml:space="preserve">
+    <value>An error occurred while attempting to create a new Production Batch.</value>
+  </data>
+  <data name="GenericFailure" xml:space="preserve">
+    <value>An error occurred which prevented the request from being completed.</value>
+  </data>
+  <data name="InvalidChileProductKey" xml:space="preserve">
+    <value>The Chile Product Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidPackagingProductKey" xml:space="preserve">
+    <value>The Packaging Product Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidPackScheduleNumber" xml:space="preserve">
+    <value>The Pack Schedule Number '{0}' is not valid.</value>
+  </data>
+  <data name="PackScheduleNotFound" xml:space="preserve">
+    <value>The Pack Schedule with Key '{0}' was not found.</value>
+  </data>
+  <data name="ProductionBatchNotFound" xml:space="preserve">
+    <value>The Production Batch with Key '{0}' was not found.</value>
+  </data>
+  <data name="InvalidProductionBatchNumber" xml:space="preserve">
+    <value>The Production Batch Number '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidProductionBatchTargetWeight" xml:space="preserve">
+    <value>The target weight for a production batch must be greater than zero.  Please ensure that Units to Produce is greater than zero and that the packaging item contains a weight greater than zero.</value>
+  </data>
+  <data name="NullOrEmptyInventoryKeysAndQuantities" xml:space="preserve">
+    <value>Collection of Inventory Keys and Quantities was null or empty.</value>
+  </data>
+  <data name="ProductionBatchNumberOfPackagingUnitsRequired" xml:space="preserve">
+    <value>The Production Batch must produce at least one packaging unit.</value>
+  </data>
+  <data name="InvalidWorkTypeKey" xml:space="preserve">
+    <value>The Work Type Key '{0}' is not valid.</value>
+  </data>
+  <data name="UserRequired" xml:space="preserve">
+    <value>Must supply user for this operation.</value>
+  </data>
+  <data name="BatchItemQuantityRequired" xml:space="preserve">
+    <value>The Batch Item must have a quantity greater than 0.</value>
+  </data>
+  <data name="InventoryItemNotFound" xml:space="preserve">
+    <value>The Inventory Item with Key '{0}' was not found.</value>
+  </data>
+  <data name="ProductionBatchItemNotFound" xml:space="preserve">
+    <value>The Production Batch Item with Key '{0}' was not found.</value>
+  </data>
+  <data name="QuantityIsNegative" xml:space="preserve">
+    <value>Quantity cannot be negative.</value>
+  </data>
+  <data name="InvalidInventoryQuantityByLocationKey" xml:space="preserve">
+    <value>The Inventory Quantity By Location Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidProductionBatchItemKey" xml:space="preserve">
+    <value>The Production Batch Item Key '{0}' is not valid.</value>
+  </data>
+  <data name="ChileProductNotFound" xml:space="preserve">
+    <value>The Chile Product with Key '{0}' was not found.</value>
+  </data>
+  <data name="PickedItemsManifestRequired" xml:space="preserve">
+    <value>Must supply a picked items manifest for this operation.</value>
+  </data>
+  <data name="GenericInvalidKeyMessage" xml:space="preserve">
+    <value>The [0} Key value is not valid. Value received '{0}'.</value>
+  </data>
+  <data name="InvalidAdditiveProductKey" xml:space="preserve">
+    <value>The Additive Product Key is not valid.</value>
+  </data>
+  <data name="InvalidAdditiveTypeKey" xml:space="preserve">
+    <value>The Additive Type Key is not valid.</value>
+  </data>
+  <data name="InvalidChileProductIngredientKey" xml:space="preserve">
+    <value>The Chile Product Ingredient Key is not valid.</value>
+  </data>
+  <data name="InvalidChileTypeKey" xml:space="preserve">
+    <value>The Chile Type Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidInstructionKey" xml:space="preserve">
+    <value>The Instruction Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidInstructionTypeKey" xml:space="preserve">
+    <value>The Instruction Type Key is not valid.</value>
+  </data>
+  <data name="InvalidInventoryItemKey" xml:space="preserve">
+    <value>The Inventory Item Key is not valid.</value>
+  </data>
+  <data name="InvalidInventoryItemTypeKey" xml:space="preserve">
+    <value>The Inventory Item Type Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidProductBaseKey" xml:space="preserve">
+    <value>The Product Base Key is not valid.</value>
+  </data>
+  <data name="InvalidProductionBatchLotNumber" xml:space="preserve">
+    <value>The Production Batch Number is not valid.</value>
+  </data>
+  <data name="InvalidFacilityKey" xml:space="preserve">
+    <value>The Facility Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidLotTypeKey" xml:space="preserve">
+    <value>The Lot Type Key is not valid.</value>
+  </data>
+  <data name="InvalidProductionScheduleKey" xml:space="preserve">
+    <value>The Production Schedule key is not valid.</value>
+  </data>
+  <data name="InvalidProductionScheduleItemKey" xml:space="preserve">
+    <value>The ProductionScheduleItem key is not valid.</value>
+  </data>
+  <data name="ProductionScheduleItemsManifestRequired" xml:space="preserve">
+    <value>Must supply a Production Schedule Items manifest for this operation.</value>
+  </data>
+  <data name="InstructionNotFound" xml:space="preserve">
+    <value>The Instruction with key {'0'} was not found.</value>
+  </data>
+  <data name="ProductionScheduleItemNotFound" xml:space="preserve">
+    <value>The Production Schedule Item with Key '{0}' was not found.</value>
+  </data>
+  <data name="InvalidInventoryTreatmentKey" xml:space="preserve">
+    <value>The Inventory Treatment Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidPickedInventoryKey" xml:space="preserve">
+    <value>The Picked Inventory Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidPickedInventoryItemKey" xml:space="preserve">
+    <value>The Picked Inventory Item Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidMovementOrderItemKey" xml:space="preserve">
+    <value>The Movement InventoryPickOrder Item Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidInterWarehouseOrderKey" xml:space="preserve">
+    <value>The InterWarehouse Order Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidIntraWarehouseOrderKey" xml:space="preserve">
+    <value>The IntraWarehouse Order Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidMovementOrderKey" xml:space="preserve">
+    <value>The Movement InventoryPickOrder Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidShipmentInfoKey" xml:space="preserve">
+    <value>The Shipment Info Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidTreatmentOrderKey" xml:space="preserve">
+    <value>The Treatment Order Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidLocationKey" xml:space="preserve">
+    <value>The Location Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidProductKey" xml:space="preserve">
+    <value>The Product Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidInventoryPickOrderKey" xml:space="preserve">
+    <value>The Inventory Pick Order Key '{0}' is not valid.</value>
+  </data>
+  <data name="PickedInventoryItemNotFound" xml:space="preserve">
+    <value>The Picked Inventory Item with Key '{0}' was not found.</value>
+  </data>
+  <data name="TreatmentOrderNotFound" xml:space="preserve">
+    <value>The Treatment Order with Key '{0}' was not found.</value>
+  </data>
+  <data name="InterWarehouseOrderNotFound" xml:space="preserve">
+    <value>The InterWarehouse Order with Key '{0}' was not found.</value>
+  </data>
+  <data name="InvalidProductionLocationKey" xml:space="preserve">
+    <value>The Production Location Key '{0}' is not valid.</value>
+  </data>
+  <data name="PickedInventory" xml:space="preserve">
+    <value>The PickedInventory record with Key '{0}' was not found.</value>
+  </data>
+  <data name="InvalidProductionBatchInstructionReferenceKey" xml:space="preserve">
+    <value>The Production Batch Instruction Reference Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidInventoryAdjustmentKey" xml:space="preserve">
+    <value>The Inventory Adjustment Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidProductionResultItemKey" xml:space="preserve">
+    <value>The Production Result Item Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidProductionResultKey" xml:space="preserve">
+    <value>The Production Result Key '{0}' is not valid.</value>
+  </data>
+  <data name="ProductionResultItemNotFound" xml:space="preserve">
+    <value>The Production Result Item with Key '{0}' was not found.</value>
+  </data>
+  <data name="ProductionResultNotFound" xml:space="preserve">
+    <value>The Production Result with Key '{0}' was not found.</value>
+  </data>
+  <data name="LocationNotFound" xml:space="preserve">
+    <value>The Location with Key '{0}' was not found.</value>
+  </data>
+  <data name="TreatmentOrderAlreadyFulfilled" xml:space="preserve">
+    <value>The Treatment Order with Key '{0}' has already been fulfilled.</value>
+  </data>
+  <data name="InterWarehouseOrderAlreadyFulfilled" xml:space="preserve">
+    <value>The Inter Warehouse Order with Key '{0}' has already been fulfilled.</value>
+  </data>
+  <data name="ProductionBatchAlreadyComplete" xml:space="preserve">
+    <value>The Production Batch with Key '{0}' has already been completed.</value>
+  </data>
+  <data name="IntraWarehouseOrderNotFound" xml:space="preserve">
+    <value>The IntraWarehouse Order with Key '{0}' was not found.</value>
+  </data>
+  <data name="PickedInventoryItemNotInOriginalLocation" xml:space="preserve">
+    <value>The Picked Inventory Item with Key '{0}' is not in it's original location.</value>
+  </data>
+  <data name="LotHasExistingInventory" xml:space="preserve">
+    <value>The Lot with Key '{0}' has exisiting Inventory.</value>
+  </data>
+  <data name="LotNotFound" xml:space="preserve">
+    <value>The Lot with Key '{0}' was not found.</value>
+  </data>
+  <data name="InvalidAttributeNameKey" xml:space="preserve">
+    <value>The Attribute Name Key '{0}' is not valid.</value>
+  </data>
+  <data name="EmptySet" xml:space="preserve">
+    <value>Cannot run operation on an empty set.</value>
+  </data>
+  <data name="PackagingProductNotFound" xml:space="preserve">
+    <value>The Packaging Product with Key '{0}' was not found.</value>
+  </data>
+  <data name="QuantityNotGreaterThanZero" xml:space="preserve">
+    <value>Quantity supplied must be greater than 0.</value>
+  </data>
+  <data name="ProductionResultAlreadyPendingAddition" xml:space="preserve">
+    <value>Production Result for Inventory with key '{0}' is already pending addition.</value>
+  </data>
+  <data name="InventoryItemAlreadyExists" xml:space="preserve">
+    <value>Inventory item with key '{0}' already exists in database.</value>
+  </data>
+  <data name="ProductionScheduleAlreadyExists" xml:space="preserve">
+    <value>Production Schedule for '{0}' on '{1}' already exists.</value>
+  </data>
+  <data name="InvalidChileProductAttributeRangeKey" xml:space="preserve">
+    <value>The Chile Product Attribute Range Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidLotAttributeKey" xml:space="preserve">
+    <value>The Lot Attribute Key '{0}' is not valid.</value>
+  </data>
+  <data name="ProductionScheduleNotFound" xml:space="preserve">
+    <value>The Production Schedule with Key '{0}' was not found.</value>
+  </data>
+  <data name="InvalidLotDefectResolutionHeaderKey" xml:space="preserve">
+    <value>The Lot Defect Resolution Header Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidLotDefectResolutionKey" xml:space="preserve">
+    <value>The Lot Defect Resolution Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidLotDefectKey" xml:space="preserve">
+    <value>The Lot Defect Key '{0}' is invalid.</value>
+  </data>
+  <data name="InvalidLotProductSpecDefectKey" xml:space="preserve">
+    <value>The Lot Product Spec Defect Key '{0}' is not valid.</value>
+  </data>
+  <data name="AttributeDefectRequiresResolution" xml:space="preserve">
+    <value>Attribute '{0}' requires resolution information.</value>
+  </data>
+  <data name="InvalidDefectResolutionType" xml:space="preserve">
+    <value>The resolution '{0}' is not valid for defect '{1}'.</value>
+  </data>
+  <data name="NotChileLot" xml:space="preserve">
+    <value>The Lot with Key '{0}' is not a Chile Lot.</value>
+  </data>
+  <data name="TreatmentOnInventoryDoesNotResolveDefect" xml:space="preserve">
+    <value>The Treatment '{0}' on Inventory Item with Key '{1}' does not resolve Lot defect for attribute '{2}'.</value>
+  </data>
+  <data name="ChileLotNotFound" xml:space="preserve">
+    <value>The Chile Lot with Key '{0}' was not found.</value>
+  </data>
+  <data name="AttributeNameNotFound" xml:space="preserve">
+    <value>The Attribute Name with Key '{0}' was not found.</value>
+  </data>
+  <data name="TreatmentOnUnarchivedPickedInventoryDoesNotResolveDefect" xml:space="preserve">
+    <value>The Treatment '{0}' on unarchived Picked Inventory Item with Key '{1}' does not resolve Lot defect for attribute '{2}'.</value>
+  </data>
+  <data name="CannotSetAttributeMoreThanOnce" xml:space="preserve">
+    <value>The Attribute with Key '{0}' can only be set once.</value>
+  </data>
+  <data name="InvalidLotKey" xml:space="preserve">
+    <value>The Lot Key '{0}' is not valid.</value>
+  </data>
+  <data name="OnlyInHouseContaminationValid" xml:space="preserve">
+    <value>Only In-House contaminations can be created.</value>
+  </data>
+  <data name="LotDefectNotFound" xml:space="preserve">
+    <value>The Lot Defect with Key '{0}' was not found.</value>
+  </data>
+  <data name="LotDefectHasResolution" xml:space="preserve">
+    <value>The Lot Defect with Key '{0}' already has a resolution.</value>
+  </data>
+  <data name="ProductionBatchHasResult" xml:space="preserve">
+    <value>The Production Batch with Key '{0}' has Production Results.</value>
+  </data>
+  <data name="QuantityForInventoryCannotbeNegative" xml:space="preserve">
+    <value>The Quantity for Inventory with Key '{0}' cannot be negative.</value>
+  </data>
+  <data name="QuantityForInventoryMustBeGreaterThanZero" xml:space="preserve">
+    <value>The Quantity for Inventory with Key '{0}' must be greater than 0.</value>
+  </data>
+  <data name="QuantityForPickedCannotBeNegative" xml:space="preserve">
+    <value>The Quantity for Picked Inventory Item with Key '{0}' cannot be negative.</value>
+  </data>
+  <data name="QuantityForPickingFromInventoryMustBeGreaterThanZero" xml:space="preserve">
+    <value>The Quantity for picking from Inventory with Key '{0}' must be greater than 0.</value>
+  </data>
+  <data name="CannotPickLotQualityState" xml:space="preserve">
+    <value>Cannot pick from Lot with Key '{0}' because it is flagged as '{1}'.</value>
+  </data>
+  <data name="CannotPickLotNotProduced" xml:space="preserve">
+    <value>Cannot pick from Lot with Key '{0}' because the it is not Produced.</value>
+  </data>
+  <data name="CannotPickLotOnHold" xml:space="preserve">
+    <value>Cannot pick from Lot with Key '{0}' because it is on Hold '{1}'.</value>
+  </data>
+  <data name="InvalidChileVarietyKey" xml:space="preserve">
+    <value>The Chile Variety Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidCompanyKey" xml:space="preserve">
+    <value>The Company Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidDehydratedMaterialsReceivedItemKey" xml:space="preserve">
+    <value>The Dehydrated Materials Received Item Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidDehydratedMaterialsReceivedKey" xml:space="preserve">
+    <value>The Dehydrated Materials Received Key '{0}' is not valid.</value>
+  </data>
+  <data name="ChileProductInvalidState" xml:space="preserve">
+    <value>The Chile Product with Key '{0}' is of '{1}' state, but expected '{2}'.</value>
+  </data>
+  <data name="CannotCreateChileReceivedWithNoItems" xml:space="preserve">
+    <value>Cannot create Chile Materials Received record with no Items.</value>
+  </data>
+  <data name="ChileMaterialsReceivedNotFound" xml:space="preserve">
+    <value>The Chile Materials Received record with Key '{0}' was not found.</value>
+  </data>
+  <data name="InvalidMillAndWetdownKey" xml:space="preserve">
+    <value>The Mill And Wetdown Key '{0}' is not valid.</value>
+  </data>
+  <data name="LotExistsWithKey" xml:space="preserve">
+    <value>A Lot with Key '{0}' already exists.</value>
+  </data>
+  <data name="MillAndWetdownPickedRequired" xml:space="preserve">
+    <value>Mill and Wetdown entry requires Picked Inventory Items.</value>
+  </data>
+  <data name="MillAndWetdownResultsRequired" xml:space="preserve">
+    <value>Mill and Wetdown entry requires results.</value>
+  </data>
+  <data name="InvalidMillAndWetdownResultItemKey" xml:space="preserve">
+    <value>The Mill And Wetdown Result Item Key '{0}' it not valid.</value>
+  </data>
+  <data name="MillAndWetdownEntryNotFound" xml:space="preserve">
+    <value>The Mill and Wetdown Entry with Key '{0}' was not found.</value>
+  </data>
+  <data name="ToteKeysCollectionCannotBeEmpty" xml:space="preserve">
+    <value>The Tote Keys collection cannot be empty.</value>
+  </data>
+  <data name="ContactNotOfCustomer" xml:space="preserve">
+    <value>The Contact with Key '{0}' does not belong to Customer with Key '{1}'.</value>
+  </data>
+  <data name="ContractTermMustBeginBeforeEnd" xml:space="preserve">
+    <value>The Term End date '{1}' must be a later date than the Term Begin date '{0}'.</value>
+  </data>
+  <data name="CustomerNotFound" xml:space="preserve">
+    <value>The Customer with Key '{0}' not found.</value>
+  </data>
+  <data name="InvalidContactKey" xml:space="preserve">
+    <value>The Contact Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidContractKey" xml:space="preserve">
+    <value>The Contract Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidCustomerKey" xml:space="preserve">
+    <value>The Customer Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidBrokerKey" xml:space="preserve">
+    <value>The Broker Key '{0}' is not valid.</value>
+  </data>
+  <data name="ContractItemsRequired" xml:space="preserve">
+    <value>Contract Items are required for this operation.</value>
+  </data>
+  <data name="InvalidContractItemKey" xml:space="preserve">
+    <value>The Contract Item Key '{0}' is not valid.</value>
+  </data>
+  <data name="CustomerContractNotFound" xml:space="preserve">
+    <value>The Customer Contract with Key '{0}' was not found.</value>
+  </data>
+  <data name="CustomerContractCompletedCannotChange" xml:space="preserve">
+    <value>The Customer Contract with Key '{0}' is already completed and cannot be modified.</value>
+  </data>
+  <data name="ContractBrokerIsNotOfCustomer" xml:space="preserve">
+    <value>The new Broker with Key '{0}' is not the Broker for Customer with Key '{1}'.</value>
+  </data>
+  <data name="InvalidCustomerOrderKey" xml:space="preserve">
+    <value>The Customer Order Key '{0}' is not valid.</value>
+  </data>
+  <data name="ContractItemForCustomerNotFound" xml:space="preserve">
+    <value>The Contract Item with Key '{0}' for Customer with Key '{1}' could not be found.</value>
+  </data>
+  <data name="ExpectedChileProductKeyForContractItemNotEqualReceived" xml:space="preserve">
+    <value>Expected Chile Product Key '{0}' for Contract Item with Key '{1}', but received '{2}'.</value>
+  </data>
+  <data name="SalesOrderNotFound" xml:space="preserve">
+    <value>The Sales Order with Key '{0}' was not found.</value>
+  </data>
+  <data name="InvalidCustomerOrderItemKey" xml:space="preserve">
+    <value>The Customer Order Item Key '{0}' is not valid.</value>
+  </data>
+  <data name="ToteKeyInvalidCharacter" xml:space="preserve">
+    <value>The Tote Key '{0}' cannot contain invalid character '{1}'.</value>
+  </data>
+  <data name="CannotPickInvoicedCustomerOrder" xml:space="preserve">
+    <value>Cannot pick Inventory for Customer Order with Key '{0}' because it has already been Invoiced.</value>
+  </data>
+  <data name="CannotPickVoidedCustomerOrder" xml:space="preserve">
+    <value>Cannot pick Inventory for Customer Order with Key '{0}' because it has been voided.</value>
+  </data>
+  <data name="ContactDoesNotContainAddress" xml:space="preserve">
+    <value>Contact with Key '{0}' does not contain a Contact Address with Key '{1}'.</value>
+  </data>
+  <data name="InvalidContactAddressKey" xml:space="preserve">
+    <value>The Contact Address Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidCustomerOrderPickedItemKey" xml:space="preserve">
+    <value>The Customer Order Picked Item Key '{0}' is not valid.</value>
+  </data>
+  <data name="SalesOrderPickedItemNotFound" xml:space="preserve">
+    <value>The Sales Order Picked Item with Key '{0}' was not found.</value>
+  </data>
+  <data name="CannotPickForCustomerOrderItem_DoesNotExist" xml:space="preserve">
+    <value>Cannot pick Inventory for a Customer Order Item with Key '{0}' because it does not exist for this order.</value>
+  </data>
+  <data name="InvalidInventoryAdjustmentItemKey" xml:space="preserve">
+    <value>The Inventory Adjustment Item Key '{0}' is not valid.</value>
+  </data>
+  <data name="InventoryAdjustmentNotFound" xml:space="preserve">
+    <value>The Inventory Adjustment with Key '{0}' was not found.</value>
+  </data>
+  <data name="AdjustmentQuantityCannotBeZero" xml:space="preserve">
+    <value>Adjustment quantity cannot be zero.</value>
+  </data>
+  <data name="InventoryAdjustmentItemsRequired" xml:space="preserve">
+    <value>Inventory Adjustment Items are required.</value>
+  </data>
+  <data name="AttributeNameNotValidForChile" xml:space="preserve">
+    <value>The Attribute Name with Key '{0}' is not valid for a Chile Product.</value>
+  </data>
+  <data name="ChileProductAttributeRangeMinGreaterThanMax" xml:space="preserve">
+    <value>A Chile Product's Attribute Range's Min value cannot be greater than its Max value.</value>
+  </data>
+  <data name="AdditiveTypeNotFound" xml:space="preserve">
+    <value>The Additive Type with Key '{0}' was not found.</value>
+  </data>
+  <data name="ChileProductAttributeRangeNotFound" xml:space="preserve">
+    <value>The Chile Product Attribute Range with Key '{0}' was not found.</value>
+  </data>
+  <data name="ChileProductIngredientNotFound" xml:space="preserve">
+    <value>The Chile Product Ingredient with Key '{0}' was not found.</value>
+  </data>
+  <data name="IngredientPercentageCanIngredientPercentageOutOfRange" xml:space="preserve">
+    <value>Chile Product Ingredient Percentage value must be between 0 and 100.</value>
+  </data>
+  <data name="CompanyNotFound" xml:space="preserve">
+    <value>The Company with Key '{0}' was not found.</value>
+  </data>
+  <data name="SupplierCompanyNotFound" xml:space="preserve">
+    <value>The Supplier Company with Key '{0}' was not found.</value>
+  </data>
+  <data name="CompanyTypeNotCorrect" xml:space="preserve">
+    <value>The Company with Key '{0}' is of type '{1}' but needs to be '{2}'.</value>
+  </data>
+  <data name="DehydratorCompanyNotFound" xml:space="preserve">
+    <value>The Dehydrator Company with Key '{0}' was not found.</value>
+  </data>
+  <data name="GrowerCompanyNotFound" xml:space="preserve">
+    <value>The Grower Company with Key '{0]' was not found.</value>
+  </data>
+  <data name="ContactNotFound" xml:space="preserve">
+    <value>The Contact with Key '{0}' was not found.</value>
+  </data>
+  <data name="FacilityNotFound" xml:space="preserve">
+    <value>The Facility with Key '{0}' was not found.</value>
+  </data>
+  <data name="ContactAddressNotFound" xml:space="preserve">
+    <value>The Contact Address with Key '{0}' was not found.</value>
+  </data>
+  <data name="CustomerNotOfBroker" xml:space="preserve">
+    <value>The Customer with Key '{0}' is not of Broker with Key '{1}'.</value>
+  </data>
+  <data name="InvalidNotebookKey" xml:space="preserve">
+    <value>The Notebook Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidNoteKey" xml:space="preserve">
+    <value>The Note Key '{0}' is not valid.</value>
+  </data>
+  <data name="NotebookNotFound" xml:space="preserve">
+    <value>The Notebook with Key '{0}' was not be found.</value>
+  </data>
+  <data name="NoteNotFound" xml:space="preserve">
+    <value>The Note with Key '{0}' was not be found.</value>
+  </data>
+  <data name="InvalidCompanyAddressKey" xml:space="preserve">
+    <value>The Company Address Key '{0}' is not valid.</value>
+  </data>
+  <data name="CompanyAddressNotFound" xml:space="preserve">
+    <value>The Company Address with Key '{0}' was not found.</value>
+  </data>
+  <data name="InvalidCompanyTypeRecordKey" xml:space="preserve">
+    <value>The Company Type Record Key '{0}' is invalid.</value>
+  </data>
+  <data name="CompanyNotOfType" xml:space="preserve">
+    <value>The Company with Key '{0}' is not of type '{1}'.</value>
+  </data>
+  <data name="NegativeWeight" xml:space="preserve">
+    <value>Weight must be greater than or equal to 0.</value>
+  </data>
+  <data name="ChileTypeNotFound" xml:space="preserve">
+    <value>The Chile Type with Key '{0}' was not found.</value>
+  </data>
+  <data name="AdditiveProductNotFound" xml:space="preserve">
+    <value>The Additive Product with Key '{0}' was not found.</value>
+  </data>
+  <data name="CompanyTypesRequired" xml:space="preserve">
+    <value>Company Types are required.</value>
+  </data>
+  <data name="DestinationLocationRequiredForPicked" xml:space="preserve">
+    <value>Destination Location required for Picked Inventory Item with Key '{0}'.</value>
+  </data>
+  <data name="PickedDestinationNotOfFacility" xml:space="preserve">
+    <value>A Picked Inventory Item's Destination Location does not belong to the Facility with Key '{0}'.</value>
+  </data>
+  <data name="IntraWarehouseOrderDifferentWarehouses" xml:space="preserve">
+    <value>IntraWarehouse Order cannot be created between different Warehouses.</value>
+  </data>
+  <data name="ProductionLocationNotFound" xml:space="preserve">
+    <value>The Production Location with Key '{0}' was not found.</value>
+  </data>
+  <data name="EmployeeByUserNameNotFound" xml:space="preserve">
+    <value>No employee found having the user name "{0}".</value>
+  </data>
+  <data name="EmployeeByKeyNotFound" xml:space="preserve">
+    <value>No employee found having the Key "{0}".</value>
+  </data>
+  <data name="InvalidEmployeeKey" xml:space="preserve">
+    <value>The Employee Key '{0}' is not valid.</value>
+  </data>
+  <data name="EmployeeByTokenNotFound" xml:space="preserve">
+    <value>No employee was found for the supplied token.</value>
+  </data>
+  <data name="NotAllLotAttributesAccountedFor" xml:space="preserve">
+    <value>Not all attributes for Lot with Key '{0}' accounted for.</value>
+  </data>
+  <data name="PackScheduleHasBeenScheduled" xml:space="preserve">
+    <value>The PackSchedule with Key '{0}' has been scheduled for production.</value>
+  </data>
+  <data name="PackScheduleRemoveFail_LotCompleted" xml:space="preserve">
+    <value>The Production Batch for Lot '{0}' has already been completed. The Pack Schedule cannot be deleted once any of the batches have been completed.</value>
+  </data>
+  <data name="CannotSetLotStatus" xml:space="preserve">
+    <value>Cannot set status of Lot with Key '{0}' from '{1}' to '{2}'.</value>
+  </data>
+  <data name="LotDefectHasNoResolution" xml:space="preserve">
+    <value>The Lot Defect with Key '{0}' has no Resolution.</value>
+  </data>
+  <data name="ResolutionDescriptionRequired" xml:space="preserve">
+    <value>Lot Defect Resolution requires Description.</value>
+  </data>
+  <data name="LabReportChileLotsNotFound" xml:space="preserve">
+    <value>No Chile Lot(s) found for Lab Report.</value>
+  </data>
+  <data name="InventoryLocationLocked" xml:space="preserve">
+    <value>The Inventory with Key '{0}' is in a Locked Location.</value>
+  </data>
+  <data name="CustomerProductAttributeRangeNotFound" xml:space="preserve">
+    <value>The Customer Product Attribute Range with Key '{0}' was not found.</value>
+  </data>
+  <data name="NoCustomerProductRangesFound" xml:space="preserve">
+    <value>No active Customer Product Range found for Customer with Key '{0}' for Chile Product with Key '{1}'.</value>
+  </data>
+  <data name="NoPackagingNotFound" xml:space="preserve">
+    <value>'No Packaging' product not found.</value>
+  </data>
+  <data name="CustomerContractHasOrderItems" xml:space="preserve">
+    <value>The Customer Contract with Key '{0}' has order items associated.</value>
+  </data>
+  <data name="InvalidInventoryShipmentOrderKey" xml:space="preserve">
+    <value>The Inventory Shipment Order Key '{0}' is not valid.</value>
+  </data>
+  <data name="InventoryShipmentOrderNotFound" xml:space="preserve">
+    <value>The Inventory Shipment Order with Key '{0}' was not found.</value>
+  </data>
+  <data name="FacilityNotOfType" xml:space="preserve">
+    <value>The Facility with Key '{0}' is not of type '{1}'.</value>
+  </data>
+  <data name="DestinationLocationMustBelongToFacility" xml:space="preserve">
+    <value>Destination location must be in Facility with Key '{0}'.</value>
+  </data>
+  <data name="ShipmentStatusCannotPost" xml:space="preserve">
+    <value>Cannot post shipment with status '{0}'.</value>
+  </data>
+  <data name="CannotPickShipment" xml:space="preserve">
+    <value>Cannot modify picked inventory for shipment with status '{0}'.</value>
+  </data>
+  <data name="FacilityContainsLocationDescription" xml:space="preserve">
+    <value>The facility '{0}' already contains a location with the name '{1}'. To create this location, please chose another name.</value>
+  </data>
+  <data name="LocationDescriptionRequired" xml:space="preserve">
+    <value>Location name is required.</value>
+  </data>
+  <data name="InvalidInventoryTransactionKey" xml:space="preserve">
+    <value>The Inventory Transaction Key '{0}' is not valid.</value>
+  </data>
+  <data name="SourceLocationMustBelongToFacility" xml:space="preserve">
+    <value>Source location must be in Facility with Key '{0}'.</value>
+  </data>
+  <data name="NegativePalletWeight" xml:space="preserve">
+    <value>Pallet weight must be greater than or equal to 0.</value>
+  </data>
+  <data name="NegativePackagingWeight" xml:space="preserve">
+    <value>Packaging Weight must be greater than or equal to 0.</value>
+  </data>
+  <data name="InventoryInactiveLocation" xml:space="preserve">
+    <value>The Inventory with Key '{0}' is in an inactive location.</value>
+  </data>
+  <data name="InventoryInvalidFacility" xml:space="preserve">
+    <value>The Inventory with Key '{0}' is in invalid Facility '{1}'.</value>
+  </data>
+  <data name="CannotRemovePickedCustomerOrderItem" xml:space="preserve">
+    <value>Cannot remove Customer Order Item(s) because it has been picked. Remove picked items first.</value>
+  </data>
+  <data name="PackScheduleChileProductDifferentLotType" xml:space="preserve">
+    <value>New Chile Product must result in the same Lot type.</value>
+  </data>
+  <data name="NegativeInventoryLots" xml:space="preserve">
+    <value>The requested changes could not be performed because the following lots would have negative inventory: {0}</value>
+  </data>
+  <data name="CannotDeleteFulfilledShipmentOrder" xml:space="preserve">
+    <value>Cannot delete an Inventory Shipment Order that has been Fulfilled.</value>
+  </data>
+  <data name="CannotDeleteShippedShipmentOrder" xml:space="preserve">
+    <value>Cannot delete an Inventory Shipment Order that has been Shipped.</value>
+  </data>
+  <data name="ChileProductDifferentLotType" xml:space="preserve">
+    <value>New Chile Product must result in the same Lot type.</value>
+  </data>
+  <data name="LotHasExistingPickedInventory" xml:space="preserve">
+    <value>The Lot with Key '{0}' has been picked.</value>
+  </data>
+  <data name="LotConflictingInventoryTreatment" xml:space="preserve">
+    <value>The Lot '{0}' is either treated or pending treatment with a conflicting treatment type. A lot cannot receive multiple treatment types.</value>
+  </data>
+  <data name="SalesOrderAlreadyFulfilled" xml:space="preserve">
+    <value>The Sales Order with Key '{0}' has already been fulfilled.</value>
+  </data>
+  <data name="SalesOrderItemNotFound" xml:space="preserve">
+    <value>The Sales Order Item with Key '{0}' was not found.</value>
+  </data>
+  <data name="SalesOrderItemBrokerConflict" xml:space="preserve">
+    <value>Item references a Contract with a different Broker than the Sales Order.</value>
+  </data>
+  <data name="CustomerSpec" xml:space="preserve">
+    <value>Customer Spec</value>
+  </data>
+  <data name="LotAttributeOutOfRequiredRange" xml:space="preserve">
+    <value>Lot '{0}' attribute '{1}' out of range for {2}.</value>
+  </data>
+  <data name="LotMissingRequiredAttribute" xml:space="preserve">
+    <value>Lot '{0}' missing value for attribute '{1}' required by {2}.</value>
+  </data>
+  <data name="ProductSpec" xml:space="preserve">
+    <value>Product Spec</value>
+  </data>
+  <data name="InventoryPickOrderItemNotFound" xml:space="preserve">
+    <value>The Inventory Pick Order Item with Key '{0}' was not found.</value>
+  </data>
+  <data name="CannotPickForOrderItem_DoesNotExist" xml:space="preserve">
+    <value>Cannot pick Inventory for Order Item with Key '{0}' because it does not exist for this order.</value>
+  </data>
+  <data name="SalesOrderNotShipped" xml:space="preserve">
+    <value>The Sales Order with Key '{0}' has not been shipped.</value>
+  </data>
+  <data name="SampleOrderNotFound" xml:space="preserve">
+    <value>The Sample Order with Key '{0}' was not found.</value>
+  </data>
+  <data name="SampleOrderItemNotFound" xml:space="preserve">
+    <value>The Sample Order Item with Key '{0}' could not be found.</value>
+  </data>
+  <data name="SampleOrderJournalEntryNotFound" xml:space="preserve">
+    <value>The Sample Order Journal Entry with Key '{0}' could not be found.</value>
+  </data>
+  <data name="CustomerNoteNotFound" xml:space="preserve">
+    <value>The Customer Note with Key '{0}' was not found.</value>
+  </data>
+  <data name="InventoryTreatmentNotFound" xml:space="preserve">
+    <value>The Inventory Treatment with Key '{0}' was not found.</value>
+  </data>
+  <data name="NonInventoryProductNotFound" xml:space="preserve">
+    <value>The Non-Inventory Product with Key '{0}' was not found.</value>
+  </data>
+  <data name="LotDateSequenceLessThanOne" xml:space="preserve">
+    <value>Lot Date Sequence number should be greater than 0.</value>
+  </data>
+  <data name="ProductNotFound" xml:space="preserve">
+    <value>The Product with Key '{0}' was not found.</value>
+  </data>
+  <data name="InvalidSalesQuoteItemKey" xml:space="preserve">
+    <value>The Sales Quote Item Key '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidSalesQuoteKey" xml:space="preserve">
+    <value>The Sales Quote Key '{0}' is not valid.</value>
+  </data>
+  <data name="SalesQuoteItemNotFound" xml:space="preserve">
+    <value>The Sales Quote Item with Key '{0}' was not found.</value>
+  </data>
+  <data name="SalesQuoteNotFound_Key" xml:space="preserve">
+    <value>The Sales Quote with Key '{0}' was not found.</value>
+  </data>
+  <data name="SalesQuoteNotFound_Num" xml:space="preserve">
+    <value>The Sales Quote with Number '{0}' was not found.</value>
+  </data>
+  <data name="SalesQuoteNumberRequired" xml:space="preserve">
+    <value>Sales Quote Number is required.</value>
+  </data>
+</root>

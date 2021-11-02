@@ -1,0 +1,28 @@
+﻿@model bool?
+
+@functions
+{
+
+    private bool? ModelValue
+    {
+        get { 
+            bool? value = null;
+            if (ViewData.Model != null)
+            {
+                value = Convert.ToBoolean(ViewData.Model);
+            }
+            return value;
+        }
+    }
+}
+
+@{
+    if (ViewData.ModelMetadata.IsNullableValueType)
+    {
+        <text></text>
+    }
+    else
+    {
+        @Html.CheckBoxFor(m => m.Value, new { disabled = "disabled" })
+    }
+}

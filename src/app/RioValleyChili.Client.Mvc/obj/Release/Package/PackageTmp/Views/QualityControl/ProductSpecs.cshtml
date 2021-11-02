@@ -1,0 +1,73 @@
+﻿@{
+    Html.SetPageTitles(
+        "Products | Quality Control",
+        "Products",
+        "Specs & Recipes");
+
+    Html.PushJavaScriptResource(Url.Content("~/scripts/app/helpers/ajaxStatusHelper.js"));
+
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+}
+
+<div data-bind="template: { name: 'product-details-template' }"></div>
+
+@section scripts {
+    <script src="~/Scripts/app/viewModels/qualityControl/productsViewModel.js"></script>
+}
+
+
+
+@section controlPanel {
+    <fieldset>
+        <legend>Products</legend>
+
+        <label>Product Type</label>
+        <select data-bind="value: inventoryTypeFilter, options: inventoryTypeFilter.options, optionsText: 'value', optionsValue: 'key'"></select>
+
+        <div>
+            <label>Lot Type</label>
+            <select data-bind="value: lotTypeFilter, options: lotTypeOptions, optionsText: 'value', optionsValue: 'key', enable: lotTypeOptions().length > 1"></select>
+        </div>
+
+        <label>Product</label>
+        <select data-bind="value: selectedProduct, options: productOptions, optionsText: 'ProductFullName', optionsCaption: ' ', disable: loadProductsCommand.isExecuting"></select>
+        
+        <input type="button" value="Create New Product" data-bind="command: productDetailsViewModel.initNewProductCommand" />
+    </fieldset>
+    
+    <!-- ko template: { name: 'product-details-control-template' } -->
+    <!-- /ko -->
+    
+    <fieldset data-bind="slideVisible: recentlyCreatedProducts().length">
+        <legend>Recently Created Products</legend>
+        <ol data-bind="foreach: recentlyCreatedProducts">
+            <li class="link-list">
+                <a data-bind="text: ProductName() + ' (' + LotType.displayValue() + ')', command: $parent.loadProductDetailsCommand"></a>
+            </li>
+        </ol>
+    </fieldset>
+}
+
+@section htmlHead {
+    <style>
+        #productInfo ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #ingredients-tab .ingred-perc {
+            width: 100px;
+        }
+
+        #ingredients-tab h4 {
+            display: inline-block;
+        }
+
+        .sum {
+            display: inline-block;
+            background-color: transparent;
+            border: none;
+        }
+    </style>
+}

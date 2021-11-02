@@ -1,0 +1,37 @@
+﻿@model RioValleyChili.Client.Mvc.Models.Security.MembersViewModel
+
+@{
+    Html.SetPageTitles("Site Members", "Site Members");
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Is Active</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model.Members)
+        {
+            <tr>
+                <td>@member.DisplayName</td>
+                <td>@member.UserName</td>
+                <td>@member.EmailAddress</td>
+                <td>@Html.DisplayFor(m => member.IsActive)</td>
+                <td>@Html.ActionLink("Permissions", MVC.Security.Permissions(member.EmployeeKey))</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section controlPanel
+{
+    @Html.SubNavigation("Navigation", new List<MvcHtmlString>
+    {
+        Html.ActionLink("Register Employee", MVC.Security.Register())
+    })
+}

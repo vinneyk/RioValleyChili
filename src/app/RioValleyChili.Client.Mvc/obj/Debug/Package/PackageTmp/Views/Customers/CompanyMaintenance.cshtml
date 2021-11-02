@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Company Maintenance";
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+}
+
+
+@section controlPanel
+{
+<fieldset data-bind="slideVisible: editorData.input">
+    <legend>Editor Controls</legend>
+    <input class="save" type="button" value="Save" data-bind="command: saveCompanyCommand">
+    <input type="button" value="Close" data-bind="command: closeEditorCommand">
+</fieldset>
+<section data-bind="slideVisible: !editorData.input()">
+    <fieldset>
+        <legend>Go to company</legend>
+        <product-selector
+            params="selectedValue: selectedCompany,
+                productsSource: options.companies,
+                optionsDisplay: 'Name',
+                optionsValue: 'CompanyKey'">
+        </product-selector>
+    </fieldset>
+    <fieldset>
+        <legend>Company Controls</legend>
+        <input type="button" value="Create New Company" data-bind="command: startNewCompany">
+    </fieldset>
+    <fieldset>
+        <legend>Filters</legend>
+
+        <input type="button" value="Load More" data-bind="command: loadMore">
+        <div class="form-group">
+            <label class="control-label" for="filters-company-type">Company Type</label>
+            <select class="form-control" data-bind="value: filters.companyType,
+                options: options.companyTypes,
+                optionsText: 'value',
+                optionsValue: 'key',
+                optionsCaption: ' '">
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="filters-broker">Broker</label>
+            <product-selector
+                params="selectedValue: filterBrokerKey,
+                productsSource: options.brokers,
+                optionsDisplay: 'Name',
+                optionsValue: 'CompanyKey',
+                enabled: isCustomer">
+            </product-selector>
+        </div>
+    </fieldset>
+</section>
+}
+
+<section data-bind="popup: editorData.input, closePopupCommand: closeEditorCommand, if: editorData.input">
+    <hgroup>
+        <h2 data-bind="text: editorData.input().CompanyKey ? 'Edit Company' : 'Create New Company'"></h2>
+        <h3 data-bind="text: editorData.input().Name, visible: editorData.input().CompanyKey"></h3>
+    </hgroup>
+
+    <customer-maintenance-editor
+        params="input: editorData.input,
+            options: options,
+            exports: editorData.exports">
+    </customer-maintenance-editor>
+</section>
+
+<h2>Company Maintenance</h2>
+
+<section data-bind="ifnot: isInit">
+    <div class="well text-center">
+        <i class="fa fa-spinner fa-pulse fa-3x"></i>
+    </div>
+</section>
+<section data-bind="if: isInit">
+    <customer-maintenance-summary
+        params="input: summaryData.input,
+            selected: summaryData.selected,
+            exports: summaryData.exports">
+    </customer-maintenance-summary>
+</section>
+
+@section scripts
+{
+    <script src="/App/build/companyMaintenance.bundle.js?v=@Html.AppVersion()"></script>
+}

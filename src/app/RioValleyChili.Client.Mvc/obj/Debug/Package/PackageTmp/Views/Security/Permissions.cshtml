@@ -1,0 +1,39 @@
+﻿@model RioValleyChili.Client.Mvc.Models.Security.MemberPermissions
+
+@{
+    Html.SetPageTitles(string.Format("{0}: Permissions", Model.EmployeeName), "Employee Permissions", string.Format("Set permissions for {0}.", Model.EmployeeName));
+}
+
+<ul data-bind="template: {name: 'claim-template', foreach: claims}">
+</ul>
+
+@section controlPanel
+{
+    <fieldset>
+        <legend>Controls</legend>
+        <input type="button" value="Save Changes" data-bind="command: saveCommand" class="save" />
+        @Html.ActionLink("Cancel", MVC.Security.Index(), new { @class = "button" })
+        
+    </fieldset>
+
+}
+
+@section scripts
+{
+    <script src="~/Scripts/app/helpers/esmHelper.js"></script>
+    <script src="~/Scripts/app/viewModels/security/employeePermissionsViewModel.js"></script>
+    
+    <script>
+        $(function() {
+            employeePermissionsViewModel.init(@Html.RawJson(Model));
+        });
+    </script>
+    
+    <script id="claim-template" type="text/html">
+        <li>
+            <input data-bind="value: type" /> :
+            <input data-bind="value: value" />
+            <a href="#" data-bind="command: $parent.removeClaimCommand, visible: !isLastItem()">delete</a>
+        </li>
+    </script>
+}

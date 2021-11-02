@@ -1,0 +1,2331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<views>
+  <mapping-views hash="13267a40e17c1901bcba9342b213b073b5a97b1b29cc81556618a5a53912a484" conceptual-container="RioValleyChiliDataContext" store-container="CodeFirstDatabase">
+    <view extent="CodeFirstDatabase.AdditiveLot"><![CDATA[
+    SELECT VALUE -- Constructing AdditiveLot
+        [CodeFirstDatabaseSchema.AdditiveLot](T1.AdditiveLot_LotDateCreated, T1.AdditiveLot_LotDateSequence, T1.AdditiveLot_LotTypeId, T1.AdditiveLot_AdditiveProductId)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS AdditiveLot_LotDateCreated, 
+            T.LotDateSequence AS AdditiveLot_LotDateSequence, 
+            T.LotTypeId AS AdditiveLot_LotTypeId, 
+            T.AdditiveProductId AS AdditiveLot_AdditiveProductId, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.AdditiveLots AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.AdditiveProduct"><![CDATA[
+    SELECT VALUE -- Constructing AdditiveProduct
+        [CodeFirstDatabaseSchema.AdditiveProduct](T1.AdditiveProduct_Id, T1.AdditiveProduct_AdditiveTypeId)
+    FROM (
+        SELECT 
+            T.Id AS AdditiveProduct_Id, 
+            T.AdditiveTypeId AS AdditiveProduct_AdditiveTypeId, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.AdditiveProducts AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.AdditiveType"><![CDATA[
+    SELECT VALUE -- Constructing AdditiveType
+        [CodeFirstDatabaseSchema.AdditiveType](T1.AdditiveType_Id, T1.AdditiveType_Description)
+    FROM (
+        SELECT 
+            T.Id AS AdditiveType_Id, 
+            T.Description AS AdditiveType_Description, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.AdditiveTypes AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Product"><![CDATA[
+    SELECT VALUE -- Constructing Product
+        [CodeFirstDatabaseSchema.Product](T1.Product_Id, T1.Product_Name, T1.Product_IsActive, T1.Product_ProductType, T1.Product_ProductCode)
+    FROM (
+        SELECT 
+            T.Id AS Product_Id, 
+            T.Name AS Product_Name, 
+            T.IsActive AS Product_IsActive, 
+            CAST(T.ProductType AS [Edm.Int16]) AS Product_ProductType, 
+            T.ProductCode AS Product_ProductCode, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.Products AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Lot"><![CDATA[
+    SELECT VALUE -- Constructing Lot
+        [CodeFirstDatabaseSchema.Lot](T1.Lot_LotDateCreated, T1.Lot_LotDateSequence, T1.Lot_LotTypeId, T1.Lot_QualityControlNotebookSequence, T1.Lot_QualityStatus, T1.Lot_ProductionStatus, T1.Lot_ProductSpecComplete, T1.Lot_ProductSpecOutOfRange, T1.Lot_Hold, T1.Lot_HoldDescription)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS Lot_LotDateCreated, 
+            T.LotDateSequence AS Lot_LotDateSequence, 
+            T.LotTypeId AS Lot_LotTypeId, 
+            T.QualityControlNotebookSequence AS Lot_QualityControlNotebookSequence, 
+            CAST(T.QualityStatus AS [Edm.Int32]) AS Lot_QualityStatus, 
+            CAST(T.ProductionStatus AS [Edm.Int32]) AS Lot_ProductionStatus, 
+            T.ProductSpecComplete AS Lot_ProductSpecComplete, 
+            T.ProductSpecOutOfRange AS Lot_ProductSpecOutOfRange, 
+            CAST(T.Hold AS [Edm.Int32]) AS Lot_Hold, 
+            T.HoldDescription AS Lot_HoldDescription, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.Lots AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.LotAttribute"><![CDATA[
+    SELECT VALUE -- Constructing LotAttribute
+        [CodeFirstDatabaseSchema.LotAttribute](T1.LotAttribute_LotDateCreated, T1.LotAttribute_LotDateSequence, T1.LotAttribute_LotTypeId, T1.LotAttribute_AttributeShortName, T1.LotAttribute_AttributeValue, T1.LotAttribute_AttributeDate, T1.LotAttribute_Computed, T1.LotAttribute_EmployeeId, T1.LotAttribute_TimeStamp)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS LotAttribute_LotDateCreated, 
+            T.LotDateSequence AS LotAttribute_LotDateSequence, 
+            T.LotTypeId AS LotAttribute_LotTypeId, 
+            T.AttributeShortName AS LotAttribute_AttributeShortName, 
+            T.AttributeValue AS LotAttribute_AttributeValue, 
+            T.AttributeDate AS LotAttribute_AttributeDate, 
+            T.Computed AS LotAttribute_Computed, 
+            T.EmployeeId AS LotAttribute_EmployeeId, 
+            T.TimeStamp AS LotAttribute_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.LotAttributes AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.AttributeName"><![CDATA[
+    SELECT VALUE -- Constructing AttributeName
+        [CodeFirstDatabaseSchema.AttributeName](T1.AttributeName_ShortName, T1.AttributeName_Name, T1.AttributeName_Active, T1.AttributeName_ValidForChileInventory, T1.AttributeName_ValidForAdditiveInventory, T1.AttributeName_ValidForPackagingInventory, T1.AttributeName_DefectType, T1.AttributeName_LoBacLimit)
+    FROM (
+        SELECT 
+            T.ShortName AS AttributeName_ShortName, 
+            T.Name AS AttributeName_Name, 
+            T.Active AS AttributeName_Active, 
+            T.ValidForChileInventory AS AttributeName_ValidForChileInventory, 
+            T.ValidForAdditiveInventory AS AttributeName_ValidForAdditiveInventory, 
+            T.ValidForPackagingInventory AS AttributeName_ValidForPackagingInventory, 
+            CAST(T.DefectType AS [Edm.Int16]) AS AttributeName_DefectType, 
+            T.LoBacLimit AS AttributeName_LoBacLimit, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.AttributeNames AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.InventoryTreatmentForAttribute"><![CDATA[
+    SELECT VALUE -- Constructing InventoryTreatmentForAttribute
+        [CodeFirstDatabaseSchema.InventoryTreatmentForAttribute](T1.InventoryTreatmentForAttribute_TreatmentId, T1.InventoryTreatmentForAttribute_AttributeShortName)
+    FROM (
+        SELECT 
+            T.TreatmentId AS InventoryTreatmentForAttribute_TreatmentId, 
+            T.AttributeShortName AS InventoryTreatmentForAttribute_AttributeShortName, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.InventoryTreatmentForAttributes AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.InventoryTreatment"><![CDATA[
+    SELECT VALUE -- Constructing InventoryTreatment
+        [CodeFirstDatabaseSchema.InventoryTreatment](T1.InventoryTreatment_Id, T1.InventoryTreatment_LongName, T1.InventoryTreatment_ShortName)
+    FROM (
+        SELECT 
+            T.Id AS InventoryTreatment_Id, 
+            T.LongName AS InventoryTreatment_LongName, 
+            T.ShortName AS InventoryTreatment_ShortName, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.InventoryTreatments AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Employee"><![CDATA[
+    SELECT VALUE -- Constructing Employee
+        [CodeFirstDatabaseSchema.Employee](T1.Employee_EmployeeId, T1.Employee_UserName, T1.Employee_DisplayName, T1.Employee_EmailAddress, T1.Employee_Claims, T1.Employee_IsActive)
+    FROM (
+        SELECT 
+            T.EmployeeId AS Employee_EmployeeId, 
+            T.UserName AS Employee_UserName, 
+            T.DisplayName AS Employee_DisplayName, 
+            T.EmailAddress AS Employee_EmailAddress, 
+            T.Claims AS Employee_Claims, 
+            T.IsActive AS Employee_IsActive, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.Employees AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ChileLot"><![CDATA[
+    SELECT VALUE -- Constructing ChileLot
+        [CodeFirstDatabaseSchema.ChileLot](T1.ChileLot_LotDateCreated, T1.ChileLot_LotDateSequence, T1.ChileLot_LotTypeId, T1.ChileLot_AllAttributesAreLoBac, T1.ChileLot_ChileProductId)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS ChileLot_LotDateCreated, 
+            T.LotDateSequence AS ChileLot_LotDateSequence, 
+            T.LotTypeId AS ChileLot_LotTypeId, 
+            T.AllAttributesAreLoBac AS ChileLot_AllAttributesAreLoBac, 
+            T.ChileProductId AS ChileLot_ChileProductId, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ChileLots AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ChileProduct"><![CDATA[
+    SELECT VALUE -- Constructing ChileProduct
+        [CodeFirstDatabaseSchema.ChileProduct](T1.ChileProduct_Id, T1.ChileProduct_ChileTypeId, T1.ChileProduct_ChileState)
+    FROM (
+        SELECT 
+            T.Id AS ChileProduct_Id, 
+            T.ChileTypeId AS ChileProduct_ChileTypeId, 
+            CAST(T.ChileState AS [Edm.Int16]) AS ChileProduct_ChileState, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ChileProducts AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ChileType"><![CDATA[
+    SELECT VALUE -- Constructing ChileType
+        [CodeFirstDatabaseSchema.ChileType](T1.ChileType_Id, T1.ChileType_Description)
+    FROM (
+        SELECT 
+            T.Id AS ChileType_Id, 
+            T.Description AS ChileType_Description, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ChileTypes AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ChileProductIngredient"><![CDATA[
+    SELECT VALUE -- Constructing ChileProductIngredient
+        [CodeFirstDatabaseSchema.ChileProductIngredient](T1.ChileProductIngredient_ChileProductId, T1.ChileProductIngredient_AdditiveTypeId, T1.ChileProductIngredient_Percentage, T1.ChileProductIngredient_User, T1.ChileProductIngredient_TimeStamp)
+    FROM (
+        SELECT 
+            T.ChileProductId AS ChileProductIngredient_ChileProductId, 
+            T.AdditiveTypeId AS ChileProductIngredient_AdditiveTypeId, 
+            T.Percentage AS ChileProductIngredient_Percentage, 
+            T.User AS ChileProductIngredient_User, 
+            T.TimeStamp AS ChileProductIngredient_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ChileProductIngredients AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ChileProductAttributeRange"><![CDATA[
+    SELECT VALUE -- Constructing ChileProductAttributeRange
+        [CodeFirstDatabaseSchema.ChileProductAttributeRange](T1.ChileProductAttributeRange_ChileProductId, T1.ChileProductAttributeRange_AttributeShortName, T1.ChileProductAttributeRange_RangeMin, T1.ChileProductAttributeRange_RangeMax, T1.ChileProductAttributeRange_User, T1.ChileProductAttributeRange_TimeStamp)
+    FROM (
+        SELECT 
+            T.ChileProductId AS ChileProductAttributeRange_ChileProductId, 
+            T.AttributeShortName AS ChileProductAttributeRange_AttributeShortName, 
+            T.RangeMin AS ChileProductAttributeRange_RangeMin, 
+            T.RangeMax AS ChileProductAttributeRange_RangeMax, 
+            T.User AS ChileProductAttributeRange_User, 
+            T.TimeStamp AS ChileProductAttributeRange_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ChileProductAttributeRanges AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ChileLotProduction"><![CDATA[
+    SELECT VALUE -- Constructing ChileLotProduction
+        [CodeFirstDatabaseSchema.ChileLotProduction](T1.ChileLotProduction_LotDateCreated, T1.ChileLotProduction_LotDateSequence, T1.ChileLotProduction_LotTypeId, T1.ChileLotProduction_PickedInventoryDateCreated, T1.ChileLotProduction_PickedInventorySequence, T1.ChileLotProduction_ProductionType, T1.ChileLotProduction_EmployeeId, T1.ChileLotProduction_TimeStamp)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS ChileLotProduction_LotDateCreated, 
+            T.LotDateSequence AS ChileLotProduction_LotDateSequence, 
+            T.LotTypeId AS ChileLotProduction_LotTypeId, 
+            T.PickedInventoryDateCreated AS ChileLotProduction_PickedInventoryDateCreated, 
+            T.PickedInventorySequence AS ChileLotProduction_PickedInventorySequence, 
+            CAST(T.ProductionType AS [Edm.Int32]) AS ChileLotProduction_ProductionType, 
+            T.EmployeeId AS ChileLotProduction_EmployeeId, 
+            T.TimeStamp AS ChileLotProduction_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ChileLotProductions AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.PickedInventory"><![CDATA[
+    SELECT VALUE -- Constructing PickedInventory
+        [CodeFirstDatabaseSchema.PickedInventory](T1.PickedInventory_DateCreated, T1.PickedInventory_Sequence, T1.PickedInventory_PickedReason, T1.PickedInventory_Archived, T1.PickedInventory_EmployeeId, T1.PickedInventory_TimeStamp)
+    FROM (
+        SELECT 
+            T.DateCreated AS PickedInventory_DateCreated, 
+            T.Sequence AS PickedInventory_Sequence, 
+            CAST(T.PickedReason AS [Edm.Int16]) AS PickedInventory_PickedReason, 
+            T.Archived AS PickedInventory_Archived, 
+            T.EmployeeId AS PickedInventory_EmployeeId, 
+            T.TimeStamp AS PickedInventory_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.InventoryMovements AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.PickedInventoryItem"><![CDATA[
+    SELECT VALUE -- Constructing PickedInventoryItem
+        [CodeFirstDatabaseSchema.PickedInventoryItem](T1.PickedInventoryItem_DateCreated, T1.PickedInventoryItem_Sequence, T1.PickedInventoryItem_ItemSequence, T1.PickedInventoryItem_LotDateCreated, T1.PickedInventoryItem_LotDateSequence, T1.PickedInventoryItem_LotTypeId, T1.PickedInventoryItem_PackagingProductId, T1.PickedInventoryItem_FromWarehouseLocationId, T1.PickedInventoryItem_TreatmentId, T1.PickedInventoryItem_CurrentLocationId, T1.PickedInventoryItem_DestinationWarehouseLocationId, T1.PickedInventoryItem_ToteKey, T1.PickedInventoryItem_Quantity)
+    FROM (
+        SELECT 
+            T.DateCreated AS PickedInventoryItem_DateCreated, 
+            T.Sequence AS PickedInventoryItem_Sequence, 
+            T.ItemSequence AS PickedInventoryItem_ItemSequence, 
+            T.LotDateCreated AS PickedInventoryItem_LotDateCreated, 
+            T.LotDateSequence AS PickedInventoryItem_LotDateSequence, 
+            T.LotTypeId AS PickedInventoryItem_LotTypeId, 
+            T.PackagingProductId AS PickedInventoryItem_PackagingProductId, 
+            T.FromWarehouseLocationId AS PickedInventoryItem_FromWarehouseLocationId, 
+            T.TreatmentId AS PickedInventoryItem_TreatmentId, 
+            T.CurrentLocationId AS PickedInventoryItem_CurrentLocationId, 
+            T.DestinationWarehouseLocationId AS PickedInventoryItem_DestinationWarehouseLocationId, 
+            T.ToteKey AS PickedInventoryItem_ToteKey, 
+            T.Quantity AS PickedInventoryItem_Quantity, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.InventoryMovementItems AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Location"><![CDATA[
+    SELECT VALUE -- Constructing Location
+        [CodeFirstDatabaseSchema.Location](T1.Location_Id, T1.Location_LocationType, T1.Location_Active, T1.Location_Locked)
+    FROM (
+        SELECT 
+            T.Id AS Location_Id, 
+            CAST(T.LocationType AS [Edm.Int16]) AS Location_LocationType, 
+            T.Active AS Location_Active, 
+            T.Locked AS Location_Locked, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.Locations AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.WarehouseLocation"><![CDATA[
+    SELECT VALUE -- Constructing WarehouseLocation
+        [CodeFirstDatabaseSchema.WarehouseLocation](T1.WarehouseLocation_Id, T1.WarehouseLocation_WarehouseId, T1.WarehouseLocation_Street, T1.WarehouseLocation_Row)
+    FROM (
+        SELECT 
+            T.Id AS WarehouseLocation_Id, 
+            T.WarehouseId AS WarehouseLocation_WarehouseId, 
+            T.Street AS WarehouseLocation_Street, 
+            T.[Row] AS WarehouseLocation_Row, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.WarehouseLocations AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Inventory"><![CDATA[
+    SELECT VALUE -- Constructing Inventory
+        [CodeFirstDatabaseSchema.Inventory](T1.Inventory_LotDateCreated, T1.Inventory_LotDateSequence, T1.Inventory_LotTypeId, T1.Inventory_PackagingProductId, T1.Inventory_WarehouseLocationId, T1.Inventory_TreatmentId, T1.Inventory_ToteKey, T1.Inventory_Quantity)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS Inventory_LotDateCreated, 
+            T.LotDateSequence AS Inventory_LotDateSequence, 
+            T.LotTypeId AS Inventory_LotTypeId, 
+            T.PackagingProductId AS Inventory_PackagingProductId, 
+            T.WarehouseLocationId AS Inventory_WarehouseLocationId, 
+            T.TreatmentId AS Inventory_TreatmentId, 
+            T.ToteKey AS Inventory_ToteKey, 
+            T.Quantity AS Inventory_Quantity, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.Inventory AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.PackagingProduct"><![CDATA[
+    SELECT VALUE -- Constructing PackagingProduct
+        [CodeFirstDatabaseSchema.PackagingProduct](T1.PackagingProduct_Id, T1.PackagingProduct_Weight)
+    FROM (
+        SELECT 
+            T.Id AS PackagingProduct_Id, 
+            T.Weight AS PackagingProduct_Weight, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.PackagingProducts AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Warehouse"><![CDATA[
+    SELECT VALUE -- Constructing Warehouse
+        [CodeFirstDatabaseSchema.Warehouse](T1.Warehouse_Id, T1.Warehouse_WarehouseType, T1.Warehouse_Name, T1.Warehouse_Active)
+    FROM (
+        SELECT 
+            T.Id AS Warehouse_Id, 
+            CAST(T.WarehouseType AS [Edm.Int16]) AS Warehouse_WarehouseType, 
+            T.Name AS Warehouse_Name, 
+            T.Active AS Warehouse_Active, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.Warehouses AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.WarehouseLocationTransition"><![CDATA[
+    SELECT VALUE -- Constructing WarehouseLocationTransition
+        [CodeFirstDatabaseSchema.WarehouseLocationTransition](T1.WarehouseLocationTransition_WarehouseLocationId, T1.WarehouseLocationTransition_OldId)
+    FROM (
+        SELECT 
+            T.WarehouseLocationId AS WarehouseLocationTransition_WarehouseLocationId, 
+            T.OldId AS WarehouseLocationTransition_OldId, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.WarehouseLocationTransitions AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.LotProductionResults"><![CDATA[
+    SELECT VALUE -- Constructing LotProductionResults
+        [CodeFirstDatabaseSchema.LotProductionResults](T1.LotProductionResults_LotDateCreated, T1.LotProductionResults_LotDateSequence, T1.LotProductionResults_LotTypeId, T1.LotProductionResults_ShiftKey, T1.LotProductionResults_ProductionBegin, T1.LotProductionResults_ProductionEnd, T1.LotProductionResults_DateTimeEntered, T1.LotProductionResults_ProductionLineLocationId, T1.LotProductionResults_ProductionLineLocationType, T1.LotProductionResults_EmployeeId, T1.LotProductionResults_TimeStamp)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS LotProductionResults_LotDateCreated, 
+            T.LotDateSequence AS LotProductionResults_LotDateSequence, 
+            T.LotTypeId AS LotProductionResults_LotTypeId, 
+            T.ShiftKey AS LotProductionResults_ShiftKey, 
+            T.ProductionBegin AS LotProductionResults_ProductionBegin, 
+            T.ProductionEnd AS LotProductionResults_ProductionEnd, 
+            T.DateTimeEntered AS LotProductionResults_DateTimeEntered, 
+            T.ProductionLineLocationId AS LotProductionResults_ProductionLineLocationId, 
+            T.ProductionLineLocationType AS LotProductionResults_ProductionLineLocationType, 
+            T.EmployeeId AS LotProductionResults_EmployeeId, 
+            T.TimeStamp AS LotProductionResults_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.LotProductionResults AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ProductionLocation"><![CDATA[
+    SELECT VALUE -- Constructing ProductionLocation
+        [CodeFirstDatabaseSchema.ProductionLocation](T1.ProductionLocation_Id, T1.ProductionLocation_ProductionLineLocationType, T1.ProductionLocation_Description)
+    FROM (
+        SELECT 
+            T.Id AS ProductionLocation_Id, 
+            T.ProductionLineLocationType AS ProductionLocation_ProductionLineLocationType, 
+            T.Description AS ProductionLocation_Description, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ProductionLocations AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.LotProductionResultItem"><![CDATA[
+    SELECT VALUE -- Constructing LotProductionResultItem
+        [CodeFirstDatabaseSchema.LotProductionResultItem](T1.LotProductionResultItem_LotDateCreated, T1.LotProductionResultItem_LotDateSequence, T1.LotProductionResultItem_LotTypeId, T1.LotProductionResultItem_ResultItemSequence, T1.LotProductionResultItem_PackagingProductId, T1.LotProductionResultItem_WarehouseLocationId, T1.LotProductionResultItem_TreatmentId, T1.LotProductionResultItem_Quantity)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS LotProductionResultItem_LotDateCreated, 
+            T.LotDateSequence AS LotProductionResultItem_LotDateSequence, 
+            T.LotTypeId AS LotProductionResultItem_LotTypeId, 
+            T.ResultItemSequence AS LotProductionResultItem_ResultItemSequence, 
+            T.PackagingProductId AS LotProductionResultItem_PackagingProductId, 
+            T.WarehouseLocationId AS LotProductionResultItem_WarehouseLocationId, 
+            T.TreatmentId AS LotProductionResultItem_TreatmentId, 
+            T.Quantity AS LotProductionResultItem_Quantity, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.LotProductionResultItems AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.LotDefect"><![CDATA[
+    SELECT VALUE -- Constructing LotDefect
+        [CodeFirstDatabaseSchema.LotDefect](T1.LotDefect_LotDateCreated, T1.LotDefect_LotDateSequence, T1.LotDefect_LotTypeId, T1.LotDefect_DefectId, T1.LotDefect_DefectType, T1.LotDefect_Description)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS LotDefect_LotDateCreated, 
+            T.LotDateSequence AS LotDefect_LotDateSequence, 
+            T.LotTypeId AS LotDefect_LotTypeId, 
+            T.DefectId AS LotDefect_DefectId, 
+            CAST(T.DefectType AS [Edm.Int16]) AS LotDefect_DefectType, 
+            T.Description AS LotDefect_Description, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.LotDefects AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.LotDefectResolution"><![CDATA[
+    SELECT VALUE -- Constructing LotDefectResolution
+        [CodeFirstDatabaseSchema.LotDefectResolution](T1.LotDefectResolution_LotDateCreated, T1.LotDefectResolution_LotDateSequence, T1.LotDefectResolution_LotTypeId, T1.LotDefectResolution_DefectId, T1.LotDefectResolution_ResolutionType, T1.LotDefectResolution_Description, T1.LotDefectResolution_EmployeeId, T1.LotDefectResolution_TimeStamp)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS LotDefectResolution_LotDateCreated, 
+            T.LotDateSequence AS LotDefectResolution_LotDateSequence, 
+            T.LotTypeId AS LotDefectResolution_LotTypeId, 
+            T.DefectId AS LotDefectResolution_DefectId, 
+            CAST(T.ResolutionType AS [Edm.Int16]) AS LotDefectResolution_ResolutionType, 
+            T.Description AS LotDefectResolution_Description, 
+            T.EmployeeId AS LotDefectResolution_EmployeeId, 
+            T.TimeStamp AS LotDefectResolution_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.LotDefectResolutions AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.PackagingLot"><![CDATA[
+    SELECT VALUE -- Constructing PackagingLot
+        [CodeFirstDatabaseSchema.PackagingLot](T1.PackagingLot_LotDateCreated, T1.PackagingLot_LotDateSequence, T1.PackagingLot_LotTypeId, T1.PackagingLot_PackagingProductId)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS PackagingLot_LotDateCreated, 
+            T.LotDateSequence AS PackagingLot_LotDateSequence, 
+            T.LotTypeId AS PackagingLot_LotTypeId, 
+            T.PackagingProductId AS PackagingLot_PackagingProductId, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.PackagingLots AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Notebook"><![CDATA[
+    SELECT VALUE -- Constructing Notebook
+        [CodeFirstDatabaseSchema.Notebook](T1.Notebook_Date, T1.Notebook_Sequence)
+    FROM (
+        SELECT 
+            T.Date AS Notebook_Date, 
+            T.Sequence AS Notebook_Sequence, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.Notebooks AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Note"><![CDATA[
+    SELECT VALUE -- Constructing Note
+        [CodeFirstDatabaseSchema.Note](T1.Note_NotebookDate, T1.Note_NotebookSequence, T1.Note_Sequence, T1.Note_Text, T1.Note_EmployeeId, T1.Note_TimeStamp)
+    FROM (
+        SELECT 
+            T.NotebookDate AS Note_NotebookDate, 
+            T.NotebookSequence AS Note_NotebookSequence, 
+            T.Sequence AS Note_Sequence, 
+            T.Text AS Note_Text, 
+            T.EmployeeId AS Note_EmployeeId, 
+            T.TimeStamp AS Note_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.Notes AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Contact"><![CDATA[
+    SELECT VALUE -- Constructing Contact
+        [CodeFirstDatabaseSchema.Contact](T1.Contact_CompanyId, T1.Contact_ContactId, T1.Contact_Name, T1.Contact_PhoneNumber, T1.Contact_EMailAddress)
+    FROM (
+        SELECT 
+            T.CompanyId AS Contact_CompanyId, 
+            T.ContactId AS Contact_ContactId, 
+            T.Name AS Contact_Name, 
+            T.PhoneNumber AS Contact_PhoneNumber, 
+            T.EMailAddress AS Contact_EMailAddress, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.Contacts AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ContactAddress"><![CDATA[
+    SELECT VALUE -- Constructing ContactAddress
+        [CodeFirstDatabaseSchema.ContactAddress](T1.ContactAddress_CompanyId, T1.ContactAddress_ContactId, T1.ContactAddress_AddressId, T1.ContactAddress_AddressDescription, T1.[ContactAddress.Address_AddressLine1], T1.[ContactAddress.Address_AddressLine2], T1.[ContactAddress.Address_AddressLine3], T1.[ContactAddress.Address_City], T1.[ContactAddress.Address_State], T1.[ContactAddress.Address_PostalCode], T1.[ContactAddress.Address_Country])
+    FROM (
+        SELECT 
+            T.CompanyId AS ContactAddress_CompanyId, 
+            T.ContactId AS ContactAddress_ContactId, 
+            T.AddressId AS ContactAddress_AddressId, 
+            T.AddressDescription AS ContactAddress_AddressDescription, 
+            T.Address.AddressLine1 AS [ContactAddress.Address_AddressLine1], 
+            T.Address.AddressLine2 AS [ContactAddress.Address_AddressLine2], 
+            T.Address.AddressLine3 AS [ContactAddress.Address_AddressLine3], 
+            T.Address.City AS [ContactAddress.Address_City], 
+            T.Address.State AS [ContactAddress.Address_State], 
+            T.Address.PostalCode AS [ContactAddress.Address_PostalCode], 
+            T.Address.Country AS [ContactAddress.Address_Country], 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ContactAddresses AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Company"><![CDATA[
+    SELECT VALUE -- Constructing Company
+        [CodeFirstDatabaseSchema.Company](T1.Company_Id, T1.Company_NotebookDate, T1.Company_NotebookSequence, T1.Company_ParentId, T1.Company_Active, T1.Company_Name)
+    FROM (
+        SELECT 
+            T.Id AS Company_Id, 
+            T.NotebookDate AS Company_NotebookDate, 
+            T.NotebookSequence AS Company_NotebookSequence, 
+            T.ParentId AS Company_ParentId, 
+            T.Active AS Company_Active, 
+            T.Name AS Company_Name, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.Companies AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.CompanyAddress"><![CDATA[
+    SELECT VALUE -- Constructing CompanyAddress
+        [CodeFirstDatabaseSchema.CompanyAddress](T1.CompanyAddress_CompanyId, T1.CompanyAddress_AddressId, T1.CompanyAddress_AddressDescription, T1.[CompanyAddress.Address_AddressLine1], T1.[CompanyAddress.Address_AddressLine2], T1.[CompanyAddress.Address_AddressLine3], T1.[CompanyAddress.Address_City], T1.[CompanyAddress.Address_State], T1.[CompanyAddress.Address_PostalCode], T1.[CompanyAddress.Address_Country])
+    FROM (
+        SELECT 
+            T.CompanyId AS CompanyAddress_CompanyId, 
+            T.AddressId AS CompanyAddress_AddressId, 
+            T.AddressDescription AS CompanyAddress_AddressDescription, 
+            T.Address.AddressLine1 AS [CompanyAddress.Address_AddressLine1], 
+            T.Address.AddressLine2 AS [CompanyAddress.Address_AddressLine2], 
+            T.Address.AddressLine3 AS [CompanyAddress.Address_AddressLine3], 
+            T.Address.City AS [CompanyAddress.Address_City], 
+            T.Address.State AS [CompanyAddress.Address_State], 
+            T.Address.PostalCode AS [CompanyAddress.Address_PostalCode], 
+            T.Address.Country AS [CompanyAddress.Address_Country], 
+            True AS _from0
+        FROM RioValleyChiliDataContext.CompanyAddresses AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.CompanyTypeRecord"><![CDATA[
+    SELECT VALUE -- Constructing CompanyTypeRecord
+        [CodeFirstDatabaseSchema.CompanyTypeRecord](T1.CompanyTypeRecord_CompanyId, T1.CompanyTypeRecord_CompanyType)
+    FROM (
+        SELECT 
+            T.CompanyId AS CompanyTypeRecord_CompanyId, 
+            T.CompanyType AS CompanyTypeRecord_CompanyType, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.CompanyTypeRecords AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ContractItem"><![CDATA[
+    SELECT VALUE -- Constructing ContractItem
+        [CodeFirstDatabaseSchema.ContractItem](T1.ContractItem_ContractYear, T1.ContractItem_ContractSequence, T1.ContractItem_ContractItemSequence, T1.ContractItem_ChileProductId, T1.ContractItem_PackagingProductId, T1.ContractItem_TreatmentId, T1.ContractItem_UseCustomerSpec, T1.ContractItem_CustomerProductCode, T1.ContractItem_Quantity, T1.ContractItem_PriceBase, T1.ContractItem_PriceFreight, T1.ContractItem_PriceTreatment, T1.ContractItem_PriceWarehouse, T1.ContractItem_PriceRebate)
+    FROM (
+        SELECT 
+            T.ContractYear AS ContractItem_ContractYear, 
+            T.ContractSequence AS ContractItem_ContractSequence, 
+            T.ContractItemSequence AS ContractItem_ContractItemSequence, 
+            T.ChileProductId AS ContractItem_ChileProductId, 
+            T.PackagingProductId AS ContractItem_PackagingProductId, 
+            T.TreatmentId AS ContractItem_TreatmentId, 
+            T.UseCustomerSpec AS ContractItem_UseCustomerSpec, 
+            T.CustomerProductCode AS ContractItem_CustomerProductCode, 
+            T.Quantity AS ContractItem_Quantity, 
+            T.PriceBase AS ContractItem_PriceBase, 
+            T.PriceFreight AS ContractItem_PriceFreight, 
+            T.PriceTreatment AS ContractItem_PriceTreatment, 
+            T.PriceWarehouse AS ContractItem_PriceWarehouse, 
+            T.PriceRebate AS ContractItem_PriceRebate, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ContractItems AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Contract"><![CDATA[
+    SELECT VALUE -- Constructing Contract
+        [CodeFirstDatabaseSchema.Contract](T1.Contract_ContractYear, T1.Contract_ContractSequence, T1.Contract_ContractType, T1.Contract_ContractStatus, T1.Contract_DateCreated, T1.Contract_TermBegin, T1.Contract_TermEnd, T1.Contract_PaymentTerms, T1.Contract_NotesToPrint, T1.Contract_Comments, T1.Contract_CustomerId, T1.Contract_ContactId, T1.Contract_BrokerId, T1.Contract_DefaultPickFromWarehouseId, T1.[Contract.ContactAddress_AddressLine1], T1.[Contract.ContactAddress_AddressLine2], T1.[Contract.ContactAddress_AddressLine3], T1.[Contract.ContactAddress_City], T1.[Contract.ContactAddress_State], T1.[Contract.ContactAddress_PostalCode], T1.[Contract.ContactAddress_Country], T1.Contract_User, T1.Contract_TimeStamp)
+    FROM (
+        SELECT 
+            T.ContractYear AS Contract_ContractYear, 
+            T.ContractSequence AS Contract_ContractSequence, 
+            CAST(T.ContractType AS [Edm.Int32]) AS Contract_ContractType, 
+            CAST(T.ContractStatus AS [Edm.Int32]) AS Contract_ContractStatus, 
+            T.DateCreated AS Contract_DateCreated, 
+            T.TermBegin AS Contract_TermBegin, 
+            T.TermEnd AS Contract_TermEnd, 
+            T.PaymentTerms AS Contract_PaymentTerms, 
+            T.NotesToPrint AS Contract_NotesToPrint, 
+            T.Comments AS Contract_Comments, 
+            T.CustomerId AS Contract_CustomerId, 
+            T.ContactId AS Contract_ContactId, 
+            T.BrokerId AS Contract_BrokerId, 
+            T.DefaultPickFromWarehouseId AS Contract_DefaultPickFromWarehouseId, 
+            T.ContactAddress.AddressLine1 AS [Contract.ContactAddress_AddressLine1], 
+            T.ContactAddress.AddressLine2 AS [Contract.ContactAddress_AddressLine2], 
+            T.ContactAddress.AddressLine3 AS [Contract.ContactAddress_AddressLine3], 
+            T.ContactAddress.City AS [Contract.ContactAddress_City], 
+            T.ContactAddress.State AS [Contract.ContactAddress_State], 
+            T.ContactAddress.PostalCode AS [Contract.ContactAddress_PostalCode], 
+            T.ContactAddress.Country AS [Contract.ContactAddress_Country], 
+            T.User AS Contract_User, 
+            T.TimeStamp AS Contract_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.Contracts AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Customer"><![CDATA[
+    SELECT VALUE -- Constructing Customer
+        [CodeFirstDatabaseSchema.Customer](T1.Customer_Id, T1.Customer_BrokerId)
+    FROM (
+        SELECT 
+            T.Id AS Customer_Id, 
+            T.BrokerId AS Customer_BrokerId, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.Customers AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.CustomerOrder"><![CDATA[
+    SELECT VALUE -- Constructing CustomerOrder
+        [CodeFirstDatabaseSchema.CustomerOrder](T1.CustomerOrder_DateCreated, T1.CustomerOrder_Sequence, T1.CustomerOrder_CustomerId, T1.CustomerOrder_ContactId, T1.CustomerOrder_BrokerId, T1.CustomerOrder_WarehouseId, T1.CustomerOrder_ShipmentInfoDateCreated, T1.CustomerOrder_ShipmentInfoSequence, T1.CustomerOrder_OrderStatus, T1.CustomerOrder_OrderTakenBy, T1.CustomerOrder_DateOrderReceived, T1.CustomerOrder_PaymentTerms, T1.CustomerOrder_CustomerPurchaseOrder, T1.[CustomerOrder.SoldTo_Name], T1.[CustomerOrder.SoldTo_Address_AddressLine1], T1.[CustomerOrder.SoldTo_Address_AddressLine2], T1.[CustomerOrder.SoldTo_Address_AddressLine3], T1.[CustomerOrder.SoldTo_Address_City], T1.[CustomerOrder.SoldTo_Address_State], T1.[CustomerOrder.SoldTo_Address_PostalCode], T1.[CustomerOrder.SoldTo_Address_Country], T1.[CustomerOrder.SoldTo_AdditionalInfo], T1.CustomerOrder_User, T1.CustomerOrder_TimeStamp)
+    FROM (
+        SELECT 
+            T.DateCreated AS CustomerOrder_DateCreated, 
+            T.Sequence AS CustomerOrder_Sequence, 
+            T.CustomerId AS CustomerOrder_CustomerId, 
+            T.ContactId AS CustomerOrder_ContactId, 
+            T.BrokerId AS CustomerOrder_BrokerId, 
+            T.WarehouseId AS CustomerOrder_WarehouseId, 
+            T.ShipmentInfoDateCreated AS CustomerOrder_ShipmentInfoDateCreated, 
+            T.ShipmentInfoSequence AS CustomerOrder_ShipmentInfoSequence, 
+            CAST(T.OrderStatus AS [Edm.Int16]) AS CustomerOrder_OrderStatus, 
+            T.OrderTakenBy AS CustomerOrder_OrderTakenBy, 
+            T.DateOrderReceived AS CustomerOrder_DateOrderReceived, 
+            T.PaymentTerms AS CustomerOrder_PaymentTerms, 
+            T.CustomerPurchaseOrder AS CustomerOrder_CustomerPurchaseOrder, 
+            T.SoldTo.Name AS [CustomerOrder.SoldTo_Name], 
+            T.SoldTo.Address.AddressLine1 AS [CustomerOrder.SoldTo_Address_AddressLine1], 
+            T.SoldTo.Address.AddressLine2 AS [CustomerOrder.SoldTo_Address_AddressLine2], 
+            T.SoldTo.Address.AddressLine3 AS [CustomerOrder.SoldTo_Address_AddressLine3], 
+            T.SoldTo.Address.City AS [CustomerOrder.SoldTo_Address_City], 
+            T.SoldTo.Address.State AS [CustomerOrder.SoldTo_Address_State], 
+            T.SoldTo.Address.PostalCode AS [CustomerOrder.SoldTo_Address_PostalCode], 
+            T.SoldTo.Address.Country AS [CustomerOrder.SoldTo_Address_Country], 
+            T.SoldTo.AdditionalInfo AS [CustomerOrder.SoldTo_AdditionalInfo], 
+            T.User AS CustomerOrder_User, 
+            T.TimeStamp AS CustomerOrder_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.CustomerOrders AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.CustomerOrderItem"><![CDATA[
+    SELECT VALUE -- Constructing CustomerOrderItem
+        [CodeFirstDatabaseSchema.CustomerOrderItem](T1.CustomerOrderItem_DateCreated, T1.CustomerOrderItem_Sequence, T1.CustomerOrderItem_ItemSequence, T1.CustomerOrderItem_ContractYear, T1.CustomerOrderItem_ContractSequence, T1.CustomerOrderItem_ContractItemSequence, T1.CustomerOrderItem_CustomerLotCode, T1.CustomerOrderItem_PriceBase, T1.CustomerOrderItem_PriceFreight, T1.CustomerOrderItem_PriceTreatment, T1.CustomerOrderItem_PriceWarehouse, T1.CustomerOrderItem_PriceRebate)
+    FROM (
+        SELECT 
+            T.DateCreated AS CustomerOrderItem_DateCreated, 
+            T.Sequence AS CustomerOrderItem_Sequence, 
+            T.ItemSequence AS CustomerOrderItem_ItemSequence, 
+            T.ContractYear AS CustomerOrderItem_ContractYear, 
+            T.ContractSequence AS CustomerOrderItem_ContractSequence, 
+            T.ContractItemSequence AS CustomerOrderItem_ContractItemSequence, 
+            T.CustomerLotCode AS CustomerOrderItem_CustomerLotCode, 
+            T.PriceBase AS CustomerOrderItem_PriceBase, 
+            T.PriceFreight AS CustomerOrderItem_PriceFreight, 
+            T.PriceTreatment AS CustomerOrderItem_PriceTreatment, 
+            T.PriceWarehouse AS CustomerOrderItem_PriceWarehouse, 
+            T.PriceRebate AS CustomerOrderItem_PriceRebate, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.CustomerOrderItems AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.InventoryPickOrderItem"><![CDATA[
+    SELECT VALUE -- Constructing InventoryPickOrderItem
+        [CodeFirstDatabaseSchema.InventoryPickOrderItem](T1.InventoryPickOrderItem_DateCreated, T1.InventoryPickOrderItem_OrderSequence, T1.InventoryPickOrderItem_ItemSequence, T1.InventoryPickOrderItem_ProductId, T1.InventoryPickOrderItem_PackagingProductId, T1.InventoryPickOrderItem_TreatmentId, T1.InventoryPickOrderItem_Quantity)
+    FROM (
+        SELECT 
+            T.DateCreated AS InventoryPickOrderItem_DateCreated, 
+            T.OrderSequence AS InventoryPickOrderItem_OrderSequence, 
+            T.ItemSequence AS InventoryPickOrderItem_ItemSequence, 
+            T.ProductId AS InventoryPickOrderItem_ProductId, 
+            T.PackagingProductId AS InventoryPickOrderItem_PackagingProductId, 
+            T.TreatmentId AS InventoryPickOrderItem_TreatmentId, 
+            T.Quantity AS InventoryPickOrderItem_Quantity, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.MovementOrderItems AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.InventoryPickOrder"><![CDATA[
+    SELECT VALUE -- Constructing InventoryPickOrder
+        [CodeFirstDatabaseSchema.InventoryPickOrder](T1.InventoryPickOrder_DateCreated, T1.InventoryPickOrder_Sequence)
+    FROM (
+        SELECT 
+            T.DateCreated AS InventoryPickOrder_DateCreated, 
+            T.Sequence AS InventoryPickOrder_Sequence, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.MovementOrders AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.CustomerOrderPickedItem"><![CDATA[
+    SELECT VALUE -- Constructing CustomerOrderPickedItem
+        [CodeFirstDatabaseSchema.CustomerOrderPickedItem](T1.CustomerOrderPickedItem_DateCreated, T1.CustomerOrderPickedItem_Sequence, T1.CustomerOrderPickedItem_ItemSequence, T1.CustomerOrderPickedItem_OrderItemSequence)
+    FROM (
+        SELECT 
+            T.DateCreated AS CustomerOrderPickedItem_DateCreated, 
+            T.Sequence AS CustomerOrderPickedItem_Sequence, 
+            T.ItemSequence AS CustomerOrderPickedItem_ItemSequence, 
+            T.OrderItemSequence AS CustomerOrderPickedItem_OrderItemSequence, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.CustomerOrderPickedItems AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ShipmentInformation"><![CDATA[
+    SELECT VALUE -- Constructing ShipmentInformation
+        [CodeFirstDatabaseSchema.ShipmentInformation](T1.ShipmentInformation_DateCreated, T1.ShipmentInformation_Sequence, T1.ShipmentInformation_Status, T1.ShipmentInformation_PalletWeight, T1.ShipmentInformation_PalletQuantity, T1.ShipmentInformation_FreightBillType, T1.ShipmentInformation_ShipmentMethod, T1.ShipmentInformation_DriverName, T1.ShipmentInformation_CarrierName, T1.ShipmentInformation_TrailerLicenseNumber, T1.ShipmentInformation_ContainerSeal, T1.[ShipmentInformation.ShipFrom_Name], T1.[ShipmentInformation.ShipFrom_Address_AddressLine1], T1.[ShipmentInformation.ShipFrom_Address_AddressLine2], T1.[ShipmentInformation.ShipFrom_Address_AddressLine3], T1.[ShipmentInformation.ShipFrom_Address_City], T1.[ShipmentInformation.ShipFrom_Address_State], T1.[ShipmentInformation.ShipFrom_Address_PostalCode], T1.[ShipmentInformation.ShipFrom_Address_Country], T1.[ShipmentInformation.ShipFrom_AdditionalInfo], T1.[ShipmentInformation.ShipTo_Name], T1.[ShipmentInformation.ShipTo_Address_AddressLine1], T1.[ShipmentInformation.ShipTo_Address_AddressLine2], T1.[ShipmentInformation.ShipTo_Address_AddressLine3], T1.[ShipmentInformation.ShipTo_Address_City], T1.[ShipmentInformation.ShipTo_Address_State], T1.[ShipmentInformation.ShipTo_Address_PostalCode], T1.[ShipmentInformation.ShipTo_Address_Country], T1.[ShipmentInformation.ShipTo_AdditionalInfo], T1.[ShipmentInformation.FreightBill_Name], T1.[ShipmentInformation.FreightBill_Address_AddressLine1], T1.[ShipmentInformation.FreightBill_Address_AddressLine2], T1.[ShipmentInformation.FreightBill_Address_AddressLine3], T1.[ShipmentInformation.FreightBill_Address_City], T1.[ShipmentInformation.FreightBill_Address_State], T1.[ShipmentInformation.FreightBill_Address_PostalCode], T1.[ShipmentInformation.FreightBill_Address_Country], T1.[ShipmentInformation.FreightBill_AdditionalInfo], T1.ShipmentInformation_RequiredDeliveryDate, T1.ShipmentInformation_ScheduledShipDate, T1.ShipmentInformation_Comments)
+    FROM (
+        SELECT 
+            T.DateCreated AS ShipmentInformation_DateCreated, 
+            T.Sequence AS ShipmentInformation_Sequence, 
+            CAST(T.Status AS [Edm.Int32]) AS ShipmentInformation_Status, 
+            T.PalletWeight AS ShipmentInformation_PalletWeight, 
+            T.PalletQuantity AS ShipmentInformation_PalletQuantity, 
+            T.FreightBillType AS ShipmentInformation_FreightBillType, 
+            T.ShipmentMethod AS ShipmentInformation_ShipmentMethod, 
+            T.DriverName AS ShipmentInformation_DriverName, 
+            T.CarrierName AS ShipmentInformation_CarrierName, 
+            T.TrailerLicenseNumber AS ShipmentInformation_TrailerLicenseNumber, 
+            T.ContainerSeal AS ShipmentInformation_ContainerSeal, 
+            T.ShipFrom.Name AS [ShipmentInformation.ShipFrom_Name], 
+            T.ShipFrom.Address.AddressLine1 AS [ShipmentInformation.ShipFrom_Address_AddressLine1], 
+            T.ShipFrom.Address.AddressLine2 AS [ShipmentInformation.ShipFrom_Address_AddressLine2], 
+            T.ShipFrom.Address.AddressLine3 AS [ShipmentInformation.ShipFrom_Address_AddressLine3], 
+            T.ShipFrom.Address.City AS [ShipmentInformation.ShipFrom_Address_City], 
+            T.ShipFrom.Address.State AS [ShipmentInformation.ShipFrom_Address_State], 
+            T.ShipFrom.Address.PostalCode AS [ShipmentInformation.ShipFrom_Address_PostalCode], 
+            T.ShipFrom.Address.Country AS [ShipmentInformation.ShipFrom_Address_Country], 
+            T.ShipFrom.AdditionalInfo AS [ShipmentInformation.ShipFrom_AdditionalInfo], 
+            T.ShipTo.Name AS [ShipmentInformation.ShipTo_Name], 
+            T.ShipTo.Address.AddressLine1 AS [ShipmentInformation.ShipTo_Address_AddressLine1], 
+            T.ShipTo.Address.AddressLine2 AS [ShipmentInformation.ShipTo_Address_AddressLine2], 
+            T.ShipTo.Address.AddressLine3 AS [ShipmentInformation.ShipTo_Address_AddressLine3], 
+            T.ShipTo.Address.City AS [ShipmentInformation.ShipTo_Address_City], 
+            T.ShipTo.Address.State AS [ShipmentInformation.ShipTo_Address_State], 
+            T.ShipTo.Address.PostalCode AS [ShipmentInformation.ShipTo_Address_PostalCode], 
+            T.ShipTo.Address.Country AS [ShipmentInformation.ShipTo_Address_Country], 
+            T.ShipTo.AdditionalInfo AS [ShipmentInformation.ShipTo_AdditionalInfo], 
+            T.FreightBill.Name AS [ShipmentInformation.FreightBill_Name], 
+            T.FreightBill.Address.AddressLine1 AS [ShipmentInformation.FreightBill_Address_AddressLine1], 
+            T.FreightBill.Address.AddressLine2 AS [ShipmentInformation.FreightBill_Address_AddressLine2], 
+            T.FreightBill.Address.AddressLine3 AS [ShipmentInformation.FreightBill_Address_AddressLine3], 
+            T.FreightBill.Address.City AS [ShipmentInformation.FreightBill_Address_City], 
+            T.FreightBill.Address.State AS [ShipmentInformation.FreightBill_Address_State], 
+            T.FreightBill.Address.PostalCode AS [ShipmentInformation.FreightBill_Address_PostalCode], 
+            T.FreightBill.Address.Country AS [ShipmentInformation.FreightBill_Address_Country], 
+            T.FreightBill.AdditionalInfo AS [ShipmentInformation.FreightBill_AdditionalInfo], 
+            T.RequiredDeliveryDate AS ShipmentInformation_RequiredDeliveryDate, 
+            T.ScheduledShipDate AS ShipmentInformation_ScheduledShipDate, 
+            T.Comments AS ShipmentInformation_Comments, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ShipmentInformation AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.CustomerProductCode"><![CDATA[
+    SELECT VALUE -- Constructing CustomerProductCode
+        [CodeFirstDatabaseSchema.CustomerProductCode](T1.CustomerProductCode_CustomerId, T1.CustomerProductCode_ChileProductId, T1.CustomerProductCode_Code)
+    FROM (
+        SELECT 
+            T.CustomerId AS CustomerProductCode_CustomerId, 
+            T.ChileProductId AS CustomerProductCode_ChileProductId, 
+            T.Code AS CustomerProductCode_Code, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.CustomerProductCodes AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.CustomerProductAttributeRange"><![CDATA[
+    SELECT VALUE -- Constructing CustomerProductAttributeRange
+        [CodeFirstDatabaseSchema.CustomerProductAttributeRange](T1.CustomerProductAttributeRange_CustomerId, T1.CustomerProductAttributeRange_ChileProductId, T1.CustomerProductAttributeRange_AttributeShortName, T1.CustomerProductAttributeRange_RangeMin, T1.CustomerProductAttributeRange_RangeMax, T1.CustomerProductAttributeRange_Active, T1.CustomerProductAttributeRange_EmployeeId, T1.CustomerProductAttributeRange_TimeStamp)
+    FROM (
+        SELECT 
+            T.CustomerId AS CustomerProductAttributeRange_CustomerId, 
+            T.ChileProductId AS CustomerProductAttributeRange_ChileProductId, 
+            T.AttributeShortName AS CustomerProductAttributeRange_AttributeShortName, 
+            T.RangeMin AS CustomerProductAttributeRange_RangeMin, 
+            T.RangeMax AS CustomerProductAttributeRange_RangeMax, 
+            T.Active AS CustomerProductAttributeRange_Active, 
+            T.EmployeeId AS CustomerProductAttributeRange_EmployeeId, 
+            T.TimeStamp AS CustomerProductAttributeRange_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.CustomerProductAttributeRanges AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.Instruction"><![CDATA[
+    SELECT VALUE -- Constructing Instruction
+        [CodeFirstDatabaseSchema.Instruction](T1.Instruction_Id, T1.Instruction_InstructionText, T1.Instruction_InstructionType)
+    FROM (
+        SELECT 
+            T.Id AS Instruction_Id, 
+            T.InstructionText AS Instruction_InstructionText, 
+            CAST(T.InstructionType AS [Edm.Int32]) AS Instruction_InstructionType, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.Instructions AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.InterWarehouseOrder"><![CDATA[
+    SELECT VALUE -- Constructing InterWarehouseOrder
+        [CodeFirstDatabaseSchema.InterWarehouseOrder](T1.InterWarehouseOrder_DateCreated, T1.InterWarehouseOrder_Sequence, T1.InterWarehouseOrder_ShipmentInfoDateCreated, T1.InterWarehouseOrder_ShipmentInfoSequence, T1.InterWarehouseOrder_DestinationWarehouseId, T1.InterWarehouseOrder_OrderStatus, T1.InterWarehouseOrder_User, T1.InterWarehouseOrder_TimeStamp)
+    FROM (
+        SELECT 
+            T.DateCreated AS InterWarehouseOrder_DateCreated, 
+            T.Sequence AS InterWarehouseOrder_Sequence, 
+            T.ShipmentInfoDateCreated AS InterWarehouseOrder_ShipmentInfoDateCreated, 
+            T.ShipmentInfoSequence AS InterWarehouseOrder_ShipmentInfoSequence, 
+            T.DestinationWarehouseId AS InterWarehouseOrder_DestinationWarehouseId, 
+            CAST(T.OrderStatus AS [Edm.Int16]) AS InterWarehouseOrder_OrderStatus, 
+            T.User AS InterWarehouseOrder_User, 
+            T.TimeStamp AS InterWarehouseOrder_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.InterWarehouseMovementOrders AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.IntraWarehouseOrder"><![CDATA[
+    SELECT VALUE -- Constructing IntraWarehouseOrder
+        [CodeFirstDatabaseSchema.IntraWarehouseOrder](T1.IntraWarehouseOrder_DateCreated, T1.IntraWarehouseOrder_Sequence, T1.IntraWarehouseOrder_TrackingSheetNumber, T1.IntraWarehouseOrder_OperatorName, T1.IntraWarehouseOrder_MovementDate, T1.IntraWarehouseOrder_User, T1.IntraWarehouseOrder_TimeStamp)
+    FROM (
+        SELECT 
+            T.DateCreated AS IntraWarehouseOrder_DateCreated, 
+            T.Sequence AS IntraWarehouseOrder_Sequence, 
+            T.TrackingSheetNumber AS IntraWarehouseOrder_TrackingSheetNumber, 
+            T.OperatorName AS IntraWarehouseOrder_OperatorName, 
+            T.MovementDate AS IntraWarehouseOrder_MovementDate, 
+            T.User AS IntraWarehouseOrder_User, 
+            T.TimeStamp AS IntraWarehouseOrder_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.IntraWarehouseMovementOrders AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.InventoryAdjustment"><![CDATA[
+    SELECT VALUE -- Constructing InventoryAdjustment
+        [CodeFirstDatabaseSchema.InventoryAdjustment](T1.InventoryAdjustment_AdjustmentDate, T1.InventoryAdjustment_Sequence, T1.InventoryAdjustment_NotebookDate, T1.InventoryAdjustment_NotebookSequence, T1.InventoryAdjustment_EmployeeId, T1.InventoryAdjustment_TimeStamp)
+    FROM (
+        SELECT 
+            T.AdjustmentDate AS InventoryAdjustment_AdjustmentDate, 
+            T.Sequence AS InventoryAdjustment_Sequence, 
+            T.NotebookDate AS InventoryAdjustment_NotebookDate, 
+            T.NotebookSequence AS InventoryAdjustment_NotebookSequence, 
+            T.EmployeeId AS InventoryAdjustment_EmployeeId, 
+            T.TimeStamp AS InventoryAdjustment_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.InventoryAdjustments AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.InventoryAdjustmentItem"><![CDATA[
+    SELECT VALUE -- Constructing InventoryAdjustmentItem
+        [CodeFirstDatabaseSchema.InventoryAdjustmentItem](T1.InventoryAdjustmentItem_AdjustmentDate, T1.InventoryAdjustmentItem_Sequence, T1.InventoryAdjustmentItem_ItemSequence, T1.InventoryAdjustmentItem_QuantityAdjustment, T1.InventoryAdjustmentItem_LotDateCreated, T1.InventoryAdjustmentItem_LotDateSequence, T1.InventoryAdjustmentItem_LotTypeId, T1.InventoryAdjustmentItem_PackagingProductId, T1.InventoryAdjustmentItem_WarehouseLocationId, T1.InventoryAdjustmentItem_TreatmentId, T1.InventoryAdjustmentItem_ToteKey, T1.InventoryAdjustmentItem_EmployeeId, T1.InventoryAdjustmentItem_TimeStamp)
+    FROM (
+        SELECT 
+            T.AdjustmentDate AS InventoryAdjustmentItem_AdjustmentDate, 
+            T.Sequence AS InventoryAdjustmentItem_Sequence, 
+            T.ItemSequence AS InventoryAdjustmentItem_ItemSequence, 
+            T.QuantityAdjustment AS InventoryAdjustmentItem_QuantityAdjustment, 
+            T.LotDateCreated AS InventoryAdjustmentItem_LotDateCreated, 
+            T.LotDateSequence AS InventoryAdjustmentItem_LotDateSequence, 
+            T.LotTypeId AS InventoryAdjustmentItem_LotTypeId, 
+            T.PackagingProductId AS InventoryAdjustmentItem_PackagingProductId, 
+            T.WarehouseLocationId AS InventoryAdjustmentItem_WarehouseLocationId, 
+            T.TreatmentId AS InventoryAdjustmentItem_TreatmentId, 
+            T.ToteKey AS InventoryAdjustmentItem_ToteKey, 
+            T.EmployeeId AS InventoryAdjustmentItem_EmployeeId, 
+            T.TimeStamp AS InventoryAdjustmentItem_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.InventoryAdjustmentItems AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.LotAttributeDefect"><![CDATA[
+    SELECT VALUE -- Constructing LotAttributeDefect
+        [CodeFirstDatabaseSchema.LotAttributeDefect](T1.LotAttributeDefect_LotDateCreated, T1.LotAttributeDefect_LotDateSequence, T1.LotAttributeDefect_LotTypeId, T1.LotAttributeDefect_DefectId, T1.LotAttributeDefect_AttributeShortName, T1.LotAttributeDefect_OriginalAttributeValue, T1.LotAttributeDefect_OriginalAttributeMinLimit, T1.LotAttributeDefect_OriginalAttributeMaxLimit)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS LotAttributeDefect_LotDateCreated, 
+            T.LotDateSequence AS LotAttributeDefect_LotDateSequence, 
+            T.LotTypeId AS LotAttributeDefect_LotTypeId, 
+            T.DefectId AS LotAttributeDefect_DefectId, 
+            T.AttributeShortName AS LotAttributeDefect_AttributeShortName, 
+            T.OriginalAttributeValue AS LotAttributeDefect_OriginalAttributeValue, 
+            T.OriginalAttributeMinLimit AS LotAttributeDefect_OriginalAttributeMinLimit, 
+            T.OriginalAttributeMaxLimit AS LotAttributeDefect_OriginalAttributeMaxLimit, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.LotProductSpecDefects AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.PackSchedule"><![CDATA[
+    SELECT VALUE -- Constructing PackSchedule
+        [CodeFirstDatabaseSchema.PackSchedule](T1.PackSchedule_DateCreated, T1.PackSchedule_SequentialNumber, T1.PackSchedule_PackSchID, T1.PackSchedule_PSNum, T1.PackSchedule_ChileProductId, T1.PackSchedule_ScheduledProductionDate, T1.PackSchedule_ProductionDeadline, T1.PackSchedule_ProductionLineLocationId, T1.PackSchedule_ProductionLineLocationType, T1.PackSchedule_PackagingProductId, T1.PackSchedule_WorkTypeId, T1.PackSchedule_SummaryOfWork, T1.[PackSchedule.DefaultBatchTargetParameters_BatchTargetWeight], T1.[PackSchedule.DefaultBatchTargetParameters_BatchTargetAsta], T1.[PackSchedule.DefaultBatchTargetParameters_BatchTargetScoville], T1.[PackSchedule.DefaultBatchTargetParameters_BatchTargetScan], T1.PackSchedule_OrderNumber, T1.PackSchedule_CustomerId, T1.PackSchedule_EmployeeId, T1.PackSchedule_TimeStamp)
+    FROM (
+        SELECT 
+            T.DateCreated AS PackSchedule_DateCreated, 
+            T.SequentialNumber AS PackSchedule_SequentialNumber, 
+            T.PackSchID AS PackSchedule_PackSchID, 
+            T.PSNum AS PackSchedule_PSNum, 
+            T.ChileProductId AS PackSchedule_ChileProductId, 
+            T.ScheduledProductionDate AS PackSchedule_ScheduledProductionDate, 
+            T.ProductionDeadline AS PackSchedule_ProductionDeadline, 
+            T.ProductionLineLocationId AS PackSchedule_ProductionLineLocationId, 
+            T.ProductionLineLocationType AS PackSchedule_ProductionLineLocationType, 
+            T.PackagingProductId AS PackSchedule_PackagingProductId, 
+            T.WorkTypeId AS PackSchedule_WorkTypeId, 
+            T.SummaryOfWork AS PackSchedule_SummaryOfWork, 
+            T.DefaultBatchTargetParameters.BatchTargetWeight AS [PackSchedule.DefaultBatchTargetParameters_BatchTargetWeight], 
+            T.DefaultBatchTargetParameters.BatchTargetAsta AS [PackSchedule.DefaultBatchTargetParameters_BatchTargetAsta], 
+            T.DefaultBatchTargetParameters.BatchTargetScoville AS [PackSchedule.DefaultBatchTargetParameters_BatchTargetScoville], 
+            T.DefaultBatchTargetParameters.BatchTargetScan AS [PackSchedule.DefaultBatchTargetParameters_BatchTargetScan], 
+            T.OrderNumber AS PackSchedule_OrderNumber, 
+            T.CustomerId AS PackSchedule_CustomerId, 
+            T.EmployeeId AS PackSchedule_EmployeeId, 
+            T.TimeStamp AS PackSchedule_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.PackSchedules AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ProductionBatch"><![CDATA[
+    SELECT VALUE -- Constructing ProductionBatch
+        [CodeFirstDatabaseSchema.ProductionBatch](T1.ProductionBatch_LotDateCreated, T1.ProductionBatch_LotDateSequence, T1.ProductionBatch_LotTypeId, T1.ProductionBatch_PackScheduleDateCreated, T1.ProductionBatch_PackScheduleSequence, T1.ProductionBatch_ProductionHasBeenCompleted, T1.ProductionBatch_InstructionNotebookDateCreated, T1.ProductionBatch_InstructionNotebookSequence, T1.[ProductionBatch.TargetParameters_BatchTargetWeight], T1.[ProductionBatch.TargetParameters_BatchTargetAsta], T1.[ProductionBatch.TargetParameters_BatchTargetScoville], T1.[ProductionBatch.TargetParameters_BatchTargetScan], T1.ProductionBatch_Notes, T1.ProductionBatch_EmployeeId, T1.ProductionBatch_TimeStamp)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS ProductionBatch_LotDateCreated, 
+            T.LotDateSequence AS ProductionBatch_LotDateSequence, 
+            T.LotTypeId AS ProductionBatch_LotTypeId, 
+            T.PackScheduleDateCreated AS ProductionBatch_PackScheduleDateCreated, 
+            T.PackScheduleSequence AS ProductionBatch_PackScheduleSequence, 
+            T.ProductionHasBeenCompleted AS ProductionBatch_ProductionHasBeenCompleted, 
+            T.InstructionNotebookDateCreated AS ProductionBatch_InstructionNotebookDateCreated, 
+            T.InstructionNotebookSequence AS ProductionBatch_InstructionNotebookSequence, 
+            T.TargetParameters.BatchTargetWeight AS [ProductionBatch.TargetParameters_BatchTargetWeight], 
+            T.TargetParameters.BatchTargetAsta AS [ProductionBatch.TargetParameters_BatchTargetAsta], 
+            T.TargetParameters.BatchTargetScoville AS [ProductionBatch.TargetParameters_BatchTargetScoville], 
+            T.TargetParameters.BatchTargetScan AS [ProductionBatch.TargetParameters_BatchTargetScan], 
+            T.Notes AS ProductionBatch_Notes, 
+            T.EmployeeId AS ProductionBatch_EmployeeId, 
+            T.TimeStamp AS ProductionBatch_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ProductionBatches AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.WorkType"><![CDATA[
+    SELECT VALUE -- Constructing WorkType
+        [CodeFirstDatabaseSchema.WorkType](T1.WorkType_Id, T1.WorkType_Description, T1.WorkType_User, T1.WorkType_TimeStamp)
+    FROM (
+        SELECT 
+            T.Id AS WorkType_Id, 
+            T.Description AS WorkType_Description, 
+            T.User AS WorkType_User, 
+            T.TimeStamp AS WorkType_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.WorkTypes AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ProductionSchedule"><![CDATA[
+    SELECT VALUE -- Constructing ProductionSchedule
+        [CodeFirstDatabaseSchema.ProductionSchedule](T1.ProductionSchedule_ProductionDate, T1.ProductionSchedule_ProductionLineLocationId, T1.ProductionSchedule_ProductionLineLocationType, T1.ProductionSchedule_User, T1.ProductionSchedule_TimeStamp)
+    FROM (
+        SELECT 
+            T.ProductionDate AS ProductionSchedule_ProductionDate, 
+            T.ProductionLineLocationId AS ProductionSchedule_ProductionLineLocationId, 
+            T.ProductionLineLocationType AS ProductionSchedule_ProductionLineLocationType, 
+            T.User AS ProductionSchedule_User, 
+            T.TimeStamp AS ProductionSchedule_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ProductionSchedules AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ScheduledInstruction"><![CDATA[
+    SELECT VALUE -- Constructing ScheduledInstruction
+        [CodeFirstDatabaseSchema.ScheduledInstruction](T1.ScheduledInstruction_ProductionDate, T1.ScheduledInstruction_ProductionLineLocationId, T1.ScheduledInstruction_ProductionLineLocationType, T1.ScheduledInstruction_Sequence, T1.ScheduledInstruction_InstructionId, T1.ScheduledInstruction_Order)
+    FROM (
+        SELECT 
+            T.ProductionDate AS ScheduledInstruction_ProductionDate, 
+            T.ProductionLineLocationId AS ScheduledInstruction_ProductionLineLocationId, 
+            T.ProductionLineLocationType AS ScheduledInstruction_ProductionLineLocationType, 
+            T.Sequence AS ScheduledInstruction_Sequence, 
+            T.InstructionId AS ScheduledInstruction_InstructionId, 
+            T.[Order] AS ScheduledInstruction_Order, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ScheduledInstructions AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ScheduledPackSchedule"><![CDATA[
+    SELECT VALUE -- Constructing ScheduledPackSchedule
+        [CodeFirstDatabaseSchema.ScheduledPackSchedule](T1.ScheduledPackSchedule_ProductionDate, T1.ScheduledPackSchedule_ProductionLineLocationId, T1.ScheduledPackSchedule_ProductionLineLocationType, T1.ScheduledPackSchedule_PackScheduleDateCreated, T1.ScheduledPackSchedule_PackScheduleSequence, T1.ScheduledPackSchedule_Order)
+    FROM (
+        SELECT 
+            T.ProductionDate AS ScheduledPackSchedule_ProductionDate, 
+            T.ProductionLineLocationId AS ScheduledPackSchedule_ProductionLineLocationId, 
+            T.ProductionLineLocationType AS ScheduledPackSchedule_ProductionLineLocationType, 
+            T.PackScheduleDateCreated AS ScheduledPackSchedule_PackScheduleDateCreated, 
+            T.PackScheduleSequence AS ScheduledPackSchedule_PackScheduleSequence, 
+            T.[Order] AS ScheduledPackSchedule_Order, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ScheduledPackSchedules AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.TreatmentOrder"><![CDATA[
+    SELECT VALUE -- Constructing TreatmentOrder
+        [CodeFirstDatabaseSchema.TreatmentOrder](T1.TreatmentOrder_DateCreated, T1.TreatmentOrder_Sequence, T1.TreatmentOrder_InventoryTreatmentId, T1.TreatmentOrder_ShipmentInfoDateCreated, T1.TreatmentOrder_ShipmentInfoSequence, T1.TreatmentOrder_OrderStatus, T1.TreatmentOrder_TreatmentFacilityCompanyId, T1.TreatmentOrder_User, T1.TreatmentOrder_TimeStamp)
+    FROM (
+        SELECT 
+            T.DateCreated AS TreatmentOrder_DateCreated, 
+            T.Sequence AS TreatmentOrder_Sequence, 
+            T.InventoryTreatmentId AS TreatmentOrder_InventoryTreatmentId, 
+            T.ShipmentInfoDateCreated AS TreatmentOrder_ShipmentInfoDateCreated, 
+            T.ShipmentInfoSequence AS TreatmentOrder_ShipmentInfoSequence, 
+            CAST(T.OrderStatus AS [Edm.Int16]) AS TreatmentOrder_OrderStatus, 
+            T.TreatmentFacilityCompanyId AS TreatmentOrder_TreatmentFacilityCompanyId, 
+            T.User AS TreatmentOrder_User, 
+            T.TimeStamp AS TreatmentOrder_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.TreatmentOrders AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.DehydratedMaterialsReceived"><![CDATA[
+    SELECT VALUE -- Constructing DehydratedMaterialsReceived
+        [CodeFirstDatabaseSchema.DehydratedMaterialsReceived](T1.DehydratedMaterialsReceived_LotDateCreated, T1.DehydratedMaterialsReceived_LotDateSequence, T1.DehydratedMaterialsReceived_LotTypeId, T1.DehydratedMaterialsReceived_Load, T1.DehydratedMaterialsReceived_PurchaseOrder, T1.DehydratedMaterialsReceived_ShipperNumber, T1.DehydratedMaterialsReceived_DehydratorId, T1.DehydratedMaterialsReceived_ChileProductId, T1.DehydratedMaterialsReceived_ProductionDate, T1.DehydratedMaterialsReceived_EmployeeId, T1.DehydratedMaterialsReceived_TimeStamp)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS DehydratedMaterialsReceived_LotDateCreated, 
+            T.LotDateSequence AS DehydratedMaterialsReceived_LotDateSequence, 
+            T.LotTypeId AS DehydratedMaterialsReceived_LotTypeId, 
+            T.Load AS DehydratedMaterialsReceived_Load, 
+            T.PurchaseOrder AS DehydratedMaterialsReceived_PurchaseOrder, 
+            T.ShipperNumber AS DehydratedMaterialsReceived_ShipperNumber, 
+            T.DehydratorId AS DehydratedMaterialsReceived_DehydratorId, 
+            T.ChileProductId AS DehydratedMaterialsReceived_ChileProductId, 
+            T.ProductionDate AS DehydratedMaterialsReceived_ProductionDate, 
+            T.EmployeeId AS DehydratedMaterialsReceived_EmployeeId, 
+            T.TimeStamp AS DehydratedMaterialsReceived_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.DehydratedMaterialsReceiveds AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.DehydratedMaterialsReceivedItem"><![CDATA[
+    SELECT VALUE -- Constructing DehydratedMaterialsReceivedItem
+        [CodeFirstDatabaseSchema.DehydratedMaterialsReceivedItem](T1.DehydratedMaterialsReceivedItem_LotDateCreated, T1.DehydratedMaterialsReceivedItem_LotDateSequence, T1.DehydratedMaterialsReceivedItem_LotTypeId, T1.DehydratedMaterialsReceivedItem_ItemSequence, T1.DehydratedMaterialsReceivedItem_GrowerCode, T1.DehydratedMaterialsReceivedItem_ToteKey, T1.DehydratedMaterialsReceivedItem_Quantity, T1.DehydratedMaterialsReceivedItem_WarehouseLocationId, T1.DehydratedMaterialsReceivedItem_PackagingProductId, T1.DehydratedMaterialsReceivedItem_ChileVarietyId)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS DehydratedMaterialsReceivedItem_LotDateCreated, 
+            T.LotDateSequence AS DehydratedMaterialsReceivedItem_LotDateSequence, 
+            T.LotTypeId AS DehydratedMaterialsReceivedItem_LotTypeId, 
+            T.ItemSequence AS DehydratedMaterialsReceivedItem_ItemSequence, 
+            T.GrowerCode AS DehydratedMaterialsReceivedItem_GrowerCode, 
+            T.ToteKey AS DehydratedMaterialsReceivedItem_ToteKey, 
+            T.Quantity AS DehydratedMaterialsReceivedItem_Quantity, 
+            T.WarehouseLocationId AS DehydratedMaterialsReceivedItem_WarehouseLocationId, 
+            T.PackagingProductId AS DehydratedMaterialsReceivedItem_PackagingProductId, 
+            T.ChileVarietyId AS DehydratedMaterialsReceivedItem_ChileVarietyId, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.DehydratedMaterialsReceivedItems AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.ChileVariety"><![CDATA[
+    SELECT VALUE -- Constructing ChileVariety
+        [CodeFirstDatabaseSchema.ChileVariety](T1.ChileVariety_Id, T1.ChileVariety_Description)
+    FROM (
+        SELECT 
+            T.Id AS ChileVariety_Id, 
+            T.Description AS ChileVariety_Description, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.ChileVarieties AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.AdditiveLots"><![CDATA[
+    SELECT VALUE -- Constructing AdditiveLots
+        [RioValleyChili.Data.AdditiveLot](T1.AdditiveLot_LotDateCreated, T1.AdditiveLot_LotDateSequence, T1.AdditiveLot_LotTypeId, T1.AdditiveLot_AdditiveProductId)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS AdditiveLot_LotDateCreated, 
+            T.LotDateSequence AS AdditiveLot_LotDateSequence, 
+            T.LotTypeId AS AdditiveLot_LotTypeId, 
+            T.AdditiveProductId AS AdditiveLot_AdditiveProductId, 
+            True AS _from0
+        FROM CodeFirstDatabase.AdditiveLot AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.AdditiveProducts"><![CDATA[
+    SELECT VALUE -- Constructing AdditiveProducts
+        [RioValleyChili.Data.AdditiveProduct](T1.AdditiveProduct_Id, T1.AdditiveProduct_AdditiveTypeId)
+    FROM (
+        SELECT 
+            T.Id AS AdditiveProduct_Id, 
+            T.AdditiveTypeId AS AdditiveProduct_AdditiveTypeId, 
+            True AS _from0
+        FROM CodeFirstDatabase.AdditiveProduct AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.AdditiveTypes"><![CDATA[
+    SELECT VALUE -- Constructing AdditiveTypes
+        [RioValleyChili.Data.AdditiveType](T1.AdditiveType_Id, T1.AdditiveType_Description)
+    FROM (
+        SELECT 
+            T.Id AS AdditiveType_Id, 
+            T.Description AS AdditiveType_Description, 
+            True AS _from0
+        FROM CodeFirstDatabase.AdditiveType AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.Products"><![CDATA[
+    SELECT VALUE -- Constructing Products
+        [RioValleyChili.Data.Product](T1.Product_Id, T1.Product_Name, T1.Product_IsActive, T1.Product_ProductType, T1.Product_ProductCode)
+    FROM (
+        SELECT 
+            T.Id AS Product_Id, 
+            T.Name AS Product_Name, 
+            T.IsActive AS Product_IsActive, 
+            CAST(T.ProductType AS [RioValleyChili.Data.ProductTypeEnum]) AS Product_ProductType, 
+            T.ProductCode AS Product_ProductCode, 
+            True AS _from0
+        FROM CodeFirstDatabase.Product AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.Lots"><![CDATA[
+    SELECT VALUE -- Constructing Lots
+        [RioValleyChili.Data.Lot](T1.Lot_LotDateCreated, T1.Lot_LotDateSequence, T1.Lot_LotTypeId, T1.Lot_QualityControlNotebookSequence, T1.Lot_QualityStatus, T1.Lot_ProductionStatus, T1.Lot_ProductSpecComplete, T1.Lot_ProductSpecOutOfRange, T1.Lot_Hold, T1.Lot_HoldDescription)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS Lot_LotDateCreated, 
+            T.LotDateSequence AS Lot_LotDateSequence, 
+            T.LotTypeId AS Lot_LotTypeId, 
+            T.QualityControlNotebookSequence AS Lot_QualityControlNotebookSequence, 
+            CAST(T.QualityStatus AS [RioValleyChili.Data.LotQualityStatus]) AS Lot_QualityStatus, 
+            CAST(T.ProductionStatus AS [RioValleyChili.Data.LotProductionStatus]) AS Lot_ProductionStatus, 
+            T.ProductSpecComplete AS Lot_ProductSpecComplete, 
+            T.ProductSpecOutOfRange AS Lot_ProductSpecOutOfRange, 
+            CAST(T.Hold AS [RioValleyChili.Data.LotHoldType]) AS Lot_Hold, 
+            T.HoldDescription AS Lot_HoldDescription, 
+            True AS _from0
+        FROM CodeFirstDatabase.Lot AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.LotAttributes"><![CDATA[
+    SELECT VALUE -- Constructing LotAttributes
+        [RioValleyChili.Data.LotAttribute](T1.LotAttribute_LotDateCreated, T1.LotAttribute_LotDateSequence, T1.LotAttribute_LotTypeId, T1.LotAttribute_AttributeShortName, T1.LotAttribute_AttributeValue, T1.LotAttribute_AttributeDate, T1.LotAttribute_Computed, T1.LotAttribute_EmployeeId, T1.LotAttribute_TimeStamp)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS LotAttribute_LotDateCreated, 
+            T.LotDateSequence AS LotAttribute_LotDateSequence, 
+            T.LotTypeId AS LotAttribute_LotTypeId, 
+            T.AttributeShortName AS LotAttribute_AttributeShortName, 
+            T.AttributeValue AS LotAttribute_AttributeValue, 
+            T.AttributeDate AS LotAttribute_AttributeDate, 
+            T.Computed AS LotAttribute_Computed, 
+            T.EmployeeId AS LotAttribute_EmployeeId, 
+            T.TimeStamp AS LotAttribute_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.LotAttribute AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.AttributeNames"><![CDATA[
+    SELECT VALUE -- Constructing AttributeNames
+        [RioValleyChili.Data.AttributeName](T1.AttributeName_ShortName, T1.AttributeName_Name, T1.AttributeName_Active, T1.AttributeName_ValidForChileInventory, T1.AttributeName_ValidForAdditiveInventory, T1.AttributeName_ValidForPackagingInventory, T1.AttributeName_DefectType, T1.AttributeName_LoBacLimit)
+    FROM (
+        SELECT 
+            T.ShortName AS AttributeName_ShortName, 
+            T.Name AS AttributeName_Name, 
+            T.Active AS AttributeName_Active, 
+            T.ValidForChileInventory AS AttributeName_ValidForChileInventory, 
+            T.ValidForAdditiveInventory AS AttributeName_ValidForAdditiveInventory, 
+            T.ValidForPackagingInventory AS AttributeName_ValidForPackagingInventory, 
+            CAST(T.DefectType AS [RioValleyChili.Data.DefectTypeEnum]) AS AttributeName_DefectType, 
+            T.LoBacLimit AS AttributeName_LoBacLimit, 
+            True AS _from0
+        FROM CodeFirstDatabase.AttributeName AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.InventoryTreatmentForAttributes"><![CDATA[
+    SELECT VALUE -- Constructing InventoryTreatmentForAttributes
+        [RioValleyChili.Data.InventoryTreatmentForAttribute](T1.InventoryTreatmentForAttribute_TreatmentId, T1.InventoryTreatmentForAttribute_AttributeShortName)
+    FROM (
+        SELECT 
+            T.TreatmentId AS InventoryTreatmentForAttribute_TreatmentId, 
+            T.AttributeShortName AS InventoryTreatmentForAttribute_AttributeShortName, 
+            True AS _from0
+        FROM CodeFirstDatabase.InventoryTreatmentForAttribute AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.InventoryTreatments"><![CDATA[
+    SELECT VALUE -- Constructing InventoryTreatments
+        [RioValleyChili.Data.InventoryTreatment](T1.InventoryTreatment_Id, T1.InventoryTreatment_LongName, T1.InventoryTreatment_ShortName)
+    FROM (
+        SELECT 
+            T.Id AS InventoryTreatment_Id, 
+            T.LongName AS InventoryTreatment_LongName, 
+            T.ShortName AS InventoryTreatment_ShortName, 
+            True AS _from0
+        FROM CodeFirstDatabase.InventoryTreatment AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.Employees"><![CDATA[
+    SELECT VALUE -- Constructing Employees
+        [RioValleyChili.Data.Employee](T1.Employee_EmployeeId, T1.Employee_UserName, T1.Employee_DisplayName, T1.Employee_EmailAddress, T1.Employee_Claims, T1.Employee_IsActive)
+    FROM (
+        SELECT 
+            T.EmployeeId AS Employee_EmployeeId, 
+            T.UserName AS Employee_UserName, 
+            T.DisplayName AS Employee_DisplayName, 
+            T.EmailAddress AS Employee_EmailAddress, 
+            T.Claims AS Employee_Claims, 
+            T.IsActive AS Employee_IsActive, 
+            True AS _from0
+        FROM CodeFirstDatabase.Employee AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ChileLots"><![CDATA[
+    SELECT VALUE -- Constructing ChileLots
+        [RioValleyChili.Data.ChileLot](T1.ChileLot_LotDateCreated, T1.ChileLot_LotDateSequence, T1.ChileLot_LotTypeId, T1.ChileLot_AllAttributesAreLoBac, T1.ChileLot_ChileProductId)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS ChileLot_LotDateCreated, 
+            T.LotDateSequence AS ChileLot_LotDateSequence, 
+            T.LotTypeId AS ChileLot_LotTypeId, 
+            T.AllAttributesAreLoBac AS ChileLot_AllAttributesAreLoBac, 
+            T.ChileProductId AS ChileLot_ChileProductId, 
+            True AS _from0
+        FROM CodeFirstDatabase.ChileLot AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ChileProducts"><![CDATA[
+    SELECT VALUE -- Constructing ChileProducts
+        [RioValleyChili.Data.ChileProduct](T1.ChileProduct_Id, T1.ChileProduct_ChileTypeId, T1.ChileProduct_ChileState)
+    FROM (
+        SELECT 
+            T.Id AS ChileProduct_Id, 
+            T.ChileTypeId AS ChileProduct_ChileTypeId, 
+            CAST(T.ChileState AS [RioValleyChili.Data.ChileStateEnum]) AS ChileProduct_ChileState, 
+            True AS _from0
+        FROM CodeFirstDatabase.ChileProduct AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ChileTypes"><![CDATA[
+    SELECT VALUE -- Constructing ChileTypes
+        [RioValleyChili.Data.ChileType](T1.ChileType_Id, T1.ChileType_Description)
+    FROM (
+        SELECT 
+            T.Id AS ChileType_Id, 
+            T.Description AS ChileType_Description, 
+            True AS _from0
+        FROM CodeFirstDatabase.ChileType AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ChileProductIngredients"><![CDATA[
+    SELECT VALUE -- Constructing ChileProductIngredients
+        [RioValleyChili.Data.ChileProductIngredient](T1.ChileProductIngredient_ChileProductId, T1.ChileProductIngredient_AdditiveTypeId, T1.ChileProductIngredient_Percentage, T1.ChileProductIngredient_User, T1.ChileProductIngredient_TimeStamp)
+    FROM (
+        SELECT 
+            T.ChileProductId AS ChileProductIngredient_ChileProductId, 
+            T.AdditiveTypeId AS ChileProductIngredient_AdditiveTypeId, 
+            T.Percentage AS ChileProductIngredient_Percentage, 
+            T.User AS ChileProductIngredient_User, 
+            T.TimeStamp AS ChileProductIngredient_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.ChileProductIngredient AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ChileProductAttributeRanges"><![CDATA[
+    SELECT VALUE -- Constructing ChileProductAttributeRanges
+        [RioValleyChili.Data.ChileProductAttributeRange](T1.ChileProductAttributeRange_ChileProductId, T1.ChileProductAttributeRange_AttributeShortName, T1.ChileProductAttributeRange_RangeMin, T1.ChileProductAttributeRange_RangeMax, T1.ChileProductAttributeRange_User, T1.ChileProductAttributeRange_TimeStamp)
+    FROM (
+        SELECT 
+            T.ChileProductId AS ChileProductAttributeRange_ChileProductId, 
+            T.AttributeShortName AS ChileProductAttributeRange_AttributeShortName, 
+            T.RangeMin AS ChileProductAttributeRange_RangeMin, 
+            T.RangeMax AS ChileProductAttributeRange_RangeMax, 
+            T.User AS ChileProductAttributeRange_User, 
+            T.TimeStamp AS ChileProductAttributeRange_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.ChileProductAttributeRange AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ChileLotProductions"><![CDATA[
+    SELECT VALUE -- Constructing ChileLotProductions
+        [RioValleyChili.Data.ChileLotProduction](T1.ChileLotProduction_LotDateCreated, T1.ChileLotProduction_LotDateSequence, T1.ChileLotProduction_LotTypeId, T1.ChileLotProduction_PickedInventoryDateCreated, T1.ChileLotProduction_PickedInventorySequence, T1.ChileLotProduction_ProductionType, T1.ChileLotProduction_EmployeeId, T1.ChileLotProduction_TimeStamp)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS ChileLotProduction_LotDateCreated, 
+            T.LotDateSequence AS ChileLotProduction_LotDateSequence, 
+            T.LotTypeId AS ChileLotProduction_LotTypeId, 
+            T.PickedInventoryDateCreated AS ChileLotProduction_PickedInventoryDateCreated, 
+            T.PickedInventorySequence AS ChileLotProduction_PickedInventorySequence, 
+            CAST(T.ProductionType AS [RioValleyChili.Data.ProductionType]) AS ChileLotProduction_ProductionType, 
+            T.EmployeeId AS ChileLotProduction_EmployeeId, 
+            T.TimeStamp AS ChileLotProduction_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.ChileLotProduction AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.InventoryMovements"><![CDATA[
+    SELECT VALUE -- Constructing InventoryMovements
+        [RioValleyChili.Data.PickedInventory](T1.PickedInventory_DateCreated, T1.PickedInventory_Sequence, T1.PickedInventory_PickedReason, T1.PickedInventory_Archived, T1.PickedInventory_EmployeeId, T1.PickedInventory_TimeStamp)
+    FROM (
+        SELECT 
+            T.DateCreated AS PickedInventory_DateCreated, 
+            T.Sequence AS PickedInventory_Sequence, 
+            CAST(T.PickedReason AS [RioValleyChili.Data.PickedReason]) AS PickedInventory_PickedReason, 
+            T.Archived AS PickedInventory_Archived, 
+            T.EmployeeId AS PickedInventory_EmployeeId, 
+            T.TimeStamp AS PickedInventory_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.PickedInventory AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.InventoryMovementItems"><![CDATA[
+    SELECT VALUE -- Constructing InventoryMovementItems
+        [RioValleyChili.Data.PickedInventoryItem](T1.PickedInventoryItem_DateCreated, T1.PickedInventoryItem_Sequence, T1.PickedInventoryItem_ItemSequence, T1.PickedInventoryItem_LotDateCreated, T1.PickedInventoryItem_LotDateSequence, T1.PickedInventoryItem_LotTypeId, T1.PickedInventoryItem_PackagingProductId, T1.PickedInventoryItem_FromWarehouseLocationId, T1.PickedInventoryItem_TreatmentId, T1.PickedInventoryItem_CurrentLocationId, T1.PickedInventoryItem_DestinationWarehouseLocationId, T1.PickedInventoryItem_ToteKey, T1.PickedInventoryItem_Quantity)
+    FROM (
+        SELECT 
+            T.DateCreated AS PickedInventoryItem_DateCreated, 
+            T.Sequence AS PickedInventoryItem_Sequence, 
+            T.ItemSequence AS PickedInventoryItem_ItemSequence, 
+            T.LotDateCreated AS PickedInventoryItem_LotDateCreated, 
+            T.LotDateSequence AS PickedInventoryItem_LotDateSequence, 
+            T.LotTypeId AS PickedInventoryItem_LotTypeId, 
+            T.PackagingProductId AS PickedInventoryItem_PackagingProductId, 
+            T.FromWarehouseLocationId AS PickedInventoryItem_FromWarehouseLocationId, 
+            T.TreatmentId AS PickedInventoryItem_TreatmentId, 
+            T.CurrentLocationId AS PickedInventoryItem_CurrentLocationId, 
+            T.DestinationWarehouseLocationId AS PickedInventoryItem_DestinationWarehouseLocationId, 
+            T.ToteKey AS PickedInventoryItem_ToteKey, 
+            T.Quantity AS PickedInventoryItem_Quantity, 
+            True AS _from0
+        FROM CodeFirstDatabase.PickedInventoryItem AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.Locations"><![CDATA[
+    SELECT VALUE -- Constructing Locations
+        [RioValleyChili.Data.Location](T1.Location_Id, T1.Location_LocationType, T1.Location_Active, T1.Location_Locked)
+    FROM (
+        SELECT 
+            T.Id AS Location_Id, 
+            CAST(T.LocationType AS [RioValleyChili.Data.LocationType]) AS Location_LocationType, 
+            T.Active AS Location_Active, 
+            T.Locked AS Location_Locked, 
+            True AS _from0
+        FROM CodeFirstDatabase.Location AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.WarehouseLocations"><![CDATA[
+    SELECT VALUE -- Constructing WarehouseLocations
+        [RioValleyChili.Data.WarehouseLocation](T1.WarehouseLocation_Id, T1.WarehouseLocation_WarehouseId, T1.WarehouseLocation_Street, T1.WarehouseLocation_Row)
+    FROM (
+        SELECT 
+            T.Id AS WarehouseLocation_Id, 
+            T.WarehouseId AS WarehouseLocation_WarehouseId, 
+            T.Street AS WarehouseLocation_Street, 
+            T.[Row] AS WarehouseLocation_Row, 
+            True AS _from0
+        FROM CodeFirstDatabase.WarehouseLocation AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.Inventory"><![CDATA[
+    SELECT VALUE -- Constructing Inventory
+        [RioValleyChili.Data.Inventory](T1.Inventory_LotDateCreated, T1.Inventory_LotDateSequence, T1.Inventory_LotTypeId, T1.Inventory_PackagingProductId, T1.Inventory_WarehouseLocationId, T1.Inventory_TreatmentId, T1.Inventory_ToteKey, T1.Inventory_Quantity)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS Inventory_LotDateCreated, 
+            T.LotDateSequence AS Inventory_LotDateSequence, 
+            T.LotTypeId AS Inventory_LotTypeId, 
+            T.PackagingProductId AS Inventory_PackagingProductId, 
+            T.WarehouseLocationId AS Inventory_WarehouseLocationId, 
+            T.TreatmentId AS Inventory_TreatmentId, 
+            T.ToteKey AS Inventory_ToteKey, 
+            T.Quantity AS Inventory_Quantity, 
+            True AS _from0
+        FROM CodeFirstDatabase.Inventory AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.PackagingProducts"><![CDATA[
+    SELECT VALUE -- Constructing PackagingProducts
+        [RioValleyChili.Data.PackagingProduct](T1.PackagingProduct_Id, T1.PackagingProduct_Weight)
+    FROM (
+        SELECT 
+            T.Id AS PackagingProduct_Id, 
+            T.Weight AS PackagingProduct_Weight, 
+            True AS _from0
+        FROM CodeFirstDatabase.PackagingProduct AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.Warehouses"><![CDATA[
+    SELECT VALUE -- Constructing Warehouses
+        [RioValleyChili.Data.Warehouse](T1.Warehouse_Id, T1.Warehouse_WarehouseType, T1.Warehouse_Name, T1.Warehouse_Active)
+    FROM (
+        SELECT 
+            T.Id AS Warehouse_Id, 
+            CAST(T.WarehouseType AS [RioValleyChili.Data.WarehouseType]) AS Warehouse_WarehouseType, 
+            T.Name AS Warehouse_Name, 
+            T.Active AS Warehouse_Active, 
+            True AS _from0
+        FROM CodeFirstDatabase.Warehouse AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.WarehouseLocationTransitions"><![CDATA[
+    SELECT VALUE -- Constructing WarehouseLocationTransitions
+        [RioValleyChili.Data.WarehouseLocationTransition](T1.WarehouseLocationTransition_WarehouseLocationId, T1.WarehouseLocationTransition_OldId)
+    FROM (
+        SELECT 
+            T.WarehouseLocationId AS WarehouseLocationTransition_WarehouseLocationId, 
+            T.OldId AS WarehouseLocationTransition_OldId, 
+            True AS _from0
+        FROM CodeFirstDatabase.WarehouseLocationTransition AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.LotProductionResults"><![CDATA[
+    SELECT VALUE -- Constructing LotProductionResults
+        [RioValleyChili.Data.LotProductionResults](T1.LotProductionResults_LotDateCreated, T1.LotProductionResults_LotDateSequence, T1.LotProductionResults_LotTypeId, T1.LotProductionResults_ShiftKey, T1.LotProductionResults_ProductionBegin, T1.LotProductionResults_ProductionEnd, T1.LotProductionResults_DateTimeEntered, T1.LotProductionResults_ProductionLineLocationId, T1.LotProductionResults_ProductionLineLocationType, T1.LotProductionResults_EmployeeId, T1.LotProductionResults_TimeStamp)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS LotProductionResults_LotDateCreated, 
+            T.LotDateSequence AS LotProductionResults_LotDateSequence, 
+            T.LotTypeId AS LotProductionResults_LotTypeId, 
+            T.ShiftKey AS LotProductionResults_ShiftKey, 
+            T.ProductionBegin AS LotProductionResults_ProductionBegin, 
+            T.ProductionEnd AS LotProductionResults_ProductionEnd, 
+            T.DateTimeEntered AS LotProductionResults_DateTimeEntered, 
+            T.ProductionLineLocationId AS LotProductionResults_ProductionLineLocationId, 
+            T.ProductionLineLocationType AS LotProductionResults_ProductionLineLocationType, 
+            T.EmployeeId AS LotProductionResults_EmployeeId, 
+            T.TimeStamp AS LotProductionResults_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.LotProductionResults AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ProductionLocations"><![CDATA[
+    SELECT VALUE -- Constructing ProductionLocations
+        [RioValleyChili.Data.ProductionLocation](T1.ProductionLocation_Id, T1.ProductionLocation_ProductionLineLocationType, T1.ProductionLocation_Description)
+    FROM (
+        SELECT 
+            T.Id AS ProductionLocation_Id, 
+            T.ProductionLineLocationType AS ProductionLocation_ProductionLineLocationType, 
+            T.Description AS ProductionLocation_Description, 
+            True AS _from0
+        FROM CodeFirstDatabase.ProductionLocation AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.LotProductionResultItems"><![CDATA[
+    SELECT VALUE -- Constructing LotProductionResultItems
+        [RioValleyChili.Data.LotProductionResultItem](T1.LotProductionResultItem_LotDateCreated, T1.LotProductionResultItem_LotDateSequence, T1.LotProductionResultItem_LotTypeId, T1.LotProductionResultItem_ResultItemSequence, T1.LotProductionResultItem_PackagingProductId, T1.LotProductionResultItem_WarehouseLocationId, T1.LotProductionResultItem_TreatmentId, T1.LotProductionResultItem_Quantity)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS LotProductionResultItem_LotDateCreated, 
+            T.LotDateSequence AS LotProductionResultItem_LotDateSequence, 
+            T.LotTypeId AS LotProductionResultItem_LotTypeId, 
+            T.ResultItemSequence AS LotProductionResultItem_ResultItemSequence, 
+            T.PackagingProductId AS LotProductionResultItem_PackagingProductId, 
+            T.WarehouseLocationId AS LotProductionResultItem_WarehouseLocationId, 
+            T.TreatmentId AS LotProductionResultItem_TreatmentId, 
+            T.Quantity AS LotProductionResultItem_Quantity, 
+            True AS _from0
+        FROM CodeFirstDatabase.LotProductionResultItem AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.LotDefects"><![CDATA[
+    SELECT VALUE -- Constructing LotDefects
+        [RioValleyChili.Data.LotDefect](T1.LotDefect_LotDateCreated, T1.LotDefect_LotDateSequence, T1.LotDefect_LotTypeId, T1.LotDefect_DefectId, T1.LotDefect_DefectType, T1.LotDefect_Description)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS LotDefect_LotDateCreated, 
+            T.LotDateSequence AS LotDefect_LotDateSequence, 
+            T.LotTypeId AS LotDefect_LotTypeId, 
+            T.DefectId AS LotDefect_DefectId, 
+            CAST(T.DefectType AS [RioValleyChili.Data.DefectTypeEnum]) AS LotDefect_DefectType, 
+            T.Description AS LotDefect_Description, 
+            True AS _from0
+        FROM CodeFirstDatabase.LotDefect AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.LotDefectResolutions"><![CDATA[
+    SELECT VALUE -- Constructing LotDefectResolutions
+        [RioValleyChili.Data.LotDefectResolution](T1.LotDefectResolution_LotDateCreated, T1.LotDefectResolution_LotDateSequence, T1.LotDefectResolution_LotTypeId, T1.LotDefectResolution_DefectId, T1.LotDefectResolution_ResolutionType, T1.LotDefectResolution_Description, T1.LotDefectResolution_EmployeeId, T1.LotDefectResolution_TimeStamp)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS LotDefectResolution_LotDateCreated, 
+            T.LotDateSequence AS LotDefectResolution_LotDateSequence, 
+            T.LotTypeId AS LotDefectResolution_LotTypeId, 
+            T.DefectId AS LotDefectResolution_DefectId, 
+            CAST(T.ResolutionType AS [RioValleyChili.Data.ResolutionTypeEnum]) AS LotDefectResolution_ResolutionType, 
+            T.Description AS LotDefectResolution_Description, 
+            T.EmployeeId AS LotDefectResolution_EmployeeId, 
+            T.TimeStamp AS LotDefectResolution_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.LotDefectResolution AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.PackagingLots"><![CDATA[
+    SELECT VALUE -- Constructing PackagingLots
+        [RioValleyChili.Data.PackagingLot](T1.PackagingLot_LotDateCreated, T1.PackagingLot_LotDateSequence, T1.PackagingLot_LotTypeId, T1.PackagingLot_PackagingProductId)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS PackagingLot_LotDateCreated, 
+            T.LotDateSequence AS PackagingLot_LotDateSequence, 
+            T.LotTypeId AS PackagingLot_LotTypeId, 
+            T.PackagingProductId AS PackagingLot_PackagingProductId, 
+            True AS _from0
+        FROM CodeFirstDatabase.PackagingLot AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.Notebooks"><![CDATA[
+    SELECT VALUE -- Constructing Notebooks
+        [RioValleyChili.Data.Notebook](T1.Notebook_Date, T1.Notebook_Sequence)
+    FROM (
+        SELECT 
+            T.Date AS Notebook_Date, 
+            T.Sequence AS Notebook_Sequence, 
+            True AS _from0
+        FROM CodeFirstDatabase.Notebook AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.Notes"><![CDATA[
+    SELECT VALUE -- Constructing Notes
+        [RioValleyChili.Data.Note](T1.Note_NotebookDate, T1.Note_NotebookSequence, T1.Note_Sequence, T1.Note_Text, T1.Note_EmployeeId, T1.Note_TimeStamp)
+    FROM (
+        SELECT 
+            T.NotebookDate AS Note_NotebookDate, 
+            T.NotebookSequence AS Note_NotebookSequence, 
+            T.Sequence AS Note_Sequence, 
+            T.Text AS Note_Text, 
+            T.EmployeeId AS Note_EmployeeId, 
+            T.TimeStamp AS Note_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.Note AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.Contacts"><![CDATA[
+    SELECT VALUE -- Constructing Contacts
+        [RioValleyChili.Data.Contact](T1.Contact_CompanyId, T1.Contact_ContactId, T1.Contact_Name, T1.Contact_PhoneNumber, T1.Contact_EMailAddress)
+    FROM (
+        SELECT 
+            T.CompanyId AS Contact_CompanyId, 
+            T.ContactId AS Contact_ContactId, 
+            T.Name AS Contact_Name, 
+            T.PhoneNumber AS Contact_PhoneNumber, 
+            T.EMailAddress AS Contact_EMailAddress, 
+            True AS _from0
+        FROM CodeFirstDatabase.Contact AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ContactAddresses"><![CDATA[
+    SELECT VALUE -- Constructing ContactAddresses
+        [RioValleyChili.Data.ContactAddress](T2.ContactAddress_CompanyId, T2.ContactAddress_ContactId, T2.ContactAddress_AddressId, T2.ContactAddress_AddressDescription, T2.ContactAddress_Address)
+    FROM (
+        SELECT -- Constructing Address
+            T1.ContactAddress_CompanyId, 
+            T1.ContactAddress_ContactId, 
+            T1.ContactAddress_AddressId, 
+            T1.ContactAddress_AddressDescription, 
+            [RioValleyChili.Data.Address](T1.ContactAddress_Address_AddressLine1, T1.ContactAddress_Address_AddressLine2, T1.ContactAddress_Address_AddressLine3, T1.ContactAddress_Address_City, T1.ContactAddress_Address_State, T1.ContactAddress_Address_PostalCode, T1.ContactAddress_Address_Country) AS ContactAddress_Address
+        FROM (
+            SELECT 
+                T.CompanyId AS ContactAddress_CompanyId, 
+                T.ContactId AS ContactAddress_ContactId, 
+                T.AddressId AS ContactAddress_AddressId, 
+                T.AddressDescription AS ContactAddress_AddressDescription, 
+                T.Address_AddressLine1 AS ContactAddress_Address_AddressLine1, 
+                T.Address_AddressLine2 AS ContactAddress_Address_AddressLine2, 
+                T.Address_AddressLine3 AS ContactAddress_Address_AddressLine3, 
+                T.Address_City AS ContactAddress_Address_City, 
+                T.Address_State AS ContactAddress_Address_State, 
+                T.Address_PostalCode AS ContactAddress_Address_PostalCode, 
+                T.Address_Country AS ContactAddress_Address_Country, 
+                True AS _from0
+            FROM CodeFirstDatabase.ContactAddress AS T
+        ) AS T1
+    ) AS T2]]></view>
+    <view extent="RioValleyChiliDataContext.Companies"><![CDATA[
+    SELECT VALUE -- Constructing Companies
+        [RioValleyChili.Data.Company](T1.Company_Id, T1.Company_NotebookDate, T1.Company_NotebookSequence, T1.Company_ParentId, T1.Company_Active, T1.Company_Name)
+    FROM (
+        SELECT 
+            T.Id AS Company_Id, 
+            T.NotebookDate AS Company_NotebookDate, 
+            T.NotebookSequence AS Company_NotebookSequence, 
+            T.ParentId AS Company_ParentId, 
+            T.Active AS Company_Active, 
+            T.Name AS Company_Name, 
+            True AS _from0
+        FROM CodeFirstDatabase.Company AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.CompanyAddresses"><![CDATA[
+    SELECT VALUE -- Constructing CompanyAddresses
+        [RioValleyChili.Data.CompanyAddress](T2.CompanyAddress_CompanyId, T2.CompanyAddress_AddressId, T2.CompanyAddress_AddressDescription, T2.CompanyAddress_Address)
+    FROM (
+        SELECT -- Constructing Address
+            T1.CompanyAddress_CompanyId, 
+            T1.CompanyAddress_AddressId, 
+            T1.CompanyAddress_AddressDescription, 
+            [RioValleyChili.Data.Address](T1.CompanyAddress_Address_AddressLine1, T1.CompanyAddress_Address_AddressLine2, T1.CompanyAddress_Address_AddressLine3, T1.CompanyAddress_Address_City, T1.CompanyAddress_Address_State, T1.CompanyAddress_Address_PostalCode, T1.CompanyAddress_Address_Country) AS CompanyAddress_Address
+        FROM (
+            SELECT 
+                T.CompanyId AS CompanyAddress_CompanyId, 
+                T.AddressId AS CompanyAddress_AddressId, 
+                T.AddressDescription AS CompanyAddress_AddressDescription, 
+                T.Address_AddressLine1 AS CompanyAddress_Address_AddressLine1, 
+                T.Address_AddressLine2 AS CompanyAddress_Address_AddressLine2, 
+                T.Address_AddressLine3 AS CompanyAddress_Address_AddressLine3, 
+                T.Address_City AS CompanyAddress_Address_City, 
+                T.Address_State AS CompanyAddress_Address_State, 
+                T.Address_PostalCode AS CompanyAddress_Address_PostalCode, 
+                T.Address_Country AS CompanyAddress_Address_Country, 
+                True AS _from0
+            FROM CodeFirstDatabase.CompanyAddress AS T
+        ) AS T1
+    ) AS T2]]></view>
+    <view extent="RioValleyChiliDataContext.CompanyTypeRecords"><![CDATA[
+    SELECT VALUE -- Constructing CompanyTypeRecords
+        [RioValleyChili.Data.CompanyTypeRecord](T1.CompanyTypeRecord_CompanyId, T1.CompanyTypeRecord_CompanyType)
+    FROM (
+        SELECT 
+            T.CompanyId AS CompanyTypeRecord_CompanyId, 
+            T.CompanyType AS CompanyTypeRecord_CompanyType, 
+            True AS _from0
+        FROM CodeFirstDatabase.CompanyTypeRecord AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ContractItems"><![CDATA[
+    SELECT VALUE -- Constructing ContractItems
+        [RioValleyChili.Data.ContractItem](T1.ContractItem_ContractYear, T1.ContractItem_ContractSequence, T1.ContractItem_ContractItemSequence, T1.ContractItem_ChileProductId, T1.ContractItem_PackagingProductId, T1.ContractItem_TreatmentId, T1.ContractItem_UseCustomerSpec, T1.ContractItem_CustomerProductCode, T1.ContractItem_Quantity, T1.ContractItem_PriceBase, T1.ContractItem_PriceFreight, T1.ContractItem_PriceTreatment, T1.ContractItem_PriceWarehouse, T1.ContractItem_PriceRebate)
+    FROM (
+        SELECT 
+            T.ContractYear AS ContractItem_ContractYear, 
+            T.ContractSequence AS ContractItem_ContractSequence, 
+            T.ContractItemSequence AS ContractItem_ContractItemSequence, 
+            T.ChileProductId AS ContractItem_ChileProductId, 
+            T.PackagingProductId AS ContractItem_PackagingProductId, 
+            T.TreatmentId AS ContractItem_TreatmentId, 
+            T.UseCustomerSpec AS ContractItem_UseCustomerSpec, 
+            T.CustomerProductCode AS ContractItem_CustomerProductCode, 
+            T.Quantity AS ContractItem_Quantity, 
+            T.PriceBase AS ContractItem_PriceBase, 
+            T.PriceFreight AS ContractItem_PriceFreight, 
+            T.PriceTreatment AS ContractItem_PriceTreatment, 
+            T.PriceWarehouse AS ContractItem_PriceWarehouse, 
+            T.PriceRebate AS ContractItem_PriceRebate, 
+            True AS _from0
+        FROM CodeFirstDatabase.ContractItem AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.Contracts"><![CDATA[
+    SELECT VALUE -- Constructing Contracts
+        [RioValleyChili.Data.Contract](T2.Contract_ContractYear, T2.Contract_ContractSequence, T2.Contract_ContractType, T2.Contract_ContractStatus, T2.Contract_DateCreated, T2.Contract_TermBegin, T2.Contract_TermEnd, T2.Contract_PaymentTerms, T2.Contract_NotesToPrint, T2.Contract_Comments, T2.Contract_CustomerId, T2.Contract_ContactId, T2.Contract_BrokerId, T2.Contract_DefaultPickFromWarehouseId, T2.Contract_ContactAddress, T2.Contract_User, T2.Contract_TimeStamp)
+    FROM (
+        SELECT -- Constructing ContactAddress
+            T1.Contract_ContractYear, 
+            T1.Contract_ContractSequence, 
+            T1.Contract_ContractType, 
+            T1.Contract_ContractStatus, 
+            T1.Contract_DateCreated, 
+            T1.Contract_TermBegin, 
+            T1.Contract_TermEnd, 
+            T1.Contract_PaymentTerms, 
+            T1.Contract_NotesToPrint, 
+            T1.Contract_Comments, 
+            T1.Contract_CustomerId, 
+            T1.Contract_ContactId, 
+            T1.Contract_BrokerId, 
+            T1.Contract_DefaultPickFromWarehouseId, 
+            [RioValleyChili.Data.Address](T1.Contract_ContactAddress_AddressLine1, T1.Contract_ContactAddress_AddressLine2, T1.Contract_ContactAddress_AddressLine3, T1.Contract_ContactAddress_City, T1.Contract_ContactAddress_State, T1.Contract_ContactAddress_PostalCode, T1.Contract_ContactAddress_Country) AS Contract_ContactAddress, 
+            T1.Contract_User, 
+            T1.Contract_TimeStamp
+        FROM (
+            SELECT 
+                T.ContractYear AS Contract_ContractYear, 
+                T.ContractSequence AS Contract_ContractSequence, 
+                CAST(T.ContractType AS [RioValleyChili.Data.ContractType]) AS Contract_ContractType, 
+                CAST(T.ContractStatus AS [RioValleyChili.Data.ContractStatus]) AS Contract_ContractStatus, 
+                T.DateCreated AS Contract_DateCreated, 
+                T.TermBegin AS Contract_TermBegin, 
+                T.TermEnd AS Contract_TermEnd, 
+                T.PaymentTerms AS Contract_PaymentTerms, 
+                T.NotesToPrint AS Contract_NotesToPrint, 
+                T.Comments AS Contract_Comments, 
+                T.CustomerId AS Contract_CustomerId, 
+                T.ContactId AS Contract_ContactId, 
+                T.BrokerId AS Contract_BrokerId, 
+                T.DefaultPickFromWarehouseId AS Contract_DefaultPickFromWarehouseId, 
+                T.ContactAddress_AddressLine1 AS Contract_ContactAddress_AddressLine1, 
+                T.ContactAddress_AddressLine2 AS Contract_ContactAddress_AddressLine2, 
+                T.ContactAddress_AddressLine3 AS Contract_ContactAddress_AddressLine3, 
+                T.ContactAddress_City AS Contract_ContactAddress_City, 
+                T.ContactAddress_State AS Contract_ContactAddress_State, 
+                T.ContactAddress_PostalCode AS Contract_ContactAddress_PostalCode, 
+                T.ContactAddress_Country AS Contract_ContactAddress_Country, 
+                T.User AS Contract_User, 
+                T.TimeStamp AS Contract_TimeStamp, 
+                True AS _from0
+            FROM CodeFirstDatabase.Contract AS T
+        ) AS T1
+    ) AS T2]]></view>
+    <view extent="RioValleyChiliDataContext.Customers"><![CDATA[
+    SELECT VALUE -- Constructing Customers
+        [RioValleyChili.Data.Customer](T1.Customer_Id, T1.Customer_BrokerId)
+    FROM (
+        SELECT 
+            T.Id AS Customer_Id, 
+            T.BrokerId AS Customer_BrokerId, 
+            True AS _from0
+        FROM CodeFirstDatabase.Customer AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.CustomerOrders"><![CDATA[
+    SELECT VALUE -- Constructing CustomerOrders
+        [RioValleyChili.Data.CustomerOrder](T3.CustomerOrder_DateCreated, T3.CustomerOrder_Sequence, T3.CustomerOrder_CustomerId, T3.CustomerOrder_ContactId, T3.CustomerOrder_BrokerId, T3.CustomerOrder_WarehouseId, T3.CustomerOrder_ShipmentInfoDateCreated, T3.CustomerOrder_ShipmentInfoSequence, T3.CustomerOrder_OrderStatus, T3.CustomerOrder_OrderTakenBy, T3.CustomerOrder_DateOrderReceived, T3.CustomerOrder_PaymentTerms, T3.CustomerOrder_CustomerPurchaseOrder, T3.CustomerOrder_SoldTo, T3.CustomerOrder_User, T3.CustomerOrder_TimeStamp)
+    FROM (
+        SELECT -- Constructing SoldTo
+            T2.CustomerOrder_DateCreated, 
+            T2.CustomerOrder_Sequence, 
+            T2.CustomerOrder_CustomerId, 
+            T2.CustomerOrder_ContactId, 
+            T2.CustomerOrder_BrokerId, 
+            T2.CustomerOrder_WarehouseId, 
+            T2.CustomerOrder_ShipmentInfoDateCreated, 
+            T2.CustomerOrder_ShipmentInfoSequence, 
+            T2.CustomerOrder_OrderStatus, 
+            T2.CustomerOrder_OrderTakenBy, 
+            T2.CustomerOrder_DateOrderReceived, 
+            T2.CustomerOrder_PaymentTerms, 
+            T2.CustomerOrder_CustomerPurchaseOrder, 
+            [RioValleyChili.Data.ShippingLabel](T2.CustomerOrder_SoldTo_Name, T2.CustomerOrder_SoldTo_Address, T2.CustomerOrder_SoldTo_AdditionalInfo) AS CustomerOrder_SoldTo, 
+            T2.CustomerOrder_User, 
+            T2.CustomerOrder_TimeStamp
+        FROM (
+            SELECT -- Constructing Address
+                T1.CustomerOrder_DateCreated, 
+                T1.CustomerOrder_Sequence, 
+                T1.CustomerOrder_CustomerId, 
+                T1.CustomerOrder_ContactId, 
+                T1.CustomerOrder_BrokerId, 
+                T1.CustomerOrder_WarehouseId, 
+                T1.CustomerOrder_ShipmentInfoDateCreated, 
+                T1.CustomerOrder_ShipmentInfoSequence, 
+                T1.CustomerOrder_OrderStatus, 
+                T1.CustomerOrder_OrderTakenBy, 
+                T1.CustomerOrder_DateOrderReceived, 
+                T1.CustomerOrder_PaymentTerms, 
+                T1.CustomerOrder_CustomerPurchaseOrder, 
+                T1.CustomerOrder_SoldTo_Name, 
+                [RioValleyChili.Data.Address](T1.CustomerOrder_SoldTo_Address_AddressLine1, T1.CustomerOrder_SoldTo_Address_AddressLine2, T1.CustomerOrder_SoldTo_Address_AddressLine3, T1.CustomerOrder_SoldTo_Address_City, T1.CustomerOrder_SoldTo_Address_State, T1.CustomerOrder_SoldTo_Address_PostalCode, T1.CustomerOrder_SoldTo_Address_Country) AS CustomerOrder_SoldTo_Address, 
+                T1.CustomerOrder_SoldTo_AdditionalInfo, 
+                T1.CustomerOrder_User, 
+                T1.CustomerOrder_TimeStamp
+            FROM (
+                SELECT 
+                    T.DateCreated AS CustomerOrder_DateCreated, 
+                    T.Sequence AS CustomerOrder_Sequence, 
+                    T.CustomerId AS CustomerOrder_CustomerId, 
+                    T.ContactId AS CustomerOrder_ContactId, 
+                    T.BrokerId AS CustomerOrder_BrokerId, 
+                    T.WarehouseId AS CustomerOrder_WarehouseId, 
+                    T.ShipmentInfoDateCreated AS CustomerOrder_ShipmentInfoDateCreated, 
+                    T.ShipmentInfoSequence AS CustomerOrder_ShipmentInfoSequence, 
+                    CAST(T.OrderStatus AS [RioValleyChili.Data.CustomerOrderStatus]) AS CustomerOrder_OrderStatus, 
+                    T.OrderTakenBy AS CustomerOrder_OrderTakenBy, 
+                    T.DateOrderReceived AS CustomerOrder_DateOrderReceived, 
+                    T.PaymentTerms AS CustomerOrder_PaymentTerms, 
+                    T.CustomerPurchaseOrder AS CustomerOrder_CustomerPurchaseOrder, 
+                    T.SoldTo_Name AS CustomerOrder_SoldTo_Name, 
+                    T.SoldTo_Address_AddressLine1 AS CustomerOrder_SoldTo_Address_AddressLine1, 
+                    T.SoldTo_Address_AddressLine2 AS CustomerOrder_SoldTo_Address_AddressLine2, 
+                    T.SoldTo_Address_AddressLine3 AS CustomerOrder_SoldTo_Address_AddressLine3, 
+                    T.SoldTo_Address_City AS CustomerOrder_SoldTo_Address_City, 
+                    T.SoldTo_Address_State AS CustomerOrder_SoldTo_Address_State, 
+                    T.SoldTo_Address_PostalCode AS CustomerOrder_SoldTo_Address_PostalCode, 
+                    T.SoldTo_Address_Country AS CustomerOrder_SoldTo_Address_Country, 
+                    T.SoldTo_AdditionalInfo AS CustomerOrder_SoldTo_AdditionalInfo, 
+                    T.User AS CustomerOrder_User, 
+                    T.TimeStamp AS CustomerOrder_TimeStamp, 
+                    True AS _from0
+                FROM CodeFirstDatabase.CustomerOrder AS T
+            ) AS T1
+        ) AS T2
+    ) AS T3]]></view>
+    <view extent="RioValleyChiliDataContext.CustomerOrderItems"><![CDATA[
+    SELECT VALUE -- Constructing CustomerOrderItems
+        [RioValleyChili.Data.CustomerOrderItem](T1.CustomerOrderItem_DateCreated, T1.CustomerOrderItem_Sequence, T1.CustomerOrderItem_ItemSequence, T1.CustomerOrderItem_ContractYear, T1.CustomerOrderItem_ContractSequence, T1.CustomerOrderItem_ContractItemSequence, T1.CustomerOrderItem_CustomerLotCode, T1.CustomerOrderItem_PriceBase, T1.CustomerOrderItem_PriceFreight, T1.CustomerOrderItem_PriceTreatment, T1.CustomerOrderItem_PriceWarehouse, T1.CustomerOrderItem_PriceRebate)
+    FROM (
+        SELECT 
+            T.DateCreated AS CustomerOrderItem_DateCreated, 
+            T.Sequence AS CustomerOrderItem_Sequence, 
+            T.ItemSequence AS CustomerOrderItem_ItemSequence, 
+            T.ContractYear AS CustomerOrderItem_ContractYear, 
+            T.ContractSequence AS CustomerOrderItem_ContractSequence, 
+            T.ContractItemSequence AS CustomerOrderItem_ContractItemSequence, 
+            T.CustomerLotCode AS CustomerOrderItem_CustomerLotCode, 
+            T.PriceBase AS CustomerOrderItem_PriceBase, 
+            T.PriceFreight AS CustomerOrderItem_PriceFreight, 
+            T.PriceTreatment AS CustomerOrderItem_PriceTreatment, 
+            T.PriceWarehouse AS CustomerOrderItem_PriceWarehouse, 
+            T.PriceRebate AS CustomerOrderItem_PriceRebate, 
+            True AS _from0
+        FROM CodeFirstDatabase.CustomerOrderItem AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.MovementOrderItems"><![CDATA[
+    SELECT VALUE -- Constructing MovementOrderItems
+        [RioValleyChili.Data.InventoryPickOrderItem](T1.InventoryPickOrderItem_DateCreated, T1.InventoryPickOrderItem_OrderSequence, T1.InventoryPickOrderItem_ItemSequence, T1.InventoryPickOrderItem_ProductId, T1.InventoryPickOrderItem_PackagingProductId, T1.InventoryPickOrderItem_TreatmentId, T1.InventoryPickOrderItem_Quantity)
+    FROM (
+        SELECT 
+            T.DateCreated AS InventoryPickOrderItem_DateCreated, 
+            T.OrderSequence AS InventoryPickOrderItem_OrderSequence, 
+            T.ItemSequence AS InventoryPickOrderItem_ItemSequence, 
+            T.ProductId AS InventoryPickOrderItem_ProductId, 
+            T.PackagingProductId AS InventoryPickOrderItem_PackagingProductId, 
+            T.TreatmentId AS InventoryPickOrderItem_TreatmentId, 
+            T.Quantity AS InventoryPickOrderItem_Quantity, 
+            True AS _from0
+        FROM CodeFirstDatabase.InventoryPickOrderItem AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.MovementOrders"><![CDATA[
+    SELECT VALUE -- Constructing MovementOrders
+        [RioValleyChili.Data.InventoryPickOrder](T1.InventoryPickOrder_DateCreated, T1.InventoryPickOrder_Sequence)
+    FROM (
+        SELECT 
+            T.DateCreated AS InventoryPickOrder_DateCreated, 
+            T.Sequence AS InventoryPickOrder_Sequence, 
+            True AS _from0
+        FROM CodeFirstDatabase.InventoryPickOrder AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.CustomerOrderPickedItems"><![CDATA[
+    SELECT VALUE -- Constructing CustomerOrderPickedItems
+        [RioValleyChili.Data.CustomerOrderPickedItem](T1.CustomerOrderPickedItem_DateCreated, T1.CustomerOrderPickedItem_Sequence, T1.CustomerOrderPickedItem_ItemSequence, T1.CustomerOrderPickedItem_OrderItemSequence)
+    FROM (
+        SELECT 
+            T.DateCreated AS CustomerOrderPickedItem_DateCreated, 
+            T.Sequence AS CustomerOrderPickedItem_Sequence, 
+            T.ItemSequence AS CustomerOrderPickedItem_ItemSequence, 
+            T.OrderItemSequence AS CustomerOrderPickedItem_OrderItemSequence, 
+            True AS _from0
+        FROM CodeFirstDatabase.CustomerOrderPickedItem AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ShipmentInformation"><![CDATA[
+    SELECT VALUE -- Constructing ShipmentInformation
+        [RioValleyChili.Data.ShipmentInformation](T7.ShipmentInformation_DateCreated, T7.ShipmentInformation_Sequence, T7.ShipmentInformation_Status, T7.ShipmentInformation_PalletWeight, T7.ShipmentInformation_PalletQuantity, T7.ShipmentInformation_FreightBillType, T7.ShipmentInformation_ShipmentMethod, T7.ShipmentInformation_DriverName, T7.ShipmentInformation_CarrierName, T7.ShipmentInformation_TrailerLicenseNumber, T7.ShipmentInformation_ContainerSeal, T7.ShipmentInformation_ShipFrom, T7.ShipmentInformation_ShipTo, T7.ShipmentInformation_FreightBill, T7.ShipmentInformation_RequiredDeliveryDate, T7.ShipmentInformation_ScheduledShipDate, T7.ShipmentInformation_Comments)
+    FROM (
+        SELECT -- Constructing ShipFrom
+            T6.ShipmentInformation_DateCreated, 
+            T6.ShipmentInformation_Sequence, 
+            T6.ShipmentInformation_Status, 
+            T6.ShipmentInformation_PalletWeight, 
+            T6.ShipmentInformation_PalletQuantity, 
+            T6.ShipmentInformation_FreightBillType, 
+            T6.ShipmentInformation_ShipmentMethod, 
+            T6.ShipmentInformation_DriverName, 
+            T6.ShipmentInformation_CarrierName, 
+            T6.ShipmentInformation_TrailerLicenseNumber, 
+            T6.ShipmentInformation_ContainerSeal, 
+            [RioValleyChili.Data.ShippingLabel](T6.ShipmentInformation_ShipFrom_Name, T6.ShipmentInformation_ShipFrom_Address, T6.ShipmentInformation_ShipFrom_AdditionalInfo) AS ShipmentInformation_ShipFrom, 
+            T6.ShipmentInformation_ShipTo, 
+            T6.ShipmentInformation_FreightBill, 
+            T6.ShipmentInformation_RequiredDeliveryDate, 
+            T6.ShipmentInformation_ScheduledShipDate, 
+            T6.ShipmentInformation_Comments
+        FROM (
+            SELECT -- Constructing Address
+                T5.ShipmentInformation_DateCreated, 
+                T5.ShipmentInformation_Sequence, 
+                T5.ShipmentInformation_Status, 
+                T5.ShipmentInformation_PalletWeight, 
+                T5.ShipmentInformation_PalletQuantity, 
+                T5.ShipmentInformation_FreightBillType, 
+                T5.ShipmentInformation_ShipmentMethod, 
+                T5.ShipmentInformation_DriverName, 
+                T5.ShipmentInformation_CarrierName, 
+                T5.ShipmentInformation_TrailerLicenseNumber, 
+                T5.ShipmentInformation_ContainerSeal, 
+                T5.ShipmentInformation_ShipFrom_Name, 
+                [RioValleyChili.Data.Address](T5.ShipmentInformation_ShipFrom_Address_AddressLine1, T5.ShipmentInformation_ShipFrom_Address_AddressLine2, T5.ShipmentInformation_ShipFrom_Address_AddressLine3, T5.ShipmentInformation_ShipFrom_Address_City, T5.ShipmentInformation_ShipFrom_Address_State, T5.ShipmentInformation_ShipFrom_Address_PostalCode, T5.ShipmentInformation_ShipFrom_Address_Country) AS ShipmentInformation_ShipFrom_Address, 
+                T5.ShipmentInformation_ShipFrom_AdditionalInfo, 
+                T5.ShipmentInformation_ShipTo, 
+                T5.ShipmentInformation_FreightBill, 
+                T5.ShipmentInformation_RequiredDeliveryDate, 
+                T5.ShipmentInformation_ScheduledShipDate, 
+                T5.ShipmentInformation_Comments
+            FROM (
+                SELECT -- Constructing ShipTo
+                    T4.ShipmentInformation_DateCreated, 
+                    T4.ShipmentInformation_Sequence, 
+                    T4.ShipmentInformation_Status, 
+                    T4.ShipmentInformation_PalletWeight, 
+                    T4.ShipmentInformation_PalletQuantity, 
+                    T4.ShipmentInformation_FreightBillType, 
+                    T4.ShipmentInformation_ShipmentMethod, 
+                    T4.ShipmentInformation_DriverName, 
+                    T4.ShipmentInformation_CarrierName, 
+                    T4.ShipmentInformation_TrailerLicenseNumber, 
+                    T4.ShipmentInformation_ContainerSeal, 
+                    T4.ShipmentInformation_ShipFrom_Name, 
+                    T4.ShipmentInformation_ShipFrom_Address_AddressLine1, 
+                    T4.ShipmentInformation_ShipFrom_Address_AddressLine2, 
+                    T4.ShipmentInformation_ShipFrom_Address_AddressLine3, 
+                    T4.ShipmentInformation_ShipFrom_Address_City, 
+                    T4.ShipmentInformation_ShipFrom_Address_State, 
+                    T4.ShipmentInformation_ShipFrom_Address_PostalCode, 
+                    T4.ShipmentInformation_ShipFrom_Address_Country, 
+                    T4.ShipmentInformation_ShipFrom_AdditionalInfo, 
+                    [RioValleyChili.Data.ShippingLabel](T4.ShipmentInformation_ShipTo_Name, T4.ShipmentInformation_ShipTo_Address, T4.ShipmentInformation_ShipTo_AdditionalInfo) AS ShipmentInformation_ShipTo, 
+                    T4.ShipmentInformation_FreightBill, 
+                    T4.ShipmentInformation_RequiredDeliveryDate, 
+                    T4.ShipmentInformation_ScheduledShipDate, 
+                    T4.ShipmentInformation_Comments
+                FROM (
+                    SELECT -- Constructing Address
+                        T3.ShipmentInformation_DateCreated, 
+                        T3.ShipmentInformation_Sequence, 
+                        T3.ShipmentInformation_Status, 
+                        T3.ShipmentInformation_PalletWeight, 
+                        T3.ShipmentInformation_PalletQuantity, 
+                        T3.ShipmentInformation_FreightBillType, 
+                        T3.ShipmentInformation_ShipmentMethod, 
+                        T3.ShipmentInformation_DriverName, 
+                        T3.ShipmentInformation_CarrierName, 
+                        T3.ShipmentInformation_TrailerLicenseNumber, 
+                        T3.ShipmentInformation_ContainerSeal, 
+                        T3.ShipmentInformation_ShipFrom_Name, 
+                        T3.ShipmentInformation_ShipFrom_Address_AddressLine1, 
+                        T3.ShipmentInformation_ShipFrom_Address_AddressLine2, 
+                        T3.ShipmentInformation_ShipFrom_Address_AddressLine3, 
+                        T3.ShipmentInformation_ShipFrom_Address_City, 
+                        T3.ShipmentInformation_ShipFrom_Address_State, 
+                        T3.ShipmentInformation_ShipFrom_Address_PostalCode, 
+                        T3.ShipmentInformation_ShipFrom_Address_Country, 
+                        T3.ShipmentInformation_ShipFrom_AdditionalInfo, 
+                        T3.ShipmentInformation_ShipTo_Name, 
+                        [RioValleyChili.Data.Address](T3.ShipmentInformation_ShipTo_Address_AddressLine1, T3.ShipmentInformation_ShipTo_Address_AddressLine2, T3.ShipmentInformation_ShipTo_Address_AddressLine3, T3.ShipmentInformation_ShipTo_Address_City, T3.ShipmentInformation_ShipTo_Address_State, T3.ShipmentInformation_ShipTo_Address_PostalCode, T3.ShipmentInformation_ShipTo_Address_Country) AS ShipmentInformation_ShipTo_Address, 
+                        T3.ShipmentInformation_ShipTo_AdditionalInfo, 
+                        T3.ShipmentInformation_FreightBill, 
+                        T3.ShipmentInformation_RequiredDeliveryDate, 
+                        T3.ShipmentInformation_ScheduledShipDate, 
+                        T3.ShipmentInformation_Comments
+                    FROM (
+                        SELECT -- Constructing FreightBill
+                            T2.ShipmentInformation_DateCreated, 
+                            T2.ShipmentInformation_Sequence, 
+                            T2.ShipmentInformation_Status, 
+                            T2.ShipmentInformation_PalletWeight, 
+                            T2.ShipmentInformation_PalletQuantity, 
+                            T2.ShipmentInformation_FreightBillType, 
+                            T2.ShipmentInformation_ShipmentMethod, 
+                            T2.ShipmentInformation_DriverName, 
+                            T2.ShipmentInformation_CarrierName, 
+                            T2.ShipmentInformation_TrailerLicenseNumber, 
+                            T2.ShipmentInformation_ContainerSeal, 
+                            T2.ShipmentInformation_ShipFrom_Name, 
+                            T2.ShipmentInformation_ShipFrom_Address_AddressLine1, 
+                            T2.ShipmentInformation_ShipFrom_Address_AddressLine2, 
+                            T2.ShipmentInformation_ShipFrom_Address_AddressLine3, 
+                            T2.ShipmentInformation_ShipFrom_Address_City, 
+                            T2.ShipmentInformation_ShipFrom_Address_State, 
+                            T2.ShipmentInformation_ShipFrom_Address_PostalCode, 
+                            T2.ShipmentInformation_ShipFrom_Address_Country, 
+                            T2.ShipmentInformation_ShipFrom_AdditionalInfo, 
+                            T2.ShipmentInformation_ShipTo_Name, 
+                            T2.ShipmentInformation_ShipTo_Address_AddressLine1, 
+                            T2.ShipmentInformation_ShipTo_Address_AddressLine2, 
+                            T2.ShipmentInformation_ShipTo_Address_AddressLine3, 
+                            T2.ShipmentInformation_ShipTo_Address_City, 
+                            T2.ShipmentInformation_ShipTo_Address_State, 
+                            T2.ShipmentInformation_ShipTo_Address_PostalCode, 
+                            T2.ShipmentInformation_ShipTo_Address_Country, 
+                            T2.ShipmentInformation_ShipTo_AdditionalInfo, 
+                            [RioValleyChili.Data.ShippingLabel](T2.ShipmentInformation_FreightBill_Name, T2.ShipmentInformation_FreightBill_Address, T2.ShipmentInformation_FreightBill_AdditionalInfo) AS ShipmentInformation_FreightBill, 
+                            T2.ShipmentInformation_RequiredDeliveryDate, 
+                            T2.ShipmentInformation_ScheduledShipDate, 
+                            T2.ShipmentInformation_Comments
+                        FROM (
+                            SELECT -- Constructing Address
+                                T1.ShipmentInformation_DateCreated, 
+                                T1.ShipmentInformation_Sequence, 
+                                T1.ShipmentInformation_Status, 
+                                T1.ShipmentInformation_PalletWeight, 
+                                T1.ShipmentInformation_PalletQuantity, 
+                                T1.ShipmentInformation_FreightBillType, 
+                                T1.ShipmentInformation_ShipmentMethod, 
+                                T1.ShipmentInformation_DriverName, 
+                                T1.ShipmentInformation_CarrierName, 
+                                T1.ShipmentInformation_TrailerLicenseNumber, 
+                                T1.ShipmentInformation_ContainerSeal, 
+                                T1.ShipmentInformation_ShipFrom_Name, 
+                                T1.ShipmentInformation_ShipFrom_Address_AddressLine1, 
+                                T1.ShipmentInformation_ShipFrom_Address_AddressLine2, 
+                                T1.ShipmentInformation_ShipFrom_Address_AddressLine3, 
+                                T1.ShipmentInformation_ShipFrom_Address_City, 
+                                T1.ShipmentInformation_ShipFrom_Address_State, 
+                                T1.ShipmentInformation_ShipFrom_Address_PostalCode, 
+                                T1.ShipmentInformation_ShipFrom_Address_Country, 
+                                T1.ShipmentInformation_ShipFrom_AdditionalInfo, 
+                                T1.ShipmentInformation_ShipTo_Name, 
+                                T1.ShipmentInformation_ShipTo_Address_AddressLine1, 
+                                T1.ShipmentInformation_ShipTo_Address_AddressLine2, 
+                                T1.ShipmentInformation_ShipTo_Address_AddressLine3, 
+                                T1.ShipmentInformation_ShipTo_Address_City, 
+                                T1.ShipmentInformation_ShipTo_Address_State, 
+                                T1.ShipmentInformation_ShipTo_Address_PostalCode, 
+                                T1.ShipmentInformation_ShipTo_Address_Country, 
+                                T1.ShipmentInformation_ShipTo_AdditionalInfo, 
+                                T1.ShipmentInformation_FreightBill_Name, 
+                                [RioValleyChili.Data.Address](T1.ShipmentInformation_FreightBill_Address_AddressLine1, T1.ShipmentInformation_FreightBill_Address_AddressLine2, T1.ShipmentInformation_FreightBill_Address_AddressLine3, T1.ShipmentInformation_FreightBill_Address_City, T1.ShipmentInformation_FreightBill_Address_State, T1.ShipmentInformation_FreightBill_Address_PostalCode, T1.ShipmentInformation_FreightBill_Address_Country) AS ShipmentInformation_FreightBill_Address, 
+                                T1.ShipmentInformation_FreightBill_AdditionalInfo, 
+                                T1.ShipmentInformation_RequiredDeliveryDate, 
+                                T1.ShipmentInformation_ScheduledShipDate, 
+                                T1.ShipmentInformation_Comments
+                            FROM (
+                                SELECT 
+                                    T.DateCreated AS ShipmentInformation_DateCreated, 
+                                    T.Sequence AS ShipmentInformation_Sequence, 
+                                    CAST(T.Status AS [RioValleyChili.Data.ShipmentStatus]) AS ShipmentInformation_Status, 
+                                    T.PalletWeight AS ShipmentInformation_PalletWeight, 
+                                    T.PalletQuantity AS ShipmentInformation_PalletQuantity, 
+                                    T.FreightBillType AS ShipmentInformation_FreightBillType, 
+                                    T.ShipmentMethod AS ShipmentInformation_ShipmentMethod, 
+                                    T.DriverName AS ShipmentInformation_DriverName, 
+                                    T.CarrierName AS ShipmentInformation_CarrierName, 
+                                    T.TrailerLicenseNumber AS ShipmentInformation_TrailerLicenseNumber, 
+                                    T.ContainerSeal AS ShipmentInformation_ContainerSeal, 
+                                    T.ShipFrom_Name AS ShipmentInformation_ShipFrom_Name, 
+                                    T.ShipFrom_Address_AddressLine1 AS ShipmentInformation_ShipFrom_Address_AddressLine1, 
+                                    T.ShipFrom_Address_AddressLine2 AS ShipmentInformation_ShipFrom_Address_AddressLine2, 
+                                    T.ShipFrom_Address_AddressLine3 AS ShipmentInformation_ShipFrom_Address_AddressLine3, 
+                                    T.ShipFrom_Address_City AS ShipmentInformation_ShipFrom_Address_City, 
+                                    T.ShipFrom_Address_State AS ShipmentInformation_ShipFrom_Address_State, 
+                                    T.ShipFrom_Address_PostalCode AS ShipmentInformation_ShipFrom_Address_PostalCode, 
+                                    T.ShipFrom_Address_Country AS ShipmentInformation_ShipFrom_Address_Country, 
+                                    T.ShipFrom_AdditionalInfo AS ShipmentInformation_ShipFrom_AdditionalInfo, 
+                                    T.ShipTo_Name AS ShipmentInformation_ShipTo_Name, 
+                                    T.ShipTo_Address_AddressLine1 AS ShipmentInformation_ShipTo_Address_AddressLine1, 
+                                    T.ShipTo_Address_AddressLine2 AS ShipmentInformation_ShipTo_Address_AddressLine2, 
+                                    T.ShipTo_Address_AddressLine3 AS ShipmentInformation_ShipTo_Address_AddressLine3, 
+                                    T.ShipTo_Address_City AS ShipmentInformation_ShipTo_Address_City, 
+                                    T.ShipTo_Address_State AS ShipmentInformation_ShipTo_Address_State, 
+                                    T.ShipTo_Address_PostalCode AS ShipmentInformation_ShipTo_Address_PostalCode, 
+                                    T.ShipTo_Address_Country AS ShipmentInformation_ShipTo_Address_Country, 
+                                    T.ShipTo_AdditionalInfo AS ShipmentInformation_ShipTo_AdditionalInfo, 
+                                    T.FreightBill_Name AS ShipmentInformation_FreightBill_Name, 
+                                    T.FreightBill_Address_AddressLine1 AS ShipmentInformation_FreightBill_Address_AddressLine1, 
+                                    T.FreightBill_Address_AddressLine2 AS ShipmentInformation_FreightBill_Address_AddressLine2, 
+                                    T.FreightBill_Address_AddressLine3 AS ShipmentInformation_FreightBill_Address_AddressLine3, 
+                                    T.FreightBill_Address_City AS ShipmentInformation_FreightBill_Address_City, 
+                                    T.FreightBill_Address_State AS ShipmentInformation_FreightBill_Address_State, 
+                                    T.FreightBill_Address_PostalCode AS ShipmentInformation_FreightBill_Address_PostalCode, 
+                                    T.FreightBill_Address_Country AS ShipmentInformation_FreightBill_Address_Country, 
+                                    T.FreightBill_AdditionalInfo AS ShipmentInformation_FreightBill_AdditionalInfo, 
+                                    T.RequiredDeliveryDate AS ShipmentInformation_RequiredDeliveryDate, 
+                                    T.ScheduledShipDate AS ShipmentInformation_ScheduledShipDate, 
+                                    T.Comments AS ShipmentInformation_Comments, 
+                                    True AS _from0
+                                FROM CodeFirstDatabase.ShipmentInformation AS T
+                            ) AS T1
+                        ) AS T2
+                    ) AS T3
+                ) AS T4
+            ) AS T5
+        ) AS T6
+    ) AS T7]]></view>
+    <view extent="RioValleyChiliDataContext.CustomerProductCodes"><![CDATA[
+    SELECT VALUE -- Constructing CustomerProductCodes
+        [RioValleyChili.Data.CustomerProductCode](T1.CustomerProductCode_CustomerId, T1.CustomerProductCode_ChileProductId, T1.CustomerProductCode_Code)
+    FROM (
+        SELECT 
+            T.CustomerId AS CustomerProductCode_CustomerId, 
+            T.ChileProductId AS CustomerProductCode_ChileProductId, 
+            T.Code AS CustomerProductCode_Code, 
+            True AS _from0
+        FROM CodeFirstDatabase.CustomerProductCode AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.CustomerProductAttributeRanges"><![CDATA[
+    SELECT VALUE -- Constructing CustomerProductAttributeRanges
+        [RioValleyChili.Data.CustomerProductAttributeRange](T1.CustomerProductAttributeRange_CustomerId, T1.CustomerProductAttributeRange_ChileProductId, T1.CustomerProductAttributeRange_AttributeShortName, T1.CustomerProductAttributeRange_RangeMin, T1.CustomerProductAttributeRange_RangeMax, T1.CustomerProductAttributeRange_Active, T1.CustomerProductAttributeRange_EmployeeId, T1.CustomerProductAttributeRange_TimeStamp)
+    FROM (
+        SELECT 
+            T.CustomerId AS CustomerProductAttributeRange_CustomerId, 
+            T.ChileProductId AS CustomerProductAttributeRange_ChileProductId, 
+            T.AttributeShortName AS CustomerProductAttributeRange_AttributeShortName, 
+            T.RangeMin AS CustomerProductAttributeRange_RangeMin, 
+            T.RangeMax AS CustomerProductAttributeRange_RangeMax, 
+            T.Active AS CustomerProductAttributeRange_Active, 
+            T.EmployeeId AS CustomerProductAttributeRange_EmployeeId, 
+            T.TimeStamp AS CustomerProductAttributeRange_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.CustomerProductAttributeRange AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.Instructions"><![CDATA[
+    SELECT VALUE -- Constructing Instructions
+        [RioValleyChili.Data.Instruction](T1.Instruction_Id, T1.Instruction_InstructionText, T1.Instruction_InstructionType)
+    FROM (
+        SELECT 
+            T.Id AS Instruction_Id, 
+            T.InstructionText AS Instruction_InstructionText, 
+            CAST(T.InstructionType AS [RioValleyChili.Data.InstructionType]) AS Instruction_InstructionType, 
+            True AS _from0
+        FROM CodeFirstDatabase.Instruction AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.InterWarehouseMovementOrders"><![CDATA[
+    SELECT VALUE -- Constructing InterWarehouseMovementOrders
+        [RioValleyChili.Data.InterWarehouseOrder](T1.InterWarehouseOrder_DateCreated, T1.InterWarehouseOrder_Sequence, T1.InterWarehouseOrder_ShipmentInfoDateCreated, T1.InterWarehouseOrder_ShipmentInfoSequence, T1.InterWarehouseOrder_DestinationWarehouseId, T1.InterWarehouseOrder_OrderStatus, T1.InterWarehouseOrder_User, T1.InterWarehouseOrder_TimeStamp)
+    FROM (
+        SELECT 
+            T.DateCreated AS InterWarehouseOrder_DateCreated, 
+            T.Sequence AS InterWarehouseOrder_Sequence, 
+            T.ShipmentInfoDateCreated AS InterWarehouseOrder_ShipmentInfoDateCreated, 
+            T.ShipmentInfoSequence AS InterWarehouseOrder_ShipmentInfoSequence, 
+            T.DestinationWarehouseId AS InterWarehouseOrder_DestinationWarehouseId, 
+            CAST(T.OrderStatus AS [RioValleyChili.Data.OrderStatus]) AS InterWarehouseOrder_OrderStatus, 
+            T.User AS InterWarehouseOrder_User, 
+            T.TimeStamp AS InterWarehouseOrder_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.InterWarehouseOrder AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.IntraWarehouseMovementOrders"><![CDATA[
+    SELECT VALUE -- Constructing IntraWarehouseMovementOrders
+        [RioValleyChili.Data.IntraWarehouseOrder](T1.IntraWarehouseOrder_DateCreated, T1.IntraWarehouseOrder_Sequence, T1.IntraWarehouseOrder_TrackingSheetNumber, T1.IntraWarehouseOrder_OperatorName, T1.IntraWarehouseOrder_MovementDate, T1.IntraWarehouseOrder_User, T1.IntraWarehouseOrder_TimeStamp)
+    FROM (
+        SELECT 
+            T.DateCreated AS IntraWarehouseOrder_DateCreated, 
+            T.Sequence AS IntraWarehouseOrder_Sequence, 
+            T.TrackingSheetNumber AS IntraWarehouseOrder_TrackingSheetNumber, 
+            T.OperatorName AS IntraWarehouseOrder_OperatorName, 
+            T.MovementDate AS IntraWarehouseOrder_MovementDate, 
+            T.User AS IntraWarehouseOrder_User, 
+            T.TimeStamp AS IntraWarehouseOrder_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.IntraWarehouseOrder AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.InventoryAdjustments"><![CDATA[
+    SELECT VALUE -- Constructing InventoryAdjustments
+        [RioValleyChili.Data.InventoryAdjustment](T1.InventoryAdjustment_AdjustmentDate, T1.InventoryAdjustment_Sequence, T1.InventoryAdjustment_NotebookDate, T1.InventoryAdjustment_NotebookSequence, T1.InventoryAdjustment_EmployeeId, T1.InventoryAdjustment_TimeStamp)
+    FROM (
+        SELECT 
+            T.AdjustmentDate AS InventoryAdjustment_AdjustmentDate, 
+            T.Sequence AS InventoryAdjustment_Sequence, 
+            T.NotebookDate AS InventoryAdjustment_NotebookDate, 
+            T.NotebookSequence AS InventoryAdjustment_NotebookSequence, 
+            T.EmployeeId AS InventoryAdjustment_EmployeeId, 
+            T.TimeStamp AS InventoryAdjustment_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.InventoryAdjustment AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.InventoryAdjustmentItems"><![CDATA[
+    SELECT VALUE -- Constructing InventoryAdjustmentItems
+        [RioValleyChili.Data.InventoryAdjustmentItem](T1.InventoryAdjustmentItem_AdjustmentDate, T1.InventoryAdjustmentItem_Sequence, T1.InventoryAdjustmentItem_ItemSequence, T1.InventoryAdjustmentItem_QuantityAdjustment, T1.InventoryAdjustmentItem_LotDateCreated, T1.InventoryAdjustmentItem_LotDateSequence, T1.InventoryAdjustmentItem_LotTypeId, T1.InventoryAdjustmentItem_PackagingProductId, T1.InventoryAdjustmentItem_WarehouseLocationId, T1.InventoryAdjustmentItem_TreatmentId, T1.InventoryAdjustmentItem_ToteKey, T1.InventoryAdjustmentItem_EmployeeId, T1.InventoryAdjustmentItem_TimeStamp)
+    FROM (
+        SELECT 
+            T.AdjustmentDate AS InventoryAdjustmentItem_AdjustmentDate, 
+            T.Sequence AS InventoryAdjustmentItem_Sequence, 
+            T.ItemSequence AS InventoryAdjustmentItem_ItemSequence, 
+            T.QuantityAdjustment AS InventoryAdjustmentItem_QuantityAdjustment, 
+            T.LotDateCreated AS InventoryAdjustmentItem_LotDateCreated, 
+            T.LotDateSequence AS InventoryAdjustmentItem_LotDateSequence, 
+            T.LotTypeId AS InventoryAdjustmentItem_LotTypeId, 
+            T.PackagingProductId AS InventoryAdjustmentItem_PackagingProductId, 
+            T.WarehouseLocationId AS InventoryAdjustmentItem_WarehouseLocationId, 
+            T.TreatmentId AS InventoryAdjustmentItem_TreatmentId, 
+            T.ToteKey AS InventoryAdjustmentItem_ToteKey, 
+            T.EmployeeId AS InventoryAdjustmentItem_EmployeeId, 
+            T.TimeStamp AS InventoryAdjustmentItem_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.InventoryAdjustmentItem AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.LotProductSpecDefects"><![CDATA[
+    SELECT VALUE -- Constructing LotProductSpecDefects
+        [RioValleyChili.Data.LotAttributeDefect](T1.LotAttributeDefect_LotDateCreated, T1.LotAttributeDefect_LotDateSequence, T1.LotAttributeDefect_LotTypeId, T1.LotAttributeDefect_DefectId, T1.LotAttributeDefect_AttributeShortName, T1.LotAttributeDefect_OriginalAttributeValue, T1.LotAttributeDefect_OriginalAttributeMinLimit, T1.LotAttributeDefect_OriginalAttributeMaxLimit)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS LotAttributeDefect_LotDateCreated, 
+            T.LotDateSequence AS LotAttributeDefect_LotDateSequence, 
+            T.LotTypeId AS LotAttributeDefect_LotTypeId, 
+            T.DefectId AS LotAttributeDefect_DefectId, 
+            T.AttributeShortName AS LotAttributeDefect_AttributeShortName, 
+            T.OriginalAttributeValue AS LotAttributeDefect_OriginalAttributeValue, 
+            T.OriginalAttributeMinLimit AS LotAttributeDefect_OriginalAttributeMinLimit, 
+            T.OriginalAttributeMaxLimit AS LotAttributeDefect_OriginalAttributeMaxLimit, 
+            True AS _from0
+        FROM CodeFirstDatabase.LotAttributeDefect AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.PackSchedules"><![CDATA[
+    SELECT VALUE -- Constructing PackSchedules
+        [RioValleyChili.Data.PackSchedule](T2.PackSchedule_DateCreated, T2.PackSchedule_SequentialNumber, T2.PackSchedule_PackSchID, T2.PackSchedule_PSNum, T2.PackSchedule_ChileProductId, T2.PackSchedule_ScheduledProductionDate, T2.PackSchedule_ProductionDeadline, T2.PackSchedule_ProductionLineLocationId, T2.PackSchedule_ProductionLineLocationType, T2.PackSchedule_PackagingProductId, T2.PackSchedule_WorkTypeId, T2.PackSchedule_SummaryOfWork, T2.PackSchedule_DefaultBatchTargetParameters, T2.PackSchedule_OrderNumber, T2.PackSchedule_CustomerId, T2.PackSchedule_EmployeeId, T2.PackSchedule_TimeStamp)
+    FROM (
+        SELECT -- Constructing DefaultBatchTargetParameters
+            T1.PackSchedule_DateCreated, 
+            T1.PackSchedule_SequentialNumber, 
+            T1.PackSchedule_PackSchID, 
+            T1.PackSchedule_PSNum, 
+            T1.PackSchedule_ChileProductId, 
+            T1.PackSchedule_ScheduledProductionDate, 
+            T1.PackSchedule_ProductionDeadline, 
+            T1.PackSchedule_ProductionLineLocationId, 
+            T1.PackSchedule_ProductionLineLocationType, 
+            T1.PackSchedule_PackagingProductId, 
+            T1.PackSchedule_WorkTypeId, 
+            T1.PackSchedule_SummaryOfWork, 
+            [RioValleyChili.Data.ProductionBatchTargetParameters](T1.PackSchedule_DefaultBatchTargetParameters_BatchTargetWeight, T1.PackSchedule_DefaultBatchTargetParameters_BatchTargetAsta, T1.PackSchedule_DefaultBatchTargetParameters_BatchTargetScoville, T1.PackSchedule_DefaultBatchTargetParameters_BatchTargetScan) AS PackSchedule_DefaultBatchTargetParameters, 
+            T1.PackSchedule_OrderNumber, 
+            T1.PackSchedule_CustomerId, 
+            T1.PackSchedule_EmployeeId, 
+            T1.PackSchedule_TimeStamp
+        FROM (
+            SELECT 
+                T.DateCreated AS PackSchedule_DateCreated, 
+                T.SequentialNumber AS PackSchedule_SequentialNumber, 
+                T.PackSchID AS PackSchedule_PackSchID, 
+                T.PSNum AS PackSchedule_PSNum, 
+                T.ChileProductId AS PackSchedule_ChileProductId, 
+                T.ScheduledProductionDate AS PackSchedule_ScheduledProductionDate, 
+                T.ProductionDeadline AS PackSchedule_ProductionDeadline, 
+                T.ProductionLineLocationId AS PackSchedule_ProductionLineLocationId, 
+                T.ProductionLineLocationType AS PackSchedule_ProductionLineLocationType, 
+                T.PackagingProductId AS PackSchedule_PackagingProductId, 
+                T.WorkTypeId AS PackSchedule_WorkTypeId, 
+                T.SummaryOfWork AS PackSchedule_SummaryOfWork, 
+                T.DefaultBatchTargetParameters_BatchTargetWeight AS PackSchedule_DefaultBatchTargetParameters_BatchTargetWeight, 
+                T.DefaultBatchTargetParameters_BatchTargetAsta AS PackSchedule_DefaultBatchTargetParameters_BatchTargetAsta, 
+                T.DefaultBatchTargetParameters_BatchTargetScoville AS PackSchedule_DefaultBatchTargetParameters_BatchTargetScoville, 
+                T.DefaultBatchTargetParameters_BatchTargetScan AS PackSchedule_DefaultBatchTargetParameters_BatchTargetScan, 
+                T.OrderNumber AS PackSchedule_OrderNumber, 
+                T.CustomerId AS PackSchedule_CustomerId, 
+                T.EmployeeId AS PackSchedule_EmployeeId, 
+                T.TimeStamp AS PackSchedule_TimeStamp, 
+                True AS _from0
+            FROM CodeFirstDatabase.PackSchedule AS T
+        ) AS T1
+    ) AS T2]]></view>
+    <view extent="RioValleyChiliDataContext.ProductionBatches"><![CDATA[
+    SELECT VALUE -- Constructing ProductionBatches
+        [RioValleyChili.Data.ProductionBatch](T2.ProductionBatch_LotDateCreated, T2.ProductionBatch_LotDateSequence, T2.ProductionBatch_LotTypeId, T2.ProductionBatch_PackScheduleDateCreated, T2.ProductionBatch_PackScheduleSequence, T2.ProductionBatch_ProductionHasBeenCompleted, T2.ProductionBatch_InstructionNotebookDateCreated, T2.ProductionBatch_InstructionNotebookSequence, T2.ProductionBatch_TargetParameters, T2.ProductionBatch_Notes, T2.ProductionBatch_EmployeeId, T2.ProductionBatch_TimeStamp)
+    FROM (
+        SELECT -- Constructing TargetParameters
+            T1.ProductionBatch_LotDateCreated, 
+            T1.ProductionBatch_LotDateSequence, 
+            T1.ProductionBatch_LotTypeId, 
+            T1.ProductionBatch_PackScheduleDateCreated, 
+            T1.ProductionBatch_PackScheduleSequence, 
+            T1.ProductionBatch_ProductionHasBeenCompleted, 
+            T1.ProductionBatch_InstructionNotebookDateCreated, 
+            T1.ProductionBatch_InstructionNotebookSequence, 
+            [RioValleyChili.Data.ProductionBatchTargetParameters](T1.ProductionBatch_TargetParameters_BatchTargetWeight, T1.ProductionBatch_TargetParameters_BatchTargetAsta, T1.ProductionBatch_TargetParameters_BatchTargetScoville, T1.ProductionBatch_TargetParameters_BatchTargetScan) AS ProductionBatch_TargetParameters, 
+            T1.ProductionBatch_Notes, 
+            T1.ProductionBatch_EmployeeId, 
+            T1.ProductionBatch_TimeStamp
+        FROM (
+            SELECT 
+                T.LotDateCreated AS ProductionBatch_LotDateCreated, 
+                T.LotDateSequence AS ProductionBatch_LotDateSequence, 
+                T.LotTypeId AS ProductionBatch_LotTypeId, 
+                T.PackScheduleDateCreated AS ProductionBatch_PackScheduleDateCreated, 
+                T.PackScheduleSequence AS ProductionBatch_PackScheduleSequence, 
+                T.ProductionHasBeenCompleted AS ProductionBatch_ProductionHasBeenCompleted, 
+                T.InstructionNotebookDateCreated AS ProductionBatch_InstructionNotebookDateCreated, 
+                T.InstructionNotebookSequence AS ProductionBatch_InstructionNotebookSequence, 
+                T.TargetParameters_BatchTargetWeight AS ProductionBatch_TargetParameters_BatchTargetWeight, 
+                T.TargetParameters_BatchTargetAsta AS ProductionBatch_TargetParameters_BatchTargetAsta, 
+                T.TargetParameters_BatchTargetScoville AS ProductionBatch_TargetParameters_BatchTargetScoville, 
+                T.TargetParameters_BatchTargetScan AS ProductionBatch_TargetParameters_BatchTargetScan, 
+                T.Notes AS ProductionBatch_Notes, 
+                T.EmployeeId AS ProductionBatch_EmployeeId, 
+                T.TimeStamp AS ProductionBatch_TimeStamp, 
+                True AS _from0
+            FROM CodeFirstDatabase.ProductionBatch AS T
+        ) AS T1
+    ) AS T2]]></view>
+    <view extent="RioValleyChiliDataContext.WorkTypes"><![CDATA[
+    SELECT VALUE -- Constructing WorkTypes
+        [RioValleyChili.Data.WorkType](T1.WorkType_Id, T1.WorkType_Description, T1.WorkType_User, T1.WorkType_TimeStamp)
+    FROM (
+        SELECT 
+            T.Id AS WorkType_Id, 
+            T.Description AS WorkType_Description, 
+            T.User AS WorkType_User, 
+            T.TimeStamp AS WorkType_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.WorkType AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ProductionSchedules"><![CDATA[
+    SELECT VALUE -- Constructing ProductionSchedules
+        [RioValleyChili.Data.ProductionSchedule](T1.ProductionSchedule_ProductionDate, T1.ProductionSchedule_ProductionLineLocationId, T1.ProductionSchedule_ProductionLineLocationType, T1.ProductionSchedule_User, T1.ProductionSchedule_TimeStamp)
+    FROM (
+        SELECT 
+            T.ProductionDate AS ProductionSchedule_ProductionDate, 
+            T.ProductionLineLocationId AS ProductionSchedule_ProductionLineLocationId, 
+            T.ProductionLineLocationType AS ProductionSchedule_ProductionLineLocationType, 
+            T.User AS ProductionSchedule_User, 
+            T.TimeStamp AS ProductionSchedule_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.ProductionSchedule AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ScheduledInstructions"><![CDATA[
+    SELECT VALUE -- Constructing ScheduledInstructions
+        [RioValleyChili.Data.ScheduledInstruction](T1.ScheduledInstruction_ProductionDate, T1.ScheduledInstruction_ProductionLineLocationId, T1.ScheduledInstruction_ProductionLineLocationType, T1.ScheduledInstruction_Sequence, T1.ScheduledInstruction_InstructionId, T1.ScheduledInstruction_Order)
+    FROM (
+        SELECT 
+            T.ProductionDate AS ScheduledInstruction_ProductionDate, 
+            T.ProductionLineLocationId AS ScheduledInstruction_ProductionLineLocationId, 
+            T.ProductionLineLocationType AS ScheduledInstruction_ProductionLineLocationType, 
+            T.Sequence AS ScheduledInstruction_Sequence, 
+            T.InstructionId AS ScheduledInstruction_InstructionId, 
+            T.[Order] AS ScheduledInstruction_Order, 
+            True AS _from0
+        FROM CodeFirstDatabase.ScheduledInstruction AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ScheduledPackSchedules"><![CDATA[
+    SELECT VALUE -- Constructing ScheduledPackSchedules
+        [RioValleyChili.Data.ScheduledPackSchedule](T1.ScheduledPackSchedule_ProductionDate, T1.ScheduledPackSchedule_ProductionLineLocationId, T1.ScheduledPackSchedule_ProductionLineLocationType, T1.ScheduledPackSchedule_PackScheduleDateCreated, T1.ScheduledPackSchedule_PackScheduleSequence, T1.ScheduledPackSchedule_Order)
+    FROM (
+        SELECT 
+            T.ProductionDate AS ScheduledPackSchedule_ProductionDate, 
+            T.ProductionLineLocationId AS ScheduledPackSchedule_ProductionLineLocationId, 
+            T.ProductionLineLocationType AS ScheduledPackSchedule_ProductionLineLocationType, 
+            T.PackScheduleDateCreated AS ScheduledPackSchedule_PackScheduleDateCreated, 
+            T.PackScheduleSequence AS ScheduledPackSchedule_PackScheduleSequence, 
+            T.[Order] AS ScheduledPackSchedule_Order, 
+            True AS _from0
+        FROM CodeFirstDatabase.ScheduledPackSchedule AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.TreatmentOrders"><![CDATA[
+    SELECT VALUE -- Constructing TreatmentOrders
+        [RioValleyChili.Data.TreatmentOrder](T1.TreatmentOrder_DateCreated, T1.TreatmentOrder_Sequence, T1.TreatmentOrder_InventoryTreatmentId, T1.TreatmentOrder_ShipmentInfoDateCreated, T1.TreatmentOrder_ShipmentInfoSequence, T1.TreatmentOrder_OrderStatus, T1.TreatmentOrder_TreatmentFacilityCompanyId, T1.TreatmentOrder_User, T1.TreatmentOrder_TimeStamp)
+    FROM (
+        SELECT 
+            T.DateCreated AS TreatmentOrder_DateCreated, 
+            T.Sequence AS TreatmentOrder_Sequence, 
+            T.InventoryTreatmentId AS TreatmentOrder_InventoryTreatmentId, 
+            T.ShipmentInfoDateCreated AS TreatmentOrder_ShipmentInfoDateCreated, 
+            T.ShipmentInfoSequence AS TreatmentOrder_ShipmentInfoSequence, 
+            CAST(T.OrderStatus AS [RioValleyChili.Data.OrderStatus]) AS TreatmentOrder_OrderStatus, 
+            T.TreatmentFacilityCompanyId AS TreatmentOrder_TreatmentFacilityCompanyId, 
+            T.User AS TreatmentOrder_User, 
+            T.TimeStamp AS TreatmentOrder_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.TreatmentOrder AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.DehydratedMaterialsReceiveds"><![CDATA[
+    SELECT VALUE -- Constructing DehydratedMaterialsReceiveds
+        [RioValleyChili.Data.DehydratedMaterialsReceived](T1.DehydratedMaterialsReceived_LotDateCreated, T1.DehydratedMaterialsReceived_LotDateSequence, T1.DehydratedMaterialsReceived_LotTypeId, T1.DehydratedMaterialsReceived_Load, T1.DehydratedMaterialsReceived_PurchaseOrder, T1.DehydratedMaterialsReceived_ShipperNumber, T1.DehydratedMaterialsReceived_DehydratorId, T1.DehydratedMaterialsReceived_ChileProductId, T1.DehydratedMaterialsReceived_ProductionDate, T1.DehydratedMaterialsReceived_EmployeeId, T1.DehydratedMaterialsReceived_TimeStamp)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS DehydratedMaterialsReceived_LotDateCreated, 
+            T.LotDateSequence AS DehydratedMaterialsReceived_LotDateSequence, 
+            T.LotTypeId AS DehydratedMaterialsReceived_LotTypeId, 
+            T.Load AS DehydratedMaterialsReceived_Load, 
+            T.PurchaseOrder AS DehydratedMaterialsReceived_PurchaseOrder, 
+            T.ShipperNumber AS DehydratedMaterialsReceived_ShipperNumber, 
+            T.DehydratorId AS DehydratedMaterialsReceived_DehydratorId, 
+            T.ChileProductId AS DehydratedMaterialsReceived_ChileProductId, 
+            T.ProductionDate AS DehydratedMaterialsReceived_ProductionDate, 
+            T.EmployeeId AS DehydratedMaterialsReceived_EmployeeId, 
+            T.TimeStamp AS DehydratedMaterialsReceived_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.DehydratedMaterialsReceived AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.DehydratedMaterialsReceivedItems"><![CDATA[
+    SELECT VALUE -- Constructing DehydratedMaterialsReceivedItems
+        [RioValleyChili.Data.DehydratedMaterialsReceivedItem](T1.DehydratedMaterialsReceivedItem_LotDateCreated, T1.DehydratedMaterialsReceivedItem_LotDateSequence, T1.DehydratedMaterialsReceivedItem_LotTypeId, T1.DehydratedMaterialsReceivedItem_ItemSequence, T1.DehydratedMaterialsReceivedItem_GrowerCode, T1.DehydratedMaterialsReceivedItem_ToteKey, T1.DehydratedMaterialsReceivedItem_Quantity, T1.DehydratedMaterialsReceivedItem_WarehouseLocationId, T1.DehydratedMaterialsReceivedItem_PackagingProductId, T1.DehydratedMaterialsReceivedItem_ChileVarietyId)
+    FROM (
+        SELECT 
+            T.LotDateCreated AS DehydratedMaterialsReceivedItem_LotDateCreated, 
+            T.LotDateSequence AS DehydratedMaterialsReceivedItem_LotDateSequence, 
+            T.LotTypeId AS DehydratedMaterialsReceivedItem_LotTypeId, 
+            T.ItemSequence AS DehydratedMaterialsReceivedItem_ItemSequence, 
+            T.GrowerCode AS DehydratedMaterialsReceivedItem_GrowerCode, 
+            T.ToteKey AS DehydratedMaterialsReceivedItem_ToteKey, 
+            T.Quantity AS DehydratedMaterialsReceivedItem_Quantity, 
+            T.WarehouseLocationId AS DehydratedMaterialsReceivedItem_WarehouseLocationId, 
+            T.PackagingProductId AS DehydratedMaterialsReceivedItem_PackagingProductId, 
+            T.ChileVarietyId AS DehydratedMaterialsReceivedItem_ChileVarietyId, 
+            True AS _from0
+        FROM CodeFirstDatabase.DehydratedMaterialsReceivedItem AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.ChileVarieties"><![CDATA[
+    SELECT VALUE -- Constructing ChileVarieties
+        [RioValleyChili.Data.ChileVariety](T1.ChileVariety_Id, T1.ChileVariety_Description)
+    FROM (
+        SELECT 
+            T.Id AS ChileVariety_Id, 
+            T.Description AS ChileVariety_Description, 
+            True AS _from0
+        FROM CodeFirstDatabase.ChileVariety AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.DataLoadResult"><![CDATA[
+    SELECT VALUE -- Constructing DataLoadResult
+        [CodeFirstDatabaseSchema.DataLoadResult](T1.DataLoadResult_Id, T1.DataLoadResult_Success, T1.DataLoadResult_TimeStamp)
+    FROM (
+        SELECT 
+            T.Id AS DataLoadResult_Id, 
+            T.Success AS DataLoadResult_Success, 
+            T.TimeStamp AS DataLoadResult_TimeStamp, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.DataLoadResult AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.DataLoadResult"><![CDATA[
+    SELECT VALUE -- Constructing DataLoadResult
+        [RioValleyChili.Data.DataLoadResult](T1.DataLoadResult_Id, T1.DataLoadResult_Success, T1.DataLoadResult_TimeStamp)
+    FROM (
+        SELECT 
+            T.Id AS DataLoadResult_Id, 
+            T.Success AS DataLoadResult_Success, 
+            T.TimeStamp AS DataLoadResult_TimeStamp, 
+            True AS _from0
+        FROM CodeFirstDatabase.DataLoadResult AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.LotStatusName"><![CDATA[
+    SELECT VALUE -- Constructing LotStatusName
+        [CodeFirstDatabaseSchema.LotStatusName](T1.LotStatusName_Id, T1.LotStatusName_Name)
+    FROM (
+        SELECT 
+            T.Id AS LotStatusName_Id, 
+            T.Name AS LotStatusName_Name, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.LotStatusNames AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.LotStatusNames"><![CDATA[
+    SELECT VALUE -- Constructing LotStatusNames
+        [RioValleyChili.Data.LotStatusName](T1.LotStatusName_Id, T1.LotStatusName_Name)
+    FROM (
+        SELECT 
+            T.Id AS LotStatusName_Id, 
+            T.Name AS LotStatusName_Name, 
+            True AS _from0
+        FROM CodeFirstDatabase.LotStatusName AS T
+    ) AS T1]]></view>
+    <view extent="CodeFirstDatabase.LotStatusValue"><![CDATA[
+    SELECT VALUE -- Constructing LotStatusValue
+        [CodeFirstDatabaseSchema.LotStatusValue](T1.LotStatusValue_Id, T1.LotStatusValue_Description)
+    FROM (
+        SELECT 
+            T.Id AS LotStatusValue_Id, 
+            T.Description AS LotStatusValue_Description, 
+            True AS _from0
+        FROM RioValleyChiliDataContext.LotStatusValue AS T
+    ) AS T1]]></view>
+    <view extent="RioValleyChiliDataContext.LotStatusValue"><![CDATA[
+    SELECT VALUE -- Constructing LotStatusValue
+        [RioValleyChili.Data.LotStatusValue](T1.LotStatusValue_Id, T1.LotStatusValue_Description)
+    FROM (
+        SELECT 
+            T.Id AS LotStatusValue_Id, 
+            T.Description AS LotStatusValue_Description, 
+            True AS _from0
+        FROM CodeFirstDatabase.LotStatusValue AS T
+    ) AS T1]]></view>
+  </mapping-views>
+</views>

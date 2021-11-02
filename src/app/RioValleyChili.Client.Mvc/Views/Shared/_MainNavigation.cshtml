@@ -1,0 +1,11 @@
+﻿@using RioValleyChili.Client.Mvc.Core.Security
+
+
+@Html.BuildNavigation(new List<NavigationItem>
+{
+    new NavigationItem("Production", MVC.Production.Index()),
+    new NavigationItem("Inventory & Warehousing", MVC.Warehouse.Index()),
+    new NavigationItem("Quality Control", MVC.QualityControl.Index()),
+    new NavigationItem("Customers", MVC.Customers.Index()),
+    new NavigationItem("Security", MVC.Security.Index())
+}, new { id = "menu" })

@@ -1,0 +1,9 @@
+C:\ReposLocal\RVC\src\app\RioValleyChili.Services.Interfaces\bin\Release\RioValleyChili.Services.Interfaces.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Services.Interfaces\bin\Release\RioValleyChili.Services.Interfaces.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Services.Interfaces\bin\Release\RioValleyChili.Core.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Services.Interfaces\bin\Release\Solutionhead.Services.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Services.Interfaces\bin\Release\RioValleyChili.Core.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Services.Interfaces\obj\Release\RioValleyChili.Services.Interfaces.csprojAssemblyReference.cache
+C:\ReposLocal\RVC\src\app\RioValleyChili.Services.Interfaces\obj\Release\RioValleyChili.Services.Interfaces.csproj.CopyComplete
+C:\ReposLocal\RVC\src\app\RioValleyChili.Services.Interfaces\obj\Release\RioValleyChili.Services.Interfaces.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Services.Interfaces\obj\Release\RioValleyChili.Services.Interfaces.pdb

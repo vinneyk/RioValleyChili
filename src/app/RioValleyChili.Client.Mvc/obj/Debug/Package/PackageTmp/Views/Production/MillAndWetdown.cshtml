@@ -1,0 +1,107 @@
+﻿@using RioValleyChili.Client.Mvc.Core.Security
+
+@{
+    Layout = "~/Views/Shared/_WebPackLayout.cshtml";
+    Html.SetPageTitles("Mill & Wetdown", "Mill & Wetdown");
+}
+
+<div data-bind="popup: isEditorShowing, closePopupCommand: closePopupCommand">
+    <mw-editor params="input: editorData,
+        defaults: defaults,
+        isInit: isEditorInit,
+        isEditing: isEditing,
+        exports: editorExports">
+    </mw-editor>
+</div>
+
+
+@* MAIN VIEW *@
+<section data-bind="visible: !isInit()">
+    <div class="well text-center">
+        <i class="fa fa-pulse fa-spinner fa-3x"></i>
+    </div>
+</section>
+<section data-bind="visible: isInit">
+    <mw-summary params="input: summaryData,
+    getKey: goToKey,
+    isInit: isSummaryInit,
+    exports: summaryExports">
+    </mw-summary>
+</section>
+<loading-screen params="isVisible: loadDetailsStatus.loading,
+displayMessage: loadDetailsStatus.message">
+</loading-screen>
+<loading-screen params="isVisible: saveStatus.saving,
+displayMessage: saveStatus.message">
+</loading-screen>
+<loading-screen params="isVisible: !deleteEntry.canExecute(),
+displayMessage: 'Deleting record...'">
+</loading-screen>
+
+@section controlPanel  {
+    <fieldset>
+        <legend>Go To Lot Key</legend>
+        <form class="form-group" data-bind="submit: goToKey">
+            <div class="input-group">
+                <input class="form-control" type="search" data-bind="value: searchKey.formattedLot, valueUpdate: 'input'" maxlength="12" placeholder="Lot Key" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </fieldset>
+    <fieldset data-bind="slideVisible: !isEditorShowing()">
+    <legend>Mill & Wetdown Controls</legend>
+    <div data-bind="ifnot: isNewRecord">
+        <button class="btn btn-primary btn-block" data-bind="command: getSummaryItemsCommand">Get More Lots</button>
+        @Html.ActionLinkIfAuthorized(new NavigationItem("Create New", MVC.Production.CreateMillAndWetdown(), new { @class = "btn btn-default btn-block", data_bind = "command: initNewRecordCommand" }))
+    </div>
+</fieldset>
+    <!-- ko template: { name: 'mill-and-wetdown-details-controls-template'} --><!-- /ko -->
+
+    <fieldset id="filters" data-bind="slideVisible: !isEditorShowing()">
+    <legend>Filters</legend>
+        <!-- ko with: filters -->
+        <div class="form-group">
+            <label class="control-label">From Production Date</label>
+            <input class="form-control" type="text" data-bind="value: startDate, datePicker: true" placeholder="mm/dd/yyyy" />
+        </div>
+        <div class="form-group" data-bind="slideVisible: startDate">
+            <label class="control-label">Through (Optional)</label>
+            <input class="form-control" type="text" data-bind="value: endDate, datePicker: true, disable: !startDate()" placeholder="mm/dd/yyyy" />
+        </div>
+        <!-- /ko -->
+
+        <div class="form-group">
+            <p><button class="btn btn-default btn-block" data-bind="command: applyFiltersCommand">Apply Filter</button></p>
+            <p><button class="btn btn-default btn-block" data-bind="command: clearFiltersCommand, fadeVisible: clearFiltersCommand.canExecute">Clear Filters</button></p>
+
+            @*<input type="button" value="Apply Filter" data-bind="command: applyFiltersCommand" />
+            <input type="button" value="Clear Filters" data-bind="command: clearFiltersCommand, fadeVisible: clearFiltersCommand.canExecute" />*@
+        </div>
+</fieldset>
+
+
+    <fieldset data-bind="if: recentLots().length">
+        <legend>Recent Lots</legend>
+        <ol class="link-list" data-bind="foreach: recentLots">
+            <li data-bind="fadeVisible: true, css: {'selected': $root.currentLot() === $data }"><a href="" data-bind="click: $root.goToKey, text: $data | lotKey"></a></li>
+        </ol>
+    </fieldset>
+}
+
+
+@section scripts{
+    <script src="/App/build/millWetdown.bundle.js?v=@Html.AppVersion()"></script>
+}
+
+<script id="mill-and-wetdown-details-controls-template" type="text/html">
+    <fieldset data-bind="slideVisible: isEditorShowing">
+        <legend>Controls</legend>
+        <button class="btn btn-primary btn-block" data-bind="command: saveEntry, visible: isEditing">Save</button>
+        <button data-bind="command: deleteEntry, visible: isEditing() && !isNewRecord()" class="btn btn-danger btn-block">Delete</button>
+        <button class="btn btn-primary btn-block" data-bind="command: editCommand, visible: !isEditing()">Edit</button>
+        <button class="btn btn-warning btn-block" data-bind="command: cancelEditCommand, visible: !isNewRecord() && isEditing()">Cancel</button>
+        <button class="btn btn-default btn-block" data-bind="command: closePopupCommand, visible: isNewRecord() || !isEditing(), text: isNewRecord() ? 'Cancel' : 'Close', css: { 'btn-warning': isNewRecord }">Close</button>
+    </fieldset>
+</script>

@@ -1,0 +1,118 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Commands Test";
+}
+
+<h2>Commands Test</h2>
+
+<input type="button" value="Container" data-bind="command: containerCommand" />
+<input type="button" value="Add Command" data-bind="click: addCommand" />
+<input type="button" value="Add Extensible Command" data-bind="click: addNewCommandStackCommand" />
+
+<input type="text" data-bind="value: TextValue" />
+
+<div data-bind="text: debug"></div>
+
+@section scripts
+{
+    <script src="~/Scripts/knockout.command.js"></script>
+    <script>
+        $(function() {
+            var self = {
+                TextValue: ko.observable(),
+                containerCommand: ko.composableCommand({
+                    canExecute: function(isExecuting) {
+                        return true;
+                    },
+                    execute: function(callback) {
+                        $.when(alert('executed base cmd'))
+                            .always(callback);
+                    },
+                }),
+                addCommand: addCommand,
+                addNewCommandStackCommand: addNewCommandStackCommand,
+            };
+            self.debug = self.containerCommand.debugDisplay();
+
+            ko.applyBindings(self);
+
+            var i = 0;
+
+            function addCommand() {
+                switch (i) {
+                case 0:
+                    var newCommand = ko.command({
+                        canExecute: function(isExecuting) {
+                            return !isExecuting && self.TextValue() != '' && self.TextValue() != null;
+                        },
+                        execute: function() {
+                            alert('executed cmd 2');
+                        },
+                    });
+                    self.containerCommand.addCommand(newCommand);
+                    alert('Value is now required. The first command should be disabled unless the text box contains a non-empty value.');
+                    break;
+                case 1:
+                    newCommand = ko.asyncCommand({
+                        canExecute: function(isExecuting) {
+                            return !isExecuting && self.TextValue() != '' && self.TextValue() != null;
+                        },
+                        execute: function(callback) {
+                            $.when(alert('cmd 3 started (async)'))
+                                .always(alert('cmd 3 completed'));
+                        },
+                    });
+                    self.containerCommand.addCommand(newCommand);
+                    alert('The container command now contains an async command which will execute in addition.');
+                    break;
+                case 2:
+                    var cmd = ko.command({ execute: function() { alert('conditional command called'); } });
+                    cmd.shouldExecute = function() {
+                        var value = self.TextValue();
+                        return value != undefined && value.substring(0, 1) === 'a';
+                    };
+                    self.containerCommand.addCommand(cmd);
+                    alert('Optional command added. The optional command will only execute if the value starts with \'a\'.');
+                    break;
+                default:
+                    alert('The command is fully extended. No new functionality was added.');
+                    break;
+                }
+                i++;
+            }
+
+            function addNewCommandStackCommand() {
+                self.containerCommand.clearCommands();
+                var newContainer = ko.composableCommand();
+                newContainer.addCommand(ko.command({
+                    canExecute: function(isExecuting) {
+                        return !isExecuting && self.TextValue() === "asdf";
+                    },
+                    execute: function() {
+                        alert('Executed sub-container cmd1');
+                    },
+                }));
+
+                self.containerCommand.addCommand(newContainer);
+                alert('A new extensibleCommand was added to the main extensibleCommand. The value now must be \'asdf\'');
+            }
+
+            self.unitTests = {
+                given_noModuleExtensions: {
+                    when_baseHasExecutionWithoutCanExecuteDelegate_commandCanExecute: function () {
+                        var testObject = ko.composableCommand({
+                            execute: function () { console.log('executed'); }
+                        });
+                        if (!testObject.canExecute()) {
+                            
+                        }
+                    },
+                },
+                given_moduleExtensions: {
+                    
+                },
+            };
+        })
+    </script>
+}

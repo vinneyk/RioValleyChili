@@ -1,0 +1,65 @@
+﻿<section data-bind="ifnot: productSpecEditor">
+  <div class="well text-center">
+    <i class="fa fa-spinner fa-pulse fa-2x"></i>
+  </div>
+</section>
+
+<section data-bind="with: productSpecEditor">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group" data-bind="validationElement: ChileProduct">
+          <label class="control-label">Chile Product</label>
+            <product-selector 
+                params="selectedValue: ChileProduct,
+                  productsSource: options.products,
+                  optionsValue: 'ProductKey',
+                  optionsDisplay: 'ProductCodeAndName',
+                  loading: !getDefaultAttributes.canExecute(),
+                  disabled: !isNew">
+            </product-selector>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h5 class="panel-title">Attribute Ranges</h5>
+          </div>
+          <div class="panel-body">
+            <div class="alert alert-warning" data-bind="visible: !AttributeRanges.isValid()">At least one attribute set of attribute ranges must be provided.</div>
+            <table class="table table-condensed table-hover">
+              <thead>
+                <tr>
+                  <th>Attr</th>
+                  <th>Default Range</th>
+                  <th>Min</th>
+                  <th>Max</th>
+                </tr>
+              </thead>
+              <tbody data-bind="template: {
+                  name: 'edit-attribute',
+                  foreach: AttributeRanges
+                }">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script id="edit-attribute" type="text/html">
+<tr>
+  <td data-bind="text: AttributeNameKey"></td>
+  <td class="text-muted"><span data-bind="text: defaultRangeMin"></span> - <span data-bind="text: defaultRangeMax"></span></td>
+  <td data-bind="validationElement: RangeMin">
+    <input class="form-control" type="text" data-bind="textinput: RangeMin, disable: AttributeNameKey === 'AstaC'">
+  </td>
+  <td data-bind="validationElement: RangeMax">
+    <input class="form-control" type="text" data-bind="textinput: RangeMax, disable: AttributeNameKey === 'AstaC'">
+  </td>
+</tr>
+</script>

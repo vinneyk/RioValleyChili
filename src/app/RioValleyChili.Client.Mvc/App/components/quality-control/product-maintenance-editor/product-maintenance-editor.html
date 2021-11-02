@@ -1,0 +1,191 @@
+﻿<section data-bind="ifnot: productEditor">
+  <div class="well text-center">
+    <i class="fa fa-spinner fa-pulse fa-2x"></i>
+  </div>
+</section>
+<section data-bind="with: productEditor">
+  <div class="container-fluid">
+    <div class="row">
+      <section>
+        <div class="form-group col-sm-6" data-bind="validationElement: ProductType">
+          <label class="control-label" for="">Product Type</label>
+          <select class="form-control" data-bind="value: ProductType, options: ProductType.options, optionsText: 'value', optionsValue: 'key', optionsCaption: ' ', enable: isNew"></select>
+        </div>
+        <div class="form-group col-sm-6" data-bind="validationElement: ProductCode">
+          <label class="control-label" for="">Product Code</label>
+          <input class="form-control" type="text" data-bind="textinput: ProductCode, enable: isNew">
+        </div>
+        <div class="form-group col-sm-6" data-bind="validationElement: ProductName">
+          <label class="control-label" for="">Product Name</label>
+          <input class="form-control" type="text" data-bind="textinput: ProductName">
+        </div>
+      </section>
+      <section data-bind="visible: isChile">
+        <div class="form-group col-sm-6" data-bind="validationElement: ChileState">
+          <label class="control-label" for="">Lot Type</label>
+          <select class="form-control" data-bind="value: ChileState, options: ChileState.options, optionsText: 'value', optionsValue: 'key', optionsCaption: ' ', enable: isNew"></select>
+        </div>
+        <div class="form-group col-sm-6" data-bind="validationElement: ChileTypeKey">
+          <label class="control-label" for="">Chile Type</label>
+          <select class="form-control" data-bind="value: ChileTypeKey, options: $parent.options.chiles, optionsText: 'ChileTypeDescription', optionsValue: 'ChileTypeKey', optionsCaption: ' '"></select>
+        </div>
+        <div class="form-group col-sm-6" data-bind="validationElement: Mesh">
+          <label class="control-label" for="">Mesh</label>
+          <input class="form-control" type="text" data-bind="textinput: Mesh">
+        </div>
+      </section>
+      <section data-bind="visible: isAdditive">
+        <div class="form-group col-sm-6" data-bind="validationElement: AdditiveTypeKey">
+          <label class="control-label" for="">Additive Type</label>
+          <select class="form-control" data-bind="value: AdditiveTypeKey, options: $parent.options.additives, optionsText: 'Description', optionsValue: 'Key', optionsCaption: ' '"></select>
+        </div>
+      </section>
+    </div>
+    <div class="row" data-bind="visible: isChile">
+      <div class="form-group col-xs-12" data-bind="validationElement: IngredientsDescription">
+        <label class="control-label" for="">Ingredients Description</label>
+        <textarea class="form-control" data-bind="textinput: IngredientsDescription"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="checkbox col-xs-12">
+        <label class="control-label">
+          <input type="checkbox" data-bind="checked: IsActive"> Active
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default" data-bind="visible: isChile() || isPackaging()">
+    <div class="panel-body">
+      <ul class="nav nav-tabs">
+          <li class="active" role="presentation" data-bind="visible: isChile">
+          <a href="#editor-attributes" role="tab" data-toggle="tab" aria-expanded="true">Attributes</a>
+          </li>
+          <li role="presentation" data-bind="visible: isChile">
+          <a href="#editor-formulation" role="tab" data-toggle="tab" aria-expanded="false">Formulation</a>
+          </li>
+          <li class="active" role="presentation" data-bind="visible: isPackaging">
+          <a href="#editor-attributes" role="tab" data-toggle="tab" aria-expanded="true">Packaging</a>
+          </li>
+      </ul>
+      <br>
+
+      <section class="tab-content">
+        <section id="editor-attributes" class="tab-pane active" role="tabpanel" data-bind="visible: isChile">
+          <div class="panel panel-primary" data-bind="visible: Attributes">
+            <div class="panel-heading">
+              <h5 class="panel-title">Included Attributes</h5>
+            </div>
+            <div class="panel-body">
+              <table class="table table-condensed table-hover">
+                <thead>
+                  <tr>
+                    <th>Attr</th>
+                    <th>Min</th>
+                    <th>Max</th>
+                  </tr>
+                </thead>
+                <tbody data-bind="foreach: editableAttrs">
+                  <tr>
+                    <td data-bind="text: Key"></td>
+                    <td data-bind="validationElement: MinValue">
+                      <input class="form-control" type="text" data-bind="textinput: MinValue">
+                    </td>
+                    <td data-bind="validationElement: MaxValue">
+                      <input class="form-control" type="text" data-bind="textinput: MaxValue">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section id="editor-packaging" class="tab-pane active" role="tabpanel" data-bind="visible: isPackaging">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4>Packaging</h4>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-6 col-md-4">
+                  <div class="form-group">
+                    <label class="control-label" for="">Weight</label>
+                    <input class="form-control" type="number" data-bind="textinput: Weight">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="form-group">
+                    <label class="control-label" for="">Packaging Weight</label>
+                    <input class="form-control" type="number" data-bind="textinput: PackagingWeight">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="form-group">
+                    <label class="control-label" for="">Pallet Weight</label>
+                    <input class="form-control" type="number" data-bind="textinput: PalletWeight">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="editor-formulation" class="tab-pane" role="tabpanel" data-bind="if: isChile">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4 class="panel-title">Product Formulation</h4>
+            </div>
+            <div class="panel-body">
+              <table class="table table-condensed">
+                <thead>
+                  <tr>
+                    <th style="width: 50px"></th>
+                    <th>Additive</th>
+                    <th>%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <button class="btn btn-link" disabled><i class="fa fa-times fa-fw"></i></button>
+                    </td>
+                    <td>
+                      <span class="form-control-static">WBase</span>
+                    </td>
+                    <td>
+                      <span class="form-control-static" data-bind="text: wBasePercent"></span>
+                    </td>
+                  </tr>
+                  <!-- ko foreach: ProductIngredients -->
+                  <tr>
+                    <td>
+                      <button class="btn btn-link" data-bind="command: $parent.removeProductIngredient"><i class="fa fa-times fa-fw"></i></button>
+                    </td>
+                    <td data-bind="validationElement: AdditiveTypeKey">
+                      <select class="form-control" data-bind="value: AdditiveTypeKey, options: $parents[1].options.additives, optionsValue: 'Key', optionsText: 'Description', optionsCaption: ' '"></select>
+                    </td>
+                    <td data-bind="validationElement: Percent">
+                      <input type="number" class="form-control" data-bind="fixed: Percent, decimalOptions:{ precision: 2 }">
+                    </td>
+                  </tr>
+                  <!-- /ko -->
+                </tbody>
+                <tbody>
+                  <tr class="clickable text-primary" data-bind="command: addProductIngredient">
+                    <td class="text-center"><i class="fa fa-plus-square fa-fw"></i></td>
+                    <td colspan="2">Add Item</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td class="text-right" colspan="2"><b>Total Percentage:</b></td>
+                    <td>100%</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </div>
+</section>

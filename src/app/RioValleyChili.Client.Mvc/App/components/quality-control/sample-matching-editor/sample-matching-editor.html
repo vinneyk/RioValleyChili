@@ -1,0 +1,418 @@
+﻿<div data-bind="with: sampleEditor">
+  <section>
+      <contact-address-label-helper
+        params="visible: isPickingContact,
+          key: RequestedByCompanyKey,
+          companies: options.companies,
+          buttons: pickerButtons">
+      </contact-address-label-helper>
+  </section>
+  <section data-bind="visible: !isNew">
+    <div class="form-group">
+      <label class="control-label">Created by</label>
+      <p class="form-control-static" data-bind="text: CreatedByUser | name">
+    </div>
+  </section>
+
+  <section>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <section>
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="active" role="presentation"><a href="#sampleInformation" aria-controls="sampleInformation" role="tab" data-toggle="tab">Sample Information</a></li>
+            <li role="presentation"><a href="#sampleDetails" aria-controls="sampleDetails" role="tab" data-toggle="tab">Sample Details</a></li>
+            <li role="presentation" data-bind="visible: !isNew"><a href="#journalEntries" aria-controls="journalEntires" role="tab" data-toggle="tab">Journal Entries</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <br>
+            <section id="sampleInformation" class="tab-pane active">
+              <section>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Status</label>
+                      <select type="number" class="form-control" data-bind="value: Status, options: options.sampleStatuses, optionsValue: 'key', optionsText: 'value'"></select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Due Date</label>
+                      <input type="text" class="form-control" data-bind="datePicker: DateDue">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group ui-front">
+                      <label class="control-label">FOB</label>
+                      <input type="text" class="form-control"
+                      data-bind="value: FOB,
+                      autocomplete: {
+                      source: options.fobs,
+                      label: 'Name',
+                      value: 'Name',
+                      autoFocus: true,
+                      allowNewValues: true
+                      }">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Ship Via</label>
+                      <input type="text" class="form-control"
+                      data-bind="value: ShipVia,
+                      autocomplete: {
+                      source: options.shipmentMethods,
+                      label: 'Name',
+                      value: 'Name',
+                      autoFocus: true,
+                      allowNewValues: true
+                      }">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Customer</label>
+                      <select class="form-control" data-bind="value: RequestedByCompany, options: options.companies, optionsText: 'Name', optionsCaption: '[Select a company]', disable: isLoadingCustomer"></select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Broker</label>
+                      <select class="form-control" data-bind="value: Broker, options: options.brokers, optionsText: 'Name', optionsValue: 'CompanyKey', optionsCaption: ' ', disable: true"></select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Received</label>
+                      <input type="text" class="form-control" data-bind="datePicker: DateReceived" placeholder="mm/dd/yyyy">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Completed</label>
+                      <input type="text" class="form-control" data-bind="datePicker: DateCompleted" placeholder="mm/dd/yyyy">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Volume</label>
+                      <input type="number" class="form-control" data-bind="textinput: Volume">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Active</label>
+                      <label class="form-control">
+                        <input type="checkbox" data-bind="checked: Active">
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Comments</label>
+                      <textarea class="form-control vertical-resize" rows="3" data-bind="textinput: Comments"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Notes to Print</label>
+                      <textarea class="form-control vertical-resize" rows="3" data-bind="textinput: NotesToPrint"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section>
+                <div class="col-xs-12">
+                  <button class="btn btn-default btn-block" data-bind="command: showContactPicker"><i class="fa fa-book"></i> Auto-fill address labels from contact info</button>
+                </div>
+                <div class="col-sm-6">
+                  <br>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">Requested by</h4>
+                    </div>
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <label class="control-label sr-only">Company</label>
+                        <p data-bind="text: RequestedByCompanyName" class="form-control-static"></p>
+                      </div>
+                      <contact-label-editor params="input: RequestedByShippingLabelInput, exports: RequestedByShippingLabel"></contact-label-editor>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <br>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">Ship to</h4>
+                    </div>
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <label class="control-label sr-only">Company</label>
+                        <input class="form-control" type="text" data-bind="textinput: ShipToCompany" placeholder="Company Name">
+                      </div>
+                      <contact-label-editor params="input: ShipToShippingLabelInput, exports: ShipToShippingLabel"></contact-label-editor>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </section>
+            <section id="sampleDetails" class="tab-pane">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr class="no-wrap">
+                      <th>
+                        <button class="btn btn-link invisible">
+                          <i class="fa fa-times"></i>
+                        </button>
+                      </th>
+                      <th class="product-picker-container">Customer Product</th>
+                      <th class="lot-key-container">Lot</th>
+                      <th class="product-picker-container" colspan="2">RVC Product</th>
+                      <th>Qty.</th>
+                      <th>Description</th>
+                      <th>Product Specs</th>
+                      <th></th>
+                      <th>
+                        <button class="btn btn-default" data-bind="click: function () { loadReport( reportAll ); }, enable: reportAll">Report All</button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody data-bind="foreach: SampleDetails">
+                    <tr>
+                      <td>
+                        <button class="btn btn-link" data-bind="command: $parent.removeSampleDetails"><i class="fa fa-times"></i></button>
+                      </td>
+                      <td>
+                        <input type="text" class="form-control"
+                          data-bind="value: CustomerProductName,
+                          autocomplete: {
+                            source: $parent.options.customerProducts,
+                            label: 'Name',
+                            value: 'Name',
+                            autoFocus: true,
+                            allowNewValues: true
+                          }">
+                      </td>
+                      <td data-bind="validationElement: LotKey">
+                        <input class="form-control" type="text" data-bind="textinput: LotKey.formattedLot, enable: loadLotDetails.canExecute">
+                      </td>
+                      <td class="product-picker-container">
+                        <select class="form-control" data-bind="value: ProductType, options: ProductType.options, optionsValue: 'key', optionsText: 'value', disable: !enableProductSelector()">
+                      </td>
+                      <td class="product-picker-container">
+                          <product-selector params="productsSource: productOptions,
+                            selectedValue: ProductKey,
+                            optionsDisplay: 'ProductCodeAndName',
+                            optionsValue: 'ProductKey',
+                            disabled: !enableProductSelector()
+                          "></product-selector>
+                      </td>
+                      <td data-bind="validationElement: Quantity">
+                        <input class="form-control" type="number" data-bind="textinput: Quantity">
+                      </td>
+                      <td>
+                        <input class="form-control" type="text" data-bind="textinput: Description">
+                      </td>
+                      <td class="no-wrap">
+                        <button class="btn btn-default" data-bind="command: $parent.showCustomerSpecsModal">Cust.</button>
+                        <button class="btn btn-default" data-bind="command: $parent.showLabResultsModal">Lab</button>
+                      </td>
+                      <td>
+                        <button class="btn btn-default" data-bind="command: $parent.startNewProduct">Create New Product</button>
+                      </td>
+                      <td>
+                        <button class="btn btn-default" data-bind="click: function() { $parent.loadReport(reportLink); }, enable: reportLink">Report</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-primary" data-bind="command: addNewSampleDetails"><i class="fa fa-plus-square"></i> Add new sample details</button>
+              </div>
+            </section>
+            <section id="journalEntries" class="tab-pane" data-bind="with: JournalEntriesEditor">
+              <section>
+                <div class="panel panel-primary">
+                  <div class="panel-heading" data-bind="visible: newEntry">
+                    <h4 class="panel-title" data-bind="text: !isNew() ? 'Update Journal Entry' : 'Create Journal Entry'">Create Journal Entry</h4>
+                  </div>
+                  <!-- ko with: newEntry -->
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label class="control-label">Date</label>
+                          <input type="text" class="form-control" data-bind="datePicker: Date">
+                        </div>
+                      </div>
+                      <div class="col-sm-9">
+                        <div class="form-group">
+                          <label class="control-label">Notes</label>
+                          <textarea type="text" class="form-control" data-bind="textinput: Text" rows="1"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /ko -->
+                  <div class="panel-footer text-right">
+                    <button class="btn btn-primary" data-bind="command: startNewEntry, visible: !newEntry()"><i class="fa fa-plus-square"></i> Add new journal entry</button>
+                    <button class="btn btn-default" data-bind="command: cancelEntry, visible: newEntry">Close</button>
+                    <button class="btn btn-primary" data-bind="command: createEntry, visible: newEntry() && isNew()">Save</button>
+                    <button class="btn btn-primary" data-bind="command: updateEntry, visible: newEntry() && !isNew()">Save</button>
+                  </div>
+                </div>
+              </section>
+              <section>
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr class="no-wrap">
+                        <th>
+                          <button class="btn btn-link invisible">
+                            <i class="fa fa-times"></i>
+                          </button>
+                        </th>
+                        <th class="date-picker-container">Date</th>
+                        <th style="width: 100%">Notes</th>
+                        <th>Entered by</th>
+                      </tr>
+                    </thead>
+                    <tbody data-bind="foreach: JournalEntries, click: selectJournal">
+                      <tr class="journal-entry-row">
+                        <td>
+                          <button class="btn btn-link" data-bind="click: $parent.removeEntry, clickBubble: false"><i class="fa fa-times"></i></button>
+                        </td>
+                        <td data-bind="text: Date"></td>
+                        <td data-bind="text: Text"></td>
+                        <td data-bind="text: CreatedByUser.Name"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            </section>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="modal fade" id="specModal" tabindex="-1" role="dialog" data-backdrop="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" data-bind="with: sampleEditor">
+      <!-- ko template: {
+        name: modalTemplate,
+        if: modalTemplate,
+        data: modalData
+      } -->
+      <!-- /ko -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script id="customer-product-specs" type="text/html">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Customer Supplied Specs</h4>
+  </div>
+  <div class="modal-body">
+    <h5 data-bind="text: Product"></h5>
+
+    <section class="row">
+      <div class="col-xs-12">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Min</th>
+                <th>Max</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mesh</td>
+                <td><input type="text" class="form-control" data-bind="textinput: Mesh"></td>
+              </tr>
+              <tr>
+                <td>A/B</td>
+                <td><input type="number" class="form-control" data-bind="textinput: AoverB"></td>
+              </tr>
+              <!-- ko foreach: Attributes -->
+              <tr>
+                <td data-bind="text: Name"></td>
+                <td><input type="number" class="form-control" data-bind="textinput: RangeMin"></td>
+                <td><input type="number" class="form-control" data-bind="textinput: RangeMax"></td>
+              </tr>
+              <!-- /ko -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="form-group">
+        <label class="control-label">Notes</label>
+        <textarea class="form-control" data-bind="textinput: Notes"></textarea>
+      </div>
+    </section>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-bind="click: $parent.saveCustomerSpecs, enable: $parent.saveCustomerSpecsCommand.canExecute">Save</button>
+  </div>
+</script>
+
+<script id="lab-results" type="text/html">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Lab Results</h4>
+  </div>
+  <div class="modal-body">
+    <h5 data-bind="text: Product"></h5>
+
+    <section class="row">
+      <div class="col-xs-12">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>A/B</td>
+                <td><input type="number" class="form-control" data-bind="textinput: AoverB"></td>
+              </tr>
+              <!-- ko foreach: Attributes -->
+              <tr>
+                <td data-bind="text: Name"></td>
+                <td><input type="number" class="form-control" data-bind="textinput: Value"></td>
+              </tr>
+              <!-- /ko -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <label class="control-label">Notes</label>
+          <textarea class="form-control" data-bind="textinput: Notes"></textarea>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-bind="click: $parent.saveLabResults, enable: $parent.saveLabResultsCommand.canExecute">Save</button>
+  </div>
+</script>
+

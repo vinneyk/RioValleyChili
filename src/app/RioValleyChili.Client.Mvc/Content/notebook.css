@@ -1,0 +1,40 @@
+﻿.notebook {
+    border-bottom: 1px solid #ebeeef;
+    padding-bottom: 5px;
+    border-left: 3px solid transparent;
+    margin-left: -3px;
+}
+
+    .notebook article {
+        border-width: 0 0 0 3px;
+        border-color: transparent;
+        border-style: solid;
+        padding-left: 3px;
+        margin-left: -3px;
+        margin-top: 3px;
+        margin-bottom: 15px;
+    }
+
+    .notebook article > p {
+        margin: 0 0 4px 0;
+    }
+
+    .notebook article:hover {
+        border-color: #8ba5c5;
+    }
+
+    .notebook article > footer {
+        font-size: .7em;
+    }
+
+.notebook > .newNote {
+    margin: 10px 0;
+    background-color: #ebeeef;
+    padding: 2px;
+}
+
+    .notebook > .newNote textarea {
+        display: block;
+        width: 98%;
+        height: 80px;
+    }

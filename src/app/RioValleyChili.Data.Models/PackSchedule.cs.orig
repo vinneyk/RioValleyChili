@@ -1,0 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RioValleyChili.Data.Models
+{
+    public class PackSchedule : EntityBase
+    {
+        [Key]
+        [Column(Order = 0, TypeName = "Date")]
+        public virtual DateTime DateCreated { get; set; }
+
+        [Key]
+        [Column (Order = 1)]
+        public virtual int SequentialNumber { get; set; }
+
+        public virtual int ChileProductId { get; set; }
+
+        public virtual int ChileInventoryItemTypeId { get; set; }
+
+        [Column(TypeName = "Date")]
+        public virtual DateTime ScheduledProductionDate { get; set; }
+
+        [Column(TypeName = "Date")]
+        public virtual DateTime? ProductionDeadline { get; set; }
+
+        public virtual int ProductionLine { get; set; }
+
+        public virtual int PackagingInventoryTypeId { get; set; }
+
+        public virtual int PackagingProductId { get; set; }
+
+        public virtual int WorkTypeId { get; set; }
+
+        public virtual int UnitsToProduce { get; set; }
+
+        [StringLength(250)]
+        public virtual string SummaryOfWork { get; set; }
+
+        [ForeignKey("ChileInventoryItemTypeId,ChileProductId")]        
+        public virtual ChileProduct ChileProduct { get; set; }
+
+        public virtual InventoryItemType ChileInventoryItemType { get; set; }
+
+        [ForeignKey("PackagingInventoryTypeId, PackagingProductId")]
+        public virtual PackagingProduct PackagingProduct { get; set; }
+
+        public virtual WorkType WorkType { get; set; }
+
+        public virtual PackScheduleTargetParameters TargetParameters { get; set; }
+
+        public virtual ICollection<ProductionBatch> ProductionBatches { get; set; }
+    }
+}

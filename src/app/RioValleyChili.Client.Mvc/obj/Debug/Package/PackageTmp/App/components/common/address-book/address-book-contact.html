@@ -1,0 +1,12 @@
+﻿<div class="address-book-contact" data-bind="click: onSelect">
+    <h3 class="contact-name" data-bind="text: Name || '( No name )'"></h3>
+
+    <div class="address-list" data-bind="foreach: Addresses, click: selectAddr, clickBubble: !$parents[1].isSelected($data)">
+        <div class="contact-address" data-bind="css: {'active-addr': selected}">
+            <div data-bind="text: Address.AddressLine1"></div>
+            <div data-bind="text: Address.AddressLine2"></div>
+            <div data-bind="text: Address.AddressLine3"></div>
+            <div data-bind="text: Address.City + ', ' + Address.State + ' ' + Address.PostalCode"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿<section class="container-fluid">
+    <div class="row">
+        <form data-bind="tabOnEnter: true">
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="form-group" data-bind="validationElement: TrackingSheetNumber">
+                    <label class="control-label">Sheet Number</label>
+                    <input type="text" class="form-control" placeholder="12345.0000" data-bind="value: TrackingSheetNumber, validationOptions: {decorateInputElement: true, decorateElementOnModified: true}" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group" data-bind="validationElement: OperatorName">
+                    <label class="control-label">Prepared By</label>
+                    <input type="text" class="form-control" placeholder="Operator Name" data-bind="value: OperatorName" />
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group" data-bind="validationElement: MovementDate">
+                    <label class="control-label">Movement Date</label>
+                    <input type="text" class="form-control" placeholder="M/D/YYYY" data-bind="datePicker: true, value: MovementDate" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <form>
+            <div class="col-sm-12">
+                <picked-inventory-items-with-destination params="{ 
+                    input: PickedInventoryDetails,
+                    exports: PickedInventoryVm,
+                    warehouseLocationOptions: warehouseLocationOptions,
+                    inventoryProductOptions: inventoryProductOptions,
+                    packagingProductOptions: packagingProductOptions,
+                    isEditable: isNewMovement  
+                }"></picked-inventory-items-with-destination>
+            </div>
+        </form>
+    </div>
+</section>

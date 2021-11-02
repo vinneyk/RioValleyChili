@@ -1,0 +1,93 @@
+﻿<div class="container-fluid" data-bind="visible: reportItems().length > 0">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Contract Shipments</h3>
+    </div>
+    <ul class="list-group" data-bind="foreach: reportItems">
+      <li class="list-group-item">
+        <article>
+          <!-- ko ifnot: ContractHeader -->
+          <h4 data-bind="text: ContractKey"></h4>
+          <!-- /ko -->
+
+          <!-- ko if: ContractHeader -->
+          <h4>
+            <!-- ko text: ContractHeader().ContractKey --><!-- /ko -->
+            (<!-- ko text: ContractHeader().ContractNumber --><!-- /ko -->)
+          </h4>
+
+          <a class="btn btn-link" data-bind="attr: { href: ContractHeader().reportUrl }">Contract Draw Summary Report</a>
+
+          <table class="table table-condensed" data-bind="with: ContractHeader">
+            <tbody>
+              <tr>
+                <td>
+                  <label class="display-label">Contract Dates</label>
+                  <div class="display-field" data-bind="text: ContractBeginDate + ' - ' + ContractEndDate"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label class="display-label">Contract Status</label>
+                  <div data-bind="text: ContractStatus" class="display-field"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- /ko -->
+
+          <div data-bind="if: ajaxWorking">
+            Loading...
+          </div>
+
+          <!-- ko ifnot: ajaxWorking -->
+          <div class="table-responsive">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Packaging</th>
+                  <th>Treatment</th>
+                  <th class="text-nowrap">Customer Code</th>
+                  <th>Base Price</th>
+                  <th>Contract Value</th>
+                  <th>Contract Pounds</th>
+                  <th>Lbs. Shipped</th>
+                  <th>Lbs. Pending</th>
+                  <th>Lbs. Remaining</th>
+                </tr>
+              </thead>
+
+              <tbody data-bind="foreach: shipmentSummaries">
+                <tr>
+                  <td data-bind="text: ProductName" class="truncate"></td>
+                  <td data-bind="text: PackagingName" class="truncate"></td>
+                  <td data-bind="text: Treatment" ></td>
+                  <td data-bind="text: CustomerProductCode" ></td>
+                  <td data-bind="text: BasePrice" ></td>
+                  <td data-bind="text: ContractItemValue" ></td>
+                  <td data-bind="text: ContractItemPounds"></td>
+                  <td data-bind="text: TotalPoundsShippedForContractItem" ></td>
+                  <td data-bind="text: TotalPoundsPendingForContractItem" ></td>
+                  <td data-bind="text: TotalPoundsRemainingForContractItem" ></td>
+                </tr>
+              </tbody>
+
+              <tfoot>
+                <tr>
+                  <td colspan="5"></td>
+                  <td data-bind="text: TotalContractValueFormatted"></td>
+                  <td data-bind="text: TotalContractPounds"></td>
+                  <td data-bind="text: TotalPoundsShipped"></td>
+                  <td data-bind="text: TotalPoundsPending"></td>
+                  <td data-bind="text: TotalPoundsRemaining"></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <!-- /ko -->
+        </article>
+      </li>
+    </ul>
+  </div>
+</div>

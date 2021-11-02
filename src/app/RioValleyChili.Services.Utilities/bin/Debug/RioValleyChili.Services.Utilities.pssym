@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Symbols LinesOfCode="16251" PostSharpLinesOfCode="0" EnhancedTypesCount="17" SchemaVersion="1" PostSharpVersion="4.3.22.0" xmlns="http://schemas.postsharp.org/2.0/symbols">
+  <Class Class="#1=T:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.OldContextSynchronization.SynchronizeOldContext">
+    <Instance Declaration="#2=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.CompanyServiceProvider::CreateCompany(RioValleyChili.Services.Interfaces.Parameters.CompanyService.ICreateCompanyParameters)" Id="d41122bbb5b513da">
+      <Target>
+        <JoinPoint Description="#3=Wrapped by advice(s) OnExit" Ordinal="0" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#4=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.CompanyServiceProvider::UpdateCompany(RioValleyChili.Services.Interfaces.Parameters.CompanyService.IUpdateCompanyParameters)" Id="d41122bbd9625a3b">
+      <Target>
+        <JoinPoint Description="#3" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#5=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.CompanyServiceProvider::CreateContact(RioValleyChili.Services.Interfaces.Parameters.CompanyService.ICreateContactParameters)" Id="d41122bb37c03236">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="2" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#6=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.CompanyServiceProvider::UpdateContact(RioValleyChili.Services.Interfaces.Parameters.CompanyService.IUpdateContactParameters)" Id="d41122bb59a0316d">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="3" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#7=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.CompanyServiceProvider::DeleteContact(System.String)" Id="d41122bb4ac12a56">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="4" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#8=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.CompanyServiceProvider::CreateCustomerNote(RioValleyChili.Services.Interfaces.Parameters.CompanyService.ICreateCustomerNoteParameters)" Id="d41122bbe615d658">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="5" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#9=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.CompanyServiceProvider::UpdateCustomerNote(RioValleyChili.Services.Interfaces.Parameters.CompanyService.IUpdateCustomerNoteParameters)" Id="d41122bb941574e5">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="6" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#10=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.CompanyServiceProvider::DeleteCustomerNote(System.String)" Id="d41122bbf24b8ff9">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="7" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#11=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SalesServiceProvider::CreateCustomerContract(RioValleyChili.Services.Interfaces.Parameters.SalesService.ICreateCustomerContractParameters)" Id="d41122bbfb2a3b3c">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="8" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#12=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SalesServiceProvider::UpdateCustomerContract(RioValleyChili.Services.Interfaces.Parameters.SalesService.IUpdateCustomerContractParameters)" Id="d41122bb0207e1cf">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="9" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#13=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SalesServiceProvider::SetCustomerContractsStatus(RioValleyChili.Services.Interfaces.Parameters.SalesService.ISetContractsStatusParameters)" Id="d41122bb339c84d8">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="10" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#14=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SalesServiceProvider::RemoveCustomerContract(System.String)" Id="d41122bbc184a82f">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="11" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#15=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SalesServiceProvider::CompleteExpiredContracts()" Id="d41122bb332237d0">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="12" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#16=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SalesServiceProvider::CreateSalesOrder(RioValleyChili.Services.Interfaces.Parameters.SalesService.ICreateSalesOrderParameters)" Id="d41122bbd255dc74">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="13" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#17=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SalesServiceProvider::UpdateSalesOrder(RioValleyChili.Services.Interfaces.Parameters.SalesService.IUpdateSalesOrderParameters)" Id="d41122bbf57d74ff">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="14" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#18=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SalesServiceProvider::DeleteSalesOrder(System.String)" Id="d41122bb033669dd">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="15" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#19=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SalesServiceProvider::SetPickedInventoryForSalesOrder(System.String, RioValleyChili.Services.Interfaces.Parameters.PickInventoryServiceComponent.ISetPickedInventoryParameters)" Id="d41122bb27d22b41">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="16" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#20=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SalesServiceProvider::SetCustomerChileProductAttributeRange(RioValleyChili.Services.Interfaces.Parameters.SalesService.ISetCustomerProductAttributeRangesParameters)" Id="d41122bb466d5cf7">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="17" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#21=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SalesServiceProvider::RemoveCustomerChileProductAttributeRanges(RioValleyChili.Services.Interfaces.Parameters.SalesService.IRemoveCustomerChileProductAttributeRangesParameters)" Id="d41122bbd1be1992">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="18" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#22=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SalesServiceProvider::PostInvoice(System.String)" Id="d41122bbbf0b3b89">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="19" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#23=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SalesServiceProvider::SetSalesQuote(RioValleyChili.Services.Interfaces.Parameters.SalesService.ISalesQuoteParameters, System.Boolean)" Id="d41122bb10d7b53d">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="20" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#24=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.MaterialsServiceProvider::CreateChileMaterialsReceived(RioValleyChili.Services.Interfaces.Parameters.MaterialsReceivedService.ICreateChileMaterialsReceivedParameters)" Id="d41122bb30d959a4">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="21" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#25=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.MaterialsServiceProvider::UpdateChileMaterialsReceived(RioValleyChili.Services.Interfaces.Parameters.MaterialsReceivedService.IUpdateChileMaterialsReceivedParameters)" Id="d41122bb568e585c">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="22" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#26=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.FacilityServiceProvider::CreateFacility(RioValleyChili.Services.Interfaces.Parameters.WarehouseService.ICreateFacilityParameters)" Id="d41122bbde2ee729">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="23" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#27=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.FacilityServiceProvider::UpdateFacility(RioValleyChili.Services.Interfaces.Parameters.WarehouseService.IUpdateFacilityParameters)" Id="d41122bb4b29dab8">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="24" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#28=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.FacilityServiceProvider::DeleteFacility(System.String)" Id="d41122bb6c13efb0">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="25" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#29=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.FacilityServiceProvider::CreateLocation(RioValleyChili.Services.Interfaces.Parameters.WarehouseService.ICreateLocationParameters)" Id="d41122bb43456d82">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="26" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#30=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.FacilityServiceProvider::UpdateLocation(RioValleyChili.Services.Interfaces.Parameters.WarehouseService.IUpdateLocationParameters)" Id="d41122bb9bbe15c9">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="27" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#31=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.FacilityServiceProvider::LockLocations(System.Collections.Generic.IEnumerable{System.String})" Id="d41122bba2537c5e">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="28" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#32=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.FacilityServiceProvider::UnlockLocations(System.Collections.Generic.IEnumerable{System.String})" Id="d41122bbf017598b">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="29" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#33=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.IntraWarehouseOrderServiceProvider::CreateIntraWarehouseOrder(RioValleyChili.Services.Interfaces.Parameters.IntraWarehouseOrderService.ICreateIntraWarehouseOrderParameters)" Id="d41122bb58f4fd2b">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="30" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#34=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.IntraWarehouseOrderServiceProvider::UpdateIntraWarehouseOrder(RioValleyChili.Services.Interfaces.Parameters.IntraWarehouseOrderService.IUpdateIntraWarehouseOrderParameters)" Id="d41122bb774c0624">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="31" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#35=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.InventoryServiceProvider::ReceiveInventory(RioValleyChili.Services.Interfaces.Parameters.InventoryService.IReceiveInventoryParameters)" Id="d41122bbc079f22f">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="32" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#36=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.InventoryAdjustmentsProvider::CreateInventoryAdjustment(RioValleyChili.Services.Interfaces.Parameters.InventoryAdjustmentsService.ICreateInventoryAdjustmentParameters)" Id="d41122bb17699d77">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="33" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#37=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.InventoryShipmentOrderServiceProvider::SetShipmentInformation(RioValleyChili.Services.Interfaces.Parameters.InventoryShipmentOrderService.ISetInventoryShipmentInformationParameters)" Id="d41122bb4cb5614e">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="34" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#38=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.InventoryShipmentOrderServiceProvider::Post(RioValleyChili.Services.Interfaces.Parameters.InventoryShipmentOrderService.IPostParameters)" Id="d41122bb40153cc1">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="35" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#39=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.MillAndWetdownServiceProvider::CreateMillAndWetdown(RioValleyChili.Services.Interfaces.Parameters.MillAndWetdownService.ICreateMillAndWetdownParameters)" Id="d41122bb0c74e51a">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="36" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#40=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.MillAndWetdownServiceProvider::UpdateMillAndWetdown(RioValleyChili.Services.Interfaces.Parameters.MillAndWetdownService.IUpdateMillAndWetdownParameters)" Id="d41122bb11f66ff6">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="37" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#41=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.MillAndWetdownServiceProvider::DeleteMillAndWetdown(System.String)" Id="d41122bbd93ccc6a">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="38" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#42=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.NotebookServiceProvider::AddNote(System.String, RioValleyChili.Services.Interfaces.Parameters.NotebookService.ICreateNoteParameters)" Id="d41122bb6310ae63">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="39" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#43=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.NotebookServiceProvider::UpdateNote(System.String, RioValleyChili.Services.Interfaces.Parameters.NotebookService.IUpdateNoteParameters)" Id="d41122bb829d4051">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="40" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#44=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.NotebookServiceProvider::DeleteNote(System.String)" Id="d41122bb1a49e4de">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="41" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#45=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductionServiceProvider::CreatePackSchedule(RioValleyChili.Services.Interfaces.Parameters.PackScheduleService.ICreatePackScheduleParameters)" Id="d41122bbba5289e2">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="42" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#46=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductionServiceProvider::UpdatePackSchedule(RioValleyChili.Services.Interfaces.Parameters.PackScheduleService.IUpdatePackScheduleParameters)" Id="d41122bbe3a0f6c0">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="43" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#47=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductionServiceProvider::RemovePackSchedule(RioValleyChili.Services.Interfaces.Parameters.PackScheduleService.IRemovePackScheduleParameters)" Id="d41122bb0e13da8f">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="44" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#48=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductionServiceProvider::CreateProductionBatch(RioValleyChili.Services.Interfaces.Parameters.PackScheduleService.ICreateProductionBatchParameters)" Id="d41122bb7ded22e3">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="45" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#49=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductionServiceProvider::UpdateProductionBatch(RioValleyChili.Services.Interfaces.Parameters.PackScheduleService.IUpdateProductionBatchParameters)" Id="d41122bb15c711ac">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="46" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#50=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductionServiceProvider::RemoveProductionBatch(System.String)" Id="d41122bbed775668">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="47" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#51=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductionServiceProvider::PickInventoryForProductionBatch(System.String, RioValleyChili.Services.Interfaces.Parameters.PickInventoryServiceComponent.ISetPickedInventoryParameters)" Id="d41122bb928e1091">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="48" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#52=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductionServiceProvider::CreateProductionSchedule(RioValleyChili.Services.Interfaces.Parameters.PackScheduleService.ICreateProductionScheduleParameters)" Id="d41122bb4395bb20">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="49" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#53=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductionServiceProvider::UpdateProductionSchedule(RioValleyChili.Services.Interfaces.Parameters.PackScheduleService.IUpdateProductionScheduleParameters)" Id="d41122bb419f8fa0">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="50" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#54=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductionServiceProvider::DeleteProductionSchedule(System.String)" Id="d41122bbb48d3202">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="51" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#55=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductionResultsProvider::CreateProductionBatchResults(RioValleyChili.Services.Interfaces.Parameters.ProductionResultsService.ICreateProductionBatchResultsParameters)" Id="d41122bbf783594f">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="52" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#56=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductionResultsProvider::UpdateProductionBatchResults(RioValleyChili.Services.Interfaces.Parameters.ProductionResultsService.IUpdateProductionBatchResultsParameters)" Id="d41122bb9eae15ee">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="53" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#57=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductServiceProvider::CreateAdditiveProduct(RioValleyChili.Services.Interfaces.Parameters.ProductService.ICreateAdditiveProductParameters)" Id="d41122bb9f91b0fc">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="54" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#58=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductServiceProvider::UpdateAdditiveProduct(RioValleyChili.Services.Interfaces.Parameters.ProductService.IUpdateAdditiveProductParameters)" Id="d41122bbb414d4a8">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="55" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#59=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductServiceProvider::SetChileProductAttributeRange(RioValleyChili.Services.Interfaces.Parameters.ProductService.ISetChileProductAttributeRangesParameters)" Id="d41122bb09edf09b">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="56" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#60=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductServiceProvider::SetChileProductIngredients(RioValleyChili.Services.Interfaces.Parameters.ProductService.ISetChileProductIngredientsParameters)" Id="d41122bbe4d665f8">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="57" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#61=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductServiceProvider::CreateChileProduct(RioValleyChili.Services.Interfaces.Parameters.ProductService.ICreateChileProductParameters)" Id="d41122bba61d7308">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="58" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#62=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductServiceProvider::UpdateChileProduct(RioValleyChili.Services.Interfaces.Parameters.ProductService.IUpdateChileProductParameters)" Id="d41122bb53524e6b">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="59" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#63=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductServiceProvider::CreatePackagingProduct(RioValleyChili.Services.Interfaces.Parameters.ProductService.ICreatePackagingProductParameters)" Id="d41122bb1de6a9a5">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="60" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#64=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductServiceProvider::UpdatePackagingProduct(RioValleyChili.Services.Interfaces.Parameters.ProductService.IUpdatePackagingProductParameters)" Id="d41122bb6b80ebc2">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="61" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#65=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductServiceProvider::CreateNonInventoryProduct(RioValleyChili.Services.Interfaces.Parameters.ProductService.ICreateProductParameters)" Id="d41122bbcbd25964">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="62" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#66=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.ProductServiceProvider::UpdateNonInventoryProduct(RioValleyChili.Services.Interfaces.Parameters.ProductService.IUpdateProductParameters)" Id="d41122bb495efaf3">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="63" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#67=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.LotServiceProvider::SetLotAttributes(RioValleyChili.Services.Interfaces.Parameters.LotService.ISetLotAttributeParameters)" Id="d41122bbfbfe6e87">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="64" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#68=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.LotServiceProvider::AddLotAttributes(RioValleyChili.Services.Interfaces.Parameters.LotService.IAddLotAttributesParameters)" Id="d41122bb9e936027">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="65" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#69=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.LotServiceProvider::SetLotHoldStatus(RioValleyChili.Services.Interfaces.Parameters.LotService.ISetLotHoldStatusParameters)" Id="d41122bb77c9d3bb">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="66" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#70=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.LotServiceProvider::CreateLotDefect(RioValleyChili.Services.Interfaces.Parameters.LotService.ICreateLotDefectParameters)" Id="d41122bbe78684e8">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="67" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#71=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.LotServiceProvider::RemoveLotDefectResolution(RioValleyChili.Services.Interfaces.Parameters.LotService.IRemoveLotDefectResolutionParameters)" Id="d41122bb4a0f2640">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="68" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#72=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.LotServiceProvider::SetLotQualityStatus(RioValleyChili.Services.Interfaces.Parameters.LotService.ISetLotStatusParameters)" Id="d41122bbc68bff20">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="69" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#73=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.LotServiceProvider::SetLotPackagingReceived(RioValleyChili.Services.Interfaces.Parameters.LotService.ISetLotPackagingReceivedParameters)" Id="d41122bb341db0a0">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="70" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#74=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.LotServiceProvider::AddLotAllowance(RioValleyChili.Services.Interfaces.Parameters.LotService.ILotAllowanceParameters)" Id="d41122bb54ff1d44">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="71" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#75=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.LotServiceProvider::RemoveLotAllowance(RioValleyChili.Services.Interfaces.Parameters.LotService.ILotAllowanceParameters)" Id="d41122bbf82c2d47">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="72" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#76=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SampleOrderServiceProvider::SetSampleOrder(RioValleyChili.Services.Interfaces.Parameters.SampleOrderService.ISetSampleOrderParameters)" Id="d41122bb375556ce">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="73" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#77=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SampleOrderServiceProvider::DeleteSampleOrder(System.String)" Id="d41122bb0d3ed0ba">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="74" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#78=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SampleOrderServiceProvider::SetSampleSpecs(RioValleyChili.Services.Interfaces.Parameters.SampleOrderService.ISetSampleSpecsParameters)" Id="d41122bb42c8b670">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="75" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#79=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SampleOrderServiceProvider::SetSampleMatch(RioValleyChili.Services.Interfaces.Parameters.SampleOrderService.ISetSampleMatchParameters)" Id="d41122bbbb78b94f">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="76" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#80=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SampleOrderServiceProvider::SetJournalEntry(RioValleyChili.Services.Interfaces.Parameters.SampleOrderService.ISetSampleOrderJournalEntryParameters)" Id="d41122bb7e61fbd1">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="77" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#81=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.SampleOrderServiceProvider::DeleteJournalEntry(System.String)" Id="d41122bbc3449941">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="78" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#82=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.TreatmentOrderServiceProvider::CreateInventoryTreatmentOrder(RioValleyChili.Services.Interfaces.Parameters.TreatmentOrderService.ICreateTreatmentOrderParameters)" Id="d41122bb9b1e955f">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="79" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#83=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.TreatmentOrderServiceProvider::UpdateInventoryTreatmentOrder(RioValleyChili.Services.Interfaces.Parameters.TreatmentOrderService.IUpdateTreatmentOrderParameters)" Id="d41122bbbc7117e3">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="80" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#84=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.TreatmentOrderServiceProvider::DeleteTreatmentOrder(System.String)" Id="d41122bb28b9a0fe">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="81" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#85=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.TreatmentOrderServiceProvider::ReceiveOrder(RioValleyChili.Services.Interfaces.Parameters.TreatmentOrderService.IReceiveTreatmentOrderParameters)" Id="d41122bbcc0944e6">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="82" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#86=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.TreatmentOrderServiceProvider::SetPickedInventory(System.String, RioValleyChili.Services.Interfaces.Parameters.PickInventoryServiceComponent.ISetPickedInventoryParameters)" Id="d41122bbd57cdef9">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="83" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#87=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.WarehouseOrderServiceProvider::CreateWarehouseOrder(RioValleyChili.Services.Interfaces.Parameters.Common.ISetOrderParameters)" Id="d41122bb1d5620a4">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="84" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#88=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.WarehouseOrderServiceProvider::UpdateInterWarehouseOrder(RioValleyChili.Services.Interfaces.Parameters.WarehouseOrderService.IUpdateInterWarehouseOrderParameters)" Id="d41122bb7963e2ab">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="85" />
+      </Target>
+    </Instance>
+    <Instance Declaration="#89=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.Providers.WarehouseOrderServiceProvider::SetPickedInventory(System.String, RioValleyChili.Services.Interfaces.Parameters.PickInventoryServiceComponent.ISetPickedInventoryParameters)" Id="d41122bb8418a245">
+      <Target>
+        <JoinPoint Description="#3" Ordinal="86" />
+      </Target>
+    </Instance>
+  </Class>
+  <Annotation Target="#90=M:[RioValleyChili.Services.Utilities]RioValleyChili.Services.Utilities.OldContextSynchronization.SynchronizeOldContext::OnExit(PostSharp.Aspects.MethodExecutionArgs)" Arguments="#91=2" Description="#92=PostSharp estimates that 2 line(s) of code are saved every time this advice is applied. Use the [LinesOfCodeAvoided] attribute on the aspect or specify the LinesOfCodeAvoided property on the advice attribute to override this value." />
+</Symbols>

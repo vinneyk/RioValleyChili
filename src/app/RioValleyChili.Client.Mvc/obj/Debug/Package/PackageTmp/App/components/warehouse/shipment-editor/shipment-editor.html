@@ -1,0 +1,75 @@
+﻿<form>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label class="control-label">Pallet Weight Override</label>
+            <input class="form-control" type="text" data-bind="value: PalletWeight, disable: isLocked" />
+        </div>
+        <div class="form-group col-md-4">
+            <label class="control-label">Pallet Quantity</label>
+            <input class="form-control" type="text" data-bind="value: PalletQuantity, disable: isLocked" />
+        </div>
+
+        <div class="form-group col-md-6 col-lg-4">
+            <label class="control-label">Carrier Name</label>
+            <input class="form-control" type="text" data-bind="value: CarrierName, disable: isLocked" />
+        </div>
+        <div class="form-group col-md-6 col-lg-4">
+            <label class="control-label">Driver Name</label>
+            <input class="form-control" type="text" data-bind="value: DriverName, disable: isLocked" />
+        </div>
+        <div class="form-group col-md-6 col-lg-4">
+            <label class="control-label">Trailer License Number</label>
+            <input class="form-control" type="text" data-bind="value: TrailerLicenseNumber, disable: isLocked" />
+        </div>
+        <div class="form-group col-md-6 col-lg-4">
+            <label class="control-label">Freight Type</label>
+            <select class="form-control" data-bind="value: FreightType, options: FreightBillTypes, disable: isLocked"></select>
+        </div>
+        <div class="form-group col-md-6 col-lg-4">
+            <label class="control-label">Container Seal</label>
+            <input class="form-control" type="text" data-bind="value: ContainerSeal, disable: isLocked" />
+        </div>
+        <div class="form-group col-md-6 col-lg-4">
+            <label class="control-label">Shipment Status</label>
+            <p class="form-control-static" data-bind="text: Status.displayValue"> </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <label data-bind="text: isSoldTo ? 'Sold To' : 'Ship From'"></label>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <contact-label-editor params="input: ShippingInstructions.ShipFrom(), exports: ShipFromExport, locked: isLocked"></contact-label-editor>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <label>Ship To</label>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <contact-label-editor params="input: ShippingInstructions.ShipTo(), exports: ShipToExport, locked: isLocked"></contact-label-editor>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <label>Bill To</label>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <contact-label-editor params="input: ShippingInstructions.FreightBill(), exports: FreightBillExport, locked: isLocked"></contact-label-editor>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

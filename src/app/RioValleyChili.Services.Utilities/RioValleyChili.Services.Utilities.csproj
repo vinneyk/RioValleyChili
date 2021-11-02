@@ -1,0 +1,802 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5097E4E2-948C-48C9-9857-A035961A6CA3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RioValleyChili.Services.Utilities</RootNamespace>
+    <AssemblyName>RioValleyChili.Services.Utilities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\..\Rio Valley Chili Internal\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <DontImportPostSharp>True</DontImportPostSharp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Testing|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Testing\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;POSTSHARP_CONSTRAINTS</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EF-Projectors, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EF-Projectors.1.0.7.0\lib\net45\EF-Projectors.dll</HintPath>
+    </Reference>
+    <Reference Include="EF-Split-Projector, Version=0.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EF-Split-Projector.0.15-alpha\lib\net45\EF-Split-Projector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.1.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\LinqKit.1.1.1\lib\net45\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp, Version=4.3.22.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\PostSharp.4.3.22\lib\net35-client\PostSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Solutionhead.Core, Version=1.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Core.1.4.6\lib\net45\Solutionhead.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.Data, Version=1.4.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Data.1.4.7\lib\net45\Solutionhead.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.EntityKey">
+      <HintPath>..\..\..\packages\Solutionhead.EntityKey.1.0.0\lib\net45\Solutionhead.EntityKey.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.Services, Version=1.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Services.1.4.6\lib\net45\Solutionhead.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\Company\CustomerNoteConductor.cs" />
+    <Compile Include="Commands\Company\GetCompanyCommand.cs" />
+    <Compile Include="Commands\CreateInventoryTransactionCommand.cs" />
+    <Compile Include="Commands\Customer\GetProductSpecCommand.cs" />
+    <Compile Include="Commands\Customer\SetSalesOrderItemsCommand.cs" />
+    <Compile Include="Commands\Customer\CompleteExpiredContractsCommand.cs" />
+    <Compile Include="Commands\Customer\GetCustomerProductCodeCommand.cs" />
+    <Compile Include="Commands\Customer\RemoveCustomerChileProductAttributeRangesCommand.cs" />
+    <Compile Include="Commands\Customer\SetCustomerChileProductAttributeRangeCommand.cs" />
+    <Compile Include="Commands\Customer\SetCustomerProductCodeCommand.cs" />
+    <Compile Include="Commands\DeleteInventoryPickOrderItems.cs" />
+    <Compile Include="Commands\GetEmployeeCommand.cs" />
+    <Compile Include="Commands\GetMoveNum.cs" />
+    <Compile Include="Commands\Inventory\CreateChileLotProductionCommand.cs" />
+    <Compile Include="Commands\LotCommands\CreateNewAdditiveLotCommand.cs" />
+    <Compile Include="Commands\LotCommands\CreateNewChileLotCommand.cs" />
+    <Compile Include="Commands\LotCommands\CreateNewLotCommandBase.cs" />
+    <Compile Include="Commands\LotCommands\CreateNewPackagingLotCommand.cs" />
+    <Compile Include="Commands\LotCommands\LotAllowancesCommand.cs" />
+    <Compile Include="Commands\LotCommands\RecordLotHistoryCommand.cs" />
+    <Compile Include="Commands\LotCommands\LotTraceInputCommand.cs" />
+    <Compile Include="Commands\LotCommands\LotTraceOutputCommand.cs" />
+    <Compile Include="Commands\LotCommands\SetLotPackagingReceivedCommand.cs" />
+    <Compile Include="Commands\LotCommands\UpdateChileLotStatusCommand.cs" />
+    <Compile Include="Commands\Notebook\DeleteNotebookCommand.cs" />
+    <Compile Include="Commands\Parameters\AddLotAttributeParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateChileLotProduction.cs" />
+    <Compile Include="Commands\Parameters\CreateLocationParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateProductionScheduleParameters.cs" />
+    <Compile Include="Commands\Parameters\Interfaces\ICreateChileLotProduction.cs" />
+    <Compile Include="Commands\Parameters\Interfaces\ICreatePickedInventory.cs" />
+    <Compile Include="Commands\Parameters\Interfaces\IProductionResultItemParameters.cs" />
+    <Compile Include="Commands\Parameters\Interfaces\IWeightedLotAttributes.cs" />
+    <Compile Include="Commands\Parameters\InventoryTransactionParameters.cs" />
+    <Compile Include="Commands\Parameters\LotAllowanceParameters.cs" />
+    <Compile Include="Commands\Parameters\ReceiveInventoryItemParameters.cs" />
+    <Compile Include="Commands\Parameters\ReceiveInventoryParameters.cs" />
+    <Compile Include="Commands\Parameters\ReceiveTreatmentOrderParameters.cs" />
+    <Compile Include="Commands\Parameters\RemoveLotDefectResolutionParameters.cs" />
+    <Compile Include="Commands\Parameters\SalesQuoteParameters.cs" />
+    <Compile Include="Commands\Parameters\SetCompanyCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\SetCustomerProductAttributeRangesParameters.cs" />
+    <Compile Include="Commands\Parameters\UpdateProductionScheduleItemParameters.cs" />
+    <Compile Include="Commands\Parameters\SetSampleJournalEntryCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\SetLotPackagingReceivedParameters.cs" />
+    <Compile Include="Commands\Parameters\SetLotStatusParameters.cs" />
+    <Compile Include="Commands\Parameters\SetSampleMatchCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\SetSampleOrderItemParameters.cs" />
+    <Compile Include="Commands\Parameters\SetSampleOrderParameters.cs" />
+    <Compile Include="Commands\Parameters\SetSampleSpecsCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\UpdateLocationParameters.cs" />
+    <Compile Include="Commands\Parameters\UpdateProductionScheduleParameters.cs" />
+    <Compile Include="Commands\Production\GetProductionBatchDetailCommand.cs" />
+    <Compile Include="Commands\Production\SetLotProductionResultItemsCommand.cs" />
+    <Compile Include="Commands\Products\SetChileProductIngredientsCommand.cs" />
+    <Compile Include="Commands\Facilities\CreateFacilityCommand.cs" />
+    <Compile Include="Commands\Facilities\CreateLocationCommand.cs" />
+    <Compile Include="Commands\Facilities\DeleteFacilityCommand.cs" />
+    <Compile Include="Commands\Facilities\LockLocationsCommand.cs" />
+    <Compile Include="Commands\Facilities\UpdateFacilityCommand.cs" />
+    <Compile Include="Commands\Facilities\UpdateLocationCommand.cs" />
+    <Compile Include="Conductors\CreateChileMaterialsReceivedConductor.cs" />
+    <Compile Include="Conductors\DeleteLotConductor.cs" />
+    <Compile Include="Conductors\ProductionScheduleConductors.cs" />
+    <Compile Include="Conductors\CustomerOrderInvoiceConductor.cs" />
+    <Compile Include="Conductors\ChileMaterialsReceivedConductorBase.cs" />
+    <Compile Include="Conductors\DeleteSalesOrderConductor.cs" />
+    <Compile Include="Conductors\DeleteInventoryShipmentOrderConductorBase.cs" />
+    <Compile Include="Conductors\DeleteSampleOrderConductor.cs" />
+    <Compile Include="Conductors\DeleteTreatmentOrderConductor.cs" />
+    <Compile Include="Conductors\GetLabReportConductor.cs" />
+    <Compile Include="Conductors\GetProductionPacketConductor.cs" />
+    <Compile Include="Conductors\Parameters\SetProductionScheduleItemParameters.cs" />
+    <Compile Include="Conductors\SetInterWarehouseOrderPickedInventoryConductor.cs" />
+    <Compile Include="Conductors\InventoryShipmentOrderPickInventoryConductor.cs" />
+    <Compile Include="Conductors\Parameters\SetInventoryShipmentOrderConductorParameters.cs" />
+    <Compile Include="Conductors\Parameters\SetPickedInventoryItemCodesParameters.cs" />
+    <Compile Include="Conductors\Parameters\UpdateInterWarehouseOrderConductorParameters.cs" />
+    <Compile Include="Conductors\Parameters\CreateTreatmentOrderConductorParameters.cs" />
+    <Compile Include="Conductors\Parameters\UpdateTreatmentOrderConductorParameters.cs" />
+    <Compile Include="Conductors\PendingOrderDetailsConductor.cs" />
+    <Compile Include="Conductors\PostInventoryShipmentOrderConductor.cs" />
+    <Compile Include="Conductors\ProductionBatchPickInventoryConductor.cs" />
+    <Compile Include="Conductors\ReceiveInventoryConductor.cs" />
+    <Compile Include="Conductors\ReceiveTreatmentOrderConductor.cs" />
+    <Compile Include="Conductors\RemoveContractCommand.cs" />
+    <Compile Include="Conductors\RemoveLotDefectResolutionConductor.cs" />
+    <Compile Include="Conductors\IntraWarehouseOrderConductor.cs" />
+    <Compile Include="Conductors\SetLotStatusConductor.cs" />
+    <Compile Include="Conductors\SetLotWeightedAttributesConductor.cs" />
+    <Compile Include="Conductors\SetSalesQuoteConductor.cs" />
+    <Compile Include="Conductors\SetSampleJournalEntryCommand.cs" />
+    <Compile Include="Conductors\SetSampleMatchCommand.cs" />
+    <Compile Include="Conductors\SetSampleOrderConductor.cs" />
+    <Compile Include="Conductors\SetSampleSpecsCommand.cs" />
+    <Compile Include="Conductors\SetShipmentInformationConductor.cs" />
+    <Compile Include="Conductors\UpdateChileMaterialsReceivedConductor.cs" />
+    <Compile Include="Conductors\UpdateInterWarehouseOrderConductor.cs" />
+    <Compile Include="Conductors\SetInventoryShipmentOrderConductorBase.cs" />
+    <Compile Include="Conductors\UpdateTreatmentOrderConductor.cs" />
+    <Compile Include="Extensions\DataModels\InventoryShipmentOrderExtensions.cs" />
+    <Compile Include="Extensions\Parameters\AddLotAttributeParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ChileMaterialsReceivedFiltersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\CreateCustomerOrderParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\CreateLocationParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\FilterCompanyParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ISetPickedInventoryItemParameterExtensions.cs" />
+    <Compile Include="Extensions\Parameters\LocationKeysExtensions.cs" />
+    <Compile Include="Extensions\Parameters\LotAllowanceParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ParsedParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\PostParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ProductionScheduleParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ReceiveInventoryItemParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ReceiveInventoryParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ReceiveTreatmentOrderParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\RemoveLotDefectResolutionParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\SalesQuoteParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\SampleOrderParameterExtensions.cs" />
+    <Compile Include="Extensions\Parameters\SetCustomerChileProductAttributeRangeExtensions.cs" />
+    <Compile Include="Extensions\Parameters\SetJournalEntryParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\SetLotPackagingReceivedParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\SetLotStatusParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\SetSampleMatchParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\SetSampleSpecsParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\SetShipmentInformationParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\UpdateCustomerOrderParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\UpdateLocationParametersExtensions.cs" />
+    <Compile Include="Extensions\UnitOfWorkExtensions.cs" />
+    <Compile Include="Extensions\UtilityModels\FilterInterWarehouseOrderParametersExtensions.cs" />
+    <Compile Include="Extensions\UtilityModels\FilterInventoryParametersExtensions.cs" />
+    <Compile Include="Extensions\UtilityModels\FilterProductionScheduleParametersExtensions.cs" />
+    <Compile Include="Helpers\ClaimsSerializationHelper.cs" />
+    <Compile Include="Helpers\PickingValidator.cs" />
+    <Compile Include="Helpers\ValidPickingForOrder.cs" />
+    <Compile Include="Helpers\LambdaExpressionHelper.cs" />
+    <Compile Include="Helpers\NewContextConnectionStatus.cs" />
+    <Compile Include="Helpers\OrderByLotHelper.cs" />
+    <Compile Include="Helpers\PickedInventoryValidator.cs" />
+    <Compile Include="Helpers\ReflectionHelper.cs" />
+    <Compile Include="Helpers\TypeBuilder.cs" />
+    <Compile Include="Helpers\TypeExtensions.cs" />
+    <Compile Include="LinqPredicates\ChileMaterialsReceivedPredicateBuilder.cs" />
+    <Compile Include="LinqPredicates\ChileMaterialsReceivedPredicates.cs" />
+    <Compile Include="LinqPredicates\CustomerProductAttributeRangePredicates.cs" />
+    <Compile Include="LinqPredicates\ChileMaterialsReceivedItemPredicates.cs" />
+    <Compile Include="LinqPredicates\InventoryShipmentOrderPredicates.cs" />
+    <Compile Include="LinqPredicates\InventoryTransactionPredicates.cs" />
+    <Compile Include="LinqPredicates\LotAttributeDefectPredicates.cs" />
+    <Compile Include="LinqPredicates\LotAttributePredicates.cs" />
+    <Compile Include="LinqPredicates\LotContractAllowancePredicates.cs" />
+    <Compile Include="LinqPredicates\LotCustomerAllowancePredicates.cs" />
+    <Compile Include="LinqPredicates\LotCustomerOrderAllowancePredicates.cs" />
+    <Compile Include="LinqPredicates\ProductionSchedulePredicateBuilder.cs" />
+    <Compile Include="LinqPredicates\ProductionSchedulePredicates.cs" />
+    <Compile Include="LinqPredicates\SalesQuotePredicateBuilder.cs" />
+    <Compile Include="LinqPredicates\SalesQuotePredicates.cs" />
+    <Compile Include="LinqPredicates\SampleOrderPredicateBuilder.cs" />
+    <Compile Include="LinqPredicates\SampleOrderPredicates.cs" />
+    <Compile Include="LinqPredicates\TreatmentOrderPredicates.cs" />
+    <Compile Include="LinqProjectors\ChileLotProductionProjectors.cs" />
+    <Compile Include="LinqProjectors\CustomerNoteProjectors.cs" />
+    <Compile Include="LinqProjectors\CustomerProductAttributeRangeProjectors.cs" />
+    <Compile Include="LinqProjectors\CustomerProductCodeProjectors.cs" />
+    <Compile Include="LinqProjectors\EmployeeProjectors.cs" />
+    <Compile Include="LinqProjectors\InventoryShipmentOrderProjectors.cs" />
+    <Compile Include="LinqProjectors\InventoryTransactionProjectors.cs" />
+    <Compile Include="LinqProjectors\LotContractAllowanceProjectors.cs" />
+    <Compile Include="LinqProjectors\LotCustomerAllowanceProjectors.cs" />
+    <Compile Include="LinqProjectors\LotCustomerOrderAllowanceProjectors.cs" />
+    <Compile Include="LinqProjectors\LotHistoryProjectors.cs" />
+    <Compile Include="LinqProjectors\ProductionScheduleItemProjectors.cs" />
+    <Compile Include="LinqProjectors\ProductionScheduleProjectors.cs" />
+    <Compile Include="LinqProjectors\Projectors.cs" />
+    <Compile Include="LinqProjectors\SalesQuoteItemProjectors.cs" />
+    <Compile Include="LinqProjectors\SalesQuoteProjectors.cs" />
+    <Compile Include="LinqProjectors\SampleOrderItemMatchProjectors.cs" />
+    <Compile Include="LinqProjectors\SampleOrderItemProjectors.cs" />
+    <Compile Include="LinqProjectors\SampleOrderItemSpecProjectors.cs" />
+    <Compile Include="LinqProjectors\SampleOrderJournalEntryProjectors.cs" />
+    <Compile Include="LinqProjectors\SampleOrderProjectors.cs" />
+    <Compile Include="Models\BatchPickedInventoryItemReturn.cs" />
+    <Compile Include="Models\ChileMaterialsReceivedRecapReturn.cs" />
+    <Compile Include="Models\CompanyDetailReturn.cs" />
+    <Compile Include="Models\CompanyHeaderReturn.cs" />
+    <Compile Include="Models\CompanySummaryReturn.cs" />
+    <Compile Include="Models\ContractBaseReturn.cs" />
+    <Compile Include="Models\ContractDetailReturn.cs" />
+    <Compile Include="Models\ContractItemShipmentSummaryReturn.cs" />
+    <Compile Include="Models\ContractShipmentSummaryReturn.cs" />
+    <Compile Include="Models\CreateProductionBatchReturn.cs" />
+    <Compile Include="Models\CustomerChileProductAttributeRangeKeyReturn.cs" />
+    <Compile Include="Models\CustomerChileProductAttributeRangeReturn.cs" />
+    <Compile Include="Models\CustomerChileProductAttributeRangesReturn.cs" />
+    <Compile Include="Models\CustomerNoteKeyReturn.cs" />
+    <Compile Include="Models\CustomerNoteReturn.cs" />
+    <Compile Include="Models\CustomerNotesReturn.cs" />
+    <Compile Include="Models\InventoryCycleCountReturn.cs" />
+    <Compile Include="Models\KeyReturns\SalesQuoteItemKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\SalesQuoteKeyReturn.cs" />
+    <Compile Include="Models\LocationGroupNameReturn.cs" />
+    <Compile Include="Models\LotHistoryReturn.cs" />
+    <Compile Include="Models\LotInputTraceReturn.cs" />
+    <Compile Include="Models\LotOutputTraceReturn.cs" />
+    <Compile Include="Models\SalesOrderAcknowledgementReturn.cs" />
+    <Compile Include="Models\SalesOrderInvoiceReturn.cs" />
+    <Compile Include="Models\SalesOrderItemInternalAcknowledgement.cs" />
+    <Compile Include="Models\SalesOrderSummaryReturn.cs" />
+    <Compile Include="Models\SalesOrderInternalAcknowledgementReturn.cs" />
+    <Compile Include="Models\CustomerProductCodeReturn.cs" />
+    <Compile Include="Models\CustomerProperties.cs" />
+    <Compile Include="Models\CustomerWithProductSpecReturn.cs" />
+    <Compile Include="Models\DehydratedInputReturn.cs" />
+    <Compile Include="Models\DehydratedMaterialsReceivedItemBaseReturn.cs" />
+    <Compile Include="Models\EmployeeDetailsReturn.cs" />
+    <Compile Include="Models\EmployeeKeyReturn.cs" />
+    <Compile Include="Models\EmployeeSummaryReturn.cs" />
+    <Compile Include="Models\InventoryPickOrderItemReturn.cs" />
+    <Compile Include="Models\InternalOrderAcknowledgementReturn.cs" />
+    <Compile Include="Models\InventoryShipmentOrderBillOfLadingReturn.cs" />
+    <Compile Include="Models\InventoryShipmentOrderCertificateOfAnalysisReturn.cs" />
+    <Compile Include="Models\InventoryShipmentOrderPackingListReturn.cs" />
+    <Compile Include="Models\InventoryShipmentOrderPickSheetReturn.cs" />
+    <Compile Include="Models\KeyReturns\InventoryPickOrderItemKeyReturn.cs" />
+    <Compile Include="Models\LotContractAllowanceReturn.cs" />
+    <Compile Include="Models\LotCustomerAllowanceReturn.cs" />
+    <Compile Include="Models\LotCustomerOrderAllowanceReturn.cs" />
+    <Compile Include="Models\PendingOrderDetails.cs" />
+    <Compile Include="Models\ProductionAdditiveInputs.cs" />
+    <Compile Include="Models\ProductionAdditiveInputsReportReturn.cs" />
+    <Compile Include="Models\ProductionScheduleDetailReturn.cs" />
+    <Compile Include="Models\ProductionScheduleReportReturn.cs" />
+    <Compile Include="Models\ProductionScheduleSummaryReturn.cs" />
+    <Compile Include="Models\SalesQuoteDetailReturn.cs" />
+    <Compile Include="Models\SalesQuoteItemReturn.cs" />
+    <Compile Include="Models\SalesQuoteReportReturn.cs" />
+    <Compile Include="Models\SalesQuoteSummaryReturn.cs" />
+    <Compile Include="Models\SampleOrderDetailReturn.cs" />
+    <Compile Include="Models\SampleOrderItemKeyReturn.cs" />
+    <Compile Include="Models\SampleOrderItemMatchReturn.cs" />
+    <Compile Include="Models\SampleOrderItemReturn.cs" />
+    <Compile Include="Models\SampleOrderItemSpecReturn.cs" />
+    <Compile Include="Models\SampleOrderJournalEntryKeyReturn.cs" />
+    <Compile Include="Models\SampleOrderJournalEntryReturn.cs" />
+    <Compile Include="Models\SampleOrderKeyReturn.cs" />
+    <Compile Include="Models\SampleOrderMatchingSummaryReportReturn.cs" />
+    <Compile Include="Models\SampleOrderRequestReportReturn.cs" />
+    <Compile Include="Models\SampleOrderSummaryReturn.cs" />
+    <Compile Include="Models\ShipmentOrderSummaryReturn.cs" />
+    <Compile Include="Models\InventoryTransactionReturn.cs" />
+    <Compile Include="Models\KeyReturns\AttributeNameKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\CustomerKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\InventoryShipmentOrderKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\LocationKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\ProductionPacketBatchReturn.cs" />
+    <Compile Include="Models\KeyReturns\ProductionPacketReturn.cs" />
+    <Compile Include="Models\LabReportChileLotReturn.cs" />
+    <Compile Include="Models\LabReportChileProduct.cs" />
+    <Compile Include="Models\LabReportReturn.cs" />
+    <Compile Include="Models\LotBaseReturn.cs" />
+    <Compile Include="Models\InventoryShipmentOrderItemAnalysisReturn.cs" />
+    <Compile Include="Models\LotQualitySummaryReturn.cs" />
+    <Compile Include="Models\LotSingleSummaryReturn.cs" />
+    <Compile Include="Models\PackingListPickedInventoryItem.cs" />
+    <Compile Include="Models\PackScheduleBaseParametersReturn.cs" />
+    <Compile Include="Models\PackScheduleBaseReturn.cs" />
+    <Compile Include="Models\PackScheduleBaseWithCustomerReturn.cs" />
+    <Compile Include="Models\PackScheduleDetailReturn.cs" />
+    <Compile Include="Models\PackSchedulePickSheetReturn.cs" />
+    <Compile Include="Models\PickedLotReturn.cs" />
+    <Compile Include="Models\PickSheetItemReturn.cs" />
+    <Compile Include="Models\ProductionBatchTargetParametersReturn.cs" />
+    <Compile Include="Models\ProductionRecapLot.cs" />
+    <Compile Include="Models\ProductionRecapReportReturn.cs" />
+    <Compile Include="Models\ProductionResultBaseReturn.cs" />
+    <Compile Include="Models\ProductKeyNameReturn.cs" />
+    <Compile Include="Models\ShippingLabelReturn.cs" />
+    <Compile Include="Models\UserSummaryReturn.cs" />
+    <Compile Include="Models\WeightedLotAttributeReturn.cs" />
+    <Compile Include="OldContextSynchronization\CreateLotDefectReturn.cs" />
+    <Compile Include="OldContextSynchronization\LotStatInfoReturn.cs" />
+    <Compile Include="OldContextSynchronization\OldContextConnectionStatus.cs" />
+    <Compile Include="OldContextSynchronization\SynchronizationCommandFactory.cs" />
+    <Compile Include="OldContextSynchronization\SynchronizeOldContext.cs" />
+    <Compile Include="Commands\Company\CompanyCommandBase.cs" />
+    <Compile Include="Commands\Company\ContactCommandBase.cs" />
+    <Compile Include="Commands\Company\CreateCompanyCommand.cs" />
+    <Compile Include="Commands\Company\CreateContactCommand.cs" />
+    <Compile Include="Commands\Company\UpdateCompanyCommand.cs" />
+    <Compile Include="Commands\Company\UpdateContactCommand.cs" />
+    <Compile Include="Commands\Customer\AssignCustomerToBrokerCommand.cs" />
+    <Compile Include="Commands\Customer\ModifySalesOrderPickedItemsCommand.cs" />
+    <Compile Include="Commands\Customer\RemoveCustomerFromBrokerCommand.cs" />
+    <Compile Include="Commands\Customer\SetContractItemsCommand.cs" />
+    <Compile Include="Commands\Inventory\CalculateAttributeWeightedAveragesCommand.cs" />
+    <Compile Include="Commands\Inventory\CreateInventoryAdjustmentItemCommand.cs" />
+    <Compile Include="Commands\Inventory\GetInventoryCommand.cs" />
+    <Compile Include="Commands\Inventory\GetPickableInventoryCommand.cs" />
+    <Compile Include="Commands\Inventory\ModifyInventoryCommand.cs" />
+    <Compile Include="Commands\Inventory\CreateInventoryPickOrderCommand.cs" />
+    <Compile Include="Commands\Inventory\CreateInventoryPickOrderItemCommand.cs" />
+    <Compile Include="Commands\Inventory\CreatePickedInventoryCommand.cs" />
+    <Compile Include="Commands\Inventory\InventoryPickOrderCommand.cs" />
+    <Compile Include="Commands\Inventory\ModifyPickedInventoryItemsCommand.cs" />
+    <Compile Include="Commands\Inventory\RemoveLotCommand.cs" />
+    <Compile Include="Commands\Inventory\RemoveInventoryPickOrderItemCommand.cs" />
+    <Compile Include="Commands\Inventory\UpdateInventoryPickOrderItemCommand.cs" />
+    <Compile Include="Commands\Notebook\CreateNotebookCommand.cs" />
+    <Compile Include="Commands\Notebook\CreateNoteCommand.cs" />
+    <Compile Include="Commands\Notebook\UpdateNoteCommand.cs" />
+    <Compile Include="Commands\Parameters\AdditiveProductCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\ChileProductCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateCompanyCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateLotDefectParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateNoteParameters.cs" />
+    <Compile Include="Commands\Parameters\ProductionResultParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateUpdateProductCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\RemoveChileProductIngredientParameters.cs" />
+    <Compile Include="Commands\Parameters\ResolveLotDefectParameters.cs" />
+    <Compile Include="Commands\Parameters\SetChileProductAttributeRangesCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateCustomerContractCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\CustomerOrderParameters.cs" />
+    <Compile Include="Commands\Parameters\ChileMaterialsReceivedParameters.cs" />
+    <Compile Include="Commands\Parameters\SetChileMaterialsReceivedItemParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateInventoryAdjustmentItemCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateInventoryAdjustmentConductorParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateLotDefectResolutionParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateMillAndWetdownCommandParamterers.cs" />
+    <Compile Include="Commands\Parameters\Interfaces\IUpdateCustomerContractCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\MillAndWetdownResultParameters.cs" />
+    <Compile Include="Commands\Parameters\ModifySalesOrderPickedInventoryItemParameters.cs" />
+    <Compile Include="Commands\Parameters\PickedInventoryParameters.cs" />
+    <Compile Include="Commands\Parameters\ModifyInventoryParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateInterWarehouseOrderCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateNewLotCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\CreatePackScheduleCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\CreatePickedInventoryCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateProductionBatchCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\CreateProductionResultItemCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\GetAdditiveInventoryCommandParameter.cs" />
+    <Compile Include="Commands\Parameters\GetChileInventoryCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\GetPackagingInventoryCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\Interfaces\ICreateProductionResultCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\Interfaces\IProductionResultCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\Interfaces\IUpdateProductionResultCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\SetLotAttributeParameters.cs" />
+    <Compile Include="Commands\Parameters\SetLotHoldStatusParameters.cs" />
+    <Compile Include="Commands\Parameters\TreatmentOrderSetPickOrderParameters.cs" />
+    <Compile Include="Commands\Parameters\NewPickedInventory.cs" />
+    <Compile Include="Commands\Parameters\InventoryPickOrderItemParameter.cs" />
+    <Compile Include="Commands\Parameters\MoveInventoryCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\ModifyPickedInventoryItemParameters.cs" />
+    <Compile Include="Commands\Parameters\InterWarehouseOrderCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\SetChileProductIngredientsCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\SetContractItemParameters.cs" />
+    <Compile Include="Commands\Parameters\SetSalesOrderItemParameters.cs" />
+    <Compile Include="Commands\Parameters\SetContactAddressParameters.cs" />
+    <Compile Include="Commands\Parameters\SetPickedInventoryItemParameters.cs" />
+    <Compile Include="Commands\Parameters\UpdateCompanyCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\UpdateContactCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\UpdateCustomerContractCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\UpdateInterWarehouseOrderCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\UpdatePackScheduleCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\UpdateProductionBatchCommandParameters.cs" />
+    <Compile Include="Commands\Parameters\ProductionScheduleInstructionParameter.cs" />
+    <Compile Include="Commands\Parameters\UpdateProductionSchedulePackSchedulesCommandParameters.cs" />
+    <Compile Include="Commands\Production\CreatePackScheduleCommand.cs" />
+    <Compile Include="Commands\Production\CreateProductionBatchCommand.cs" />
+    <Compile Include="Commands\Production\GetProductionResultsCommand.cs" />
+    <Compile Include="Commands\Production\UpdatePackScheduleCommand.cs" />
+    <Compile Include="Commands\Production\UpdateProductionBatchCommand.cs" />
+    <Compile Include="Commands\Products\CreateProductCommand.cs" />
+    <Compile Include="Commands\Products\SetChileProductAttributeRangesCommand.cs" />
+    <Compile Include="Commands\Products\UpdateProductCommand.cs" />
+    <Compile Include="Commands\LotCommands\CreateInHouseContaminationDefectCommand.cs" />
+    <Compile Include="Commands\LotCommands\CreateLotDefectResolutionCommand.cs" />
+    <Compile Include="Commands\LotCommands\SetLotAttributesCommand.cs" />
+    <Compile Include="Commands\LotCommands\SetLotAttributesParameters.cs" />
+    <Compile Include="Commands\LotCommands\SetLotHoldCommand.cs" />
+    <Compile Include="Commands\Shipment\CreateShipmentInformationCommand.cs" />
+    <Compile Include="Commands\Facilities\GetFacilitiesCommand.cs" />
+    <Compile Include="Conductors\CreateCustomerContractConductor.cs" />
+    <Compile Include="Conductors\SalesOrderConductors.cs" />
+    <Compile Include="Conductors\CreateInventoryAdjustmentConductor.cs" />
+    <Compile Include="Conductors\MillAndWetdownConductors.cs" />
+    <Compile Include="Conductors\ProductionBatchResultsConductor.cs" />
+    <Compile Include="Conductors\CreateTreatmentOrderConductor.cs" />
+    <Compile Include="Conductors\CreateInterWarehouseOrderConductor.cs" />
+    <Compile Include="Conductors\RemovePackScheduleConductor.cs" />
+    <Compile Include="Conductors\RemoveProductionBatchConductor.cs" />
+    <Compile Include="Conductors\SetSalesOrderItemsConductor.cs" />
+    <Compile Include="Conductors\SetSalesOrderPickedInventoryConductor.cs" />
+    <Compile Include="Conductors\SetLotAttributesConductor.cs" />
+    <Compile Include="Conductors\UpdateCustomerContractConductor.cs" />
+    <Compile Include="Conductors\PickedInventoryConductorBase.cs" />
+    <Compile Include="Configuration\NinjectModules\KeysModule.cs" />
+    <Compile Include="Extensions\AttributeNameExtensions.cs" />
+    <Compile Include="Extensions\DataModels\ChileLotExtensions.cs" />
+    <Compile Include="Extensions\DataModels\CustomerOrderExtensions.cs" />
+    <Compile Include="Extensions\DataModels\ChileMaterialsReceivedItemExtensions.cs" />
+    <Compile Include="Extensions\DataModels\LotExtensions.cs" />
+    <Compile Include="Extensions\DataModels\LotTypeExtensions.cs" />
+    <Compile Include="Extensions\DataModels\PackagingProductExtensions.cs" />
+    <Compile Include="Extensions\DataModels\PickedInventoryItemExtensions.cs" />
+    <Compile Include="Extensions\DataModels\ShipmentInformationExtensions.cs" />
+    <Compile Include="Extensions\Keys\AdditiveProductKeyExtensions.cs" />
+    <Compile Include="Extensions\Keys\AdditiveTypeKeyExtensions.cs" />
+    <Compile Include="Extensions\Keys\ChileProductIngredientKeyExtensions.cs" />
+    <Compile Include="Extensions\Keys\ChileProductKeyExtensions.cs" />
+    <Compile Include="Extensions\Keys\PackagingProductKeyExtensions.cs" />
+    <Compile Include="Extensions\Keys\WarehouseKeyExtensions.cs" />
+    <Compile Include="Extensions\Keys\WorkTypeKeyExtensions.cs" />
+    <Compile Include="Extensions\Parameters\AdditiveProductParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\BatchResultItemParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ChileProductParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\CompanyExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ContactAddressExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ContactExtensions.cs" />
+    <Compile Include="Extensions\Parameters\CreateLotDefectParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\CreatePackScheduleParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\CreateProductionBatchParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ProductionResultParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\CreateProductParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\FilterContactsParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\RemoveChileProductIngredientParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ResolveLotDefectParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\SetChileProductAttributeRangeParameterExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ContractItemExtensions.cs" />
+    <Compile Include="Extensions\Parameters\CreateCustomerContractParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\CreateDehydratedMaterialsReceivedItemParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\ChileMaterialsReceivedParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\CreateInventoryAdjustmentParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\MillAndWetdownParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\CreateMillAndWetdownResultItemCommandParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\CustomerOrderItemExtensions.cs" />
+    <Compile Include="Extensions\Parameters\InventoryAdjustmentParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\MillAndWetdownPickedItemParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\MillAndWetdownResultItemParamtersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\SetChileProductIngredientParameterExtensions.cs" />
+    <Compile Include="Extensions\Parameters\SetLotAttributeParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\SetLotHoldStatusParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\TreatmentOrderSetPickOrderParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\UpdateCustomerContractParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\UpdatePackScheduleParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\UpdateProductionBatchParametersExtensions.cs" />
+    <Compile Include="Extensions\Parameters\UpdateProductParametersExtensions.cs" />
+    <Compile Include="Extensions\RepositoryExtensions.cs" />
+    <Compile Include="Extensions\UtilityModels\FilterParametersExtensions.cs" />
+    <Compile Include="Extensions\UtilityModels\ProductionBatchDetailReturnExtensions.cs" />
+    <Compile Include="Helpers\KeyParserHelper.cs" />
+    <Compile Include="Helpers\PickedInventoryHelper.cs" />
+    <Compile Include="Helpers\PredicateHelper.cs" />
+    <Compile Include="Helpers\ScheduleInventoryPickOrderItemsHelper.cs" />
+    <Compile Include="Enumerations\ScheduledStatus.cs" />
+    <Compile Include="Helpers\ToteKeyHelper.cs" />
+    <Compile Include="Helpers\ToteKeyParser.cs" />
+    <Compile Include="Helpers\EFUnitOfWorkHelper.cs" />
+    <Compile Include="Helpers\ValidateSalesOrderItemsHelper.cs" />
+    <Compile Include="LinqPredicates\CompanyPredicateBuilder.cs" />
+    <Compile Include="LinqPredicates\CompanyPredicates.cs" />
+    <Compile Include="LinqPredicates\ContactPredicateBuilder.cs" />
+    <Compile Include="LinqPredicates\ContactPredicates.cs" />
+    <Compile Include="LinqPredicates\ContractPredicateBuilder.cs" />
+    <Compile Include="LinqPredicates\ContractPredicates.cs" />
+    <Compile Include="LinqPredicates\CustomerOrderItemPredicates.cs" />
+    <Compile Include="LinqPredicates\SalesOrderPredicateBuilder.cs" />
+    <Compile Include="LinqPredicates\CustomerOrderPredicates.cs" />
+    <Compile Include="LinqPredicates\CustomerPredicates.cs" />
+    <Compile Include="LinqPredicates\InventoryAdjustmentPredicateBuilder.cs" />
+    <Compile Include="LinqPredicates\InventoryPredicateBuilder.cs" />
+    <Compile Include="LinqPredicates\InventoryAdjustmentPredicates.cs" />
+    <Compile Include="LinqPredicates\InventoryPickOrderItemPredicates.cs" />
+    <Compile Include="LinqPredicates\InventoryPredicates.cs" />
+    <Compile Include="LinqPredicates\LotPredicateBuilder.cs" />
+    <Compile Include="LinqPredicates\LotPredicates.cs" />
+    <Compile Include="LinqPredicates\PickedInventoryItemPredicates.cs" />
+    <Compile Include="LinqPredicates\ProductionBatchPredicates.cs" />
+    <Compile Include="LinqPredicates\LocationPredicates.cs" />
+    <Compile Include="LinqPredicates\ProductionResultItemPredicates.cs" />
+    <Compile Include="LinqPredicates\ProductionResultPredicates.cs" />
+    <Compile Include="LinqProjectors\AdditiveTypeProjectors.cs" />
+    <Compile Include="LinqProjectors\AttributeNameProjectors.cs" />
+    <Compile Include="LinqProjectors\ChileTypeProjectors.cs" />
+    <Compile Include="LinqProjectors\CompanyProjectors.cs" />
+    <Compile Include="LinqProjectors\ContactAddressProjectors.cs" />
+    <Compile Include="LinqProjectors\ContactProjectors.cs" />
+    <Compile Include="LinqProjectors\ContractItemProjectors.cs" />
+    <Compile Include="LinqProjectors\ContractProjectors.cs" />
+    <Compile Include="LinqProjectors\SalesOrderItemProjectors.cs" />
+    <Compile Include="LinqProjectors\SalesOrderProjectors.cs" />
+    <Compile Include="LinqProjectors\CustomerProjectors.cs" />
+    <Compile Include="LinqProjectors\ChileMaterialsReceivedItemProjectors.cs" />
+    <Compile Include="LinqProjectors\ChileMaterialsReceivedProjectors.cs" />
+    <Compile Include="LinqProjectors\InstructionProjectors.cs" />
+    <Compile Include="LinqProjectors\IntraWarehouseOrderProjectors.cs" />
+    <Compile Include="LinqProjectors\InventoryAdjustmentItemProjectors.cs" />
+    <Compile Include="LinqProjectors\InventoryAdjustmentProjectors.cs" />
+    <Compile Include="LinqProjectors\InventoryPickOrderItemProjectors.cs" />
+    <Compile Include="LinqProjectors\InventoryPickOrderProjectors.cs" />
+    <Compile Include="LinqProjectors\InventoryProjectors.cs" />
+    <Compile Include="LinqProjectors\InventoryTreatmentProjectors.cs" />
+    <Compile Include="LinqProjectors\LotAttributeDefectProjectors.cs" />
+    <Compile Include="LinqProjectors\LotAttributeProjectors.cs" />
+    <Compile Include="LinqProjectors\LotDefectProjectors.cs" />
+    <Compile Include="LinqProjectors\LotDefectResolutionProjectors.cs" />
+    <Compile Include="LinqProjectors\LotProjectors.cs" />
+    <Compile Include="LinqProjectors\NotebookProjectors.cs" />
+    <Compile Include="LinqProjectors\NoteProjectors.cs" />
+    <Compile Include="LinqProjectors\PackScheduleProjectors.cs" />
+    <Compile Include="LinqProjectors\PickedInventoryItemProjectors.cs" />
+    <Compile Include="LinqProjectors\PickedInventoryProjectors.cs" />
+    <Compile Include="LinqProjectors\ProductionBatchProjectors.cs" />
+    <Compile Include="LinqProjectors\LotProductionResultItemProjectors.cs" />
+    <Compile Include="LinqProjectors\LotProductionResultsProjectors.cs" />
+    <Compile Include="LinqProjectors\ProductProjectors.cs" />
+    <Compile Include="LinqProjectors\ShipmentInformationProjectors.cs" />
+    <Compile Include="LinqProjectors\TreatmentOrderProjectors.cs" />
+    <Compile Include="LinqProjectors\LocationProjectors.cs" />
+    <Compile Include="LinqProjectors\FacilityProjectors.cs" />
+    <Compile Include="LinqProjectors\WorkTypeProjectors.cs" />
+    <Compile Include="Models\AdditiveProductReturn.cs" />
+    <Compile Include="Models\AdditiveTypeReturn.cs" />
+    <Compile Include="Models\AttributeNameAndType.cs" />
+    <Compile Include="Models\AttributesByTypeReturn.cs" />
+    <Compile Include="Models\ChileProductAttributeRangeReturn.cs" />
+    <Compile Include="Models\ChileProductReturn.cs" />
+    <Compile Include="Models\ChileTypeSummaryReturn.cs" />
+    <Compile Include="Models\CustomerCompanyNoteReturn.cs" />
+    <Compile Include="Models\ContactAddressReturn.cs" />
+    <Compile Include="Models\ContactSummaryReturn.cs" />
+    <Compile Include="Models\ContractItemReturn.cs" />
+    <Compile Include="Models\ContractSummaryReturn.cs" />
+    <Compile Include="Models\ContractOrdersReturn.cs" />
+    <Compile Include="Models\CustomerContractOrderItemReturn.cs" />
+    <Compile Include="Models\CustomerContractOrderReturn.cs" />
+    <Compile Include="Models\SalesOrderItemReturn.cs" />
+    <Compile Include="Models\SalesOrderDetailReturn.cs" />
+    <Compile Include="Models\ChileMaterialsReceivedItemReturn.cs" />
+    <Compile Include="Models\ChileMaterialsReceivedReturn.cs" />
+    <Compile Include="Models\IntraWarehouseOrderReturn.cs" />
+    <Compile Include="Models\InventoryAdjustmentItemReturn.cs" />
+    <Compile Include="Models\InventoryAdjustmentReturn.cs" />
+    <Compile Include="Models\KeyReturns\AdditiveTypeKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\ChileTypeKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\CompanyKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\ContactAddressKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\ContactKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\ContractItemKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\ContractKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\SalesOrderItemKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\SalesOrderKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\ChileMaterialsReceivedItemKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\InventoryAdjustmentItemKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\InventoryAdjustmentKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\LotDefectKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\NotebookKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\NoteKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\WorkTypeKeyReturn.cs" />
+    <Compile Include="Models\LotAttributeDefectReturn.cs" />
+    <Compile Include="Models\LotAttributeReturn.cs" />
+    <Compile Include="Models\InventoryPickOrderReturn.cs" />
+    <Compile Include="Models\InventoryShipmentOrderDetailReturn.cs" />
+    <Compile Include="Models\KeyReturns\InstructionKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\IntraWarehouseOrderKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\InventoryKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\InventoryPickOrderKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\InventoryTreatmentKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\LotKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\PackScheduleKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\PickedInventoryItemKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\PickedInventoryKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\LotProductionResultItemKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\ProductionScheduleKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\ProductKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\ShipmentInformationKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\TreatmentOrderKeyReturn.cs" />
+    <Compile Include="Models\KeyReturns\FacilityKeyReturn.cs" />
+    <Compile Include="Models\LotDefectResolutionReturn.cs" />
+    <Compile Include="Models\LotDefectReturn.cs" />
+    <Compile Include="Models\LotReturn.cs" />
+    <Compile Include="Models\LotSummariesReturn.cs" />
+    <Compile Include="Models\MillAndWetdownResultItemReturn.cs" />
+    <Compile Include="Models\MillAndWetdownReturn.cs" />
+    <Compile Include="Models\NotebookReturn.cs" />
+    <Compile Include="Models\NoteReturn.cs" />
+    <Compile Include="Models\PackScheduleSummaryReturn.cs" />
+    <Compile Include="Models\PickedInventoryItemReturn.cs" />
+    <Compile Include="Models\PickedInventoryReturn.cs" />
+    <Compile Include="Models\InventoryItemReturn.cs" />
+    <Compile Include="Models\InventoryProductCommonReturn.cs" />
+    <Compile Include="Models\InventoryProductReturn.cs" />
+    <Compile Include="Models\InventoryReturn.cs" />
+    <Compile Include="Models\InventoryTreatmentReturn.cs" />
+    <Compile Include="Models\PackagingProductReturn.cs" />
+    <Compile Include="Models\ProductionResultItemReturn.cs" />
+    <Compile Include="Models\ProductBaseReturn.cs" />
+    <Compile Include="Models\ProductIngredientReturn.cs" />
+    <Compile Include="Models\ProductionResultReturn.cs" />
+    <Compile Include="Models\ResolutionsByDefectTypeReturn.cs" />
+    <Compile Include="Models\ScheduledProductionBatchReturn.cs" />
+    <Compile Include="Models\SetPickedInventoryParameters.cs" />
+    <Compile Include="Models\ShipmentReturn.cs" />
+    <Compile Include="Models\ChileProductIngredientWithAdditiveType.cs" />
+    <Compile Include="Models\ChileProductWithIngredients.cs" />
+    <Compile Include="Models\PickedInventoryItems.cs" />
+    <Compile Include="Models\ProductionBatchReturn.cs" />
+    <Compile Include="Models\ProductionBatchMaterialsSummary.cs" />
+    <Compile Include="Models\ProductionBatchPackagingMaterialSummary.cs" />
+    <Compile Include="Models\ShippingInstructions.cs" />
+    <Compile Include="Models\TransitInformation.cs" />
+    <Compile Include="Models\TreatmentOrderDetailReturn.cs" />
+    <Compile Include="Models\LocationReturn.cs" />
+    <Compile Include="Models\FacilityReturn.cs" />
+    <Compile Include="Models\WorkTypeReturn.cs" />
+    <Compile Include="OldContextSynchronization\SynchronizeOldContextException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\CompanyServiceProvider.cs" />
+    <Compile Include="Providers\SalesServiceProvider.cs" />
+    <Compile Include="Providers\MaterialsServiceProvider.cs" />
+    <Compile Include="Providers\EmployeesServiceProvider.cs" />
+    <Compile Include="Providers\FacilityServiceProvider.cs" />
+    <Compile Include="Providers\IntraWarehouseOrderServiceProvider.cs" />
+    <Compile Include="Providers\InventoryServiceProvider.cs" />
+    <Compile Include="Providers\InventoryAdjustmentsProvider.cs" />
+    <Compile Include="Providers\InventoryShipmentOrderServiceProvider.cs" />
+    <Compile Include="Providers\MillAndWetdownServiceProvider.cs" />
+    <Compile Include="Providers\NotebookServiceProvider.cs" />
+    <Compile Include="Providers\ProductionServiceProvider.cs" />
+    <Compile Include="Providers\ProductionResultsProvider.cs" />
+    <Compile Include="Providers\ProductServiceProvider.cs" />
+    <Compile Include="Providers\LotServiceProvider.cs" />
+    <Compile Include="Providers\SampleOrderServiceProvider.cs" />
+    <Compile Include="Providers\TreatmentOrderServiceProvider.cs" />
+    <Compile Include="Providers\WarehouseOrderServiceProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RioValleyChili.Business.Core\RioValleyChili.Business.Core.csproj">
+      <Project>{8C1D922C-F8EE-43CF-B7CF-F75FFF37156A}</Project>
+      <Name>RioValleyChili.Business.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Client.Core\RioValleyChili.Client.Core.csproj">
+      <Project>{1006BA6A-696F-49A3-BEA6-DD5B9060993B}</Project>
+      <Name>RioValleyChili.Client.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Core\RioValleyChili.Core.csproj">
+      <Project>{b4a2b7da-4f15-4b75-a65f-025c32564ea0}</Project>
+      <Name>RioValleyChili.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Data.Models\RioValleyChili.Data.Models.csproj">
+      <Project>{12191B6E-B491-4398-83D2-4878ECBDAFD1}</Project>
+      <Name>RioValleyChili.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Data\RioValleyChili.Data.csproj">
+      <Project>{913719C1-AB84-4D23-A9D0-4637A5B14CFA}</Project>
+      <Name>RioValleyChili.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Services.Interfaces\RioValleyChili.Services.Interfaces.csproj">
+      <Project>{3E39194C-CC95-4A72-83D1-02C8572D2804}</Project>
+      <Name>RioValleyChili.Services.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Services.Interfaces\RioValleyChili.Services.Interfaces.csproj">
+      <Project>{3E39194C-CC95-4A72-83D1-02C8572D2804}</Project>
+      <Name>RioValleyChili.Services.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Services.Models\RioValleyChili.Services.Models.csproj">
+      <Project>{9824AB54-2038-489D-97EA-176FE0F0CBA8}</Project>
+      <Name>RioValleyChili.Services.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Services.OldContextSynchronization\RioValleyChili.Services.OldContextSynchronization.csproj">
+      <Project>{f6a20d58-18ed-49de-b66a-fa3d7763fd46}</Project>
+      <Name>RioValleyChili.Services.OldContextSynchronization</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\TreatmentOrder\" />
+    <Folder Include="Commands\WarehouseOrder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="favico-32x32.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <Import Project="..\..\..\packages\PostSharp.4.3.22\tools\PostSharp.targets" Condition="Exists('..\..\..\packages\PostSharp.4.3.22\tools\PostSharp.targets')" />
+  <Target Name="EnsurePostSharpImported" BeforeTargets="BeforeBuild" Condition="'$(PostSharp30Imported)' == ''">
+    <Error Condition="!Exists('..\..\..\packages\PostSharp.4.3.22\tools\PostSharp.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://www.postsharp.net/links/nuget-restore." />
+    <Error Condition="Exists('..\..\..\packages\PostSharp.4.3.22\tools\PostSharp.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://www.postsharp.net/links/nuget-restore." />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

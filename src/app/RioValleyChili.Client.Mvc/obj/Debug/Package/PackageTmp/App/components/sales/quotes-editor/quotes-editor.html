@@ -1,0 +1,228 @@
+﻿<!-- ko with: editor -->
+<section>
+  <div class="row">
+    <div class="form-group col-sm-6 col-md-4" data-bind="validationElement: QuoteDate">
+      <label class="control-label" for="editor-quote-date">Quote Date</label>
+      <input id="editor-quote-date" class="form-control" type="text" data-bind="datePicker: QuoteDate">
+    </div>
+    <div class="form-group col-sm-6 col-md-4">
+      <label class="control-label" for="editor-quote-date-received">Quote Date Received</label>
+      <input id="editor-quote-date-received" class="form-control" type="text" data-bind="datePicker: DateReceived">
+    </div>
+    <div class="form-group col-sm-6 col-md-4">
+      <label class="control-label" for="editor-ship-from">Ship From</label>
+      <select id="editor-ship-from" class="form-control" name="" data-bind="value: SourceFacility, options: options.facilities, optionsText: 'FacilityName', optionsValue: 'FacilityKey', optionsCaption: ' '"></select>
+    </div>
+    <div class="form-group col-sm-6 col-md-4">
+      <label class="control-label" for="editor-customer">Customer</label>
+      <product-selector params="productsSource: options.customers,
+        optionsDisplay: 'Name',
+        optionsValue: 'CompanyKey',
+        selectedValue: Customer">
+      </product-selector>
+    </div>
+    <div class="form-group col-sm-6 col-md-4">
+      <label class="control-label" for="editor-broker">Broker</label>
+      <select id="editor-broker" class="form-control" name="" data-bind="value: Broker, options: options.brokers, optionsText: 'Name', optionsValue: 'CompanyKey', optionsCaption: ' '"></select>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="panel panel-primary">
+    <div class="panel-body">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active" role="presentation"><a href="#shipping" aria-controls="shipping" role="tab" data-toggle="tab">Shipping</a></li>
+        <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">Notes</a></li>
+        <li role="presentation"><a href="#items" aria-controls="items" role="tab" data-toggle="tab">Items</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <br>
+        <div id="shipping" class="tab-pane active" role="tabpanel" data-bind="template: 'editor-shipping'"></div>
+        <div id="notes" class="tab-pane" role="tabpanel" data-bind="template: 'editor-notes'"></div>
+        <div id="items" class="tab-pane" role="tabpanel" data-bind="template: 'editor-items-table'"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /ko -->
+
+<script id="editor-shipping" type="text/html">
+  <section class="row">
+    <div class="form-group col-sm-6 col-md-4">
+      <label class="control-label" for="editor-required-delivery-date">Required Delivery Date</label>
+      <input id="editor-required-delivery-date" class="form-control" type="text" data-bind="datePicker: RequiredDeliveryDate">
+    </div>
+    <div class="form-group col-sm-6 col-md-4">
+      <label class="control-label" for="editor-scheduled-delivery-date">Scheduled Ship Date</label>
+      <input id="editor-scheduled-delivery-date" class="form-control" type="text" data-bind="datePicker: ScheduledShipDate">
+    </div>
+    <div class="form-group col-sm-6 col-md-4">
+      <label class="control-label" for="editor-called-by">Called By</label>
+      <input id="editor-editor-called-by" class="form-control" type="text" data-bind="textinput: CalledBy">
+    </div>
+    <div class="form-group col-sm-6 col-md-4">
+      <label class="control-label" for="editor-taken-by">Taken By</label>
+      <input id="editor-taken-by" class="form-control" type="text" data-bind="textinput: TakenBy">
+    </div>
+    <div class="form-group col-sm-6 col-md-4">
+      <label class="control-label" for="editor-payment-terms">Payment Terms</label>
+      <input id="editor-payment-terms" class="form-control" type="text" data-bind="value: PaymentTerms, autocomplete: {
+        allowNewValues: true,
+        source: options.paymentTerms,
+        autoFocus: true
+      }">
+    </div>
+    <div class="form-group col-sm-6 col-md-4">
+      <label class="control-label" for="editor-freight">Freight</label>
+      <input id="editor-freight" class="form-control" type="text" data-bind="textinput: FreightType">
+    </div>
+    <div class="form-group col-sm-6 col-md-4">
+      <label class="control-label" for="editor-ship-via">Ship Via</label>
+      <input id="editor-ship-via" class="form-control" type="text" data-bind="value: ShipmentMethod, autocomplete: {
+        allowNewValues: true,
+        source: options.shipmentMethods,
+        autoFocus: true
+      }">
+    </div>
+  </section>
+
+  <button class="btn btn-default" data-bind="command: showAddressPicker"><i class="fa fa-book"></i> Address Book</button>
+  <label-helper params="visible: isPickingAddress,
+    key: customerKey,
+    companies: options.customers,
+    buttons: shippingButtons">
+  </label-helper>
+  <section class="row">
+  <br>
+    <div class="col-xs-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4 class="panel-title">Sold To</h4>
+        </div>
+        <div class="panel-body">
+          <contact-label params="input: SoldTo,
+            exports: soldToExports">
+          </contact-label>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4 class="panel-title">Ship To</h4>
+        </div>
+        <div class="panel-body">
+          <contact-label params="input: ShipTo,
+            exports: shipToExports">
+          </contact-label>
+        </div>
+      </div>
+    </div>
+  </section>
+</script>
+
+<script id="editor-notes" type="text/html">
+  <div class="form-group">
+    <label class="control-label" for="editor-special-instructions">Special Instructions</label>
+    <textarea id="editor-special-instructions" class="form-control vertical-resize" rows="5" data-bind="textinput: SpecialInstructions"></textarea>
+    <p class="help-block">
+      <span data-bind="text: SpecialInstructions() | length"></span> / <span data-bind="text: $parent.APP_CONSTANTS.INVOICE_NOTE_LENGTH"></span>
+    </p>
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="editor-internal">Internal Instructions that Appear on the Pick Shee</label>
+    <textarea id="editor-internal" class="form-control vertical-resize" rows="5" data-bind="textinput: InternalNotes"></textarea>
+    <p class="help-block">
+      <span data-bind="text: InternalNotes() | length"></span> / <span data-bind="text: $parent.APP_CONSTANTS.INVOICE_NOTE_LENGTH"></span>
+    </p>
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="editor-external">External Instructions that Appear on the Pick Sheet</label>
+    <textarea id="editor-external" class="form-control vertical-resize" rows="5" data-bind="textinput: ExternalNotes"></textarea>
+    <p class="help-block">
+      <span data-bind="text: ExternalNotes() | length"></span> / <span data-bind="text: $parent.APP_CONSTANTS.INVOICE_NOTE_LENGTH"></span>
+    </p>
+  </div>
+</script>
+
+<script id="editor-items-table" type="text/html">
+  <div class="table-responsive">
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th></th>
+          <th colspan="3">Product</th>
+          <th colspan="2">Customer Code</th>
+          <th colspan="2">Packaging</th>
+          <th colspan="2">Treatment</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>Quantity</th>
+          <th>Weight</th>
+          <th>Price<br>/lb</th>
+          <th>Freight<br>/lb</th>
+          <th>Treatment<br>/lb</th>
+          <th>Warehouse<br>/lb</th>
+          <th>Rebate<br>/lb</th>
+          <th>Total<br>/lb</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody data-bind="foreach: Items">
+        <tr>
+          <td class="valign-middle" rowspan="2" db><button class="btn btn-link" data-bind="command: $parent.removeItem"><i class="fa fa-times"></i></button></td>
+          <td colspan="3" data-bind="validationElement: Product">
+            <select class="form-control" data-bind="value: Product, options: $parent.options.products, optionsText: 'ProductCodeAndName', optionsValue: 'ProductKey', optionsCaption: ' '"></select>
+          </td>
+          <td colspan="2">
+            <input class="form-control" type="text" data-bind="textinput: CustomerProductCode">
+          </td>
+          <td colspan="2" data-bind="validationElement: Packaging">
+            <select class="form-control" data-bind="value: Packaging, options: $parent.options.packaging, optionsText: 'ProductName', optionsCaption: ' '"></select>
+          </td>
+          <td colspan="2" data-bind="validationElement: TreatmentKey">
+            <select class="form-control" data-bind="value: TreatmentKey, options: $parent.options.treatments, optionsText: 'value', optionsValue: 'key', optionsCaption: ' '"></select>
+          </td>
+        </tr>
+        <tr>
+          <td data-bind="validationElement: Quantity">
+            <input class="form-control" type="text" data-bind="textinput: Quantity">
+          </td>
+          <td>
+            <p class="form-control-static" data-bind="text: TotalWeight | default: '-'">
+          </td>
+          <td data-bind="validationElement: PriceBase">
+            <input class="form-control" type="text" data-bind="value: PriceBase">
+          </td>
+          <td data-bind="validationElement: PriceFreight">
+            <input class="form-control" type="text" data-bind="value: PriceFreight">
+          </td>
+          <td data-bind="validationElement: PriceTreatment">
+            <input class="form-control" type="text" data-bind="value: PriceTreatment">
+          </td>
+          <td data-bind="validationElement: PriceWarehouse">
+            <input class="form-control" type="text" data-bind="value: PriceWarehouse">
+          </td>
+          <td data-bind="validationElement: PriceRebate">
+            <input class="form-control" type="text" data-bind="value: PriceRebate">
+          </td>
+          <td>
+            <p class="form-control-static" data-bind="text: TotalCostPerLb | USD">
+          </td>
+          <td>
+            <p class="form-control-static" data-bind="text: TotalCost | USD">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary btn-block" data-bind="command: addItem">Add Item</button>
+  </div>
+</script>
+

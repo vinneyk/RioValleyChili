@@ -1,0 +1,109 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Edit State Manager";
+}
+
+<h2>Edit State Manager</h2>
+
+<div data-bind="text: esm.debugText"></div>
+
+<section id="editor" data-bind="visible: isEditable">
+    <div>
+        <label for="firstName">First Name</label>
+        <input id="firstName" data-bind="value: firstName" />
+    </div>
+    <div>
+        <label for="lastName">Last Name</label>
+        <input id="lastName" data-bind="value: lastName"/>
+    </div>
+    <div>
+        <label for="dateOfBirth">DOB</label>
+        <input id="dateOfBirth" data-bind="value: dateOfBirth"/>
+        <span data-bind="text: numberOfDaysOld"></span>
+    </div>
+    <div>
+        <label for="emailAddress">Email Address</label>
+        <input id="emailAddress" data-bind="value: emailAddress"/>
+    </div>
+</section>
+<section id="readonly" data-bind="visible: isReadonly">
+    <div>
+        <label>Name</label>
+        <span data-bind="text: fullName"></span>
+    </div>
+    <div>
+        <label>DOB</label>
+        <span data-bind="text: dateOfBirth"></span>
+        <span data-bind="text: numberOfDaysOld"></span>
+    </div>
+    <div>
+        <label>Email Address</label>
+        <span data-bind="text: emailAddress"></span>
+    </div>
+</section>
+
+<section data-bind="with: esm">
+    <input type="button" data-bind="command: beginEditingCommand" value="Edit" />
+    <input type="button" data-bind="command: endEditingCommand" value="End Edit" />
+    <input type="button" data-bind="command: cancelEditsCommand" value="Cancel" />
+    <input type="button" data-bind="command: resetEditsCommand" value="Reset Form" />
+    <input type="button" data-bind="command: saveEditsCommand" value="Save Changes" />
+</section>
+
+@section scripts
+{
+<script src="~/Scripts/knockout.dirtyFlag.js"></script>
+<script src="~/Scripts/knockout.command.js"></script>
+<script src="~/Scripts/knockout.editStateManager.js"></script>
+
+<script>
+    (function () {
+        var vm = {
+            firstName: ko.observable(),
+            lastName: ko.observable(),
+            emailAddress: ko.observable(),
+            dateOfBirth: ko.observable(),
+        };
+        
+        // computed properties are not tracked
+        vm.fullName = ko.computed(function() {
+            return vm.lastName() + ", " + vm.firstName();
+        });
+        
+        // computed properties with write functions can be tracked (?)
+        vm.numberOfDaysOld = ko.computed({
+            read: function () {
+                if (vm.dateOfBirth() == undefined) return null;
+                var one_day = 1000 * 60 * 60 * 24;
+                var today = new Date();
+                var dob = new Date(vm.dateOfBirth());
+                return ((today.getTime() - dob.getTime()) / one_day) + " days old";
+            },
+            write: function (value) {
+                dateOfBirth += 1;
+            },
+        });
+
+        vm.esm = new ko.EditStateManager(vm, {
+            initializeAsEditing: true,
+            ignore: ['esm', 'isReadonly', 'isEditable'],
+        });
+        vm.isReadonly = ko.computed(function() {
+            return !this.isEditing();
+        }, vm.esm);
+        vm.isEditable = ko.computed(function() {
+            return this.isEditing();
+        }, vm.esm);
+        
+        vm.esm.refreshState();
+        ko.applyBindings(vm);
+        
+        //todo: implement validation
+        function isValid() {
+            return vm.firstName() != undefined
+                && vm.lastName() != undefined;
+        }
+    }());
+</script>   
+}

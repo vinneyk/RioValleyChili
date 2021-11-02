@@ -1,0 +1,243 @@
+﻿<script id="production-batch-template" type="text/html">
+  <nav data-bind="click: selectBatch" id="batches-nav">
+    <!-- ko template: {name: 'production-batch-summary-item-template', foreach: ProductionBatches} -->
+    <!-- /ko -->
+    <a class="button" data-bind="command: initializeNewBatchCommand, preventBubble: 'click', css: { current: SelectedProductionBatch() && SelectedProductionBatch().isNew }">Create Batch</a>
+  </nav>
+
+  <!-- ko if: SelectedProductionBatch -->
+  <article data-bind="template: { name: 'production-batch-details-template', data: SelectedProductionBatch }, pageData: SelectedProductionBatch"></article>
+
+  <div style="height: 100px;"></div>
+
+  <section data-bind="popup: pickInventory, cancelPopupCommand: cancelPickingInventoryCommand">
+    <div class="well well-sm no-margin">
+      <span>
+        <b style="font-size: 1.3em" data-bind="text: pickingContextKey"></b>
+        Total Pounds Picked for Batch: <b data-bind="text: totalWeightPicked"></b>
+        (Target: <span data-bind="text: currentBatchTargetWeight | tryNumber:'0'"></span> lbs)
+      </span>
+    </div>
+    <inventory-picker params="data: {
+      pickingContext: inventoryPickerOpts.pickingContext,
+      pickingContextKey: inventoryPickerOpts.pickingContextKey,
+      pickedInventoryItems: inventoryPickerOpts.pickedInventoryItems,
+      pageSize: inventoryPickerOpts.pageSize,
+      filters: inventoryPickerOpts.filters,
+      targetProduct: inventoryPickerOpts.targetProduct,
+      customerLotCode: inventoryPickerOpts.customerLotCode,
+      customerProductCode: inventoryPickerOpts.customerProductCode,
+      customerKey: ko.unwrap( Customer ) && ko.unwrap( Customer ).CompanyKey
+    },
+    exports: inventoryPicker,
+    checkOutOfRange: checkOutOfRange"></inventory-picker>
+  </section>
+  <!-- /ko -->
+</script>
+
+<script id="production-batch-summary-item-template" type="text/html">
+  <a class="button" data-bind="css: {delete: ajaxFailure, current: isSelected }">
+    <span data-bind="text: OutputLotKey"></span>
+    <span data-bind="ajaxStatus: $data, visible: ajaxWorking"></span>
+    <input type="button" value="Retry" data-bind="command: $parent.getProductionBatchDetailsCommand, visible: ajaxFailure" />
+  </a>
+</script>
+
+
+<script id="production-batch-details-template" type="text/html">
+  <p class="pull-right">
+    <!-- ko ifnot: isNew --><button class="btn btn-danger" data-bind="command: $parent.deleteProductionBatchCommand"><i class="fa fa-trash-o fa-2x"></i></button><!-- /ko -->
+  </p>
+
+  <hgroup>
+    <h2 data-bind="text: title"></h2>
+    <h3 data-bind="text: status"></h3>
+  </hgroup>
+
+
+  <div data-bind="tabs: true">
+    <ol title="Production Batch">
+      <li><a href="#batch-header">Batch Header</a></li>
+      <li><a href="#picked-items" data-bind="visible: !isNew">Picked Items</a></li>
+      <li data-bind="css: { 'invisible': !Notebook() }, visible: !isNew"><a href="#instructions-list">Instructions</a></li>
+    </ol>
+
+    <section id="batch-header" data-bind="template: 'production-batch-header-template'"></section>
+    <section id="picked-items">
+      <p><b>Total Pounds</b>: <span data-bind="text: $parent.totalWeight"></span></p>
+      <!-- ko foreach: $parent.pickedInventoryOptions -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 data-bind="text: inventoryTypeName" class="panel-title"></h4>
+        </div>
+        <div class="table-container">
+          <picked-inventory-table params="input: $data"></picked-inventory-table>
+        </div>
+      </div>
+      <!-- /ko -->
+    </section>
+    <section id="instructions-list">
+        <instructions-editor params="options: $parent.BatchInstructionOptions,
+        input: Notebook">
+        </instructions-editor>
+    </section>
+  </div>
+</script>
+
+<script id="production-batch-header-template" type="text/html">
+  <fieldset class="editor container-fluid">
+    <legend>Batch Information</legend>
+
+    <button class="btn btn-default pull-right" data-bind="command: beginEditingCommand, visible: !isEditing()"><i class="fa fa-pencil-square-o fa-2x"></i></button>
+
+    <div class="form">
+      <div class="row">
+        {{ #if: isNew }}
+        <div class="form-group col-md-12 col-lg-12 bg-warning">
+          <label class="control-label">Lot #</label>
+          <input type="text" data-bind="textInput: OverrideLotKey.formattedLot" class="form-control" placeholder="Only used for correcting missing data" />
+        </div>
+        {{ /if }}
+
+        <div class="form-group col-md-4 col-lg-3">
+          <label class="control-label">Target Weight</label>
+          <input type="text" data-bind="value: BatchTargetWeight, attr: { readonly: !isEditing() }" class="form-control" />
+        </div>
+        <div class="form-group col-md-4 col-lg-3">
+          <label>Units to Produce</label>
+          <span id="numberOfPackagingUnitsDisplay" class="help-block">
+            <!-- ko text: NumberOfPackagingUnits --><!-- /ko --> *
+            <!-- ko text: $parent.batchPackagingDescription --><!-- /ko -->
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-4 col-lg-3">
+          <label class="control-label">Target Asta</label>
+          <input type="text" data-bind="value: BatchTargetAsta, attr: { readonly: !isEditing() }" class="form-control" />
+        </div>
+        <div class="form-group col-md-4 col-lg-3">
+          <label class="control-label">Target Scoville</label>
+          <input type="text" data-bind="value: BatchTargetScoville, attr: { readonly: !isEditing() }" class="form-control" />
+        </div>
+        <div class="form-group col-md-4 col-lg-3">
+          <label class="control-label">Target Scan</label>
+          <input type="text" data-bind="value: BatchTargetScan, attr: { readonly: !isEditing() }" class="form-control" />
+        </div>
+        <div class="form-group col-md-4 col-lg-3">
+          <label class="control-label">Notes</label>
+          <input type="text" data-bind="value: Notes, attr: { readonly: !isEditing() }" class="form-control" />
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <input type="button" data-bind="command: $parent.saveProductionBatchCommand, visible: isEditing" value="Save" class="save" />
+      <input type="button" data-bind="command: $parent.cancelProductionBatchEditsCommand, visible: isEditing" value="Cancel" />
+
+    </div>
+  </fieldset>
+
+  <section data-bind="if: ProductionBatchKey" class="container-fluid">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">Summary of Input Materials</h4>
+      </div>
+      <div class="row panel-body">
+        <div class="col-lg-7">
+          <table class="table table-condensed table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Ingredient (BOM %)</th>
+                <th>Target Weight</th>
+                <th>Weight Picked</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody data-bind="template: {foreach: PickedChileInputs, name: 'picked-ingredient-summary-template'}"></tbody>
+            <tbody data-bind="template: {foreach: PickedAdditiveIngredients, name: 'picked-ingredient-summary-template'}"></tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td data-bind="text: sumTargetWeight | number"></td>
+                <td data-bind="text: sumWeightPicked | number"></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Packaging Materials</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-4">
+            <table class="table table-condensed table-bordered table-striped" data-bind="if: hasPickedPackaging">
+              <thead>
+                <tr>
+                  <th>Packaging</th>
+                  <th>Quantity Picked</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody data-bind="foreach: PackagingMaterialSummaries">
+                <tr>
+                  <td data-bind="text: ProductName"></td>
+                  <td data-bind="text: QuantityPicked"></td>
+                  <td><a data-bind="click: function() { $parents[1].beginPickInventoryCommand.execute($data); }" href="#">Pick</a></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr class="table-totals">
+                  <td></td>
+                  <td data-bind="text: packagingTotal"></td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div class="row" data-bind="with: $parent">
+          <auto-inventory-picker params="pickingContext: inventoryPickerOpts.pickingContext,
+                            lotKey: inventoryPickerOpts.pickingContextKey,
+                            pickedItems: inventoryPickerOpts.pickedInventoryItems,
+                            inventoryType: 5,
+                            product: defaultPackaging,
+                            enable: canPickPackaging,
+                            exports: autoPickerVm"></auto-inventory-picker>
+        </div>
+      </div>
+    </div>
+  </section>
+</script>
+
+<script id="picked-ingredient-summary-template" type="text/html">
+  <tr>
+    <td><span data-bind="text: IngredientName"></span> (<em data-bind="text: TargetPercentageDisplay"></em>)</td>
+    <td data-bind="text: TargetWeight | number"></td>
+    <td data-bind="text: WeightPicked | number"></td>
+    <td><a data-bind="click: function() { $parents[1].beginPickInventoryCommand.execute($data); }" href="#">Pick</a></td>
+  </tr>
+</script>
+
+<script id="batch-controls-template" type="text/html">
+  <fieldset data-bind="slideVisible: pickInventory">
+    <legend>Inventory Picking Controls</legend>
+    <input type="button" value="Save Picked Inventory" data-bind="command: savePickedInventoryCommand" class="save" />
+    <input type="button" value="Cancel Picking" data-bind="command: cancelPickingInventoryCommand, value: cancelPickText" class="delete" />
+
+
+    <h3>Filters</h3>
+    <input type="button" value="Load Inventory Items" data-bind="command: loadInventoryCommand" />
+    <inventory-filters params="exports: filtersExports,
+                                   input: filtersInput,
+                                   options: $parent.options,
+                                   mode: 'inventory'"></inventory-filters>
+  </fieldset>
+</script>

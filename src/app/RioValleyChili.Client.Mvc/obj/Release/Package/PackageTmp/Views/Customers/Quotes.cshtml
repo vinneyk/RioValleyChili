@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Quotes";
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+}
+
+@section controlPanel
+{
+<section data-bind="visible: isInit">
+  <section data-bind="if: !isEditing()">
+    <fieldset>
+      <legend>Quote Controls</legend>
+      <input type="button" value="Start New Quote" data-bind="command: startNewQuote">
+    </fieldset>
+    <fieldset data-bind="with: summaryFilters">
+      <legend>Filters</legend>
+      <input type="button" value="Load More" data-bind="command: $parent.loadMore">
+      <div class="form-group">
+        <label for="filters-customer">Customer</label>
+        <select id="filters-customer" class="form-control" data-bind="value: customerKey, options: $parent.options.customers, optionsText: 'Name', optionsValue: 'CompanyKey', optionsCaption: ' '"></select>
+      </div>
+      <div class="form-group">
+        <label for="filters-broker">Broker</label>
+        <select id="filters-broker" class="form-control" data-bind="value: brokerKey, options: $parent.options.brokers, optionsText: 'Name', optionsValue: 'CompanyKey', optionsCaption: ' '"></select>
+      </div>
+      <div class="form-group">
+        <label for="filters-date-start">Date Start</label>
+        <input id="filters-date-start" class="form-control" type="text" data-bind="datePicker: quoteDateStart">
+      </div>
+      <div class="form-group">
+        <label for="filters-date-end">Date End</label>
+        <input id="filters-date-end" class="form-control" type="text" data-bind="datePicker: quoteDateEnd">
+      </div>
+    </fieldset>
+  </section>
+  <section data-bind="if: isEditing() && !isPickingAddress()">
+    <fieldset>
+      <legend>Quote Controls</legend>
+      <input class="save" type="button" value="Save" data-bind="command: saveQuote">
+      <input type="button" value="Close" data-bind="command: closeQuote, css: { 'delete': isEditorDirty }, value: isEditorDirty() ? 'Cancel' : 'Close'">
+    </fieldset>
+    <!-- ko ifnot: isNew -->
+    <fieldset>
+      <legend>Reports</legend>
+      <ul class="link-list">
+        <li>
+          <a href="#" data-bind="attr: { 'href': salesQuoteReport }">Sales Quote</a>
+        </li>
+      </ul>
+    </fieldset>
+    <!-- /ko -->
+  </section>
+  <section data-bind="if: isEditing() && isPickingAddress()">
+    <fieldset>
+      <legend>Address Picker</legend>
+      <input type="button" value="Close Picker" data-bind="command: closeAddressPicker">
+    </fieldset>
+  </section>
+</section>
+}
+
+<h2>Quotes</h2>
+
+<section data-bind="ifnot: isInit">
+  <div class="well text-center"><i class="fa fa-spinner fa-pulse fa-3x"></i></div>
+</section>
+<section data-bind="if: isInit">
+  <!-- ko with: summaryUI -->
+  <quotes-summary params="input: input,
+    selected: selected,
+    exports: exports">
+  </quotes-summary>
+  <!-- /ko -->
+</section>
+
+<section>
+  <div data-bind="popup: editorUI.input, closePopupCommand: closeQuote.execute, if: editorUI.input">
+    <hgroup>
+      <h2>Edit Quote</h2>
+      <h3 data-bind="text: isNew() ? 'New Quote' : editorUI.input().QuoteNumber"></h3>
+    </hgroup>
+    <!-- ko with: editorUI -->
+    <quotes-editor params="input: input,
+      options: options,
+      exports: exports">
+    </quotes-editor>
+    <!-- /ko -->
+  </div>
+</section>
+
+<loading-screen params="isVisible: !loadMore.canExecute(),
+  displayMessage: 'Loading quote summaries...'">
+</loading-screen>
+<loading-screen params="isVisible: isLoadingDetails,
+  displayMessage: 'Loading quote details...'">
+</loading-screen>
+<loading-screen params="isVisible: isSaving,
+  displayMessage: 'Saving quote...'">
+</loading-screen>
+
+@section scripts
+{
+<script src="/App/build/quotes.bundle.js?v=@Html.AppVersion()"></script>
+}

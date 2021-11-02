@@ -1,0 +1,8 @@
+﻿<div class="rvc-metric rvc-control" style="padding: 20px 0 10px">
+    <ul class="rvc-metrics-vertical" data-bind="foreach: metrics">
+        <li data-bind="css: { 'warning' : NotificationLevel === NotificationLevels.Warning, 'information': NotificationLevel === NotificationLevels.Information}" class="warning">
+            <div class="rvc-metric-caption" data-bind="text: Description"></div>
+            <div class="rvc-metric-data" data-bind="text: Count"></div>
+        </li>
+    </ul>
+</div>

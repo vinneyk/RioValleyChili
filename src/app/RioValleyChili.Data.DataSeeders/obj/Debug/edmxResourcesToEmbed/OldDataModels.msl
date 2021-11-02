@@ -1,0 +1,2430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RioAccessSQLModelStoreContainer" CdmEntityContainer="RioAccessSQLEntities">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="Serialized" ColumnName="Serialized" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="CType" ColumnName="CType" />
+          <ScalarProperty Name="PmtTerms" ColumnName="PmtTerms" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="OldID" ColumnName="OldID" />
+          <ScalarProperty Name="AccountingID" ColumnName="AccountingID" />
+          <ScalarProperty Name="FloorstockAccount" ColumnName="FloorstockAccount" />
+          <ScalarProperty Name="SortID" ColumnName="SortID" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.Contact">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Contact_IA" ColumnName="Contact_IA" />
+          <ScalarProperty Name="Title_IA" ColumnName="Title_IA" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="Address1_IA" ColumnName="Address1_IA" />
+          <ScalarProperty Name="Address2_IA" ColumnName="Address2_IA" />
+          <ScalarProperty Name="Address3_IA" ColumnName="Address3_IA" />
+          <ScalarProperty Name="City_IA" ColumnName="City_IA" />
+          <ScalarProperty Name="Zip_IA" ColumnName="Zip_IA" />
+          <ScalarProperty Name="State_IA" ColumnName="State_IA" />
+          <ScalarProperty Name="Country_IA" ColumnName="Country_IA" />
+          <ScalarProperty Name="Assistant_IA" ColumnName="Assistant_IA" />
+          <ScalarProperty Name="Phone_IA" ColumnName="Phone_IA" />
+          <ScalarProperty Name="PhoneExt_IA" ColumnName="PhoneExt_IA" />
+          <ScalarProperty Name="Fax_IA" ColumnName="Fax_IA" />
+          <ScalarProperty Name="MobilePhone_IA" ColumnName="MobilePhone_IA" />
+          <ScalarProperty Name="Pager_IA" ColumnName="Pager_IA" />
+          <ScalarProperty Name="Salutation_IA" ColumnName="Salutation_IA" />
+          <ScalarProperty Name="EmailAddress_IA" ColumnName="EmailAddress_IA" />
+          <ScalarProperty Name="WebSite_IA" ColumnName="WebSite_IA" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Broker" ColumnName="Broker" />
+          <ScalarProperty Name="NewsLetter" ColumnName="NewsLetter" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="AddrType" ColumnName="AddrType" />
+          <ScalarProperty Name="OldCID" ColumnName="OldCID" />
+          <ScalarProperty Name="Gen_Notes" ColumnName="Gen_Notes" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="Aen_Notes" ColumnName="Aen_Notes" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAdjusts">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblAdjust">
+        <MappingFragment StoreEntitySet="tblAdjust">
+          <ScalarProperty Name="AdjustID" ColumnName="AdjustID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAstaLosses">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblAstaLoss">
+        <MappingFragment StoreEntitySet="tblAstaLoss">
+          <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="C1p5" ColumnName="1p5" />
+          <ScalarProperty Name="C1p0" ColumnName="1p0" />
+          <ScalarProperty Name="p5" ColumnName="p5" />
+          <ScalarProperty Name="C2002" ColumnName="2002" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBatchInstrs">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblBatchInstr">
+        <MappingFragment StoreEntitySet="tblBatchInstr">
+          <ScalarProperty Name="Serialized" ColumnName="Serialized" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="Step" ColumnName="Step" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="EspanolAction" ColumnName="EspanolAction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBatchItems">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblBatchItem">
+        <MappingFragment StoreEntitySet="tblBatchItems">
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="NewLot" ColumnName="NewLot" />
+          <ScalarProperty Name="BOMID" ColumnName="BOMID" />
+          <ScalarProperty Name="BatchLot" ColumnName="BatchLot" />
+          <ScalarProperty Name="AstaCalc" ColumnName="AstaCalc" />
+          <ScalarProperty Name="AvgAsta" ColumnName="AvgAsta" />
+          <ScalarProperty Name="ODetail" ColumnName="ODetail" />
+          <ScalarProperty Name="PackSchID" ColumnName="PackSchID" />
+          <ScalarProperty Name="AQ" ColumnName="AQ" />
+          <ScalarProperty Name="AW" ColumnName="AW" />
+          <ScalarProperty Name="LoBac" ColumnName="LoBac" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBatchStatus">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblBatchStatu">
+        <MappingFragment StoreEntitySet="tblBatchStatus">
+          <ScalarProperty Name="BatchStatID" ColumnName="BatchStatID" />
+          <ScalarProperty Name="BatchStat" ColumnName="BatchStat" />
+          <ScalarProperty Name="BatchStatDesc" ColumnName="BatchStatDesc" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBatchTypes">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblBatchType">
+        <MappingFragment StoreEntitySet="tblBatchType">
+          <ScalarProperty Name="BatchTypeID" ColumnName="BatchTypeID" />
+          <ScalarProperty Name="BatchType" ColumnName="BatchType" />
+          <ScalarProperty Name="BatchTypeDesc" ColumnName="BatchTypeDesc" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBOMs">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblBOM">
+        <MappingFragment StoreEntitySet="tblBOM">
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="IngrID" ColumnName="IngrID" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="BOMid" ColumnName="BOMid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCompetitorHistories">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblCompetitorHistory">
+        <MappingFragment StoreEntitySet="tblCompetitorHistory">
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="Competitor" ColumnName="Competitor" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="CProduct" ColumnName="CProduct" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="Trtnmnt" ColumnName="Trtnmnt" />
+          <ScalarProperty Name="WHCost" ColumnName="WHCost" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+          <ScalarProperty Name="CompHistoryID" ColumnName="CompHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblContracts">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblContract">
+        <MappingFragment StoreEntitySet="tblContract">
+          <ScalarProperty Name="SerializedKey" ColumnName="SerializedKey" />
+          <ScalarProperty Name="Serialized" ColumnName="Serialized" />
+          <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Contact_IA" ColumnName="Contact_IA" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="Address1_IA" ColumnName="Address1_IA" />
+          <ScalarProperty Name="Address2_IA" ColumnName="Address2_IA" />
+          <ScalarProperty Name="Address3_IA" ColumnName="Address3_IA" />
+          <ScalarProperty Name="City_IA" ColumnName="City_IA" />
+          <ScalarProperty Name="State_IA" ColumnName="State_IA" />
+          <ScalarProperty Name="Zip_IA" ColumnName="Zip_IA" />
+          <ScalarProperty Name="Country_IA" ColumnName="Country_IA" />
+          <ScalarProperty Name="Broker" ColumnName="Broker" />
+          <ScalarProperty Name="PmtTerms" ColumnName="PmtTerms" />
+          <ScalarProperty Name="PONum" ColumnName="PONum" />
+          <ScalarProperty Name="BegDate" ColumnName="BegDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="KDate" ColumnName="KDate" />
+          <ScalarProperty Name="KType" ColumnName="KType" />
+          <ScalarProperty Name="KStatus" ColumnName="KStatus" />
+          <ScalarProperty Name="FOB" ColumnName="FOB" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Notes2Print" ColumnName="Notes2Print" />
+          <ScalarProperty Name="OldKID" ColumnName="OldKID" />
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+          <ScalarProperty Name="Gen_Comments" ColumnName="Gen_Comments" />
+          <ScalarProperty Name="Gen_Notes2Print" ColumnName="Gen_Notes2Print" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="Aen_Comments" ColumnName="Aen_Comments" />
+          <ScalarProperty Name="Aen_Notes2Print" ColumnName="Aen_Notes2Print" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblContractDetails">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblContractDetail">
+        <MappingFragment StoreEntitySet="tblContractDetail">
+          <ScalarProperty Name="KDetailID" ColumnName="KDetailID" />
+          <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="FreightP" ColumnName="FreightP" />
+          <ScalarProperty Name="TrtnmntP" ColumnName="TrtnmntP" />
+          <ScalarProperty Name="WHCostP" ColumnName="WHCostP" />
+          <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+          <ScalarProperty Name="CustProductCode" ColumnName="CustProductCode" />
+          <ScalarProperty Name="Spec" ColumnName="Spec" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblContractSches">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblContractSch">
+        <MappingFragment StoreEntitySet="tblContractSch">
+          <ScalarProperty Name="KSchID" ColumnName="KSchID" />
+          <ScalarProperty Name="KDetailID" ColumnName="KDetailID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Wgt" ColumnName="Wgt" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployees">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblEmployee">
+        <MappingFragment StoreEntitySet="tblEmployee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Employee" ColumnName="Employee" />
+          <ScalarProperty Name="EName" ColumnName="EName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+          <ScalarProperty Name="DisplayNotification" ColumnName="DisplayNotification" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblIncomings">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblIncoming">
+        <MappingFragment StoreEntitySet="tblIncoming">
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="VarietyID" ColumnName="VarietyID" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="DehyLocale" ColumnName="DehyLocale" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblIngredients">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblIngredient">
+        <MappingFragment StoreEntitySet="tblIngredients">
+          <ScalarProperty Name="IngrID" ColumnName="IngrID" />
+          <ScalarProperty Name="IngrType" ColumnName="IngrType" />
+          <ScalarProperty Name="IngrDesc" ColumnName="IngrDesc" />
+          <ScalarProperty Name="IngrRpt" ColumnName="IngrRpt" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLocations">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblLocation">
+        <MappingFragment StoreEntitySet="tblLocation">
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Row" ColumnName="Row" />
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="OldLoc" ColumnName="OldLoc" />
+          <ScalarProperty Name="FreezeRow" ColumnName="FreezeRow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLots">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblLot">
+        <MappingFragment StoreEntitySet="tblLot">
+          <ScalarProperty Name="Serialized" ColumnName="Serialized" />
+          <ScalarProperty Name="Gluten" ColumnName="Gluten" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="PTypeID" ColumnName="PTypeID" />
+          <ScalarProperty Name="Julian" ColumnName="Julian" />
+          <ScalarProperty Name="BatchNum" ColumnName="BatchNum" />
+          <ScalarProperty Name="PackSchID" ColumnName="PackSchID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="LoadNum" ColumnName="LoadNum" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Gran" ColumnName="Gran" />
+          <ScalarProperty Name="AvgAsta" ColumnName="AvgAsta" />
+          <ScalarProperty Name="AoverB" ColumnName="AoverB" />
+          <ScalarProperty Name="AvgScov" ColumnName="AvgScov" />
+          <ScalarProperty Name="H2O" ColumnName="H2O" />
+          <ScalarProperty Name="Scan" ColumnName="Scan" />
+          <ScalarProperty Name="Yeast" ColumnName="Yeast" />
+          <ScalarProperty Name="Mold" ColumnName="Mold" />
+          <ScalarProperty Name="Coli" ColumnName="Coli" />
+          <ScalarProperty Name="TPC" ColumnName="TPC" />
+          <ScalarProperty Name="EColi" ColumnName="EColi" />
+          <ScalarProperty Name="Sal" ColumnName="Sal" />
+          <ScalarProperty Name="InsPrts" ColumnName="InsPrts" />
+          <ScalarProperty Name="RodHrs" ColumnName="RodHrs" />
+          <ScalarProperty Name="Ethox" ColumnName="Ethox" />
+          <ScalarProperty Name="Lead" ColumnName="Lead" />
+          <ScalarProperty Name="AToxin" ColumnName="AToxin" />
+          <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="CropYear" ColumnName="CropYear" />
+          <ScalarProperty Name="OTType" ColumnName="OTType" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+          <ScalarProperty Name="LotStat" ColumnName="LotStat" />
+          <ScalarProperty Name="LabStat" ColumnName="LabStat" />
+          <ScalarProperty Name="TesterID" ColumnName="TesterID" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="TestNotes" ColumnName="TestNotes" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="TargetWgt" ColumnName="TargetWgt" />
+          <ScalarProperty Name="BatchStatID" ColumnName="BatchStatID" />
+          <ScalarProperty Name="PackSchOrder" ColumnName="PackSchOrder" />
+          <ScalarProperty Name="BatchTypeID" ColumnName="BatchTypeID" />
+          <ScalarProperty Name="TgtAsta" ColumnName="TgtAsta" />
+          <ScalarProperty Name="TgtAB" ColumnName="TgtAB" />
+          <ScalarProperty Name="TgtScov" ColumnName="TgtScov" />
+          <ScalarProperty Name="TgtScan" ColumnName="TgtScan" />
+          <ScalarProperty Name="BatchLoc" ColumnName="BatchLoc" />
+          <ScalarProperty Name="Produced" ColumnName="Produced" />
+          <ScalarProperty Name="ProductionLine" ColumnName="ProductionLine" />
+          <ScalarProperty Name="LoBac" ColumnName="LoBac" />
+          <ScalarProperty Name="Ash" ColumnName="Ash" />
+          <ScalarProperty Name="AIA" ColumnName="AIA" />
+          <ScalarProperty Name="Pellets" ColumnName="Pellets" />
+          <ScalarProperty Name="ReBox" ColumnName="ReBox" />
+          <ScalarProperty Name="bAsta" ColumnName="bAsta" />
+          <ScalarProperty Name="bAB" ColumnName="bAB" />
+          <ScalarProperty Name="bH2O" ColumnName="bH2O" />
+          <ScalarProperty Name="bScan" ColumnName="bScan" />
+          <ScalarProperty Name="bGran" ColumnName="bGran" />
+          <ScalarProperty Name="FloorStk" ColumnName="FloorStk" />
+          <ScalarProperty Name="C2ShipDate" ColumnName="2ShipDate" />
+          <ScalarProperty Name="BatchProdctnOrder" ColumnName="BatchProdctnOrder" />
+          <ScalarProperty Name="SchdProdctnDate" ColumnName="SchdProdctnDate" />
+          <ScalarProperty Name="Mode" ColumnName="Mode" />
+          <ScalarProperty Name="BatchBegTime" ColumnName="BatchBegTime" />
+          <ScalarProperty Name="BatchEndTime" ColumnName="BatchEndTime" />
+          <ScalarProperty Name="AstaStart" ColumnName="AstaStart" />
+          <ScalarProperty Name="AstaEnd" ColumnName="AstaEnd" />
+          <ScalarProperty Name="ABStart" ColumnName="ABStart" />
+          <ScalarProperty Name="ABEnd" ColumnName="ABEnd" />
+          <ScalarProperty Name="ScovStart" ColumnName="ScovStart" />
+          <ScalarProperty Name="ScovEnd" ColumnName="ScovEnd" />
+          <ScalarProperty Name="H2OStart" ColumnName="H2OStart" />
+          <ScalarProperty Name="H2OEnd" ColumnName="H2OEnd" />
+          <ScalarProperty Name="ScanStart" ColumnName="ScanStart" />
+          <ScalarProperty Name="ScanEnd" ColumnName="ScanEnd" />
+          <ScalarProperty Name="SpecID" ColumnName="SpecID" />
+          <ScalarProperty Name="SetTrtmtID" ColumnName="SetTrtmtID" />
+          <ScalarProperty Name="PurchOrder" ColumnName="PurchOrder" />
+          <ScalarProperty Name="ShipperNum" ColumnName="ShipperNum" />
+          <ScalarProperty Name="BI" ColumnName="BI" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLotAttributeHistories">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblLotAttributeHistory">
+        <MappingFragment StoreEntitySet="tblLotAttributeHistory">
+          <ScalarProperty Name="Gluten" ColumnName="Gluten" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="ArchiveDate" ColumnName="ArchiveDate" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Gran" ColumnName="Gran" />
+          <ScalarProperty Name="AvgAsta" ColumnName="AvgAsta" />
+          <ScalarProperty Name="AoverB" ColumnName="AoverB" />
+          <ScalarProperty Name="AvgScov" ColumnName="AvgScov" />
+          <ScalarProperty Name="H2O" ColumnName="H2O" />
+          <ScalarProperty Name="Scan" ColumnName="Scan" />
+          <ScalarProperty Name="Yeast" ColumnName="Yeast" />
+          <ScalarProperty Name="Mold" ColumnName="Mold" />
+          <ScalarProperty Name="Coli" ColumnName="Coli" />
+          <ScalarProperty Name="TPC" ColumnName="TPC" />
+          <ScalarProperty Name="EColi" ColumnName="EColi" />
+          <ScalarProperty Name="Sal" ColumnName="Sal" />
+          <ScalarProperty Name="InsPrts" ColumnName="InsPrts" />
+          <ScalarProperty Name="RodHrs" ColumnName="RodHrs" />
+          <ScalarProperty Name="Ethox" ColumnName="Ethox" />
+          <ScalarProperty Name="Lead" ColumnName="Lead" />
+          <ScalarProperty Name="AToxin" ColumnName="AToxin" />
+          <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+          <ScalarProperty Name="LotStat" ColumnName="LotStat" />
+          <ScalarProperty Name="TesterID" ColumnName="TesterID" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="TestNotes" ColumnName="TestNotes" />
+          <ScalarProperty Name="LoBac" ColumnName="LoBac" />
+          <ScalarProperty Name="Ash" ColumnName="Ash" />
+          <ScalarProperty Name="AIA" ColumnName="AIA" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLotStatus">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblLotStatu">
+        <MappingFragment StoreEntitySet="tblLotStatus">
+          <ScalarProperty Name="LotStatID" ColumnName="LotStatID" />
+          <ScalarProperty Name="LotStat" ColumnName="LotStat" />
+          <ScalarProperty Name="LotStatDesc" ColumnName="LotStatDesc" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="LotStatType" ColumnName="LotStatType" />
+          <ScalarProperty Name="RptStatus" ColumnName="RptStatus" />
+          <ScalarProperty Name="Avail4Pick" ColumnName="Avail4Pick" />
+          <ScalarProperty Name="Avail2Batch" ColumnName="Avail2Batch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMiscBOLs">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblMiscBOL">
+        <MappingFragment StoreEntitySet="tblMiscBOL">
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="Packaging" ColumnName="Packaging" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="CustProductCode" ColumnName="CustProductCode" />
+          <ScalarProperty Name="CustLot" ColumnName="CustLot" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="PackWgt" ColumnName="PackWgt" />
+          <ScalarProperty Name="PalletWgt" ColumnName="PalletWgt" />
+          <ScalarProperty Name="GrossWgt" ColumnName="GrossWgt" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblModes">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblMode">
+        <MappingFragment StoreEntitySet="tblModes">
+          <ScalarProperty Name="Mode" ColumnName="Mode" />
+          <ScalarProperty Name="ModeDesc" ColumnName="ModeDesc" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+          <ScalarProperty Name="LbsPerDay" ColumnName="LbsPerDay" />
+          <ScalarProperty Name="LbsPerShift" ColumnName="LbsPerShift" />
+          <ScalarProperty Name="BatchHrs" ColumnName="BatchHrs" />
+          <ScalarProperty Name="Mesh" ColumnName="Mesh" />
+          <ScalarProperty Name="LoScan" ColumnName="LoScan" />
+          <ScalarProperty Name="HiScan" ColumnName="HiScan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMoves">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblMove">
+        <MappingFragment StoreEntitySet="tblMove">
+          <ScalarProperty Name="Serialized" ColumnName="Serialized" />
+          <ScalarProperty Name="MoveNum" ColumnName="MoveNum" />
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+          <ScalarProperty Name="C2WHID" ColumnName="2WHID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="OrderNbr" ColumnName="OrderNbr" />
+          <ScalarProperty Name="PONbr" ColumnName="PONbr" />
+          <ScalarProperty Name="SCompany" ColumnName="SCompany" />
+          <ScalarProperty Name="SAddress1" ColumnName="SAddress1" />
+          <ScalarProperty Name="SAddress2" ColumnName="SAddress2" />
+          <ScalarProperty Name="SAddress3" ColumnName="SAddress3" />
+          <ScalarProperty Name="SCity" ColumnName="SCity" />
+          <ScalarProperty Name="SState" ColumnName="SState" />
+          <ScalarProperty Name="SZip" ColumnName="SZip" />
+          <ScalarProperty Name="SCountry" ColumnName="SCountry" />
+          <ScalarProperty Name="SPhone" ColumnName="SPhone" />
+          <ScalarProperty Name="Carrier" ColumnName="Carrier" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="TrkNbr" ColumnName="TrkNbr" />
+          <ScalarProperty Name="TrlNbr" ColumnName="TrlNbr" />
+          <ScalarProperty Name="SpclInstr" ColumnName="SpclInstr" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ContSeal" ColumnName="ContSeal" />
+          <ScalarProperty Name="ShipTerms" ColumnName="ShipTerms" />
+          <ScalarProperty Name="Labeling" ColumnName="Labeling" />
+          <ScalarProperty Name="CCompany" ColumnName="CCompany" />
+          <ScalarProperty Name="CAddress1" ColumnName="CAddress1" />
+          <ScalarProperty Name="CAddress2" ColumnName="CAddress2" />
+          <ScalarProperty Name="CAddress3" ColumnName="CAddress3" />
+          <ScalarProperty Name="CCity" ColumnName="CCity" />
+          <ScalarProperty Name="CState" ColumnName="CState" />
+          <ScalarProperty Name="CZip" ColumnName="CZip" />
+          <ScalarProperty Name="CCountry" ColumnName="CCountry" />
+          <ScalarProperty Name="Posted" ColumnName="Posted" />
+          <ScalarProperty Name="PalletOR" ColumnName="PalletOR" />
+          <ScalarProperty Name="InternalNotes" ColumnName="InternalNotes" />
+          <ScalarProperty Name="ExternalNotes" ColumnName="ExternalNotes" />
+          <ScalarProperty Name="DateRecd" ColumnName="DateRecd" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="TakenBy" ColumnName="TakenBy" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="FreightBillType" ColumnName="FreightBillType" />
+          <ScalarProperty Name="DelDueDate" ColumnName="DelDueDate" />
+          <ScalarProperty Name="DelDueTime" ColumnName="DelDueTime" />
+          <ScalarProperty Name="QuoteNum" ColumnName="QuoteNum" />
+          <ScalarProperty Name="Broker" ColumnName="Broker" />
+          <ScalarProperty Name="Driver" ColumnName="Driver" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Returned" ColumnName="Returned" />
+          <ScalarProperty Name="PalletQty" ColumnName="PalletQty" />
+          <ScalarProperty Name="ShipVia" ColumnName="ShipVia" />
+          <ScalarProperty Name="SchdShipDate" ColumnName="SchdShipDate" />
+          <ScalarProperty Name="Complaintment" ColumnName="Complaintment" />
+          <ScalarProperty Name="Ontime" ColumnName="Ontime" />
+          <ScalarProperty Name="Correct" ColumnName="Correct" />
+          <ScalarProperty Name="OutgoingInvDate" ColumnName="OutgoingInvDate" />
+          <ScalarProperty Name="OutgoingInvNum" ColumnName="OutgoingInvNum" />
+          <ScalarProperty Name="OutgoingCost" ColumnName="OutgoingCost" />
+          <ScalarProperty Name="ReturnInvDate" ColumnName="ReturnInvDate" />
+          <ScalarProperty Name="ReturnInvNum" ColumnName="ReturnInvNum" />
+          <ScalarProperty Name="ReturnCost" ColumnName="ReturnCost" />
+          <ScalarProperty Name="Highlight" ColumnName="Highlight" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMoveDetails">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblMoveDetail">
+        <MappingFragment StoreEntitySet="tblMoveDetail">
+          <ScalarProperty Name="MDetail" ColumnName="MDetail" />
+          <ScalarProperty Name="MoveNum" ColumnName="MoveNum" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Move2" ColumnName="Move2" />
+          <ScalarProperty Name="CustProductCode" ColumnName="CustProductCode" />
+          <ScalarProperty Name="CustLot" ColumnName="CustLot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMoveOrderDetails">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblMoveOrderDetail">
+        <MappingFragment StoreEntitySet="tblMoveOrderDetail">
+          <ScalarProperty Name="MOrderDetail" ColumnName="MOrderDetail" />
+          <ScalarProperty Name="MoveNum" ColumnName="MoveNum" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="CustProductCode" ColumnName="CustProductCode" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="CustLot" ColumnName="CustLot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblNewPackSchBOMs">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblNewPackSchBOM">
+        <MappingFragment StoreEntitySet="tblNewPackSchBOM">
+          <ScalarProperty Name="BOMid" ColumnName="BOMid" />
+          <ScalarProperty Name="PacSchID" ColumnName="PacSchID" />
+          <ScalarProperty Name="IngrID" ColumnName="IngrID" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblNewPackSchInstrs">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblNewPackSchInstr">
+        <MappingFragment StoreEntitySet="tblNewPackSchInstr">
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="PackSchID" ColumnName="PackSchID" />
+          <ScalarProperty Name="Step" ColumnName="Step" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOrders">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblOrder">
+        <MappingFragment StoreEntitySet="tblOrder">
+          <ScalarProperty Name="SerializedKey" ColumnName="SerializedKey" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="OrderNbr" ColumnName="OrderNbr" />
+          <ScalarProperty Name="PONbr" ColumnName="PONbr" />
+          <ScalarProperty Name="SCompany" ColumnName="SCompany" />
+          <ScalarProperty Name="SAddress1" ColumnName="SAddress1" />
+          <ScalarProperty Name="SAddress2" ColumnName="SAddress2" />
+          <ScalarProperty Name="SAddress3" ColumnName="SAddress3" />
+          <ScalarProperty Name="SCity" ColumnName="SCity" />
+          <ScalarProperty Name="SState" ColumnName="SState" />
+          <ScalarProperty Name="SZip" ColumnName="SZip" />
+          <ScalarProperty Name="SCountry" ColumnName="SCountry" />
+          <ScalarProperty Name="SPhone" ColumnName="SPhone" />
+          <ScalarProperty Name="Carrier" ColumnName="Carrier" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="TrkNbr" ColumnName="TrkNbr" />
+          <ScalarProperty Name="TrlNbr" ColumnName="TrlNbr" />
+          <ScalarProperty Name="SpclInstr" ColumnName="SpclInstr" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ContSeal" ColumnName="ContSeal" />
+          <ScalarProperty Name="KSchedule" ColumnName="KSchedule" />
+          <ScalarProperty Name="ShipTerms" ColumnName="ShipTerms" />
+          <ScalarProperty Name="PayTerms" ColumnName="PayTerms" />
+          <ScalarProperty Name="Labeling" ColumnName="Labeling" />
+          <ScalarProperty Name="ContractNum" ColumnName="ContractNum" />
+          <ScalarProperty Name="ShipmentNum" ColumnName="ShipmentNum" />
+          <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+          <ScalarProperty Name="CCompany" ColumnName="CCompany" />
+          <ScalarProperty Name="CAddress1" ColumnName="CAddress1" />
+          <ScalarProperty Name="CAddress2" ColumnName="CAddress2" />
+          <ScalarProperty Name="CAddress3" ColumnName="CAddress3" />
+          <ScalarProperty Name="CCity" ColumnName="CCity" />
+          <ScalarProperty Name="CState" ColumnName="CState" />
+          <ScalarProperty Name="CZip" ColumnName="CZip" />
+          <ScalarProperty Name="CCountry" ColumnName="CCountry" />
+          <ScalarProperty Name="Posted" ColumnName="Posted" />
+          <ScalarProperty Name="POL" ColumnName="POL" />
+          <ScalarProperty Name="POD" ColumnName="POD" />
+          <ScalarProperty Name="Steamship" ColumnName="Steamship" />
+          <ScalarProperty Name="Booking" ColumnName="Booking" />
+          <ScalarProperty Name="Vessel" ColumnName="Vessel" />
+          <ScalarProperty Name="Voyage" ColumnName="Voyage" />
+          <ScalarProperty Name="Sailing" ColumnName="Sailing" />
+          <ScalarProperty Name="ETA" ColumnName="ETA" />
+          <ScalarProperty Name="ETD" ColumnName="ETD" />
+          <ScalarProperty Name="RCL" ColumnName="RCL" />
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+          <ScalarProperty Name="PalletOR" ColumnName="PalletOR" />
+          <ScalarProperty Name="InternalNotes" ColumnName="InternalNotes" />
+          <ScalarProperty Name="ExternalNotes" ColumnName="ExternalNotes" />
+          <ScalarProperty Name="DateRecd" ColumnName="DateRecd" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="TakenBy" ColumnName="TakenBy" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="FreightBillType" ColumnName="FreightBillType" />
+          <ScalarProperty Name="DelDueDate" ColumnName="DelDueDate" />
+          <ScalarProperty Name="DelDueTime" ColumnName="DelDueTime" />
+          <ScalarProperty Name="QuoteNum" ColumnName="QuoteNum" />
+          <ScalarProperty Name="Broker" ColumnName="Broker" />
+          <ScalarProperty Name="Driver" ColumnName="Driver" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FCharge" ColumnName="FCharge" />
+          <ScalarProperty Name="PalletQty" ColumnName="PalletQty" />
+          <ScalarProperty Name="ShipVia" ColumnName="ShipVia" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InvoiceNotes" ColumnName="InvoiceNotes" />
+          <ScalarProperty Name="PmtDate" ColumnName="PmtDate" />
+          <ScalarProperty Name="SchdShipDate" ColumnName="SchdShipDate" />
+          <ScalarProperty Name="Complaintment" ColumnName="Complaintment" />
+          <ScalarProperty Name="Ontime" ColumnName="Ontime" />
+          <ScalarProperty Name="Correct" ColumnName="Correct" />
+          <ScalarProperty Name="Highlight" ColumnName="Highlight" />
+          <ScalarProperty Name="FreightInvDate" ColumnName="FreightInvDate" />
+          <ScalarProperty Name="Gen_Complaintment" ColumnName="Gen_Complaintment" />
+          <ScalarProperty Name="Gen_InvoiceNotes" ColumnName="Gen_InvoiceNotes" />
+          <ScalarProperty Name="CreditMemo" ColumnName="CreditMemo" />
+          <ScalarProperty Name="FreightInvCost" ColumnName="FreightInvCost" />
+          <ScalarProperty Name="Gen_InternalNotes" ColumnName="Gen_InternalNotes" />
+          <ScalarProperty Name="Gen_SpclInstr" ColumnName="Gen_SpclInstr" />
+          <ScalarProperty Name="FreightInvNum" ColumnName="FreightInvNum" />
+          <ScalarProperty Name="PreSample" ColumnName="PreSample" />
+          <ScalarProperty Name="Gen_ExternalNotes" ColumnName="Gen_ExternalNotes" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="Aen_Complaintment" ColumnName="Aen_Complaintment" />
+          <ScalarProperty Name="Aen_ExternalNotes" ColumnName="Aen_ExternalNotes" />
+          <ScalarProperty Name="Aen_InternalNotes" ColumnName="Aen_InternalNotes" />
+          <ScalarProperty Name="Aen_InvoiceNotes" ColumnName="Aen_InvoiceNotes" />
+          <ScalarProperty Name="Aen_SpclInstr" ColumnName="Aen_SpclInstr" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOrderDetails">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblOrderDetail">
+        <MappingFragment StoreEntitySet="tblOrderDetail">
+          <ScalarProperty Name="ODetail" ColumnName="ODetail" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="FreightP" ColumnName="FreightP" />
+          <ScalarProperty Name="TrtnmntP" ColumnName="TrtnmntP" />
+          <ScalarProperty Name="WHCostP" ColumnName="WHCostP" />
+          <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+          <ScalarProperty Name="KDetailID" ColumnName="KDetailID" />
+          <ScalarProperty Name="CustProductCode" ColumnName="CustProductCode" />
+          <ScalarProperty Name="CustLot" ColumnName="CustLot" />
+          <ScalarProperty Name="QtyAdj" ColumnName="QtyAdj" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOrderStatus">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblOrderStatu">
+        <MappingFragment StoreEntitySet="tblOrderStatus">
+          <ScalarProperty Name="OrderStatID" ColumnName="OrderStatID" />
+          <ScalarProperty Name="OrderStat" ColumnName="OrderStat" />
+          <ScalarProperty Name="OrderStatDesc" ColumnName="OrderStatDesc" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOutgoings">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblOutgoing">
+        <MappingFragment StoreEntitySet="tblOutgoing">
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="NewLot" ColumnName="NewLot" />
+          <ScalarProperty Name="BOMID" ColumnName="BOMID" />
+          <ScalarProperty Name="BatchLot" ColumnName="BatchLot" />
+          <ScalarProperty Name="AstaCalc" ColumnName="AstaCalc" />
+          <ScalarProperty Name="RinconID" ColumnName="RinconID" />
+          <ScalarProperty Name="ODetail" ColumnName="ODetail" />
+          <ScalarProperty Name="CustProductCode" ColumnName="CustProductCode" />
+          <ScalarProperty Name="MDetail" ColumnName="MDetail" />
+          <ScalarProperty Name="PackSchID" ColumnName="PackSchID" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="MoveNum" ColumnName="MoveNum" />
+          <ScalarProperty Name="AdjustID" ColumnName="AdjustID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPackagings">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblPackaging">
+        <MappingFragment StoreEntitySet="tblPackaging">
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="Packaging" ColumnName="Packaging" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="PkgWgt" ColumnName="PkgWgt" />
+          <ScalarProperty Name="PalletWgt" ColumnName="PalletWgt" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="PkgType" ColumnName="PkgType" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPackSches">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblPackSch">
+        <MappingFragment StoreEntitySet="tblPackSch">
+          <ScalarProperty Name="SerializedKey" ColumnName="SerializedKey" />
+          <ScalarProperty Name="Serialized" ColumnName="Serialized" />
+          <ScalarProperty Name="PackSchID" ColumnName="PackSchID" />
+          <ScalarProperty Name="PSNum" ColumnName="PSNum" />
+          <ScalarProperty Name="PackSchDesc" ColumnName="PackSchDesc" />
+          <ScalarProperty Name="PackSchDate" ColumnName="PackSchDate" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="PSStatus" ColumnName="PSStatus" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="TgtAsta" ColumnName="TgtAsta" />
+          <ScalarProperty Name="TgtAB" ColumnName="TgtAB" />
+          <ScalarProperty Name="TgtScov" ColumnName="TgtScov" />
+          <ScalarProperty Name="TgtScan" ColumnName="TgtScan" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="BatchTypeID" ColumnName="BatchTypeID" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="TargetWgt" ColumnName="TargetWgt" />
+          <ScalarProperty Name="Mode" ColumnName="Mode" />
+          <ScalarProperty Name="ProductionLine" ColumnName="ProductionLine" />
+          <ScalarProperty Name="SetTrtmtID" ColumnName="SetTrtmtID" />
+          <ScalarProperty Name="FloorStk" ColumnName="FloorStk" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="ProductionDeadline" ColumnName="ProductionDeadline" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPermissions">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblPermission">
+        <MappingFragment StoreEntitySet="tblPermissions">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Selection" ColumnName="Selection" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+          <ScalarProperty Name="PermID" ColumnName="PermID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProdTypes">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblProdType">
+        <MappingFragment StoreEntitySet="tblProdType">
+          <ScalarProperty Name="PTypeID" ColumnName="PTypeID" />
+          <ScalarProperty Name="PType" ColumnName="PType" />
+          <ScalarProperty Name="PTypeDesc" ColumnName="PTypeDesc" />
+          <ScalarProperty Name="BatchProd" ColumnName="BatchProd" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="RptOmit" ColumnName="RptOmit" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProducts">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblProduct">
+        <MappingFragment StoreEntitySet="tblProduct">
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="ProdGrpID" ColumnName="ProdGrpID" />
+          <ScalarProperty Name="PTypeID" ColumnName="PTypeID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="GranStart" ColumnName="GranStart" />
+          <ScalarProperty Name="GranEnd" ColumnName="GranEnd" />
+          <ScalarProperty Name="AstaStart" ColumnName="AstaStart" />
+          <ScalarProperty Name="AstaEnd" ColumnName="AstaEnd" />
+          <ScalarProperty Name="ABStart" ColumnName="ABStart" />
+          <ScalarProperty Name="ABEnd" ColumnName="ABEnd" />
+          <ScalarProperty Name="ScovStart" ColumnName="ScovStart" />
+          <ScalarProperty Name="ScovEnd" ColumnName="ScovEnd" />
+          <ScalarProperty Name="H2OStart" ColumnName="H2OStart" />
+          <ScalarProperty Name="H2OEnd" ColumnName="H2OEnd" />
+          <ScalarProperty Name="ScanStart" ColumnName="ScanStart" />
+          <ScalarProperty Name="ScanEnd" ColumnName="ScanEnd" />
+          <ScalarProperty Name="IngrID" ColumnName="IngrID" />
+          <ScalarProperty Name="GLAcct" ColumnName="GLAcct" />
+          <ScalarProperty Name="Mesh" ColumnName="Mesh" />
+          <ScalarProperty Name="MinFlrStk" ColumnName="MinFlrStk" />
+          <ScalarProperty Name="IngrDesc" ColumnName="IngrDesc" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProductGrps">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblProductGrp">
+        <MappingFragment StoreEntitySet="tblProductGrp">
+          <ScalarProperty Name="ProdGrpID" ColumnName="ProdGrpID" />
+          <ScalarProperty Name="ProdGroup" ColumnName="ProdGroup" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProductIngrs">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblProductIngr">
+        <MappingFragment StoreEntitySet="tblProductIngr">
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="IngrID" ColumnName="IngrID" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProductionScheduleGroups">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblProductionScheduleGroup">
+        <MappingFragment StoreEntitySet="tblProductionScheduleGroups">
+          <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
+          <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+          <ScalarProperty Name="PSNum" ColumnName="PSNum" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+          <ScalarProperty Name="FlushBefore" ColumnName="FlushBefore" />
+          <ScalarProperty Name="FlushBeforeInstructions" ColumnName="FlushBeforeInstructions" />
+          <ScalarProperty Name="FlushAfter" ColumnName="FlushAfter" />
+          <ScalarProperty Name="FlushAfterInstructions" ColumnName="FlushAfterInstructions" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProductionScheduleItems">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblProductionScheduleItem">
+        <MappingFragment StoreEntitySet="tblProductionScheduleItems">
+          <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
+          <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+          <ScalarProperty Name="PSNum" ColumnName="PSNum" />
+          <ScalarProperty Name="LotNumber" ColumnName="LotNumber" />
+          <ScalarProperty Name="BatchNumber" ColumnName="BatchNumber" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProductionSchedules">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblProductionSchedule">
+        <MappingFragment StoreEntitySet="tblProductionSchedules">
+          <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
+          <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProfiles">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblProfile">
+        <MappingFragment StoreEntitySet="tblProfiles">
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Boldit" ColumnName="Boldit" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="ProfileType" ColumnName="ProfileType" />
+          <ScalarProperty Name="ProfileText" ColumnName="ProfileText" />
+          <ScalarProperty Name="Gen_ProfileText" ColumnName="Gen_ProfileText" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="Aen_ProfileText" ColumnName="Aen_ProfileText" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblQuotes">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblQuote">
+        <MappingFragment StoreEntitySet="tblQuote">
+          <ScalarProperty Name="QuoteNum" ColumnName="QuoteNum" />
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SCompany" ColumnName="SCompany" />
+          <ScalarProperty Name="SAddress1" ColumnName="SAddress1" />
+          <ScalarProperty Name="SAddress2" ColumnName="SAddress2" />
+          <ScalarProperty Name="SAddress3" ColumnName="SAddress3" />
+          <ScalarProperty Name="SCity" ColumnName="SCity" />
+          <ScalarProperty Name="SState" ColumnName="SState" />
+          <ScalarProperty Name="SZip" ColumnName="SZip" />
+          <ScalarProperty Name="SCountry" ColumnName="SCountry" />
+          <ScalarProperty Name="SPhone" ColumnName="SPhone" />
+          <ScalarProperty Name="Carrier" ColumnName="Carrier" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="TrkNbr" ColumnName="TrkNbr" />
+          <ScalarProperty Name="TrlNbr" ColumnName="TrlNbr" />
+          <ScalarProperty Name="SpclInstr" ColumnName="SpclInstr" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ContSeal" ColumnName="ContSeal" />
+          <ScalarProperty Name="KSchedule" ColumnName="KSchedule" />
+          <ScalarProperty Name="ShipTerms" ColumnName="ShipTerms" />
+          <ScalarProperty Name="PayTerms" ColumnName="PayTerms" />
+          <ScalarProperty Name="Labeling" ColumnName="Labeling" />
+          <ScalarProperty Name="ContractNum" ColumnName="ContractNum" />
+          <ScalarProperty Name="ShipmentNum" ColumnName="ShipmentNum" />
+          <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+          <ScalarProperty Name="CCompany" ColumnName="CCompany" />
+          <ScalarProperty Name="CAddress1" ColumnName="CAddress1" />
+          <ScalarProperty Name="CAddress2" ColumnName="CAddress2" />
+          <ScalarProperty Name="CAddress3" ColumnName="CAddress3" />
+          <ScalarProperty Name="CCity" ColumnName="CCity" />
+          <ScalarProperty Name="CState" ColumnName="CState" />
+          <ScalarProperty Name="CZip" ColumnName="CZip" />
+          <ScalarProperty Name="CCountry" ColumnName="CCountry" />
+          <ScalarProperty Name="Posted" ColumnName="Posted" />
+          <ScalarProperty Name="POL" ColumnName="POL" />
+          <ScalarProperty Name="POD" ColumnName="POD" />
+          <ScalarProperty Name="Steamship" ColumnName="Steamship" />
+          <ScalarProperty Name="Booking" ColumnName="Booking" />
+          <ScalarProperty Name="Vessel" ColumnName="Vessel" />
+          <ScalarProperty Name="Voyage" ColumnName="Voyage" />
+          <ScalarProperty Name="Sailing" ColumnName="Sailing" />
+          <ScalarProperty Name="ETA" ColumnName="ETA" />
+          <ScalarProperty Name="ETD" ColumnName="ETD" />
+          <ScalarProperty Name="RCL" ColumnName="RCL" />
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+          <ScalarProperty Name="PalletOR" ColumnName="PalletOR" />
+          <ScalarProperty Name="InternalNotes" ColumnName="InternalNotes" />
+          <ScalarProperty Name="ExternalNotes" ColumnName="ExternalNotes" />
+          <ScalarProperty Name="DateRecd" ColumnName="DateRecd" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="TakenBy" ColumnName="TakenBy" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="FreightBillType" ColumnName="FreightBillType" />
+          <ScalarProperty Name="DelDueDate" ColumnName="DelDueDate" />
+          <ScalarProperty Name="DelDueTime" ColumnName="DelDueTime" />
+          <ScalarProperty Name="Broker" ColumnName="Broker" />
+          <ScalarProperty Name="Driver" ColumnName="Driver" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FCharge" ColumnName="FCharge" />
+          <ScalarProperty Name="PalletQty" ColumnName="PalletQty" />
+          <ScalarProperty Name="ShipVia" ColumnName="ShipVia" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InvoiceNotes" ColumnName="InvoiceNotes" />
+          <ScalarProperty Name="PmtDate" ColumnName="PmtDate" />
+          <ScalarProperty Name="SchdShipDate" ColumnName="SchdShipDate" />
+          <ScalarProperty Name="Complaintment" ColumnName="Complaintment" />
+          <ScalarProperty Name="Ontime" ColumnName="Ontime" />
+          <ScalarProperty Name="Correct" ColumnName="Correct" />
+          <ScalarProperty Name="FreightInvDate" ColumnName="FreightInvDate" />
+          <ScalarProperty Name="Gen_Complaintment" ColumnName="Gen_Complaintment" />
+          <ScalarProperty Name="FreightInvCost" ColumnName="FreightInvCost" />
+          <ScalarProperty Name="FreightInvNum" ColumnName="FreightInvNum" />
+          <ScalarProperty Name="Gen_ExternalNotes" ColumnName="Gen_ExternalNotes" />
+          <ScalarProperty Name="Gen_InvoiceNotes" ColumnName="Gen_InvoiceNotes" />
+          <ScalarProperty Name="CreditMemo" ColumnName="CreditMemo" />
+          <ScalarProperty Name="Gen_InternalNotes" ColumnName="Gen_InternalNotes" />
+          <ScalarProperty Name="Gen_SpclInstr" ColumnName="Gen_SpclInstr" />
+          <ScalarProperty Name="PreSample" ColumnName="PreSample" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="Aen_Complaintment" ColumnName="Aen_Complaintment" />
+          <ScalarProperty Name="Aen_ExternalNotes" ColumnName="Aen_ExternalNotes" />
+          <ScalarProperty Name="Aen_InternalNotes" ColumnName="Aen_InternalNotes" />
+          <ScalarProperty Name="Aen_InvoiceNotes" ColumnName="Aen_InvoiceNotes" />
+          <ScalarProperty Name="Aen_SpclInstr" ColumnName="Aen_SpclInstr" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblQuoteDetails">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblQuoteDetail">
+        <MappingFragment StoreEntitySet="tblQuoteDetail">
+          <ScalarProperty Name="QDetail" ColumnName="QDetail" />
+          <ScalarProperty Name="QuoteNum" ColumnName="QuoteNum" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="FreightP" ColumnName="FreightP" />
+          <ScalarProperty Name="TrtnmntP" ColumnName="TrtnmntP" />
+          <ScalarProperty Name="WHCostP" ColumnName="WHCostP" />
+          <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+          <ScalarProperty Name="KDetailID" ColumnName="KDetailID" />
+          <ScalarProperty Name="CustProductCode" ColumnName="CustProductCode" />
+          <ScalarProperty Name="CustLot" ColumnName="CustLot" />
+          <ScalarProperty Name="QtyAdj" ColumnName="QtyAdj" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRincons">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblRincon">
+        <MappingFragment StoreEntitySet="tblRincon">
+          <ScalarProperty Name="RinconID" ColumnName="RinconID" />
+          <ScalarProperty Name="MoveDate" ColumnName="MoveDate" />
+          <ScalarProperty Name="SheetNum" ColumnName="SheetNum" />
+          <ScalarProperty Name="PrepBy" ColumnName="PrepBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRinconDetails">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblRinconDetail">
+        <MappingFragment StoreEntitySet="tblRinconDetail">
+          <ScalarProperty Name="RDetailID" ColumnName="RDetailID" />
+          <ScalarProperty Name="RinconID" ColumnName="RinconID" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="CurrLocID" ColumnName="CurrLocID" />
+          <ScalarProperty Name="DestLocID" ColumnName="DestLocID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSamples">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblSample">
+        <MappingFragment StoreEntitySet="tblSample">
+          <ScalarProperty Name="SampleID" ColumnName="SampleID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="SampleDate" ColumnName="SampleDate" />
+          <ScalarProperty Name="Contact_IA" ColumnName="Contact_IA" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="Address1_IA" ColumnName="Address1_IA" />
+          <ScalarProperty Name="Address2_IA" ColumnName="Address2_IA" />
+          <ScalarProperty Name="Address3_IA" ColumnName="Address3_IA" />
+          <ScalarProperty Name="City_IA" ColumnName="City_IA" />
+          <ScalarProperty Name="State_IA" ColumnName="State_IA" />
+          <ScalarProperty Name="Zip_IA" ColumnName="Zip_IA" />
+          <ScalarProperty Name="Country_IA" ColumnName="Country_IA" />
+          <ScalarProperty Name="SContact" ColumnName="SContact" />
+          <ScalarProperty Name="SCompany" ColumnName="SCompany" />
+          <ScalarProperty Name="SAddress1" ColumnName="SAddress1" />
+          <ScalarProperty Name="SAddress2" ColumnName="SAddress2" />
+          <ScalarProperty Name="SAddress3" ColumnName="SAddress3" />
+          <ScalarProperty Name="SCity" ColumnName="SCity" />
+          <ScalarProperty Name="SState" ColumnName="SState" />
+          <ScalarProperty Name="SZip" ColumnName="SZip" />
+          <ScalarProperty Name="SCountry" ColumnName="SCountry" />
+          <ScalarProperty Name="SPhone" ColumnName="SPhone" />
+          <ScalarProperty Name="Broker" ColumnName="Broker" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="DateRecd" ColumnName="DateRecd" />
+          <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FOB" ColumnName="FOB" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Notes2Print" ColumnName="Notes2Print" />
+          <ScalarProperty Name="Gen_Comments" ColumnName="Gen_Comments" />
+          <ScalarProperty Name="SpecialBlend" ColumnName="SpecialBlend" />
+          <ScalarProperty Name="Gen_Notes2Print" ColumnName="Gen_Notes2Print" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Completed" ColumnName="Completed" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="Aen_Comments" ColumnName="Aen_Comments" />
+          <ScalarProperty Name="Aen_Notes2Print" ColumnName="Aen_Notes2Print" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSampleCusMatches">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblSampleCusMatch">
+        <MappingFragment StoreEntitySet="tblSampleCusMatch">
+          <ScalarProperty Name="CMatchID" ColumnName="CMatchID" />
+          <ScalarProperty Name="SampleDetailID" ColumnName="SampleDetailID" />
+          <ScalarProperty Name="Gran" ColumnName="Gran" />
+          <ScalarProperty Name="AvgAsta" ColumnName="AvgAsta" />
+          <ScalarProperty Name="AoverB" ColumnName="AoverB" />
+          <ScalarProperty Name="AvgScov" ColumnName="AvgScov" />
+          <ScalarProperty Name="H2O" ColumnName="H2O" />
+          <ScalarProperty Name="Scan" ColumnName="Scan" />
+          <ScalarProperty Name="Yeast" ColumnName="Yeast" />
+          <ScalarProperty Name="Mold" ColumnName="Mold" />
+          <ScalarProperty Name="Coli" ColumnName="Coli" />
+          <ScalarProperty Name="TPC" ColumnName="TPC" />
+          <ScalarProperty Name="EColi" ColumnName="EColi" />
+          <ScalarProperty Name="Sal" ColumnName="Sal" />
+          <ScalarProperty Name="InsPrts" ColumnName="InsPrts" />
+          <ScalarProperty Name="RodHrs" ColumnName="RodHrs" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSampleCustSpecs">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblSampleCustSpec">
+        <MappingFragment StoreEntitySet="tblSampleCustSpecs">
+          <ScalarProperty Name="CustSpecID" ColumnName="CustSpecID" />
+          <ScalarProperty Name="SampleDetailID" ColumnName="SampleDetailID" />
+          <ScalarProperty Name="AstaMin" ColumnName="AstaMin" />
+          <ScalarProperty Name="AstaMax" ColumnName="AstaMax" />
+          <ScalarProperty Name="MoistureMin" ColumnName="MoistureMin" />
+          <ScalarProperty Name="MoistureMax" ColumnName="MoistureMax" />
+          <ScalarProperty Name="WaterActivityMin" ColumnName="WaterActivityMin" />
+          <ScalarProperty Name="WaterActivityMax" ColumnName="WaterActivityMax" />
+          <ScalarProperty Name="Mesh" ColumnName="Mesh" />
+          <ScalarProperty Name="AoverB" ColumnName="AoverB" />
+          <ScalarProperty Name="ScovMin" ColumnName="ScovMin" />
+          <ScalarProperty Name="ScovMax" ColumnName="ScovMax" />
+          <ScalarProperty Name="ScanMin" ColumnName="ScanMin" />
+          <ScalarProperty Name="ScanMax" ColumnName="ScanMax" />
+          <ScalarProperty Name="TPCMin" ColumnName="TPCMin" />
+          <ScalarProperty Name="TPCMax" ColumnName="TPCMax" />
+          <ScalarProperty Name="YeastMin" ColumnName="YeastMin" />
+          <ScalarProperty Name="YeastMax" ColumnName="YeastMax" />
+          <ScalarProperty Name="MoldMin" ColumnName="MoldMin" />
+          <ScalarProperty Name="MoldMax" ColumnName="MoldMax" />
+          <ScalarProperty Name="ColiformsMin" ColumnName="ColiformsMin" />
+          <ScalarProperty Name="ColiformsMax" ColumnName="ColiformsMax" />
+          <ScalarProperty Name="EColiMin" ColumnName="EColiMin" />
+          <ScalarProperty Name="EColiMax" ColumnName="EColiMax" />
+          <ScalarProperty Name="SalMin" ColumnName="SalMin" />
+          <ScalarProperty Name="SalMax" ColumnName="SalMax" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSampleDetails">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblSampleDetail">
+        <MappingFragment StoreEntitySet="tblSampleDetail">
+          <ScalarProperty Name="SampleDetailID" ColumnName="SampleDetailID" />
+          <ScalarProperty Name="SampleID" ColumnName="SampleID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Desc" ColumnName="Desc" />
+          <ScalarProperty Name="SampleMatch" ColumnName="SampleMatch" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BaseLotNumber" ColumnName="BaseLotNumber" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSampleNotes">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblSampleNote">
+        <MappingFragment StoreEntitySet="tblSampleNotes">
+          <ScalarProperty Name="SamNoteID" ColumnName="SamNoteID" />
+          <ScalarProperty Name="SampleID" ColumnName="SampleID" />
+          <ScalarProperty Name="SampleJnlDate" ColumnName="SampleJnlDate" />
+          <ScalarProperty Name="SampleNote" ColumnName="SampleNote" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Gen_SampleNote" ColumnName="Gen_SampleNote" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="Aen_SampleNote" ColumnName="Aen_SampleNote" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSampleRVCIngredients">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblSampleRVCIngredient">
+        <MappingFragment StoreEntitySet="tblSampleRVCIngredients">
+          <ScalarProperty Name="SampleDetailId" ColumnName="SampleDetailId" />
+          <ScalarProperty Name="IngredientID" ColumnName="IngredientID" />
+          <ScalarProperty Name="Perecntage" ColumnName="Perecntage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSampleRVCMatches">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblSampleRVCMatch">
+        <MappingFragment StoreEntitySet="tblSampleRVCMatch">
+          <ScalarProperty Name="RVCMatchID" ColumnName="RVCMatchID" />
+          <ScalarProperty Name="SampleDetailID" ColumnName="SampleDetailID" />
+          <ScalarProperty Name="Gran" ColumnName="Gran" />
+          <ScalarProperty Name="AvgAsta" ColumnName="AvgAsta" />
+          <ScalarProperty Name="AoverB" ColumnName="AoverB" />
+          <ScalarProperty Name="AvgScov" ColumnName="AvgScov" />
+          <ScalarProperty Name="H2O" ColumnName="H2O" />
+          <ScalarProperty Name="Scan" ColumnName="Scan" />
+          <ScalarProperty Name="Yeast" ColumnName="Yeast" />
+          <ScalarProperty Name="Mold" ColumnName="Mold" />
+          <ScalarProperty Name="Coli" ColumnName="Coli" />
+          <ScalarProperty Name="TPC" ColumnName="TPC" />
+          <ScalarProperty Name="EColi" ColumnName="EColi" />
+          <ScalarProperty Name="Sal" ColumnName="Sal" />
+          <ScalarProperty Name="InsPrts" ColumnName="InsPrts" />
+          <ScalarProperty Name="RodHrs" ColumnName="RodHrs" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSelections">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblSelection">
+        <MappingFragment StoreEntitySet="tblSelection">
+          <ScalarProperty Name="Selection" ColumnName="Selection" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Explanation" ColumnName="Explanation" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="OpenType" ColumnName="OpenType" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSpecs">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblSpec">
+        <MappingFragment StoreEntitySet="tblSpec">
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="CustomerSpec" ColumnName="CustomerSpec" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="GranStart" ColumnName="GranStart" />
+          <ScalarProperty Name="GranEnd" ColumnName="GranEnd" />
+          <ScalarProperty Name="AstaStart" ColumnName="AstaStart" />
+          <ScalarProperty Name="AstaEnd" ColumnName="AstaEnd" />
+          <ScalarProperty Name="ABStart" ColumnName="ABStart" />
+          <ScalarProperty Name="ABEnd" ColumnName="ABEnd" />
+          <ScalarProperty Name="ScovStart" ColumnName="ScovStart" />
+          <ScalarProperty Name="ScovEnd" ColumnName="ScovEnd" />
+          <ScalarProperty Name="H2OStart" ColumnName="H2OStart" />
+          <ScalarProperty Name="H2OEnd" ColumnName="H2OEnd" />
+          <ScalarProperty Name="ScanStart" ColumnName="ScanStart" />
+          <ScalarProperty Name="ScanEnd" ColumnName="ScanEnd" />
+          <ScalarProperty Name="AshStart" ColumnName="AshStart" />
+          <ScalarProperty Name="AshEnd" ColumnName="AshEnd" />
+          <ScalarProperty Name="AIAStart" ColumnName="AIAStart" />
+          <ScalarProperty Name="AIAEnd" ColumnName="AIAEnd" />
+          <ScalarProperty Name="Mesh" ColumnName="Mesh" />
+          <ScalarProperty Name="Verified" ColumnName="Verified" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+          <ScalarProperty Name="SpecID" ColumnName="SpecID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStagedFGs">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblStagedFG">
+        <MappingFragment StoreEntitySet="tblStagedFG">
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="AstaCalc" ColumnName="AstaCalc" />
+          <ScalarProperty Name="ODetail" ColumnName="ODetail" />
+          <ScalarProperty Name="LoBac" ColumnName="LoBac" />
+          <ScalarProperty Name="CustProductCode" ColumnName="CustProductCode" />
+          <ScalarProperty Name="CustLot" ColumnName="CustLot" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="COAAsta" ColumnName="COAAsta" />
+          <ScalarProperty Name="COAH2O" ColumnName="COAH2O" />
+          <ScalarProperty Name="COAScan" ColumnName="COAScan" />
+          <ScalarProperty Name="COAScov" ColumnName="COAScov" />
+          <ScalarProperty Name="COAGran" ColumnName="COAGran" />
+          <ScalarProperty Name="COASPC" ColumnName="COASPC" />
+          <ScalarProperty Name="COAYeast" ColumnName="COAYeast" />
+          <ScalarProperty Name="COAMold" ColumnName="COAMold" />
+          <ScalarProperty Name="COAColi" ColumnName="COAColi" />
+          <ScalarProperty Name="COAInsPrts" ColumnName="COAInsPrts" />
+          <ScalarProperty Name="COARodHrs" ColumnName="COARodHrs" />
+          <ScalarProperty Name="COAInsect" ColumnName="COAInsect" />
+          <ScalarProperty Name="COAForeign" ColumnName="COAForeign" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="COAExtraneous" ColumnName="COAExtraneous" />
+          <ScalarProperty Name="COAEColi" ColumnName="COAEColi" />
+          <ScalarProperty Name="COASal" ColumnName="COASal" />
+          <ScalarProperty Name="COABI" ColumnName="COABI" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblToteVerifies">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblToteVerify">
+        <MappingFragment StoreEntitySet="tblToteVerify">
+          <ScalarProperty Name="ToteID" ColumnName="ToteID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTransTypes">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblTransType">
+        <MappingFragment StoreEntitySet="tblTransType">
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="TType" ColumnName="TType" />
+          <ScalarProperty Name="TTypeDesc" ColumnName="TTypeDesc" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="TransForm" ColumnName="TransForm" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTreatments">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblTreatment">
+        <MappingFragment StoreEntitySet="tblTreatment">
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="Trtmt" ColumnName="Trtmt" />
+          <ScalarProperty Name="TrtmtDesc" ColumnName="TrtmtDesc" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblVarieties">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblVariety">
+        <MappingFragment StoreEntitySet="tblVariety">
+          <ScalarProperty Name="VarietyID" ColumnName="VarietyID" />
+          <ScalarProperty Name="Variety" ColumnName="Variety" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblWarehouses">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tblWarehouse">
+        <MappingFragment StoreEntitySet="tblWarehouse">
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+          <ScalarProperty Name="WhouseAbbr" ColumnName="WhouseAbbr" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InActive" ColumnName="InActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tmpIncomingArchives">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.tmpIncomingArchive">
+        <MappingFragment StoreEntitySet="tmpIncomingArchive">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="VarietyID" ColumnName="VarietyID" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="DehyLocale" ColumnName="DehyLocale" />
+          <ScalarProperty Name="DateArchived" ColumnName="DateArchived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewAvailables">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewAvailable">
+        <MappingFragment StoreEntitySet="ViewAvailable">
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewAllInOut">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewAllInOut">
+        <MappingFragment StoreEntitySet="ViewAllInOut">
+          <ScalarProperty Name="Wgt" ColumnName="Wgt" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewDehyLotTotals">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewDehyLotTotals">
+        <MappingFragment StoreEntitySet="ViewDehyLotTotals">
+          <ScalarProperty Name="YAToxin" ColumnName="YAToxin" />
+          <ScalarProperty Name="YLead" ColumnName="YLead" />
+          <ScalarProperty Name="YEthox" ColumnName="YEthox" />
+          <ScalarProperty Name="YInsPrts" ColumnName="YInsPrts" />
+          <ScalarProperty Name="YRodHrs" ColumnName="YRodHrs" />
+          <ScalarProperty Name="YSal" ColumnName="YSal" />
+          <ScalarProperty Name="YEColi" ColumnName="YEColi" />
+          <ScalarProperty Name="YColi" ColumnName="YColi" />
+          <ScalarProperty Name="YMold" ColumnName="YMold" />
+          <ScalarProperty Name="YYeast" ColumnName="YYeast" />
+          <ScalarProperty Name="YTPC" ColumnName="YTPC" />
+          <ScalarProperty Name="YAvgScov" ColumnName="YAvgScov" />
+          <ScalarProperty Name="YScan" ColumnName="YScan" />
+          <ScalarProperty Name="YH2O" ColumnName="YH2O" />
+          <ScalarProperty Name="YAvgAsta" ColumnName="YAvgAsta" />
+          <ScalarProperty Name="Wgt" ColumnName="Wgt" />
+          <ScalarProperty Name="DehyLocale" ColumnName="DehyLocale" />
+          <ScalarProperty Name="Variety" ColumnName="Variety" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="LoadNum" ColumnName="LoadNum" />
+          <ScalarProperty Name="DehyDate" ColumnName="DehyDate" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewDehyLotTotalsWithCalculations">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewDehyLotTotalsWithCalculations">
+        <MappingFragment StoreEntitySet="ViewDehyLotTotalsWithCalculations">
+          <ScalarProperty Name="Atoxin" ColumnName="Atoxin" />
+          <ScalarProperty Name="Lead" ColumnName="Lead" />
+          <ScalarProperty Name="Ethox" ColumnName="Ethox" />
+          <ScalarProperty Name="InsPrts" ColumnName="InsPrts" />
+          <ScalarProperty Name="RodHrs" ColumnName="RodHrs" />
+          <ScalarProperty Name="Sal" ColumnName="Sal" />
+          <ScalarProperty Name="EColi" ColumnName="EColi" />
+          <ScalarProperty Name="Coli" ColumnName="Coli" />
+          <ScalarProperty Name="Mold" ColumnName="Mold" />
+          <ScalarProperty Name="Yeast" ColumnName="Yeast" />
+          <ScalarProperty Name="TPC" ColumnName="TPC" />
+          <ScalarProperty Name="AvgScov" ColumnName="AvgScov" />
+          <ScalarProperty Name="Scan" ColumnName="Scan" />
+          <ScalarProperty Name="H2O" ColumnName="H2O" />
+          <ScalarProperty Name="AvgAsta" ColumnName="AvgAsta" />
+          <ScalarProperty Name="Wgt" ColumnName="Wgt" />
+          <ScalarProperty Name="DehyLocale" ColumnName="DehyLocale" />
+          <ScalarProperty Name="Variety" ColumnName="Variety" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="LoadNum" ColumnName="LoadNum" />
+          <ScalarProperty Name="DehyDate" ColumnName="DehyDate" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewDehyResults">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewDehyResults">
+        <MappingFragment StoreEntitySet="ViewDehyResults">
+          <ScalarProperty Name="XAToxin" ColumnName="XAToxin" />
+          <ScalarProperty Name="XLead" ColumnName="XLead" />
+          <ScalarProperty Name="XEthox" ColumnName="XEthox" />
+          <ScalarProperty Name="XInsPrts" ColumnName="XInsPrts" />
+          <ScalarProperty Name="XRodHrs" ColumnName="XRodHrs" />
+          <ScalarProperty Name="XSal" ColumnName="XSal" />
+          <ScalarProperty Name="XEColi" ColumnName="XEColi" />
+          <ScalarProperty Name="XColi" ColumnName="XColi" />
+          <ScalarProperty Name="XMold" ColumnName="XMold" />
+          <ScalarProperty Name="XYeast" ColumnName="XYeast" />
+          <ScalarProperty Name="XTPC" ColumnName="XTPC" />
+          <ScalarProperty Name="XAvgScov" ColumnName="XAvgScov" />
+          <ScalarProperty Name="XScan" ColumnName="XScan" />
+          <ScalarProperty Name="XH2O" ColumnName="XH2O" />
+          <ScalarProperty Name="XAvgAsta" ColumnName="XAvgAsta" />
+          <ScalarProperty Name="AToxin" ColumnName="AToxin" />
+          <ScalarProperty Name="Lead" ColumnName="Lead" />
+          <ScalarProperty Name="Ethox" ColumnName="Ethox" />
+          <ScalarProperty Name="InsPrts" ColumnName="InsPrts" />
+          <ScalarProperty Name="RodHrs" ColumnName="RodHrs" />
+          <ScalarProperty Name="Sal" ColumnName="Sal" />
+          <ScalarProperty Name="EColi" ColumnName="EColi" />
+          <ScalarProperty Name="Coli" ColumnName="Coli" />
+          <ScalarProperty Name="Mold" ColumnName="Mold" />
+          <ScalarProperty Name="Yeast" ColumnName="Yeast" />
+          <ScalarProperty Name="TPC" ColumnName="TPC" />
+          <ScalarProperty Name="AvgScov" ColumnName="AvgScov" />
+          <ScalarProperty Name="Scan" ColumnName="Scan" />
+          <ScalarProperty Name="H2O" ColumnName="H2O" />
+          <ScalarProperty Name="AvgAsta" ColumnName="AvgAsta" />
+          <ScalarProperty Name="WIPTtlWgt" ColumnName="WIPTtlWgt" />
+          <ScalarProperty Name="NewLot" ColumnName="NewLot" />
+          <ScalarProperty Name="WIPDate" ColumnName="WIPDate" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="DehyLocale" ColumnName="DehyLocale" />
+          <ScalarProperty Name="Variety" ColumnName="Variety" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="LoadNum" ColumnName="LoadNum" />
+          <ScalarProperty Name="DehyDate" ColumnName="DehyDate" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewFinishedGoodsInProduction">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewFinishedGoodsInProduction">
+        <MappingFragment StoreEntitySet="ViewFinishedGoodsInProduction">
+          <ScalarProperty Name="LotStat" ColumnName="LotStat" />
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+          <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+          <ScalarProperty Name="TotalQuantity" ColumnName="TotalQuantity" />
+          <ScalarProperty Name="Packaging" ColumnName="Packaging" />
+          <ScalarProperty Name="Trtmt" ColumnName="Trtmt" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewFinishedGoodsOnHand">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewFinishedGoodsOnHand">
+        <MappingFragment StoreEntitySet="ViewFinishedGoodsOnHand">
+          <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewFinishedGoodsUsable">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewFinishedGoodsUsable">
+        <MappingFragment StoreEntitySet="ViewFinishedGoodsUsable">
+          <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewGeneology">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewGeneology">
+        <MappingFragment StoreEntitySet="ViewGeneology">
+          <ScalarProperty Name="Trtmt" ColumnName="Trtmt" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="PackSchID" ColumnName="PackSchID" />
+          <ScalarProperty Name="NewLot" ColumnName="NewLot" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewGeneologyReverse">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewGeneologyReverse">
+        <MappingFragment StoreEntitySet="ViewGeneologyReverse">
+          <ScalarProperty Name="Trtmt" ColumnName="Trtmt" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="PackSchID" ColumnName="PackSchID" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="NewLot" ColumnName="NewLot" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewIncompleteBatches">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewIncompleteBatches">
+        <MappingFragment StoreEntitySet="ViewIncompleteBatches">
+          <ScalarProperty Name="BatchStatID" ColumnName="BatchStatID" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="LoBac" ColumnName="LoBac" />
+          <ScalarProperty Name="AW" ColumnName="AW" />
+          <ScalarProperty Name="AQ" ColumnName="AQ" />
+          <ScalarProperty Name="PackSchID" ColumnName="PackSchID" />
+          <ScalarProperty Name="ODetail" ColumnName="ODetail" />
+          <ScalarProperty Name="AvgAsta" ColumnName="AvgAsta" />
+          <ScalarProperty Name="AstaCalc" ColumnName="AstaCalc" />
+          <ScalarProperty Name="BatchLot" ColumnName="BatchLot" />
+          <ScalarProperty Name="BOMID" ColumnName="BOMID" />
+          <ScalarProperty Name="NewLot" ColumnName="NewLot" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="PackSchDesc" ColumnName="PackSchDesc" />
+          <ScalarProperty Name="PackSchDate" ColumnName="PackSchDate" />
+          <ScalarProperty Name="PSNum" ColumnName="PSNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewIncompleteMoves">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewIncompleteMoves">
+        <MappingFragment StoreEntitySet="ViewIncompleteMoves">
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="MoveNum" ColumnName="MoveNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewIncompleteOrders">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewIncompleteOrders">
+        <MappingFragment StoreEntitySet="ViewIncompleteOrders">
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewInOutWithPending">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewInOutWithPending">
+        <MappingFragment StoreEntitySet="ViewInOutWithPending">
+          <ScalarProperty Name="Wgt" ColumnName="Wgt" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewInventory">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewInventory">
+        <MappingFragment StoreEntitySet="ViewInventory">
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewInventoryAllAvailable">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewInventoryAllAvailable">
+        <MappingFragment StoreEntitySet="ViewInventoryAllAvailable">
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="Lead" ColumnName="Lead" />
+          <ScalarProperty Name="LoBac" ColumnName="LoBac" />
+          <ScalarProperty Name="PSNum" ColumnName="PSNum" />
+          <ScalarProperty Name="WhouseAbbr" ColumnName="WhouseAbbr" />
+          <ScalarProperty Name="BatchNum" ColumnName="BatchNum" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="TesterID" ColumnName="TesterID" />
+          <ScalarProperty Name="LabStat" ColumnName="LabStat" />
+          <ScalarProperty Name="LotStat" ColumnName="LotStat" />
+          <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="OTType" ColumnName="OTType" />
+          <ScalarProperty Name="CropYear" ColumnName="CropYear" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
+          <ScalarProperty Name="RodHrs" ColumnName="RodHrs" />
+          <ScalarProperty Name="InsPrts" ColumnName="InsPrts" />
+          <ScalarProperty Name="Sal" ColumnName="Sal" />
+          <ScalarProperty Name="EColi" ColumnName="EColi" />
+          <ScalarProperty Name="TPC" ColumnName="TPC" />
+          <ScalarProperty Name="Coli" ColumnName="Coli" />
+          <ScalarProperty Name="Mold" ColumnName="Mold" />
+          <ScalarProperty Name="Yeast" ColumnName="Yeast" />
+          <ScalarProperty Name="Scan" ColumnName="Scan" />
+          <ScalarProperty Name="H2O" ColumnName="H2O" />
+          <ScalarProperty Name="AvgAsta" ColumnName="AvgAsta" />
+          <ScalarProperty Name="AvgScov" ColumnName="AvgScov" />
+          <ScalarProperty Name="AoverB" ColumnName="AoverB" />
+          <ScalarProperty Name="Gran" ColumnName="Gran" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="Julian" ColumnName="Julian" />
+          <ScalarProperty Name="PTypeID" ColumnName="PTypeID" />
+          <ScalarProperty Name="SumOfTtlWgt" ColumnName="SumOfTtlWgt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewInventoryHistory">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewInventoryHistory">
+        <MappingFragment StoreEntitySet="ViewInventoryHistory">
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewInventoryInProduction">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewInventoryInProduction">
+        <MappingFragment StoreEntitySet="ViewInventoryInProduction">
+          <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+          <ScalarProperty Name="TotalQuantity" ColumnName="TotalQuantity" />
+          <ScalarProperty Name="Packaging" ColumnName="Packaging" />
+          <ScalarProperty Name="Trtmt" ColumnName="Trtmt" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewInventoryItems">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewInventoryItems">
+        <MappingFragment StoreEntitySet="ViewInventoryItems">
+          <ScalarProperty Name="PTypeID" ColumnName="PTypeID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewInventoryOnHand">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewInventoryOnHand">
+        <MappingFragment StoreEntitySet="ViewInventoryOnHand">
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewInventorySnapShot">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewInventorySnapShot">
+        <MappingFragment StoreEntitySet="ViewInventorySnapShot">
+          <ScalarProperty Name="Actual" ColumnName="Actual" />
+          <ScalarProperty Name="TotalOrdered" ColumnName="TotalOrdered" />
+          <ScalarProperty Name="TotalInProduction" ColumnName="TotalInProduction" />
+          <ScalarProperty Name="TotalUsable" ColumnName="TotalUsable" />
+          <ScalarProperty Name="TotalOnHand" ColumnName="TotalOnHand" />
+          <ScalarProperty Name="Packaging" ColumnName="Packaging" />
+          <ScalarProperty Name="Trtmt" ColumnName="Trtmt" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewInventorySummary">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewInventorySummary">
+        <MappingFragment StoreEntitySet="ViewInventorySummary">
+          <ScalarProperty Name="PTypeID" ColumnName="PTypeID" />
+          <ScalarProperty Name="LotStat" ColumnName="LotStat" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="SumOfTtlWgt" ColumnName="SumOfTtlWgt" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewInventoryTotalsByWarehouse">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewInventoryTotalsByWarehouse">
+        <MappingFragment StoreEntitySet="ViewInventoryTotalsByWarehouse">
+          <ScalarProperty Name="PTypeID" ColumnName="PTypeID" />
+          <ScalarProperty Name="LotStat" ColumnName="LotStat" />
+          <ScalarProperty Name="SumOfQuantity" ColumnName="SumOfQuantity" />
+          <ScalarProperty Name="SumOfTtlWgt" ColumnName="SumOfTtlWgt" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewInvoicingBase">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewInvoicingBase">
+        <MappingFragment StoreEntitySet="ViewInvoicingBase">
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="StagedFGLot" ColumnName="StagedFGLot" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="QtyAdj" ColumnName="QtyAdj" />
+          <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+          <ScalarProperty Name="CustProductCode" ColumnName="CustProductCode" />
+          <ScalarProperty Name="SumOfQuantity" ColumnName="SumOfQuantity" />
+          <ScalarProperty Name="StagedFGTrtmt" ColumnName="StagedFGTrtmt" />
+          <ScalarProperty Name="OrderTrtmt" ColumnName="OrderTrtmt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="StagedFGPackaging" ColumnName="StagedFGPackaging" />
+          <ScalarProperty Name="OrderPackaging" ColumnName="OrderPackaging" />
+          <ScalarProperty Name="StagedFGProduct" ColumnName="StagedFGProduct" />
+          <ScalarProperty Name="OrderProduct" ColumnName="OrderProduct" />
+          <ScalarProperty Name="StagedFGProdId" ColumnName="StagedFGProdId" />
+          <ScalarProperty Name="OrderProdId" ColumnName="OrderProdId" />
+          <ScalarProperty Name="ProdGroup" ColumnName="ProdGroup" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="ODetail" ColumnName="ODetail" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewLotDestinationHistory">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewLotDestinationHistory">
+        <MappingFragment StoreEntitySet="ViewLotDestinationHistory">
+          <ScalarProperty Name="Grower" ColumnName="Grower" />
+          <ScalarProperty Name="SheetNum" ColumnName="SheetNum" />
+          <ScalarProperty Name="Produced" ColumnName="Produced" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="Employee" ColumnName="Employee" />
+          <ScalarProperty Name="MoveNum" ColumnName="MoveNum" />
+          <ScalarProperty Name="Sold_To" ColumnName="Sold To" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="PSNum" ColumnName="PSNum" />
+          <ScalarProperty Name="MoveDate" ColumnName="MoveDate" />
+          <ScalarProperty Name="NewProduct" ColumnName="NewProduct" />
+          <ScalarProperty Name="NewLot" ColumnName="NewLot" />
+          <ScalarProperty Name="Row" ColumnName="Row" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="WhouseAbbr" ColumnName="WhouseAbbr" />
+          <ScalarProperty Name="Wgt" ColumnName="Wgt" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Trtmt" ColumnName="Trtmt" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="TType" ColumnName="TType" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewLotDestinations">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewLotDestinations">
+        <MappingFragment StoreEntitySet="ViewLotDestinations">
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="MoveNum" ColumnName="MoveNum" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="PackSchID" ColumnName="PackSchID" />
+          <ScalarProperty Name="RinconID" ColumnName="RinconID" />
+          <ScalarProperty Name="NewLot" ColumnName="NewLot" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="Wgt" ColumnName="Wgt" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewLotOriginationHistory">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewLotOriginationHistory">
+        <MappingFragment StoreEntitySet="ViewLotOriginationHistory">
+          <ScalarProperty Name="Grower" ColumnName="Grower" />
+          <ScalarProperty Name="SheetNum" ColumnName="SheetNum" />
+          <ScalarProperty Name="Produced" ColumnName="Produced" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="Employee" ColumnName="Employee" />
+          <ScalarProperty Name="MoveNum" ColumnName="MoveNum" />
+          <ScalarProperty Name="Sold_To" ColumnName="Sold To" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="PSNum" ColumnName="PSNum" />
+          <ScalarProperty Name="MoveDate" ColumnName="MoveDate" />
+          <ScalarProperty Name="NewProduct" ColumnName="NewProduct" />
+          <ScalarProperty Name="NewLot" ColumnName="NewLot" />
+          <ScalarProperty Name="Row" ColumnName="Row" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="WhouseAbbr" ColumnName="WhouseAbbr" />
+          <ScalarProperty Name="Wgt" ColumnName="Wgt" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Trtmt" ColumnName="Trtmt" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="TType" ColumnName="TType" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewLotOrigins">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewLotOrigins">
+        <MappingFragment StoreEntitySet="ViewLotOrigins">
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="MoveNum" ColumnName="MoveNum" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="PackSchID" ColumnName="PackSchID" />
+          <ScalarProperty Name="RinconID" ColumnName="RinconID" />
+          <ScalarProperty Name="NewLot" ColumnName="NewLot" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="Wgt" ColumnName="Wgt" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TTypeID" ColumnName="TTypeID" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewLotSummary">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewLotSummary">
+        <MappingFragment StoreEntitySet="ViewLotSummary">
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="PTypeID" ColumnName="PTypeID" />
+          <ScalarProperty Name="ProdGrpID" ColumnName="ProdGrpID" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="BatchType" ColumnName="BatchType" />
+          <ScalarProperty Name="LotStatDesc" ColumnName="LotStatDesc" />
+          <ScalarProperty Name="LotStat" ColumnName="LotStat" />
+          <ScalarProperty Name="Prod" ColumnName="Prod" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewOrderDetails">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewOrderDetails">
+        <MappingFragment StoreEntitySet="ViewOrderDetails">
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="PkgWgt" ColumnName="PkgWgt" />
+          <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="Trtmt" ColumnName="Trtmt" />
+          <ScalarProperty Name="Packaging" ColumnName="Packaging" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+          <ScalarProperty Name="s_Lineage" ColumnName="s_Lineage" />
+          <ScalarProperty Name="s_Generation" ColumnName="s_Generation" />
+          <ScalarProperty Name="s_ColLineage" ColumnName="s_ColLineage" />
+          <ScalarProperty Name="s_GUID" ColumnName="s_GUID" />
+          <ScalarProperty Name="QtyAdj" ColumnName="QtyAdj" />
+          <ScalarProperty Name="CustLot" ColumnName="CustLot" />
+          <ScalarProperty Name="CustProductCode" ColumnName="CustProductCode" />
+          <ScalarProperty Name="KDetailID" ColumnName="KDetailID" />
+          <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+          <ScalarProperty Name="WHCostP" ColumnName="WHCostP" />
+          <ScalarProperty Name="TrtnmntP" ColumnName="TrtnmntP" />
+          <ScalarProperty Name="FreightP" ColumnName="FreightP" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="ODetail" ColumnName="ODetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewOutgoingBatch">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewOutgoingBatch">
+        <MappingFragment StoreEntitySet="ViewOutgoingBatch">
+          <ScalarProperty Name="AIA" ColumnName="AIA" />
+          <ScalarProperty Name="Ash" ColumnName="Ash" />
+          <ScalarProperty Name="Trtmt" ColumnName="Trtmt" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="LoBac" ColumnName="LoBac" />
+          <ScalarProperty Name="PackSchID" ColumnName="PackSchID" />
+          <ScalarProperty Name="Row" ColumnName="Row" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="AW" ColumnName="AW" />
+          <ScalarProperty Name="AQ" ColumnName="AQ" />
+          <ScalarProperty Name="ScanEnd" ColumnName="ScanEnd" />
+          <ScalarProperty Name="ScanStart" ColumnName="ScanStart" />
+          <ScalarProperty Name="H2OEnd" ColumnName="H2OEnd" />
+          <ScalarProperty Name="H2OStart" ColumnName="H2OStart" />
+          <ScalarProperty Name="ScovEnd" ColumnName="ScovEnd" />
+          <ScalarProperty Name="ScovStart" ColumnName="ScovStart" />
+          <ScalarProperty Name="ABEnd" ColumnName="ABEnd" />
+          <ScalarProperty Name="ABStart" ColumnName="ABStart" />
+          <ScalarProperty Name="AstaEnd" ColumnName="AstaEnd" />
+          <ScalarProperty Name="AstaStart" ColumnName="AstaStart" />
+          <ScalarProperty Name="RodHrs" ColumnName="RodHrs" />
+          <ScalarProperty Name="InsPrts" ColumnName="InsPrts" />
+          <ScalarProperty Name="Sal" ColumnName="Sal" />
+          <ScalarProperty Name="EColi" ColumnName="EColi" />
+          <ScalarProperty Name="TPC" ColumnName="TPC" />
+          <ScalarProperty Name="Coli" ColumnName="Coli" />
+          <ScalarProperty Name="Mold" ColumnName="Mold" />
+          <ScalarProperty Name="Yeast" ColumnName="Yeast" />
+          <ScalarProperty Name="Scan" ColumnName="Scan" />
+          <ScalarProperty Name="H2O" ColumnName="H2O" />
+          <ScalarProperty Name="Lead" ColumnName="Lead" />
+          <ScalarProperty Name="AvgScov" ColumnName="AvgScov" />
+          <ScalarProperty Name="AoverB" ColumnName="AoverB" />
+          <ScalarProperty Name="AvgAsta" ColumnName="AvgAsta" />
+          <ScalarProperty Name="AstaCalc" ColumnName="AstaCalc" />
+          <ScalarProperty Name="Gran" ColumnName="Gran" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="NewLot" ColumnName="NewLot" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="Packaging" ColumnName="Packaging" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="PTypeID" ColumnName="PTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewPackSchedule">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewPackSchedule">
+        <MappingFragment StoreEntitySet="ViewPackSchedule">
+          <ScalarProperty Name="LoBac" ColumnName="LoBac" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Packaging" ColumnName="Packaging" />
+          <ScalarProperty Name="Row" ColumnName="Row" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Trtmt" ColumnName="Trtmt" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="PackSchID" ColumnName="PackSchID" />
+          <ScalarProperty Name="NewLot" ColumnName="NewLot" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+          <ScalarProperty Name="PSNum" ColumnName="PSNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewPackSchLots">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewPackSchLots">
+        <MappingFragment StoreEntitySet="ViewPackSchLots">
+          <ScalarProperty Name="NewLot" ColumnName="NewLot" />
+          <ScalarProperty Name="PSNum" ColumnName="PSNum" />
+          <ScalarProperty Name="PackSchID" ColumnName="PackSchID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewPendingOrders">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewPendingOrders">
+        <MappingFragment StoreEntitySet="ViewPendingOrders">
+          <ScalarProperty Name="Stat" ColumnName="Stat" />
+          <ScalarProperty Name="Wgt" ColumnName="Wgt" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Trtmt" ColumnName="Trtmt" />
+          <ScalarProperty Name="Packaging" ColumnName="Packaging" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+          <ScalarProperty Name="ODetail" ColumnName="ODetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewShippedOrders">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewShippedOrders">
+        <MappingFragment StoreEntitySet="ViewShippedOrders">
+          <ScalarProperty Name="Stat" ColumnName="Stat" />
+          <ScalarProperty Name="Wgt" ColumnName="Wgt" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Trtmt" ColumnName="Trtmt" />
+          <ScalarProperty Name="Packaging" ColumnName="Packaging" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+          <ScalarProperty Name="ODetail" ColumnName="ODetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewUsableInventoryTotals">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewUsableInventoryTotals">
+        <MappingFragment StoreEntitySet="ViewUsableInventoryTotals">
+          <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="WHID" ColumnName="WHID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewInventoryLoad">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewInventoryLoad">
+        <MappingFragment StoreEntitySet="ViewInventoryLoad">
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewInventoryLoadSelected">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.ViewInventoryLoadSelected">
+        <MappingFragment StoreEntitySet="ViewInventoryLoadSelected">
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="Tote" ColumnName="Tote" />
+          <ScalarProperty Name="LocID" ColumnName="LocID" />
+          <ScalarProperty Name="TrtmtID" ColumnName="TrtmtID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+          <ScalarProperty Name="NetWgt" ColumnName="NetWgt" />
+          <ScalarProperty Name="TtlWgt" ColumnName="TtlWgt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Lot" ColumnName="Lot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Serialized">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.Serialized">
+        <MappingFragment StoreEntitySet="Serialized">
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="OldKey" ColumnName="OldKey" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SerializedCustomerProdSpecs">
+      <EntityTypeMapping TypeName="RioAccessSQLModel.SerializedCustomerProdSpecs">
+        <MappingFragment StoreEntitySet="SerializedCustomerProdSpecs">
+          <ScalarProperty Name="Serialized" ColumnName="Serialized" />
+          <ScalarProperty Name="Company_IA" ColumnName="Company_IA" />
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

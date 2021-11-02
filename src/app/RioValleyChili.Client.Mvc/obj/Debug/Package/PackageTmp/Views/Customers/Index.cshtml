@@ -1,0 +1,22 @@
+﻿@using RioValleyChili.Client.Mvc.Core.Security
+@{
+    ViewBag.Title = "Sales";
+    ViewBag.PageTitle = "Sales";
+    ViewBag.PageSubtitle = "Dashboard";
+
+}
+
+@section controlPanel
+{
+    @Html.SubNavigation("Sales Areas", new List<NavigationItem> { 
+        new NavigationItem("Contracts", MVC.Customers.Contracts()),
+        new NavigationItem("Sales Orders", MVC.Customers.SalesOrders()),
+        new NavigationItem("Companies & Contacts", MVC.Customers.CompanyMaintenance()),
+        new NavigationItem("Quotes", MVC.Customers.Quotes())
+    })
+
+    <fieldset>
+        <legend><i class="fa fa-clipboard"></i> Reports</legend>
+        @Html.ActionLink("Pending Orders (Daily)", MVC.Reporting.SalesReporting.Actions.PendingOrderDetails(), new { @class = "button", target = "_blank" })
+    </fieldset>
+}

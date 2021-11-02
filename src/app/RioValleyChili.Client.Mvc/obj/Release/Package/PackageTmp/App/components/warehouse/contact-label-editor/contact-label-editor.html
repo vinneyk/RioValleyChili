@@ -1,0 +1,17 @@
+﻿<div class="form-group">
+    <label class="sr-only control-label">Name</label>
+    <input type="text" class="form-control" placeholder="Name" data-bind="value: Name, disable: isLocked" />
+</div>
+<div class="form-group">
+    <label class="sr-only control-label">Phone</label>
+    <input type="text" class="form-control" placeholder="Phone" data-bind="value: Phone, disable: isLocked" />
+</div>
+<div class="form-group">
+    <label class="sr-only control-label">Email</label>
+    <input type="text" class="form-control" placeholder="Email" data-bind="value: EMail, disable: isLocked" />
+</div>
+<div class="form-group">
+    <label class="sr-only control-label">Fax</label>
+    <input type="text" class="form-control" placeholder="Fax" data-bind="value: Fax, disable: isLocked" />
+</div>
+<address-editor params="input: Address, output: addressExports, locked: isLocked"></address-editor>

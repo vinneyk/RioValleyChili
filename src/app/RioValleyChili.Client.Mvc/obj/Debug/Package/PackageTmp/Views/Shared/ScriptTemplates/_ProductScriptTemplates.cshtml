@@ -1,0 +1,147 @@
+﻿@{
+    Html.PushJavaScriptResource(Url.Content("~/scripts/app/helpers/EsmHelper.js"));
+    Html.PushJavaScriptResource(Url.Content("~/scripts/app/helpers/ajaxStatusHelper.js"));
+    Html.PushJavaScriptResource(Url.Content("~/scripts/app/viewModels/qualityControl/productIngredientsViewModel.js"));
+    Html.PushJavaScriptResource(Url.Content("~/scripts/app/viewModels/qualityControl/productSpecsViewModel.js"));
+    Html.PushJavaScriptResource(Url.Content("~/scripts/app/viewModels/qualityControl/productDetailsViewModel.js"));
+}
+
+<script id="product-details-template" type="text/html">
+    <div id="productDetails" data-bind="with: productDetailsViewModel">
+
+        <!-- ko ifnot: product-->
+        <span>No product selected.</span>
+        <!-- /ko -->
+        <!-- ko with: product -->
+        <h3 data-bind="text: isNew() ? 'Create New Product' : ProductName"></h3>
+        <div id="productInfo" data-bind="tabs: $parent.currentTab">
+            <ul>
+                <li><a href="#general-tab" data-bind="ajaxStatus: $parent.saveCommand">General</a></li>
+                <li data-bind="visible: !isNew() && hasProductSpecs"><a href="#specs-tab">Specs</a></li>
+                <li data-bind="visible: !isNew() && hasIngredients"><a href="#ingredients-tab">Ingredients</a></li>
+            </ul>
+            <section id="general-tab">
+                <div data-bind="template: { name: 'result-messages-template', data: $parent.saveCommand.results }"></div>
+                <!-- ko template: { name: isEditing() ? 'product-info-editor-template' : 'product-info-display-template' } -->
+                <!-- /ko -->
+            </section>
+
+            <section id="specs-tab" data-bind="template: { name: 'product-specs-template' }"></section>
+            <section id="ingredients-tab" data-bind="template: { name: 'product-ingredients-template' }"></section>
+        </div>
+        <!-- /ko -->
+    </div>
+</script>
+
+<script id="product-info-display-template" type="text/html">
+    <ul class="tabular">
+        <li>
+            <label>Product Name</label>
+            <span data-bind="text: ProductName"></span>
+        </li>
+        <li>
+            <label>Product Code</label>
+            <span data-bind="text: ProductCode"></span>
+        </li>
+        <li>
+            <label>Lot Type</label>
+            <span data-bind="text: LotType.displayValue"></span>
+        </li>
+        <li>
+            <label>Active</label>
+            <span data-bind="text: IsActive() ? 'Yes' : 'No'"></span>
+        </li>
+
+        <!-- ko template: { name: 'chile-product-extensions-display-template', if: isChile } -->
+        <!-- /ko -->
+        <!-- ko template: { name: 'additive-product-extensions-display-template', if: isAdditive } -->
+        <!-- /ko -->
+        <!-- ko template: { name: 'packaging-product-extensions-display-template', if: isPackaging } -->
+        <!-- /ko -->
+    </ul>
+</script>
+<script id="product-info-editor-template" type="text/html">
+    <ul class="tabular">
+        <li>
+            <label>Product Name</label>
+            <input type="text" data-bind="value: ProductName" style="width: 350px" />
+        </li>
+        <li>
+            <label>Product Code</label>
+            <input type="text" data-bind="value: ProductCode" />
+        </li>
+        <li>
+            <label>Product Type</label>
+            <select data-bind="value: LotType, options: LotType.options, optionsText: 'value', optionsValue: 'key', disable: !isNew()"></select>
+        </li>
+        <li>
+            <label>Active</label>
+            <input type="checkbox" data-bind="checked: IsActive" id="isActive" />
+            <label for="isActive" data-bind="text: IsActive() ? 'Yes' : 'No'"></label>
+        </li>
+
+        <!-- ko template: { name: 'chile-product-extensions-editor-template', if: isChile } -->
+        <!-- /ko -->
+        <!-- ko template: { name: 'additive-product-extensions-editor-template', if: isAdditive} -->
+        <!-- /ko -->
+        <!-- ko template: { name: 'packaging-product-extensions-editor-template', if: isPackaging } -->
+        <!-- /ko -->
+    </ul>
+</script>
+
+<script id="chile-product-extensions-display-template" type="text/html">
+    <li>
+        <label>Chile Type</label>
+        <span data-bind="text: ChileTypeDescription"></span>
+    </li>
+</script>
+<script id="chile-product-extensions-editor-template" type="text/html">
+    <li>
+        <label>Chile Type</label>
+        <select data-bind="value: ChileTypeKey, options: $parent.chileTypeOptions, optionsValue: 'ChileTypeKey', optionsText: 'ChileTypeDescription', optionsCaption: ' '"></select>
+    </li>
+</script>
+
+<script id="additive-product-extensions-display-template" type="text/html">
+    <li>
+        <label>Additive Type</label>
+        <span data-bind="text: AdditiveTypeDescription"></span>
+    </li>
+</script>
+<script id="additive-product-extensions-editor-template" type="text/html">
+    <li>
+        <label for="additiveTypeSelect">Additive Type</label>
+        <select id="additiveTypeSelect" data-bind="value: AdditiveTypeKey, options: $parent.additiveTypeOptions, optionsValue: 'Key', optionsText: 'Description', optionsCaption: ' '"></select>
+    </li>
+</script>
+
+<script id="packaging-product-extensions-display-template" type="text/html">
+    <li>
+        <label>Weight</label>
+        <span data-bind="text: WeightDisplay"></span>
+    </li>
+</script>
+<script id="packaging-product-extensions-editor-template" type="text/html">
+    <li>
+        <label>Weight</label>
+        <input data-bind="value: Weight" /> lbs
+    </li>
+</script>
+
+
+<script id="product-details-control-template" type="text/html">
+    <!-- ko with: productDetailsViewModel -->
+    <fieldset data-bind="slideVisible: currentTab() && currentTab().name === 'General'">
+        <legend>Product Controls</legend>
+        <!-- ko with: product -->
+        <input type="button" data-bind="command: beginEditingCommand, visible: beginEditingCommand.canExecute" value="Edit Product" />
+        <input type="button" data-bind="command: $parent.cancelCommand, css: { 'delete': hasChanges }, value: isNew() ? 'Cancel New Product' : hasChanges() ? 'Undo Changes' : 'Stop Editing', visible: isEditing" value="Cancel Edits" />
+        <input type="button" data-bind="command: $parent.saveCommand" value="Save Changes" class="save" />
+        <!-- /ko -->
+    </fieldset>
+    <!-- /ko -->
+</script>
+
+@Html.Partial("ScriptTemplates/_ResultsScriptTemplates")
+@Html.Partial("ScriptTemplates/_ProductIngredientsScriptTemplates")
+@Html.Partial("ScriptTemplates/_ProductSpecsScriptTemplates")

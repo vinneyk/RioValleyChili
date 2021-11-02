@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/_qUnitLayout.cshtml";
+    ViewBag.RequireBaseUrl = "../../";
+}
+
+@section  htmlHead {
+    @Html.Partial("_requireHybridSetup")
+    <script src="~/Scripts/jquery.mockjax.js"></script>
+    @RenderSection("htmlHead", false)
+}
+
+@section scripts
+{
+    <script>
+        window.showUserMessage = function () { };
+    </script>
+
+    @RenderSection("tests", true)
+}

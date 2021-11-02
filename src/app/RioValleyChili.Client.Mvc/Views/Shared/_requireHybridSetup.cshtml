@@ -1,0 +1,77 @@
+﻿@functions
+{
+
+    private string BuildPath(string location)
+    {
+        return string.Format("{0}{1}", @ViewBag.RequireBaseUrl ?? string.Empty, location);
+    }
+}
+
+@if (ViewBag.useWebpack == true) {
+    <script>
+        window.antiForgeryTokenId = '@AntiForgeryConfig.CookieName';
+    </script>
+    <script src="/App/build/vendors.bundle.js?v=@Html.AppVersion()"></script>
+}
+else { 
+
+    <script src="~/Scripts/require.js"></script>
+    
+    <script src="~/Scripts/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery-ui-1.10.0.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.plugins.shEditor.js"></script>
+    <script src="~/Scripts/jquery.plugins.slimscroll.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date-format.js"></script>
+    
+    <script>
+        require.config({
+            @if (ViewBag.RequireBaseUrl != null)
+            {
+            <text>baseUrl: '@ViewBag.RequireBaseUrl',</text>
+            }
+            paths: {
+                'viewModels': '@BuildPath("App/viewModels")',
+                'helpers': '@BuildPath("App/helpers")',
+                'services': '@BuildPath("App/services")',
+                'app': '@BuildPath("App/rvc")',
+                'tests': '@BuildPath("App/tests")',
+                'components': '@BuildPath("App/components")',
+                'styles': '@BuildPath("Content")',
+                @*'durandal': '@BuildPath("Scripts/durandal")',*@
+                @*'plugins': '@BuildPath("Scripts/durandal/plugins")', // durandal router seems to depend on this configuration for resolution of the `history` module*@
+            },
+            map: {
+            },
+            shim: {
+                'Scripts/ko.extenders.date': 'ko',
+                'Scripts/knockout.editStateManager': ['ko', 'Scripts/knockout.command'],
+                'App/koBindings': ['ko', 'Scripts/knockout.command', 'jquery'],
+                'Scripts/sh.knockout.customObservables': ['Scripts/ko.extenders.date', 'ko'],
+                'App/koExtensions': ['ko', 'Scripts/knockout.validation'],
+                'app': ['Scripts/sh.core', 'Scripts/sh.knockout.customObservables']
+            },
+            enforceDefine: true
+        });
+        define('jquery', function () { return jQuery; });
+        define('ko', ['Scripts/knockout-3.2.0.debug'], function (ko) { return ko; });
+        define('knockout', ['Scripts/knockout-3.2.0.debug'], function (ko) { return ko; });
+        define('text', ['Scripts/text'], function (text) { return text; });
+        define('rvc', ['app'], function (rvc) { return rvc; });
+
+        // configure
+        require(['app', 'ko', 'Scripts/sh.core', 'Scripts/knockout.validation', 'Scripts/ko.extenders.date', 'Scripts/knockout.command', 'Scripts/knockout.editStateManager', 'Scripts/sh.knockout.customObservables', 'App/koExtensions', 'App/koBindings'],
+            function (app, ko) {
+                app.antiForgeryTokenId = '@AntiForgeryConfig.CookieName';
+                app.ajaxMaxRetryAttempts = 3;
+
+                ko.validation.init({
+                    decorateElement: true,
+                    errorElementClass: "input-validation-error",
+                    errorMessageClass: "input-validation-message overlay"
+                });
+            });
+    </script>
+}

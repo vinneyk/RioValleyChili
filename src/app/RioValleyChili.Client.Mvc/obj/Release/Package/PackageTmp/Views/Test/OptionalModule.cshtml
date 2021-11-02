@@ -1,0 +1,47 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Nullable Observable Test";
+}
+
+<h2>Nullable Observable Test</h2>
+
+<div data-bind="text: message"></div>
+
+<div data-bind="with: dummyViewModel">
+    <input data-bind="value: name" />
+    <input type="button" data-bind="command: $root.dummyViewModel.deleteCommand" value="Delete" />
+</div>
+<input type="button" data-bind="command: dummyViewModel.createCommand" value="Create" />
+
+<script src="~/Scripts/knockout.optionalModule.js"></script>
+<script>
+    var Dummy = function () {
+        var self = {
+            name: ko.observable(),
+        };
+        self.isEmpty = ko.computed(function() {
+            return this.name() != undefined;
+        }, self);
+        return self;
+    };
+    
+    var model = new Dummy();
+    
+    var vm = {
+        message: ko.observable(''),
+        dummyViewModel: ko.optionalModule({
+            data: model,
+            evaluateAsNull: function (data) {
+                return data == null || data.isEmpty();
+            },
+            createNew: function() {
+                var dummy = new Dummy();
+                dummy.name("Larry");
+                return dummy;
+            }
+        })
+    };
+
+    ko.applyBindings(vm);
+</script>

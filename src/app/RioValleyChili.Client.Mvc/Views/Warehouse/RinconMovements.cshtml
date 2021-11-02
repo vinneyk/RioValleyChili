@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/_WebPackLayout.cshtml";
+    Html.SetPageTitles("Inventory Movements", "Inventory Movements", "Warehouse");
+}
+
+<!-- ko if: CurrentMovement -->
+<intra-warehouse-inventory-movement-details params="{ input: CurrentMovement,
+                                                      exports: IntraWarehouseMovementVm,
+                                                      warehouseLocationOptions: warehouseLocationOptions,
+                                                      inventoryProductOptions: chileProductOptions,
+                                                      packagingProductOptions: packagingProductOptions }">
+</intra-warehouse-inventory-movement-details>
+<!-- /ko -->
+
+@section controlPanel
+{
+    <fieldset>
+        <legend>Movement Controls</legend>
+        <input type="button" value="Save Changes" class="save" data-bind="command: saveMovementCommand, visible: CurrentMovement" />
+        <input type="button" value="Create New Movement" data-bind="command: initNewMovementCommand, visible: !isNewMovement()" />
+    </fieldset>
+
+    <fieldset>
+        <legend>Navigation</legend>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" data-bind="click: loadTrackingSheet" tabindex="-1">Go!</button>
+            </span>
+            <input type="text" class="form-control" placeholder="Go to sheet number..." data-bind="value: requestedTrackingSheet, valueUpdate: 'afterkeydown', onEnter: loadTrackingSheet" tabindex="-1" />
+        </div>
+    </fieldset>
+}
+
+
+@section scripts
+{
+    <script src="~/App/build/inventoryMovements.bundle.js?v=@Html.AppVersion()"></script>
+}
+
+<loading-screen params="isVisible: loadTrackingSheet.ajaxWorking, displayMessage: 'Loading Movement...'"></loading-screen>
+<loading-screen params="isVisible: saveMovementCommand.ajaxWorking, displayMessage: 'Saving Movement...'"></loading-screen>

@@ -1,0 +1,45 @@
+﻿<div class="floatThead-wrap-height">
+  <div class="table-responsive">
+    <table class="reset table table-striped table-condensed table-bordered" data-bind="sortableTable: customerContracts, floatThead: customerContracts">
+      <thead>
+        <tr>
+          <th data-sort="CustomerContractKey">ID</th>
+          <th data-sort="ContractDate">Date</th>
+          <th data-sort="CustomerName">Customer</th>
+          <th data-sort="ContactName">Contact</th>
+          <th data-sort="TermBegin">Term Start</th>
+          <th data-sort="TermEnd">Term End</th>
+          <th data-sort="CustomerPurchaseOrder">PO Number</th>
+          <th data-sort="ContractType">Contract Type</th>
+          <th data-sort="ContractStatus">Status</th>
+          <th data-sort="BrokerCompanyName">Broker</th>
+          <th data-sort="DistributionWarehouseName">Warehouse</th>
+          <th data-sort="AverageBasePrice" class="calc numeric">Avg Base Price</th>
+          <th data-sort="AverageTotalPrice" class="calc numeric">Avg Total Price</th>
+          <th data-sort="SumQuantity" class="calc numeric">Total Qty</th>
+          <th data-sort="SumWeight" class="calc numeric">Total Weight</th>
+        </tr>
+      </thead>
+
+      <tbody data-bind="foreach: customerContracts">
+        <tr>
+          <td data-bind="text: CustomerContractKey" class="no-wrap"></td>
+          <td data-bind="text: ContractDate.toString('M/d/yyyy')"></td>
+          <td class="truncate" data-bind="text: CustomerName"></td>
+          <td class="truncate no-wrap" data-bind="text: ContactName"></td>
+          <td data-bind="text: TermBegin"></td>
+          <td data-bind="text: TermEnd"></td>
+          <td data-bind="text: CustomerPurchaseOrder"></td>
+          <td data-bind="text: ContractType"></td>
+          <td data-bind="text: ContractStatus"></td>
+          <td class="truncate" data-bind="text: BrokerCompanyName"></td>
+          <td data-bind="text: DistributionWarehouseName"></td>
+          <td data-bind="text: AverageBasePrice" class="calc numeric"></td>
+          <td data-bind="text: AverageTotalPrice" class="calc numeric"></td>
+          <td data-bind="text: SumQuantity.toLocaleString()" class="calc numeric"></td>
+          <td data-bind="text: SumWeight.toLocaleString()" class="calc numeric"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

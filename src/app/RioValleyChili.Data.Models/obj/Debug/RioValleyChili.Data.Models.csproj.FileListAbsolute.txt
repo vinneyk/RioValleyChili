@@ -1,0 +1,15 @@
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\bin\Debug\RioValleyChili.Data.Models.dll.config
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\bin\Debug\RioValleyChili.Data.Models.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\bin\Debug\RioValleyChili.Data.Models.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\bin\Debug\EntityFramework.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\bin\Debug\RioValleyChili.Core.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\bin\Debug\Solutionhead.Data.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\bin\Debug\RioValleyChili.Core.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\bin\Debug\EntityFramework.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\obj\Debug\RioValleyChili.Data.Models.csprojAssemblyReference.cache
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\obj\Debug\RioValleyChili.Data.Models.csproj.CopyComplete
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\obj\Debug\RioValleyChili.Data.Models.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\obj\Debug\RioValleyChili.Data.Models.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Data.Models\obj\Debug\RioValleyChili.Data.Models.csproj.CoreCompileInputs.cache

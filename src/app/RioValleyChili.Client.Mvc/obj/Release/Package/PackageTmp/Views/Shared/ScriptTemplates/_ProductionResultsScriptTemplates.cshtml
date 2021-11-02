@@ -1,0 +1,157 @@
+﻿<script id="production-batch-summary-template" type="text/html">
+    <fieldset>
+        <legend>Production Batch Summary</legend>
+        <ol class="tabular">
+            <li>
+                <label>Lot Number</label>
+                <span data-bind="text: LotNumber"></span>
+            </li>
+            <li>
+                <label>Product Name</label>
+                <span data-bind="text: ProductName"></span>
+            </li>
+            <li>
+                <label>Batch Type</label>
+                <span data-bind="text: BatchType"></span>
+            </li>
+            <li>
+                <label>Packaging</label>
+                <span data-bind="text: PackagingProductName"></span>
+            </li>
+            <li>
+                <label>Target Batch Weight</label>
+                <span data-bind="text: TargetBatchWeightDisplay"></span>
+            </li>
+        </ol>
+    </fieldset>
+</script>
+
+<script id="production-results-header-template" type="text/html">
+    <table class="reset table table-hover" data-bind="tabOnEnter: true">
+        <thead>
+            <tr>
+                <th>Shift</th>
+                <th>Line Number</th>
+                <th colspan="2">Production Start</th>
+                <th colspan="2">Production End</th>
+                <th class="calc">Total Production Time</th>
+            </tr>
+        </thead>
+        <tbody data-bind="template: { ifnot: isEditing }">
+            <tr>
+                <td data-bind="text: ProductionShift"></td>
+                <td data-bind="text: ProductionLineDescription"></td>
+                <td data-bind="text: ProductionStartDateTime.formattedDate" colspan="2"></td>
+                <td data-bind="text: ProductionEndDateTime.formattedDate" colspan="2"></td>
+                <td data-bind="text: TotalProductionTime" class="calc"></td>
+            </tr>
+        </tbody>
+        <tbody data-bind="template: { if: isEditing }">
+            <tr>
+                <td>
+                    <div class="form-group" data-bind="validationElement: ProductionShift">
+                        <input type="text" data-bind="value: ProductionShift, hasFocus: $data" class="form-control" />
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group" data-bind="validationElement: ProductionLine">
+                        <select data-bind="value: ProductionLine, options: $parent.productionLineOptions, optionsText: 'Row'" class="form-control"></select>
+                    </div>
+                </td>
+                <td class="no-wrap">
+                    <div class="form-group" data-bind="validationElement: ProductionStartDate">
+                        <input type="text" class="production-date-picker form-control" data-bind="value: ProductionStartDate, datePicker: true" />
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group" data-bind="validationElement: ProductionStartTime">
+                        <input type="text" data-bind="value: ProductionStartTime" class="form-control production-time-picker" />
+                    </div>
+                </td>
+                <td class="no-wrap">
+                    <div class="form-group" data-bind="validationElement: ProductionEndDate">
+                        <input type="text" class="production-date-picker form-control" data-bind="value: ProductionEndDate, datePicker: true" />
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group" data-bind="validationElement: ProductionEndTime">
+                        <input type="text" class="form-control production-time-picker" data-bind="value: ProductionEndTime" />
+                        <input type="hidden" data-bind="value: ProductionEndDateTime" />
+                    </div>
+                </td>
+                <td data-bind="text: TotalProductionTime" class="calc"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="active">
+                <td colspan="7"><span class="invisible">:)</span></td>
+            </tr>
+        </tfoot>
+    </table>
+</script>
+
+<script id="production-results-items-template" type="text/html">
+    <table class="reset table table-hover" data-bind="tabOnEnter: true">
+        <thead>
+        <tr>
+            <th>Quantity</th>
+            <th>Packaging</th>
+            <th>Location</th>
+            <th>Treatment</th>
+            <th>Weight</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody data-bind="template: { ifnot: isEditing, foreach: ResultItems }">
+        <tr>
+            <td data-bind="text: Quantity"></td>
+            <td data-bind="text: PackagingProductName"></td>
+            <td data-bind="text: WarehouseLocationName"></td>
+            <td data-bind="text: TreatmentKey.displayValue"></td>
+            <td colspan="2" data-bind="text: WeightDisplay"></td>
+        </tr>
+        </tbody>
+        <tbody data-bind="template: { if: isEditing }">
+            <!-- ko foreach: ResultItems -->
+            <tr>
+                <td class="col-sm-1">
+                    <div>
+                        <div class="form-group" data-bind="validationElement: Quantity">
+                            <input data-bind="textInput: Quantity" type="number" class="form-control" />
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group" data-bind="validationElement: PackagingProduct">
+                        <select data-bind="value: PackagingProduct, options: $parents[1].packagingOptions, optionsText: 'ProductName', optionsCaption: ' ', enable: isActive" class="form-control"></select>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group" data-bind="validationElement: WarehouseLocation">
+                        <select data-bind="value: WarehouseLocation, options: $parents[1].warehouseLocationOptions, optionsText: 'Description', optionsCaption: ' ', enable: isActive" class="form-control"></select>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group" data-bind="validationElement: TreatmentKey">
+                        <select data-bind="value: TreatmentKey, options: TreatmentKey.options, optionsText: 'value', optionsValue: 'key', enable: isActive" class="form-control"></select>
+                    </div>
+                </td>
+                <td data-bind="text: WeightDisplay"> </td>
+                <td>
+                    <i class="icon-button icon-button-1 fa fa-trash-o" data-bind="command: $parent.removeItemCommand"></i>
+                </td>
+            </tr>
+            <!-- /ko -->
+        </tbody>
+        <tfoot>
+            <tr class="active">
+                <td colspan="2" data-bind="if: isEditing">
+                    <button class="btn btn-link" data-bind="command: addNewItemCommand"><i class="fa fa-plus-square fa-lg"></i><span> Add Item</span></button>
+                </td>
+                <td colspan="2" class="text-right valign-middle">Total Weight: </td>
+                <td class="valign-middle" data-bind="text: TotalBatchWeightDisplay"></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+</script>

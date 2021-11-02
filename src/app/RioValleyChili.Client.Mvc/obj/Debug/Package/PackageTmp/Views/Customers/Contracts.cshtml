@@ -1,0 +1,134 @@
+﻿@{
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+    Html.SetPageTitles("Customer Contracts", "Customer Contracts", "Review and manage customer contracts", "Sales");
+}
+
+@Html.AntiForgeryToken()
+
+
+<div data-bind="click: contractClicked">
+  <customer-contract-summaries></customer-contract-summaries>
+</div>
+
+<div data-bind="popup: contractDetails">
+  <customer-contract-details></customer-contract-details>
+  <customer-contract-shipment-summaries params="contractsToReport: showShipmentSummariesForContracts"></customer-contract-shipment-summaries>
+  <div style="height: 50px;"></div>
+</div>
+
+@section controlPanel
+{
+  <!-- ko ifnot: contractDetails -->
+  <fieldset data-bind="slideCollapsed: contractDetails">
+    <legend>Customer Contract Controls</legend>
+    <input type="button" data-bind="command: loadCustomerContractsCommand" value="Load More Contracts" />
+    <input type="button" data-bind="command: createNewCustomerContractCommand" value="Create New Contract" />
+
+    <fieldset>
+      <legend>Go To Contract</legend>
+      <form data-bind="submit: loadContractByKeyCommand.execute">
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control" data-bind="value: searchContractKey, valueUpdate: 'input'" />
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit" data-bind="enable: loadContractByKeyCommand.canExecute"><i class="fa fa-search"></i></button>
+            </span>
+          </div>
+        </div>
+        <!--<input type="submit" value="Search" data-bind="enable: loadContractByKeyCommand.canExecute" />-->
+      </form>
+    </fieldset>
+
+    <fieldset>
+      <legend>Filter by Customer</legend>
+      <div class="form-group">
+        <select class="form-control" data-bind="value: selectedCustomer, options: customerFilterOptions, optionsText: 'Name', optionsValue: 'CompanyKey', optionsCaption: '[All Customers]'"></select>
+      </div>
+    </fieldset>
+  </fieldset>
+
+  <fieldset>
+    <legend>Copy From Contract</legend>
+    <form data-bind="submit: cloneContractCommand.execute">
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control" data-bind="value: cloneContractKey" />
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="fa fa-copy"></i></button>
+          </span>
+        </div>
+      </div>
+      <!--<input type="submit" value="Copy Contract" />-->
+    </form>
+  </fieldset>
+  <!-- /ko -->
+  <!-- ko if: contractDetails() && !isAddrVisible() -->
+  <fieldset data-bind="slideVisible: contractDetails">
+    <legend>Customer Contract Controls</legend>
+    <input type="button" data-bind="command: saveContractCommand" value="Save Contract" class="save" />
+    <input type="button" data-bind="command: contractDetails().revertEditsCommand, slideVisible: contractDetails().hasChanges() && !contractDetails().isNew," class="delete" value="Undo Changes" />
+    <input type="button" data-bind="command: deleteContractCommand" class="delete" value="Delete Contract" />
+    <input type="button" data-bind="command: cloneContractCommand" value="Copy Contract" />
+    <input type="button" data-bind="command: closeContractCommand, value: contractDetails().hasChanges() ? 'Cancel Changes & Close' : 'Close', css: { 'delete' : contractDetails().hasChanges() }" value="Close" />
+  </fieldset>
+
+  <fieldset data-bind="with: contractDetails">
+    <legend>Contract Documents & Reporting</legend>
+    <a data-bind="attr: { href: contractReportUrl }" class="button">Print Contract</a>
+    <a data-bind="attr: { href: contractDrawSummaryReportUrl }" class="button">Summary of Contract Draw</a>
+  </fieldset>
+
+  <fieldset data-bind="slideVisible: contractDetails">
+    <legend>Recent Contracts</legend>
+    <nav data-bind="foreach: pastContractsForCustomer" class="link-list">
+      <a>
+        <strong data-bind="text: contract.CustomerContractKey"></strong><br />
+        <!-- ko text: contract.TermBegin --><!-- /ko --> -
+        <!-- ko text: contract.TermEnd --><!-- /ko -->
+        <div>
+          <label>
+            Show Draw <input type="checkbox" data-bind="checked: showDraw" />
+          </label>
+        </div>
+      </a>
+    </nav>
+  </fieldset>
+
+  <!-- /ko -->
+  <!-- ko if: contractDetails() && isAddrVisible() -->
+  <fieldset>
+    <legend>Address Controls</legend>
+    <input type="button" data-bind="command: closeAddrCommand" value="Close">
+  </fieldset>
+  <!-- /ko -->
+
+}
+
+@section scripts
+{
+  <script src="/App/build/contracts.bundle.js?v=@Html.AppVersion()"></script>
+}
+
+@section absolute
+{
+  <div class="modal-message" data-bind="fadeVisible: cloneContractCommand.isExecuting">
+    <div>Creating new contract from copy...</div>
+  </div>
+
+  <div class="modal-message" data-bind="fadeVisible: loadingContractDetails">
+    <div>Retrieving customer contract data...</div>
+  </div>
+
+  <div class="modal-message" data-bind="fadeVisible: loadCustomerContractsCommand.isExecuting">
+    <div>Retrieving contracts...</div>
+  </div>
+
+
+  <div class="modal-message" data-bind="fadeVisible: saveContractCommand.isExecuting">
+    <div>Saving Contract...</div>
+  </div>
+
+  <div class="modal-message" data-bind="fadeVisible: deleteContractCommand.isExecuting">
+    <div>Deleting Contract...</div>
+  </div>
+}

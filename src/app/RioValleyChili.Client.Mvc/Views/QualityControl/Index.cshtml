@@ -1,0 +1,21 @@
+﻿@using RioValleyChili.Client.Mvc.Core.Security
+@{
+    Html.SetPageTitles("Quality Control", "Dashboard");
+}
+
+@section controlPanel
+{
+    @Html.SubNavigation("Quality Control Areas", new[] {
+    new NavigationItem("Lab Results", MVC.QualityControl.LabResults()),
+    new NavigationItem("Product Maintenance", MVC.QualityControl.ProductMaintenance()),
+    new NavigationItem("Customer Specs", MVC.QualityControl.CustomerSpecs()),
+    new NavigationItem("Sample Matching", MVC.QualityControl.SampleMatching()),
+    new NavigationItem("Lot Trace & Genealogy", MVC.QualityControl.LotTrace()),
+    })
+
+    <fieldset>
+        <legend><i class="fa fa-clipboard"></i> Reports</legend>
+
+        @Html.ActionLink("Lab Results", MVC.Reporting.QualityControlReporting.LabResults(), new { @class = "button" })
+    </fieldset>
+}

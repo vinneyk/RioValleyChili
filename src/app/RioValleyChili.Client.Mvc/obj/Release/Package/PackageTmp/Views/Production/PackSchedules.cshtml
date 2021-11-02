@@ -1,0 +1,94 @@
+﻿@{
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+    Html.SetPageTitles("Pack Schedules", "Pack Schedules", "Create and review pack schedules and production batches", "Production");
+}
+<section data-bind="visible: PackScheduleSummaries">
+    <div data-bind="stickyTableHeaders: '#packSchedulesTable', template: { name: 'pack-schedule-summaries' }"></div>
+</section>
+
+<section data-bind="popup: PackScheduleDetails, closePopupCommand: closeSelectedPackScheduleCommand">
+    <!-- ko if: PackScheduleDetails -->
+    <div class="panel panel-default">
+        <div class="panel-body" data-bind="template: { data: PackScheduleDetails, name: 'pack-schedule-details-display-template' }"></div>
+    </div>
+    <section data-bind="template: {data: PackScheduleDetails().productionBatchesViewModel, name: 'production-batch-template', ifnot: PackScheduleDetails().isNew}"></section>
+    <!-- /ko -->
+</section>
+
+@section controlPanel {
+    <!-- ko template: 'pack-schedule-cvp-template' -->
+    <!-- /ko -->
+}
+
+@section absolute
+{
+    <loading-screen params="isVisible: isAutoPickerWorking, displayMessage: 'Picking packaging products...'"></loading-screen>
+    <loading-screen 
+        params="isVisible: loadPackSchedulesCommand.isExecuting() && !PackScheduleDetails(), 
+                displayMessage: 'Loading Pack Schedule Data...'">
+    </loading-screen>
+    <loading-screen 
+        params="isVisible: savePackScheduleCommand.isExecuting, 
+                displayMessage: 'Saving Pack Schedule...'">
+    </loading-screen>
+    <loading-screen 
+        params="isVisible: deletePackScheduleCommand.ajaxWorking, 
+                displayMessage: 'Deleting Pack Schedule...'">
+    </loading-screen>
+
+    <loading-screen 
+        params="isVisible: isPickerDeleting, 
+                displayMessage: 'Deleting Production Batch...'">
+    </loading-screen>
+    <loading-screen 
+        params="isVisible: isPickerSaving, 
+                displayMessage: 'Saving Picked Inventory Items...'">
+    </loading-screen>
+    <loading-screen 
+        params="isVisible: isPickerWorking, 
+                displayMessage: 'Loading Inventory...'">
+    </loading-screen>
+}
+
+@Html.Partial("ScriptTemplates/_notebookScriptTemplates")
+@Html.Partial("ScriptTemplates/_PackScheduleScriptTemplates")
+@Html.Partial("ScriptTemplates/_ProductionBatchScriptTemplates")
+
+@section scripts {
+    <script src="/App/build/packSchedules.bundle.js?v=@Html.AppVersion()"></script>
+}
+
+@section htmlHead {
+    <style>
+        #batch-notes {
+        }
+
+            #batch-notes section {
+                font-size: 1.1em;
+            }
+
+                #batch-notes section p {
+                    border-bottom: 1px dotted #ccc;
+                    cursor: pointer;
+                }
+
+            #batch-notes footer {
+                display: none;
+                visibility: collapse;
+            }
+
+            #batch-notes fieldset.newNote {
+                display: none;
+                visibility: collapse;
+            }
+
+        nav#batches-nav {
+            background-color: #c2d0e0;
+            padding: 3px;
+        }
+
+            nav#batches-nav > a {
+                margin: 0;
+            }
+    </style>
+}

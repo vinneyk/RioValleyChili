@@ -1,0 +1,254 @@
+﻿<script id="pack-schedule-summaries" type="text/html">
+    <table id="packSchedulesTable" class="table table-condensed table-responsive table-hover clickable" data-bind="click: packScheduleSelectedHandler">
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>PS# (old)</th>
+                <th>Work Type</th>
+                <th>Chile Product</th>
+                <th>Line</th>
+                <th>Created</th>
+                <th>Scheduled</th>
+                <th>Deadline</th>
+            </tr>
+        </thead>
+        <tbody data-bind="template: { foreach: PackScheduleSummaries, afterAdd: animateSummaryItem }">
+            <tr>
+                <td data-bind="text: PackScheduleKey" class="no-wrap"></td>
+                <td data-bind="text: PSNum"></td>
+                <td data-bind="text: WorkType"></td>
+                <td data-bind="text: ChileProductName"></td>
+                <td data-bind="text: ProductionLineDescription"></td>
+                <td data-bind="text: DateCreated"></td>
+                <td data-bind="text: ScheduledProductionDate"></td>
+                <td data-bind="text: ProductionDeadline"></td>
+            </tr>
+        </tbody>
+    </table>
+</script>
+
+<script id="pack-schedule-details-display-template" type="text/html">
+    <fieldset class="container-fluid editor" style="padding: 0;">
+        <legend>Pack Schedule Details</legend>
+
+        <hgroup class="row">
+            <div class="col-xs-12">
+                <h2>Pack Schedule</h2>
+                <h3>
+                    <!-- ko text: PackScheduleTitle --><!-- /ko --> 
+                </h3>
+            </div>
+        </hgroup>
+
+        <div class="row">
+            <div class="form">
+                {{ #if: OverrideSystemDefaults() && IsNew() }}
+                <div class="col-md-6 col-lg-4 bg-warning">
+                  <label for="DateCreatedOverrideInput">Date Created</label>
+                  <input type="text" id="DateCreatedOverrideInput" data-bind="datePicker: true, value: DateCreatedOverride" class="form-control" />
+                </div>
+
+                <div class="col-md-6 col-lg-4 bg-warning">
+                  <label for="DateSequenceOverrideInput">Date Sequence</label>
+                  <input type="text" id="DateSequenceOverrideInput" data-bind="textInput: SequenceOverride" class="form-control" />
+                </div>
+
+                <div class="col-md-6 col-lg-4 bg-warning">
+                  <label for="PSNumOverrideInput">PS Num</label>
+                  <input type="text" id="PSNumOverrideInput" data-bind="textInput: PSNumOverride" class="form-control" />
+                </div>
+                {{ /if }}
+                
+                <div class="form-group pack-header-item col-md-6 col-lg-4">
+                    <label for="scheduledProductionDateInput">Production Date</label>
+                    <span data-bind="text: ScheduledProductionDate, visible: !isEditing()"></span>
+                    <!-- ko if: isEditing -->
+                    <input type="text" id="scheduledProductionDateInput" data-bind="datePicker: true, value: ScheduledProductionDate" class="form-control"/>
+                    <!-- /ko -->
+                </div>
+
+                <div class="form-group pack-header-item col-md-6 col-lg-4">
+                    <label for="productionDeadlineInput">Production Deadline</label>
+                    <span data-bind="text: ProductionDeadline, visible: !isEditing()"></span>
+                    <!-- ko if: isEditing -->
+                    <input type="text" data-bind="datePicker: true, value: ProductionDeadline" id="productionDeadlineInput" class="form-control"/>
+                    <!-- /ko -->
+                </div>
+
+                <div class="form-group pack-header-item col-md-6 col-lg-4">
+                    <label for="workTypeSelect">Work Type</label>
+                    <span data-bind="text: WorkType, visible: !isEditing()"></span>
+                    <select data-bind="value: WorkTypeKey, options: $parent.workTypeOptions, optionsText: 'Description', optionsValue: 'WorkTypeKey', visible: isEditing" id="workTypeSelect" class="form-control"></select>
+                </div>
+
+                <div class="form-group pack-header-item col-md-6 col-lg-4">
+                    <label>Line</label>
+                    <span data-bind="text: ProductionLineDescription, visible: !isEditing()"></span>
+                    <select data-bind="value: ProductionLineKey, options: $parent.productionLineOptions, optionsText: 'Description', optionsValue: 'LocationKey', visible: isEditing" class="form-control"></select>
+                </div>
+
+                <div class="form-group pack-header-item col-md-12 col-lg-8">
+                        <label>Chile Product</label>
+                        <span data-bind="text: ChileProductName, visible: !isEditing()"></span>
+                        <!-- ko if: isEditing -->
+                        <div class="row">
+                            <div class="col-sm-4 col-md-3">
+                                <select class="form-control" data-bind="value: ChileType, 
+                                    options: $parent.chileTypeOptions,
+                                    optionsText: 'ChileTypeDescription',
+                                    optionsCaption: ' '">
+                                </select>
+                            </div>
+                            <div class="col-sm-8">
+                                <product-selector params="selectedValue: ChileProduct, productsSource: $parent.chileProductOptions, optionsDisplay: 'ProductCodeAndName'"></product-selector>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                        <input type="hidden" data-bind="value: ChileProductKey"/>
+                </div>
+
+                <div class="form-group pack-header-item col-md-6 col-lg-4">
+                    <label>Packaging</label>
+                    <span data-bind="text: PackagingProductName, visible: !isEditing()"></span>
+                    <!-- ko if: isEditing -->
+                    <select data-bind="value: PackagingProduct, options: $parent.packagingProductOptions, optionsText: 'ProductName', optionsCaption: ' '" class="form-control"></select>
+                    <input type="hidden" data-bind="value: PackagingProductKey" class="form-control"/>
+                    <!-- /ko -->
+                </div>
+
+                <div class="form-group pack-header-item col-md-6 col-lg-4">
+                    <label>Company</label>
+                    <span data-bind="text: CustomerName, visible: !isEditing()"></span>
+                    <!-- ko if: isEditing -->
+                    <select data-bind="value: Customer, options: $parent.customerOptions, optionsText: 'Name', optionsCaption: ' '" class="form-control"></select>
+                    <input type="hidden" data-bind="value: CustomerKey" class="form-control"/>
+                    <!-- /ko -->
+                </div>
+
+                <div class="form-group pack-header-item col-md-6 col-lg-4">
+                    <label>Order No.</label>
+                    <span data-bind="text: OrderNumber, visible: !isEditing()"></span>
+                    <!-- ko if: isEditing -->
+                    <input type="text" data-bind="value: OrderNumber" class="form-control"/>
+                    <!-- /ko -->
+                </div>
+
+                <div class="form-group pack-header-item col-sm-12 col-lg-8">
+                    <label class="control-label">Summary</label>
+                    <span data-bind="text: SummaryOfWork, visible: !isEditing()"></span>
+                    <!-- ko if: isEditing -->
+                    <textarea class="form-control" data-bind="value: SummaryOfWork"></textarea>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Default Batch Targets</h3>
+                <div class="form-inline">
+                    <div class="form-group pack-header-item">
+                        <label for="batch-target-weight">Weight</label>
+                        <input type="text" id="batch-target-weight" data-bind="value: BatchTargetWeight, attr: { readonly: !isEditing() }" class="form-control input-sm" />
+                    </div>
+                    <div class="form-group pack-header-item">
+                        <label for="batch-target-asta">Asta</label>
+                        <input type="text" id="batch-target-asta" data-bind="value: BatchTargetAsta, attr: { readonly: !isEditing() }" class="form-control input-sm" />
+                    </div>
+                    <div class="form-group pack-header-item">
+                        <label for="batch-target-scan">Scan</label>
+                        <input type="text" id="batch-target-scan" data-bind="value: BatchTargetScan, attr: { readonly: !isEditing() }" class="form-control input-sm" />
+                    </div>
+                    <div class="form-group pack-header-item">
+                        <label for="batch-target-scov">Scoville</label>
+                        <input type="text" id="batch-target-scov" data-bind="value: BatchTargetScoville, attr: { readonly: !isEditing() }" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</script>
+
+<script id="production-batch-summary" type="text/html">
+    <table>
+        <thead>
+            <tr>
+                <th>Lot</th>
+                <th>Qty</th>
+                <th>Wgt</th>
+                <th>Product</th>
+                <th>Loc</th>
+                <th>LoBac</th>
+                <th>Trtmt</th>
+                <th>Pkg</th>
+                <th>Attributes...</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: ProductionBatches"></tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</script>
+
+<script id="pack-schedule-cvp-template" type="text/html">
+    <!-- ko ifnot: PackScheduleDetails -->
+    <fieldset data-bind="slideVisible: !PackScheduleDetails()">
+        <legend>Pack Schedule Controls</legend>
+        <input type="button" data-bind="command: loadPackSchedulesCommand" value="Get More Pack Schedules"/>
+        <input type="button" data-bind="command: initializeNewPackScheduleCommand" value="Create New Pack Schedule" class="save"/>
+    </fieldset>
+
+    <fieldset data-bind="slideVisible: !PackScheduleDetails()">
+        <legend>Find Pack Schedules</legend>
+        <form data-bind="submit: findPackScheduleCommand.execute">
+            <label>Find by key</label>
+            <div class="input-group">
+              <input class="form-control" data-bind="textinput: searchPackScheduleKey"/>
+              <div class="input-group-btn"><button class="btn btn-default" type="submit" data-bind="enable: searchPackScheduleKey"><i class="fa fa-search"></i></button></div>
+            </div>
+        </form>
+    </fieldset>
+
+    <fieldset data-bind="slideVisible: !PackScheduleDetails()">
+        <legend>Filter Options</legend>
+        <label>Date Created</label>
+        <input class="form-control" data-bind="datePicker: true, value: beginningCreatedDateRangeFilter" placeholder="Created On or After"/>
+        <input class="form-control" data-bind="datePicker: true, value: endingCreatedDateRangeFilter" placeholder="Created Before"/>
+
+        <label>Date Scheduled</label>
+        <input class="form-control" data-bind="datePicker: true, value: beginningScheduledDateRangeFilter" placeholder="Scheduled for Produced On or After"/>
+        <input class="form-control" data-bind="datePicker: true, value: endingScheduledDateRangeFilter" placeholder="Scheduled for Production Before"/>
+
+        <input type="button" value="Apply Filters" data-bind="command: applyFiltersCommand"/>
+        <input type="button" value="Clear Filters" data-bind="command: clearFiltersCommand"/>
+    </fieldset>
+    <!-- /ko -->
+
+    <!-- ko if: PackScheduleDetails -->
+    <!-- ko if: showPackScheduleControls -->
+    <fieldset data-bind="slideVisible: PackScheduleDetails">
+        <!-- ko with: PackScheduleDetails-->
+        <legend>Pack Schedule Controls</legend>
+        <input type="button" data-bind="command: $parent.savePackScheduleCommand" value="Save Pack Schedule" class="save"/>
+        <input type="button" data-bind="command: beginEditingCommand, visible: !isEditing()" value="Edit Pack Schedule"/>
+        <input type="button" data-bind="command: cancelEditsCommand, visible: isEditing() && !IsNew(), value: hasChanges() ? 'Undo Changes' : 'Cancel Editing', css: { 'delete': hasChanges }" value="Undo Changes"/>
+        <input type="button" data-bind="command: $parent.closeSelectedPackScheduleCommand, visible: !hasChanges() || IsNew(), value: IsNew() ? 'Cancel' : 'Close Pack Schedule'"/>
+        <input type="button" data-bind="command: $parent.deletePackScheduleCommand, visible: !IsNew()" value="Delete Pack Schedule" class="delete"/>
+        <input type="button" data-bind="command: $parent.toggleSystemDefaultsOverrideCommand, visible: IsNew, value: OverrideSystemDefaults() ? 'Cancel System Overrides' : 'Enable System Overrides'" class="delete" />
+        <!-- /ko -->
+    </fieldset>
+    <!-- /ko -->
+
+    <!-- ko template: {name: 'batch-controls-template', data: PackScheduleDetails().productionBatchesViewModel }--><!-- /ko -->
+
+    <div data-bind="visible: !PackScheduleDetails().productionBatchesViewModel.pickInventory()">
+        <h3><i class="fa fa-clipboard"></i> Reports</h3>
+        <nav>
+            <a data-bind="attr: { href: '@Url.Action(MVC.Reporting.ProductionReporting.ProductionBatchPacket())?packScheduleKey=' + PackScheduleDetails().PackScheduleKey() }" class="button">Production Batch Packet</a>
+            <a data-bind="attr: { href: '@Url.Action(MVC.Reporting.ProductionReporting.PackSchedulePickSheet())?packScheduleKey=' + PackScheduleDetails().PackScheduleKey() }" class="button">Pack Schedule Pick Sheet</a>
+        </nav>
+    </div>
+
+    <!-- /ko -->
+</script>

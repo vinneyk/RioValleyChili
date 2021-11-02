@@ -1,0 +1,5 @@
+﻿@{
+    var selectListSource = Html.GetSelectListSource(m => m).SetSelected((object)Model);
+}
+
+@Html.DropDownList("", selectListSource, Html.BuildHtmlAttributesForView<object>())

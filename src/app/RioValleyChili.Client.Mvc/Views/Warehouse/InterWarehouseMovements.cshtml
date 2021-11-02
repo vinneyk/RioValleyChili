@@ -1,0 +1,128 @@
+﻿@{
+    Layout = "~/Views/Shared/_WebPackLayout.cshtml";
+    Html.SetPageTitles("Movements Between Facilities", "Warehouse");
+}
+
+@section controlPanel
+{
+    <!-- ko if: currentEditorItem -->
+    <fieldset>
+        <legend><i class="fa fa-gear"></i> Movement Controls</legend>
+        <div data-bind="slideVisible: isEditorControlsShowing">
+            <input type="button" value="Save" data-bind="command: saveCommand" class="btn btn-default">
+            <input type="button" value="Cancel" data-bind="command: cancelCommand" class="btn btn-warning">
+            <input type="button" value="Post and Close" data-bind="command: showPostAndCloseCommand, visible: showPostAndCloseCommand.canExecute" class="btn btn-default">
+            <input type="button" value="Pick Inventory" data-bind="command: pickForItemCommand, visible: pickForItemCommand.canExecute" class="btn btn-default">
+        </div>
+        <div data-bind="slideVisible: isPostAndCloseShowing">
+            <input type="button" value="Save" data-bind="command: postAndCloseCommand">
+            <input type="button" value="Cancel" data-bind="command: cancelPostAndCloseCommand">
+        </div>
+
+        <!-- ko if: inventoryPickerExports -->
+        <div data-bind="visible: isPickerShowing">
+            <input type="button" value="Save Picked Inventory" data-bind="command: inventoryPickerExports().saveCommand">
+            <input type="button" value="Revert" data-bind="command: inventoryPickerExports().revertCommand">
+            <input type="button" value="Cancel" data-bind="command: cancelPickerCommand">
+        </div>
+        <!-- /ko -->
+    </fieldset>
+
+    <fieldset data-bind="slideVisible: displayReportLinks">
+        <legend><i class="fa fa-clipboard"></i> Reports</legend>
+
+        <!-- ko foreach: currentEditorItem().reports -->
+        <a data-bind="attr: { href: url }, text: name" class="button"></a>
+        <!--/ko -->
+    </fieldset>
+    
+    <fieldset data-bind="slideVisible: isFiltersShowing">
+        <legend><i class="fa fa-filter"></i> Filters</legend>
+        <input type="button" value="Load Inventory Items" data-bind="command: loadInventoryCommand" />
+        <inventory-filters params="input: filtersInput, exports: filtersExports, mode: 'inventory'"></inventory-filters>
+    </fieldset>
+    <!--/ko -->
+
+    <!-- ko ifnot: currentEditorItem -->
+    <fieldset data-bind="if: summaryExports">
+        <legend><i class="fa fa-gear"></i> Movement Controls</legend>
+        <input type="button" value="Load More Movements" data-bind="command: summaryExports().getNextResultsPageCommand"/>
+        <input type="button" value="New Movement" data-bind="command: createNewMovement">
+
+        <div class="input-group">
+            <form data-bind="submit: searchForKey">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Go!</button>
+                    </span>
+                    <input class="reset form-control" type="text" placeholder="Transfer number..." data-bind="valueUpdate: 'input', value: searchBoxValue">
+                </div>
+            </form>
+            <br>
+        </div>
+    </fieldset>
+
+    <fieldset data-bind="if: summaryExports">
+        <legend><i class="fa fa-filter"></i> Filters</legend>
+        <div class="form-group form-group-sm">
+            <label class="control-label">Origin</label>
+            <select class="form-control" data-bind="value: filters.originFacilityKeyFilter, options: warehouses, optionsText: 'FacilityName', optionsValue: 'FacilityKey', optionsCaption: ' '"></select>
+        </div>
+
+        <div class="form-group form-group-sm">
+            <label class="control-label">Destination</label>
+            <select class="form-control" data-bind="value: filters.destinationFacilityKeyFilter, options: warehouses, optionsText: 'FacilityName', optionsValue: 'FacilityKey', optionsCaption: ' '"></select>
+        </div>
+
+        <div class="form-group form-group-sm">
+            <label class="control-label">Beginning Shipment Date</label>
+            <input type="text" class="form-control" data-bind="value: filters.beginningShipmentDateFilter, datePickerSm: true">
+        </div>
+
+        <div class="form-group form-group-sm">
+            <label class="control-label">Ending Shipment Date</label>
+            <input type="text" class="form-control" data-bind="value: filters.endingShipmentDateFilter, datePickerSm: true">
+        </div>
+
+        <div class="form-group form-group-sm">
+            <label class="control-label">Shipment Status</label>
+            <select class="form-control" data-bind="value: filters.shipmentStatusFilter, options: filters.shipmentStatusFilter.options, optionsText: 'value', optionsValue: 'key', optionsCaption: ' '"></select>
+        </div>
+        <input type="button" value="Apply Filters" data-bind="command: summaryExports().getNextResultsPageCommand">
+    </fieldset>
+    <!-- /ko -->
+}
+
+@section scripts
+{
+    <script src="~/App/build/interWarehouseMovements.bundle.js?v=@Html.AppVersion()"></script>
+}
+
+<loading-screen params="isVisible: isWorking, displayMessage: loadingMessage"></loading-screen>
+<div class="container-fluid">
+    <div data-bind="popup: currentEditorItem, closePopupCommand: cancelCommand">
+        <inter-warehouse-movement-editor
+            params="values: currentMovement,
+                    warehouseOptions: warehouses,
+                    pickCommand: pickForItemCommand, 
+                    exports: editorExports">
+        </inter-warehouse-movement-editor>
+    
+        <div data-bind="popup: isPickerShowing, visible: isPickerShowing">
+            <inventory-picker params="data: inventoryPickerInputs, exports: inventoryPickerExports"></inventory-picker>
+        </div>
+    </div>
+    <inter-warehouse-movement-summary
+        params="filters: filters, 
+                exports: summaryExports"></inter-warehouse-movement-summary>
+</div>
+
+<div data-bind="popup: isPostAndCloseShowing, closePopupCommand: cancelPostAndCloseCommand">
+    <post-and-close-inventory-order 
+        params="pickedInventoryItems: inventoryPickerInputs.pickedInventoryItems, 
+                orderKey: inventoryPickerInputs.pickingContextKey,
+                destinationLocationOptions: destinationFacilityLocations, 
+                requiresDestinationLocation: true, 
+                exports: postAndCloseExports">
+    </post-and-close-inventory-order>
+</div>

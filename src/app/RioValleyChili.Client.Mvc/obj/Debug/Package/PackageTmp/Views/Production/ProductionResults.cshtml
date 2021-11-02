@@ -1,0 +1,107 @@
+﻿@{
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+    Html.SetPageTitles("Production Results", "Production Results", "Enter and review production results");
+}
+
+<main class="container-fluid">
+    <fieldset style="margin-bottom: 15px;">
+        <legend>Find Batch</legend>
+
+        <section class="row">
+        </section>
+
+        <section class="row">
+            <!-- ko ifnot: productionBatch -->
+            <div class="message-info" style="margin-top: 20px;">
+                Enter Lot Number to find batch.
+            </div>
+            <!-- /ko -->
+            <!-- ko if: productionBatch -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Production Batch Summary</h3>
+                </div>
+                <div class="panel-body">
+                    <section data-bind="template: { name: 'production-batch-summary-template', data: productionBatch }"></section>
+                </div>
+            </div>
+            <!-- /ko -->
+        </section>
+
+        <section class="row">
+            <section data-bind="with: productionResultDetailsViewModel">
+                <!-- ko if: productionResults -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Production Results</h3>
+                    </div>
+                    <header data-bind="template: {name: 'production-results-header-template', data: productionResults}" class="table-responsive"></header>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Inventory Results</h4>
+                    </div>
+                    <section data-bind="template: {name: 'production-results-items-template', data: productionResults}" class="table-responsive"></section>
+                </div>
+                <inventory-by-lot-picker params="
+                exports: $parent.InventoryByLotExports,
+                input: $parent.additionalInputItemsParameters,
+                inventoryProductOptions: productionLineOptions,
+                isEditable: true,
+                packagingProductOptions: packagingOptions,
+                getDefaultInventorySelectionsForLot: $parent.getDefaultInventorySelectionsForLot,
+                setDefaultInventorySelectionsForLot: $parent.setDefaultInventorySelectionsForLot,
+                warehouseLocationOptions: warehouseLocationOptions" data-bind="visible: productionResults().isEditing">
+                </inventory-by-lot-picker>
+                <!-- /ko -->
+            </section>
+        </section>
+    </fieldset>
+</main>
+
+@section controlPanel
+{
+    <fieldset>
+        <legend>Search</legend>
+        <form data-bind="submit: searchLotCommand.execute">
+            <label for="lotNumber" class="sr-only">Find Production Batch:</label>
+            <div class="input-group">
+                <input id="lotNumber" type="search" class="form-control" data-bind="value: searchBatchNumber.formattedLot, valueUpdate: 'input', disable: searchLotCommand.isExecuting, hasFocus: !productionBatch()" placeholder="Enter Lot Number" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" data-bind="command: searchLotCommand"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </fieldset>
+
+    <fieldset data-bind="with: productionResultDetailsViewModel.productionResults, slideVisible: productionResultDetailsViewModel.productionResults">
+        <legend>Editor Controls</legend>
+        <section data-bind="visible: !isEditing()">
+            <input type="button" value="Edit Results" data-bind="command: $parent.editProductionResultsCommand" />
+        </section>
+        <section data-bind="visible: isEditing">
+            <input type="button" class="save" value="Save" data-bind="command: $parent.saveProductionResultsCommand" />
+            <input type="button" class="delete" value="Cancel" data-bind="command: $parent.cancelEditsCommand" />
+        </section>
+    </fieldset>
+
+    <fieldset data-bind="if: isRecentItems">
+        <legend>Recent Entries</legend>
+        <ul class="link-list" data-bind="foreach: recentEdits">
+            <li><a data-bind="text: $data, click: function() { $parent.searchBatchNumber($data); $parent.searchLotCommand.execute(); }"></a></li>
+        </ul>
+    </fieldset>
+}
+
+@section absolute {
+    <modal-message params="isVisible: modalMessage, displayMessage: modalMessage"></modal-message>
+}
+
+
+@section scripts
+{
+    @Html.Partial("ScriptTemplates/_ProductionResultsScriptTemplates")
+
+    <script src="~/App/build/productionResults.bundle.js?v=@Html.AppVersion()"></script>
+}

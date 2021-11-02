@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "Production Schedules";
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+}
+
+@section controlPanel
+{
+<section data-bind="slideVisible: !editorData.input()">
+  <fieldset>
+    <legend>Summary Controls</legend>
+    <input type="button" value="Create New Schedule" data-bind="command: startNewSchedule">
+  </fieldset>
+  <fieldset>
+    <legend>Filters</legend>
+    <input type="button" value="Load More" data-bind="command: loadMore">
+    <div class="form-group">
+      <label for="filter-production-date">Production Date</label>
+      <input id="filter-production-date" class="form-control" type="text" data-bind="datePicker: filters.productionDate">
+    </div>
+    <div class="form-group">
+      <label for="filter-line-location">Production Line Location</label>
+      <select id="filter-line-location" class="form-control" data-bind="value: filters.productionLineLocationkey, options: options.productionLines, optionsText: 'Description', optionsValue: 'LocationKey', optionsCaption: ' '"></select>
+  </div>
+  </fieldset>
+</section>
+
+<section data-bind="slideVisible: editorData.input">
+  <fieldset>
+    <legend>Editor Controls</legend>
+    <input class="save" type="button" value="Save" data-bind="command: saveScheduleCommand">
+    <input class="delete" type="button" value="Delete" data-bind="command: deleteSchedule">
+    <input type="button" value="Close" data-bind="value: isDirty() ? 'Cancel' : 'Close', css: { 'delete': isDirty }, command: closeEditor">
+  </fieldset>
+
+  <fieldset data-bind="if: editorData.input">
+    <legend><i class="fa fa-clipboard"></i> Reports</legend>
+    <ul class="link-list" data-bind="foreach: reportLinks">
+      <li><a href="#" data-bind="click: $parent.goToReport, text: $data.label"></a></li>
+    </ul>
+  </fieldset>
+</section>
+}
+
+<section data-bind="ifnot: isInit">
+  <div class="well text-center">
+    <i class="fa fa-spinner fa-pulse fa-3x"></i>
+  </div>
+</section>
+<section data-bind="if: isInit">
+  <loading-screen params="
+    displayMessage: 'Loading schedules',
+    isVisible: !loadMore.canExecute()">
+  </loading-screen>
+  <loading-screen params="
+    displayMessage: 'Loading schedule details',
+    isVisible: !loadScheduleDetails.canExecute()">
+  </loading-screen>
+  <loading-screen params="
+    displayMessage: 'Saving schedule',
+    isVisible: !saveSchedule.canExecute()">
+  </loading-screen>
+  <loading-screen params="
+    displayMessage: 'Deleting schedule',
+    isVisible: isDeleting">
+  </loading-screen>
+
+  <h2>Production Schedules</h2>
+
+  <section data-bind="with: summaryData">
+    <production-schedules-summary
+      params="input: input,
+        selected: selected,
+        exports: exports">
+    </production-schedules-summary>
+  </section>
+
+  <div data-bind="popup: editorData.input, closePopupCommand: closeEditor, with: editorData">
+    <!-- ko if: input -->
+    <hgroup>
+      <h2>Edit Schedule</h2>
+      <h3 data-bind="text: input().ProductionScheduleKey"></h3>
+    </hgroup>
+    <production-schedules-editor
+      params="input: input,
+        exports: exports">
+    </production-schedules-editor>
+    <!-- /ko -->
+  </div>
+</section>
+
+<div class="modal fade" id="createSchedule" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Create Production Schedule</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="control-label" for="new-schedule-date">Date</label>
+          <input id="new-schedule-date" class="form-control" type="text" data-bind="datePicker: newScheduleDate">
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="new-schedule-line">Production Line</label>
+          <select id="new-schedule-line" class="form-control" type="text" data-bind="value: newScheduleLine, options: options.productionLines, optionsText: 'Description', optionsValue: 'LocationKey', optionsCaption: ' '"></select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" data-bind="command: cancelNewSchedule">Close</button>
+        <button class="btn btn-primary" data-bind="command: createNewSchedule">Create</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+@section scripts
+{
+  <script src="~/App/build/productionSchedules.bundle.js?v=@Html.AppVersion()"></script>
+}

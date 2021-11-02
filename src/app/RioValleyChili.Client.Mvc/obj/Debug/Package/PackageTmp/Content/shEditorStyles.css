@@ -1,0 +1,9 @@
+﻿.editor-state-command,
+input[type='button'].editor-state-command,
+input[type='submit'].editor-state-command {
+    border: none;
+    padding: 0;
+    margin: 2px 5px 2px 0;
+    color: rgb(138, 165, 196);
+    background-color: transparent;
+}

@@ -1,0 +1,39 @@
+﻿@using RioValleyChili.Client.Mvc.SolutionheadLibs.MvcClientSideBinding.Extensions
+@model bool?
+
+@functions
+{
+
+    private bool? ModelValue
+    {
+        get { 
+            bool? value = null;
+            if (ViewData.Model != null)
+            {
+                value = Convert.ToBoolean(ViewData.Model);
+            }
+            return value;
+        }
+    }
+    
+    private IEnumerable<SelectListItem> TriStateOptions
+    {
+        get
+        {
+            yield return new SelectListItem{ Selected = !ModelValue.HasValue, Text = "", Value = ""};
+            yield return new SelectListItem{ Selected = ModelValue.HasValue && ModelValue.Value, Text = "True", Value = "true"};
+            yield return new SelectListItem{ Selected = ModelValue.HasValue && !ModelValue.Value, Text = "False", Value = "false"};
+        }
+    } 
+}
+
+@{
+    if (ViewData.ModelMetadata.IsNullableValueType)
+    {
+        @Html.DropDownListFor(m => m, TriStateOptions, Html.BuildHtmlAttributesForView())
+    }
+    else
+    {
+        @Html.CheckBox("", Model.HasValue && Model.Value, Html.BuildHtmlAttributesForView().ForCheckbox())
+    }
+}

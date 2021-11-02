@@ -1,0 +1,201 @@
+﻿<script id="basic-lot-inventory-listing-template" type="text/html">
+    <div class="panel panel-default" data-bind="maxHeight: InventoryItems">
+        <div class="table-responsive">
+            <table class="reset table table-condensed small">
+                <thead>
+                    <tr>
+                        <!-- ko template: 'core-lot-thead-cells' --><!-- /ko -->
+                        <th data-sort="Treatment.TreatmentNameShort">Trtmt.</th>
+                        <!-- ko template: 'inventory-specific-thead-cells' --><!-- /ko -->
+                        <!-- ko template: 'lot-attribute-thead-cells' --><!-- /ko -->
+                        <th data-sort="ReceivedPackagingName">Packaging Received</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: InventoryItems">
+                    <tr>
+                        <!-- ko template: 'core-lot-tbody-cells' --><!-- /ko -->
+                        <td data-bind="text: Treatment.TreatmentNameShort"></td>
+                        <!-- ko template: 'inventory-specific-tbody-cells' --><!-- /ko -->
+                        <!-- ko template: 'lot-attribute-tbody-cells' --><!-- /ko -->
+                        <td data-bind="text: ReceivedPackagingName"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+
+<script id="lot-inventory-picking-template" type="text/html">
+    <div data-bind="maxHeight: tableItems, rebuildTrigger: AttributeNames">
+        <div class="table-responsive">
+            <table class="reset table table-condensed small" data-bind="sortableTable: tableItems, floatThead: tableItems">
+                <thead data-bind="template: 'lot-inventory-picking-template-head'"></thead>
+                <tbody data-bind="template: {name: 'lot-inventory-picking-body-template', foreach: tableItems }"></tbody>
+            </table>
+        </div>
+    </div>
+</script>
+
+<script id="lot-inventory-picking-template-head" type="text/html">
+    <tr>
+        <!-- ko template: 'core-lot-thead-cells' --><!-- /ko -->
+        <th data-sort="Treatment.TreatmentNameShort">Trtmt.</th>
+        <th>Quantity</th>
+        <th>Weight</th>
+        <!-- ko template: 'inventory-specific-thead-cells' --><!-- /ko -->
+        <!-- ko template: 'lot-attribute-thead-cells' --><!-- /ko -->
+        <th>Packaging Received</th>
+    </tr>
+    <!-- ko template: 'picked-lot-inventory-listing-footer-template'--><!-- /ko -->
+</script>
+
+<!--
+    /// Picked Lot Inventory Manifest Template
+    Non-editable template for displaying picked inventory items.
+    Parameters:
+        $data - lotInventoryViewModel
+-->
+<script id="picked-lot-inventory-manifest-template" type="text/html">
+    <!-- ko foreach: pickedInventoryItemsByInventoryType -->
+    <h3><!-- ko text: inventoryType.value --><!-- /ko --> Inventory Items</h3>
+    <!-- ko if: $data.items().length -->
+    <div data-bind="template: {name: 'picked-lot-inventory-listing-template', data: { AttributeNames: $parent.attributeNamesByProductType()[inventoryType.key], Items: $data.items, TheoreticalAttributeValues: $data.theoreticalAttributes(), totalPoundsPicked: $parent.totalPoundsPickedByProductType[inventoryType.key] }}"></div>
+    <!-- /ko -->
+    <!-- ko ifnot: $data.items().length -->
+    <p><em>No <!-- ko text: inventoryType.value --><!-- /ko --> items picked.</em></p>
+    <!-- /ko -->
+    <!-- /ko -->
+</script>
+
+<script id="picked-lot-inventory-listing-template" type="text/html">
+    <div class="table-responsive">
+        <table class="reset table table-condensed small">
+            <thead>
+                <tr>
+                    <!-- ko template: 'core-lot-thead-cells' --><!-- /ko -->
+                    <th>Trtmt.</th>
+                    <th>Quantity</th>
+                    <th>Weight</th>
+                    <!-- ko template: 'inventory-specific-thead-cells' --><!-- /ko -->
+                    <!-- ko template: 'lot-attribute-thead-cells' --><!-- /ko -->
+                </tr>
+            </thead>
+            <tbody data-bind="template: {name: 'picked-lot-inventory-listing-body-template', foreach: Items }"></tbody>
+            <tfoot>
+                <tr>
+                    <!-- ko template: 'empty-core-lot-cells' --><!-- /ko -->
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td data-bind="text: totalPoundsPicked().toLocaleString()"></td>
+                    <!-- ko template: 'empty-inventory-specific-cells' --><!-- /ko -->
+                    <td>&nbsp;</td> <!-- Customer -->
+                    <td>&nbsp;</td> <!-- LoBac -->
+                    <!-- ko foreach: TheoreticalAttributeValues -->
+                    <td data-bind="text: $rawData.formattedValue" style="border-left: 1px solid #aaa;"></td>
+                    <!-- /ko -->
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+</script>
+
+<script id="lot-inventory-picking-body-template" type="text/html">
+    <!-- ko if: isVisible -->
+    <tr data-bind="css: { 'faded' : isNewPick, 'new': isPicked }, click: $parent.setFocusOnPickedItem, clickBubble: false">
+        <!-- ko template: 'core-lot-tbody-cells' --><!-- /ko -->
+        <td data-bind="text: Treatment.TreatmentNameShort"></td>
+        <td><input data-bind="value: QuantityPicked, valueUpdate: 'input', hasFocus: isSelected, clickBubble: false, click: function(){}" class="short" /></td>
+        <td data-bind="text: WeightPicked"></td>
+        <!-- ko template: 'inventory-specific-tbody-cells' --><!-- /ko -->
+        <!-- ko template: 'lot-attribute-tbody-cells' --><!-- /ko -->
+        <td data-bind="text: ReceivedPackagingName" class="no-wrap"></td>
+    </tr>
+    <!-- /ko -->
+</script>
+
+<script id="lot-inventory-picked-body-template" type="text/html">
+    <tr data-bind="css: { 'new' : isPicked, 'faded' : isChanged }">
+        <!-- ko template: 'core-lot-tbody-cells' --><!-- /ko -->
+        <td data-bind="text: Treatment.TreatmentNameShort"></td>
+        <td><input data-bind="value: QuantityPicked, valueUpdate: 'input', hasFocus: isSelected" class="short" /></td>
+        <td data-bind="text: WeightPicked"></td>
+        <!-- ko template: 'inventory-specific-tbody-cells' --><!-- /ko -->
+        <!-- ko template: 'lot-attribute-tbody-cells' --><!-- /ko -->
+        <td class="truncate" style="max-width: 120px;" data-bind="text: ReceivedPackagingName"></td>
+    </tr>
+</script>
+
+<script id="picked-lot-inventory-listing-footer-template" type="text/html">
+    <tr class="footer strong" style="border-top: 2px solid #0e0827">
+        <td colspan="14">
+            <label>Total Pounds Picked for Batch: </label>
+            <span data-bind="text: totalPoundsPicked().toLocaleString()"></span>
+        </td>
+        <!-- ko foreach: TheoreticalAttributeValues -->
+        <td data-bind="text: $rawData.formattedValue" style="border-left: 1px solid #aaa;"></td>
+        <!-- /ko -->
+        <td></td>
+    </tr>
+    <tr class="footer secondary">
+        <td colspan="14">
+            <strong><span data-bind="text: targetProductName"></span></strong>
+            <span class="float-right">Target Min:</span>
+        </td>
+        <!-- ko foreach: AttributeNames -->
+        <!-- ko if: $data.minTargetValue != undefined -->
+        <td data-bind="text: minTargetValue"></td>
+        <!-- /ko -->
+        <!-- /ko -->
+        <td></td>
+    </tr>
+    <tr class="footer secondary">
+        <td colspan="14" class="right">Target Max:</td>
+        <!-- ko foreach: AttributeNames -->
+        <!-- ko if: $data.maxTargetValue != undefined -->
+        <td data-bind="text: maxTargetValue"></td>
+        <!-- /ko -->
+        <!-- /ko -->
+        <td></td>
+    </tr>
+</script>
+
+<script id="picked-lot-inventory-listing-body-template" type="text/html">
+    <tr class="active" data-bind="css: { modified: isChanged }">
+        <!-- ko template: 'core-lot-tbody-cells' --><!-- /ko -->
+        <td data-bind="text: Treatment.TreatmentNameShort"></td>
+        <td data-bind="text: QuantityPicked"></td>
+        <td data-bind="text: WeightPicked"></td>
+        <!-- ko template: 'inventory-specific-tbody-cells' --><!-- /ko -->
+        <!-- ko template: 'lot-attribute-tbody-cells' --><!-- /ko -->
+    </tr>
+</script>
+
+<script id="inventory-specific-thead-cells" type="text/html">
+    <th data-sort="QuantityAvailable">Qty. Avail.</th>
+    <th data-sort="TotalWeightAvailable">Weight Avail.</th>
+    <th data-sort="PackagingDescription">Packaging</th>
+    <th data-sort="LocationName">Location</th>
+    <th data-sort="WarehouseName">Warehouse</th>
+</script>
+
+<script id="empty-inventory-specific-cells" type="text/html">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</script>
+
+<script id="inventory-specific-tbody-cells" type="text/html">
+    <td data-bind="text: formattedQuantityAvailable"></td>
+    <td data-bind="text: formattedTotalWeightAvailable"></td>
+    <td data-bind="text: PackagingDescription" class="no-wrap"></td>
+    <td data-bind="text: LocationName"></td>
+    <td data-bind="text: WarehouseName"></td>
+</script>
+
+<script id="inventory-filter-controls-template" type="text/html">
+    <!-- ko template: 'lot-filter-controls-template' --><!-- /ko -->
+</script>

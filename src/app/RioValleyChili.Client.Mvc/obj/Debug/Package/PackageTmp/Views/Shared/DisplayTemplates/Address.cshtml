@@ -1,0 +1,34 @@
+﻿@using System.Text
+@using RioValleyChili.Core.Models
+@model Address
+
+@helper DisplayAddressFormatted(Address address){
+    var stringBuilder = new StringBuilder();
+    AppendString(Model.AddressLine1, stringBuilder);
+    AppendString(Model.AddressLine2, stringBuilder);
+    AppendString(Model.AddressLine3, stringBuilder);
+    if (!string.IsNullOrWhiteSpace(Model.City) && !string.IsNullOrWhiteSpace(Model.State))
+    {
+        AppendString(string.Format("{0}, {1}", Model.City, Model.State), stringBuilder);   
+    }
+    else
+    {
+        AppendString(Model.City, stringBuilder);
+        AppendString(Model.State, stringBuilder);
+    }
+    AppendString(Model.PostalCode, stringBuilder);
+    
+    @Html.Raw(stringBuilder.ToString())
+}
+
+@functions{
+    private void AppendString(string value, StringBuilder stringBuilder)
+    {
+        if (!string.IsNullOrWhiteSpace(value))
+        {
+            stringBuilder.AppendFormat("{0}<br/>", value);
+        }
+    }
+}
+
+@DisplayAddressFormatted(Model)

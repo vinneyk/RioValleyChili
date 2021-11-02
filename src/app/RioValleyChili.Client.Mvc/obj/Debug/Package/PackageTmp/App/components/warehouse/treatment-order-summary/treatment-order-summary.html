@@ -1,0 +1,67 @@
+<loading-screen params="isVisible: isLoading, displayMessage: loadingMessage"></loading-screen>
+
+<div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a id="shipped-orders"></a>Shipped Treatment Orders</h4>
+    </div>
+    <div data-bind="template: { 
+        name: 'treatment-table', 
+        data: shippedOrders 
+      }">
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a id="unshipped-orders"></a>Unshipped Treatment Orders</h4>
+    </div>
+    <div data-bind="template: { 
+        name: 'treatment-table', 
+        data: unshippedOrders 
+      }">
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a id="received-orders"></a>Received Treatment Orders</h4>
+    </div>
+    <div data-bind="template: { 
+        name: 'treatment-table', 
+        data: receivedOrders 
+      }">
+    </div>
+  </div>
+</div>
+
+<!-- Knockout templates -->
+<script id="treatment-table" type="text/html">
+  <table class="reset table table-condensed table-hover table-striped">
+    <thead data-bind="template: 'treatment-thead'"></thead>
+    <tbody data-bind="template: { name: 'treatment-tbody', foreach: $data }, click: $parent.setSelectedMovement"></tbody>
+  </table>
+</script>
+<script id="treatment-thead" type="text/html">
+  <tr>
+    <th>Ship From</th>
+    <th>Ship To</th>
+    <th>Move Num</th>
+    <th>Date Created</th>
+    <th>Shipment Date</th>
+    <th>Shipment Status</th>
+    <th class="col-sm-1">Pounds on Order</th>
+    <th class="col-sm-1">Pounds Picked</th>
+  </tr>
+</script>
+
+<script id="treatment-tbody" type="text/html">
+  <tr data-bind="css: { info: isSelected }">
+    <td data-bind="text: OriginFacility.FacilityName"></td>
+    <td data-bind="text: DestinationFacility.FacilityName"></td>
+    <td data-bind="text: MoveNum"></td>
+    <td data-bind="text: DateCreated"></td>
+    <td data-bind="text: ShipmentDate"></td>
+    <td data-bind="text: StatusDisplayText"></td>
+    <td data-bind="text: PickOrder.PoundsOnOrder | number"></td>
+    <td data-bind="text: PickedInventory.PoundsPicked | number"></td>
+  </tr>
+</script>

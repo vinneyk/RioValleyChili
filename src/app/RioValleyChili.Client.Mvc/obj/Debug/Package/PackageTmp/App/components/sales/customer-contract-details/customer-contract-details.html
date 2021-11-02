@@ -1,0 +1,259 @@
+﻿<!-- ko if: isInit -->
+<div class="container-fluid">
+    <header class="contract-header" data-bind="with: contract">
+        <!-- ko ifnot: isNew -->
+        <h1>Contract No. <!-- ko text: CustomerContractKey --><!-- /ko --> (<!-- ko text: ContractNumber --><!-- /ko -->)</h1>        
+        <!-- /ko -->
+
+        <!-- ko if: isNew -->
+        <h1>New Contract</h1>
+        <!-- /ko -->
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group" data-bind="validationElement: customer">
+              <label class="control-label">Customer:</label>
+              <select data-bind="value: customer, options: $parent.customerOptions, optionsText: 'Name', optionsCaption: ' ', enable: isNew" class="form-control"></select>
+            </div>
+          </div>
+          <div class="col-sm-4 col-sm-offset-2">
+            <div class="form-group" data-bind="validationElement: ContractDate">
+              <label class="control-label">Contract Date: </label>
+              <input type="text" class="form-control" data-bind="value: ContractDate, datePicker: true" />
+            </div>
+          </div>
+        </div>
+    </header>
+    
+    <section data-bind="if: contract">
+      <!-- ko with: contract -->
+        <contact-address-label-helper params="key: customer() && customer().CompanyKey,
+          companies: $parent.customerOptions,
+          buttons: $parent.contactLabelData.buttons,
+          visible: $parent.contactLabelData.visible">
+        </contact-address-label-helper>
+      <!-- /ko -->
+
+        <div data-bind="tabs: currentTab">
+            <ul>
+                <li><a href="#header">Contract Information</a></li>
+                <li><a href="#lineItems">Contract Line Items</a></li>
+            </ul>
+
+            <div id="header">
+                <div data-bind="template: {name: 'header-' + templateMode(), data: contract }"></div>
+
+                <div>
+                    <label class="control-label">Comments:</label>
+                    <!-- ko ifnot: contract().isNew -->
+                    <notebook-control params="notebookKey: contract().CommentsNotebookKey"></notebook-control>
+                    <!-- /ko -->
+                    <p data-bind="if: contract().isNew">Comments will be available after the contract has been saved.</p>
+                </div>
+            </div>
+
+            <div id="lineItems" data-bind="template: { name: 'line-items-' + templateMode(), data: contract }"></div>
+
+        </div>
+    </section>
+    
+</div>
+<!-- /ko -->
+
+<script type="text/html" id="header-edit-view">
+    <fieldset class="row">
+        <legend>Contract Editor</legend>
+                <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label">Contact</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" data-bind="value: ContactName" />
+                            <span class="input-group-btn">
+                              <button class="btn btn-default" data-bind="command: $parent.showContacts">
+                                <i class="fa fa-book"></i>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                            <div data-bind="with: ContactAddress">
+                              <div class="form-group">
+                                <label class="control-label">Address Line 1</label>
+                                <input type="text" class="form-control" data-bind="value: AddressLine1" />
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label">Address Line 2</label>
+                                <input type="text" class="form-control" data-bind="value: AddressLine2" />
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label">Address Line 3</label>
+                                <input type="text" class="form-control" data-bind="value: AddressLine3" />
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label">City</label>
+                                <input type="text" class="form-control" data-bind="value: City"  />
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label">State</label>
+                                <input type="text" class="form-control" data-bind="value: State" />
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label">Zip</label>
+                                <input type="text" class="form-control" data-bind="value: PostalCode" />
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label">Country</label>
+                                <input type="text" class="form-control" data-bind="value: Country" />
+                              </div>
+                            </div>
+                </div>
+
+                <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="control-label">FOB</label>
+                          <input type="text" class="form-control" data-bind="value: FOB, autocomplete: { source: $parent.fobOptions, allowNewValues: true}" />
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label">Contract Term</label>
+
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-sm-6">
+                                <input type="text" class="form-control" data-bind="value: TermBegin, datePicker: true" />
+                              </div>
+                              <div class="col-sm-6">
+                                <input type="text" class="form-control" data-bind="value: TermEnd, datePicker: true" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                        <label class="control-label">Contract Type</label>
+                        <select class="form-control" data-bind="value: ContractType, options: ContractType.options, optionsText: 'value', optionsValue: 'key'"></select>
+                        </div>
+                        <div class="form-group">
+                        <label class="control-label">Contract Status</label>
+                        <select class="form-control" data-bind="value: ContractStatus, options: ContractStatus.options, optionsText: 'value', optionsValue: 'key'"></select>
+                        </div>
+                        <div class="form-group">
+                        <label class="control-label">Broker</label>
+                        <select class="form-control" data-bind="value: broker, options: $parent.brokerOptions, optionsText: 'Name', optionsCaption: ' '"></select>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label">Payment Terms</label>
+                          <input type="text" class="form-control" data-bind="autocomplete: { source: $parent.paymentTermOptions, allowNewValues: true}, value: PaymentTerms" />
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label">Customer PO Num.</label>
+                          <input type="text" class="form-control" data-bind="value: CustomerPurchaseOrder" />
+                        </div>
+                      <div class="form-group">
+                          <label class="control-label" style="vertical-align: top">Notes to Print</label>
+                          <textarea class="form-control" data-bind="value: NotesToPrint"></textarea>
+                        </div>
+                </div>
+    </fieldset>
+</script>
+
+<script type="text/html" id="line-items-edit-view">
+
+    <div class="bg-info" style="padding: 0 5px 5px;">
+        <h3>Adjust base price</h3>
+        <div class="row">
+            <div class="col-sm-3 col-md-2">
+                <div class="form-group">
+                    <label>Items Affected:</label>
+                    <select class="form-control" data-bind="value: $parent.productToAdjust, options: $parent.chileClassifications, optionsText: 'key', optionsValue: 'value', optionsCaption: 'All Items'"></select>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-2">
+                <label>Adjust by amount:</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" data-bind="value: $parent.basePriceAdjust" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" data-bind="command: $parent.applyAdjustmentsCommand">Adjust</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="reset table table-condensed table-striped table-bordered small">
+            <thead class="small">
+                <tr>
+                    <th></th>
+                    <th class="col-sm-3">Product</th>
+                    <th>Packaging</th>
+                    <th>Treatment</th>
+                    <th>Customer Spec</th>
+                    <th class="text-nowrap">Customer Code</th>
+                    <th>Quantity</th>
+                    <th class="calc numeric">Total Weight</th>
+                    <th>Base Price</th>
+                    <th>Freight</th>
+                    <th>Treatment</th>
+                    <th>Warehouse</th>
+                    <th>Rebate</th>
+                    <th class="calc numeric">Total</th>
+                    <th class="calc numeric">Value</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: ContractItems">
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-link" data-bind="command: $parent.removeContractItemCommand"><i class="fa fa-times"></i></button>
+                    </td>
+                    <td>
+                        <select class="form-control product-select" data-bind="value: chileProduct, options: $parents[1].chileProductOptions, optionsText: 'ProductCodeAndName', optionsCaption: ' '"></select>
+                    </td>
+                    <td>
+                        <select class="form-control product-select" data-bind="value: packagingProduct, options: $parents[1].packagingProductOptions, optionsText: 'ProductName', optionsCaption: ' '"></select>
+                    </td>
+                    <td>
+                        <select class="form-control" data-bind="value: TreatmentKey, options: TreatmentKey.options, optionsText: 'value', optionsValue: 'key'"></select>
+                    </td>
+                    <td>
+                        <input type="checkbox" data-bind="checked: UseCustomerSpec" />
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" data-bind="value: CustomerProductCode" class="small-medium" />
+                    </td>
+                    <td class="numeric">
+                        <input class="form-control" data-bind="value: Quantity" type="number" />
+                    </td>
+                    <td class="info" data-bind="text: totalWeight().toLocaleString()"></td>
+                    <td>
+                        <input type="text" class="form-control" data-bind="value: PriceBase" class="short" />
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" data-bind="value: PriceFreight" class="short" />
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" data-bind="value: PriceTreatment" class="short" />
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" data-bind="value: PriceWarehouse" class="short" />
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" data-bind="value: PriceRebate" class="short" />
+                    </td>
+                    <td class="info" data-bind="text: totalPricePerPound | USD"></td>
+                    <td class="info" data-bind="text: totalValue | USD"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6"></td>
+                    <td data-bind="text: totalQuantityOnContract().toLocaleString()" class="numeric"></td>
+                    <td data-bind="text: totalPoundsOnContract().toLocaleString()" class="info"></td>
+                    <td data-bind="text: averageBasePricePerPound | USD" class="numeric"></td>
+                    <td colspan="4"></td>
+                    <td class="info" data-bind="text: averageNetPricePerPound | USD"></td>
+                    <td class="info" data-bind="text: totalValueOfContract | USD"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <button class="btn btn-primary" data-bind="command: addContractItemCommand">Add Line Item</button>
+</script>

@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/_WebPackLayout.cshtml";
+    Html.SetPageTitles("Warehouse Locations", "Warehouse Locations");
+}
+
+@section controlPanel
+{
+    <fieldset>
+        <legend>Movement Controls</legend>
+        <div class="form-group">
+            <label class="control-label">Facility</label>
+            <select class="form-control" data-bind="options: facilities, optionsText: 'FacilityName', optionsValue: 'FacilityKey', optionsCaption: ' ', value: warehouseSelected"></select>
+        </div>
+    </fieldset>
+    <fieldset>
+        <input type="button" value="Create new facility" data-bind="click: showNewFacilityEditor" />
+    </fieldset>
+
+}
+
+@section scripts
+{
+    <script src="~/App/build/warehouseLocations.bundle.js?v=@Html.AppVersion()"></script>
+}
+
+<div data-bind="if: showEditor">
+    <div data-bind="component: {name: 'warehouse-editor', params: {input: warehouseDetails, isNew: isNew, output: outputDetails}}"></div>
+</div>

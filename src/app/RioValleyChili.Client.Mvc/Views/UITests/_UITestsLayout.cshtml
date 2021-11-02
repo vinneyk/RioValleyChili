@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "~/Views/Shared/_qUnitLayout.cshtml";
+}
+
+@section  htmlHead {
+    <script src="~/Scripts/knockout-2.3.0.debug.js"></script>
+    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+    <script src="~/Scripts/jquery.mockjax.js"></script>
+    <script src="~/Scripts/knockout.command.js"></script>
+    <script src="~/Scripts/sh.knockout.customObservables.js"></script>
+    <script src="~/Scripts/sh.knockout.customObservables.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date-format.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date.parse.js"></script>
+    <script src="~/Scripts/ko.extenders.date.js"></script>
+    <script src="~/Scripts/app/helpers/ajaxStatusHelper.js"></script>
+    <script src="~/Scripts/app/helpers/resultStateHelper.js"></script>
+    <script src="~/Scripts/knockout.validation.js"></script>
+    @*<script src="~/Scripts/app/helpers/pagedDataHelper.js"></script>*@
+    @*<script src="~/Scripts/app/rvcApi.js"></script>*@
+    @*<script src="~/Scripts/app/rvc-core.js"></script>*@
+    @*<script src="~/Scripts/app/koBindings.js"></script>*@
+    @Html.Partial("_requireHybridSetup")
+    @RenderSection("htmlHead", false)
+}
+
+@section scripts
+{
+    
+    
+    <script>
+        // setup globals
+        window.showUserMessage = function () { };
+        //rvc.helpers.history.replaceState = function () { };
+        //rvc.helpers.history.pushState = function () { };
+
+        function MockPagedDataHelper(mockImplementation) {
+            var resultOptions = {
+                Success: 1,
+                Error: 0,
+            };
+            var result = resultOptions.Success;
+            var dataPager = new MockDataPager();
+
+            return {
+                init: function () {
+                    return dataPager;
+                },
+                result: result,
+            };
+
+
+            function MockDataPager() {
+                if (!(this instanceof arguments.callee)) {
+                    return new MockDataPager();
+                }
+
+                var model = this;
+                this.GetNextPage = function (callbackOptions) {
+                    model.working = true;
+                    if (result) {
+                        var responseData = mockImplementation();
+                        model.status = resultOptions.Success;
+                        callbackOptions.successCallback && callbackOptions.successCallback(responseData);
+                    } else {
+                        model.status = resultOptions.Error;
+                        callbackOptions.errorCallback && callbackOptions.errorCallback();
+                    }
+                    callbackOptions.completeCallback && callbackOptions.completeCallback();
+                    model.working = false;
+                };
+            }
+
+        }
+    </script>
+
+    @RenderSection("tests", true)
+}

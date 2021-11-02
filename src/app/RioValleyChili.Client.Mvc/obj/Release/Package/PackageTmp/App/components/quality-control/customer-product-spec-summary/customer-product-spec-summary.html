@@ -1,0 +1,25 @@
+﻿<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Product Overrides</h3>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover clickable">
+        <thead>
+          <tr>
+            <th>Prod. Code</th>
+            <th>Product</th>
+            <th>Active</th>
+          </tr>
+        </thead>
+        <tbody data-bind="foreach: products, click: selectProduct">
+          <tr>
+            <td data-bind="text: ChileProduct.ProductCode"></td>
+            <td data-bind="text: ChileProduct.ProductName"></td>
+            <td data-bind="text: ChileProduct.IsActive"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

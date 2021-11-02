@@ -1,0 +1,100 @@
+﻿<form data-bind="submit: searchLotNumber">
+  <input type="text" class="form-control" data-bind="value: searchKey">
+  <input type="submit" class="invisible">
+</form>
+
+<div class="panel panel-default">
+  <table class="reset table table-condensed table-striped table-bordered">
+    <caption>Input Materials</caption>
+    <thead>
+      <tr>
+        <th>Transaction Date</th>
+        <th>Transaction Type</th>
+        <th>Facility</th>
+        <th>Treatment</th>
+        <th>Quantity</th>
+        <th>Weight</th>
+        <th>Location</th>
+        <th>From Lot</th>
+        <th>Product</th>
+        <th>Pack Schedule</th>
+        <th>Tote</th>
+        <th>Employee Name</th>
+      </tr>
+    </thead>
+    <tbody data-bind="foreach: inputMaterialsData">
+      <tr>
+        <td data-bind="text: TransactionDate"></td>
+        <td data-bind="text: TransactionType"></td>
+        <td data-bind="text: Facility"></td>
+        <td data-bind="text: Treatment"></td>
+        <td data-bind="text: Quantity"></td>
+        <td data-bind="text: Weight"></td>
+        <td data-bind="text: FacilityLocationDescription"></td>
+        <td data-bind="text: LotKey"></td>
+        <td data-bind="text: ProudctName"></td>
+        <td data-bind="text: PackScheduleKey"></td>
+        <td data-bind="text: ToteKey"></td>
+        <td data-bind="text: EmployeeName"></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4"></td>
+        <td data-bind="text: transactionTotals"></td>
+        <td colspan="7"></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<div class="panel panel-default">
+  <table class="reset table table-condensed table-striped table-bordered">
+    <caption>Transactions</caption>
+    <thead>
+      <tr>
+        <th>Transaction Date</th>
+        <th>Transaction Type</th>
+        <th>Source Key</th>
+        <th>Facility</th>
+        <th>Treatment</th>
+        <th>Quantity</th>
+        <th>Weight</th>
+        <th>Location</th>
+        <th>New Lot</th>
+        <th>New Product</th>
+        <th>Tote</th>
+        <th>Employee Name</th>
+      </tr>
+    </thead>
+    <tbody data-bind="foreach: transactionsData">
+      <tr>
+        <td data-bind="text: TransactionDate"></td>
+        <td data-bind="text: TransactionType"></td>
+        <td data-bind="text: TransactionSourceReferenceKey"></td>
+        <td data-bind="text: FacilityName"></td>
+        <td data-bind="text: Treatment"></td>
+        <td data-bind="text: Quantity"></td>
+        <td data-bind="text: Weight"></td>
+        <td data-bind="text: FacilityLocationDescription"></td>
+        <td data-bind="text: NewLotKey"></td>
+        <td data-bind="text: ProductName"></td>
+        <td data-bind="text: ToteKey"></td>
+        <td data-bind="text: EmployeeName"></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5"></td>
+        <!-- ko with: transactionTotals -->
+        <td data-bind="text: totalQuantity"></td>
+        <td data-bind="text: totalWeight"></td>
+        <!-- /ko -->
+        <td colspan="5"></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<loading-screen params="isVisible: isLoading, displayMessage: loadingMessage"></loading-screen>
+

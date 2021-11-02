@@ -1,0 +1,558 @@
+﻿@{
+    ViewBag.Title = "Composable Command Tests";
+}
+
+<h2>Composable Command Tests</h2>
+
+@section tests
+{
+    <script src="http://code.jquery.com/qunit/qunit-1.11.0.js"></script>
+    <script src="~/Scripts/knockout.command.js"></script>
+    <script type="text/javascript">
+        module("ko.composableCommand.ignore()");
+
+        test("Given composableCommand with all extension modules ignored, when the shouldExecute delegate is true and the execute delegate is defined, command is not ignored. (A1a)", function() {
+            var classUnderTest = ko.composableCommand({
+                shouldExecute: function() { return true; },
+                execute: function() { var x = 2; }
+            });
+            classUnderTest.addCommand(ko.composableCommand({ ignore: function() { return true; } }));
+            ok(classUnderTest, "Initialized ok");
+            commandIsNotIgnored(classUnderTest);
+        });
+        test("Given composableCommand with all extension modules ignored, when the shouldExecute delegate is true and the execute delegate is undefined, command is ignored. (A1b)", function() {
+            var classUnderTest = ko.composableCommand({
+                shouldExecute: function() { return true; },
+            });
+            classUnderTest.addCommand(ko.composableCommand({ ignore: function() { return true; } }));
+            ok(classUnderTest, "Initialized ok");
+            commandIsIgnored(classUnderTest);
+        });
+        test("Given composableCommand with all extension modules ignored, when the shouldExecute delegate is false, command is ignored. (A2)", function() {
+            var classUnderTest = ko.composableCommand({
+                shouldExecute: function() { return false; },
+            });
+            classUnderTest.addCommand(ko.composableCommand({ ignore: function() { return true; } }));
+            ok(classUnderTest, "Initialized ok");
+            commandIsIgnored(classUnderTest);
+        });
+        test("Given composableCommand with all extension modules ignored, when the shouldExecute delegate is undefined, command is ignored. (A3)", function() {
+            var classUnderTest = ko.composableCommand();
+            classUnderTest.addCommand(ko.composableCommand({ shouldExecute: function() { return false; } }));
+            ok(classUnderTest, "Initialized ok");
+            commandIsIgnored(classUnderTest);
+        });
+        test("Given composableCommand with active extension modules, when the shouldExecute delegate is true, command is not ignored. (B1)", function() {
+            var classUnderTest = ko.composableCommand({ shouldExecute: function() { return true; } });
+            classUnderTest.addCommand(ko.command({ execute: function() { var x = 1; } }));
+            ok(classUnderTest, "Initialized ok");
+            commandIsNotIgnored(classUnderTest);
+        });
+        test("Given composableCommand with active extension modules, when the shouldExecute delegate is false, command not ignored. (B2)", function() {
+            var classUnderTest = ko.composableCommand({ shouldExecute: function() { return false; } });
+            classUnderTest.addCommand(ko.command({ execute: function() { var x = 1; } }));
+            ok(classUnderTest, "Initialized ok");
+            commandIsIgnored(classUnderTest);
+        });
+        test("Given composableCommand with active extension modules, when the shouldExecute delegate is undefined, command is not ignored. (B3)", function() {
+            var classUnderTest = ko.composableCommand();
+            classUnderTest.addCommand(ko.command({ execute: function() { var x = 1; } }));
+            ok(classUnderTest, "Initialized ok");
+            commandIsNotIgnored(classUnderTest);
+        });
+        test("Given composableCommand with no extension modules, when the shouldExecute delegate is true and the execute delegate is defined, command is not ignored. (C1a)", function() {
+            var classUnderTest = ko.composableCommand({
+                shouldExecute: function() { return true; },
+                execute: function() { var x = 1; }
+            });
+            ok(classUnderTest, "Initialized ok");
+            commandIsNotIgnored(classUnderTest);
+        });
+        test("Given composableCommand with no extension modules, when the shouldExecute delegate is true and the execute delegate is undefined, command is ignored. (C1b)", function() {
+            var classUnderTest = ko.composableCommand({
+                shouldExecute: function() { return true; },
+            });
+            ok(classUnderTest, "Initialized ok");
+            commandIsIgnored(classUnderTest);
+        });
+        test("Given composableCommand with no extension modules, when the shouldExecute delegate is false, command is ignored. (C2)", function() {
+            var classUnderTest = ko.composableCommand({
+                shouldExecute: function() { return false; },
+            });
+            ok(classUnderTest, "Initialized ok");
+            commandIsIgnored(classUnderTest);
+        });
+        test("Given composableCommand with no extension modules and an undefined shouldExecute delegate, when the execute delegate is defined, command is not ignored. (C3a)", function() {
+            var classUnderTest = ko.composableCommand({
+                execute: function() { var x = 1; },
+            });
+            ok(classUnderTest, "Initialized ok");
+            commandIsNotIgnored(classUnderTest);
+        });
+        test("Given composableCommand with no extension modules and an undefined shouldExecute delegate, when the execute delegate is undefined, command is ignored. (C3b)", function() {
+            var classUnderTest = ko.composableCommand();
+            ok(classUnderTest, "Initialized ok");
+            commandIsIgnored(classUnderTest);
+        });
+
+        function commandIsIgnored(cmd) {
+            equal(cmd.ignore(), true, "Command is ignored");
+        }
+
+        function commandIsNotIgnored(cmd) {
+            equal(cmd.ignore(), false, "Command is not ignored");
+        }
+
+
+        module("ko.composableCommand.isValid()");
+
+        test("Given composableCommand with executable extension modules, when canExecute is true, command is valid. (A1)", function() {
+            var classUnderTest = ko.composableCommand({ canExecute: function() { return true; } });
+            classUnderTest.addCommand(ko.command({ execute: function() { var x = 1; } }));
+            ok(classUnderTest, "Initialized ok");
+            commandIsValid(classUnderTest);
+        });
+        test("Given composableCommand with executable extension modules, when canExecute is false, command is invalid. (A2)", function() {
+            var classUnderTest = ko.composableCommand({ canExecute: function() { return false; } });
+            classUnderTest.addCommand(ko.command({ execute: function() { var x = 1; } }));
+            ok(classUnderTest, "Initialized ok");
+            commandIsInvalid(classUnderTest);
+        });
+        test("Given composableCommand with executable extension modules, when canExecute is undefined, command is valid. (A3)", function() {
+            var classUnderTest = ko.composableCommand();
+            classUnderTest.addCommand(ko.command({ execute: function() { var x = 1; } }));
+            ok(classUnderTest, "Initialized ok");
+            commandIsValid(classUnderTest);
+        });
+        test("Given composableCommand with non-executable extension module, when canExecute is true, command is invalid. (B1)", function() {
+            var classUnderTest = ko.composableCommand({ canExecute: function() { return true; } });
+            classUnderTest.addCommand(ko.command({ canExecute: function() { return false; } }));
+            ok(classUnderTest, "Initialized ok");
+            commandIsInvalid(classUnderTest);
+        });
+        test("Given composableCommand with non-executable extension module, when canExecute is false, command is invalid. (B2)", function() {
+            var classUnderTest = ko.composableCommand({ canExecute: function() { return false; } });
+            classUnderTest.addCommand(ko.command({ canExecute: function() { return false; } }));
+            ok(classUnderTest, "Initialized ok");
+            commandIsInvalid(classUnderTest);
+        });
+        test("Given composableCommand with non-executable extension module, when canExecute is undefined, command is invalid. (B3)", function() {
+            var classUnderTest = ko.composableCommand();
+            classUnderTest.addCommand(ko.command({ canExecute: function() { return false; } }));
+            ok(classUnderTest, "Initialized ok");
+            commandIsInvalid(classUnderTest);
+        });
+        test("Given composableCommand with no extension modules, when canExecute is true, command is valid. (C1)", function() {
+            var classUnderTest = ko.composableCommand({ canExecute: function() { return true; } });
+            ok(classUnderTest, "Initialized ok");
+            commandIsValid(classUnderTest);
+        });
+        test("Given composableCommand with no extension modules, when canExecute is false, command is invalid. (C1)", function() {
+            var classUnderTest = ko.composableCommand({ canExecute: function() { return false; } });
+            ok(classUnderTest, "Initialized ok");
+            commandIsInvalid(classUnderTest);
+        });
+        test("Given composableCommand with no extension modules, when canExecute is undefined, command is valid. (C1)", function() {
+            var classUnderTest = ko.composableCommand();
+            ok(classUnderTest, "Initialized ok");
+            commandIsValid(classUnderTest);
+        });
+
+        function commandIsValid(cmd) {
+            equal(cmd.isValid(), true, "The command is valid for execution.");
+        }
+
+        function commandIsInvalid(cmd) {
+            equal(cmd.isValid(), false, "The command is invalid for execution.");
+        }
+
+
+        module("ko.composableCommand.canExecute()");
+
+        test("Given composableCommand, when command is valid and not ignored, command can be executed.", function() {
+            var classUnderTest = ko.composableCommand({ execute: function() { var x = 1; } });
+            commandIsValid(classUnderTest);
+            commandIsNotIgnored(classUnderTest);
+            commandCanBeExecuted(classUnderTest);
+        });
+        test("Given composableCommand, when command is valid and ignored, command cannot be executed.", function() {
+            var classUnderTest = ko.composableCommand({ shouldExecute: function() { return false; } });
+            commandIsValid(classUnderTest);
+            commandIsIgnored(classUnderTest);
+            commandCannotBeExecuted(classUnderTest);
+        });
+        test("Given composableCommand, when command is invalid and not ignored, command cannot be executed.", function() {
+            var classUnderTest = ko.composableCommand({
+                canExecute: function() { return false; },
+                execute: function() { var x = 21; }
+            });
+            commandIsInvalid(classUnderTest);
+            commandIsNotIgnored(classUnderTest);
+            commandCannotBeExecuted(classUnderTest);
+        });
+        test("Given composableCommand, when command is invalid and ignored, command cannot be executed.", function() {
+            var classUnderTest = ko.composableCommand({
+                canExecute: function() { return false; },
+            });
+            commandIsInvalid(classUnderTest);
+            commandIsIgnored(classUnderTest);
+            commandCannotBeExecuted(classUnderTest);
+        });
+
+        function commandCanBeExecuted(cmd) {
+            equal(cmd.canExecute(), true, "Command can be executed");
+        }
+        function commandCannotBeExecuted(cmd) {
+            equal(cmd.canExecute(), false, "Command cannot be executed");
+        }
+
+
+        var executedCommands = [];
+        module("ko.composableCommand.execute()", {
+            setup: function() {
+                executedCommands = [];
+            }
+        });
+        test("Given composableCommand with no extension modules, when command is valid and not ignored, command is executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed")
+            });
+            
+            // assess
+            commandIsValid(classUnderTest);
+            commandIsNotIgnored(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+            
+            // assert
+            assertCommandIsExecuted(1);
+        });
+        test("Given composableCommand with no extension modules, when command is valid and ignored, execution delegate is not executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed"),
+                shouldExecute: returnsFalse,
+            });
+
+            // assess
+            commandIsValid(classUnderTest);
+            commandIsIgnored(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+            
+            // assert
+            assertCommandIsNotExecuted();
+        });
+        test("Given composableCommand with no extension modules, when command is invalid but not ignored, execution delegate is not executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed"),
+                shouldExecute: returnsTrue,
+                canExecute: returnsFalse,
+            });
+
+            // assess
+            commandIsInvalid(classUnderTest);
+            commandIsNotIgnored(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+            
+            // assert
+            assertCommandIsNotExecuted();
+        });
+        test("Given composableCommand with no extension modules, when command is invalid and ignored, execution delegate is not executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed"),
+                shouldExecute: returnsFalse,
+                canExecute: returnsFalse,
+            });
+
+            // assess
+            commandIsInvalid(classUnderTest);
+            commandIsIgnored(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+            
+            // assert
+            assertCommandIsNotExecuted();
+        });
+        test("Given valid, non-inactive composableCommand with extension modules, when all modules are ignored, only base command is executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed")
+            });
+            var child = ko.composableCommand({
+                shouldExecute: returnsFalse,
+            });
+            classUnderTest.addCommand(child);
+            
+            // assess
+            commandIsIgnored(child);
+            commandIsValid(child);
+            commandIsValid(classUnderTest);
+            commandIsNotIgnored(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+            
+            // assert
+            assertCommandIsExecuted(1);
+        });
+        test("Given valid, non-inactive composableCommand with extension modules, when all modules are active, all commands are executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed")
+            });
+            var child = ko.command({
+                execute: logExecutionDelegate("child executed")
+            });
+            var child2 = ko.command({
+                execute: logExecutionDelegate("child2 executed")
+            });
+            classUnderTest.addCommand(child);
+            classUnderTest.addCommand(child2);
+            
+            // assess
+            commandIsNotIgnored(child);
+            commandIsNotIgnored(child2);
+            commandIsValid(classUnderTest);
+            commandIsNotIgnored(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+            
+            // assert
+            assertCommandIsExecuted(3);
+        });
+        test("Given valid, non-inactive composableCommand with extension modules, when some modules are ignored, all non-ignored commands are executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed")
+            });
+            var child = ko.composableCommand({
+                execute: logExecutionDelegate("child executed"),
+                shouldExecute: returnsFalse,
+            });
+            var child2 = ko.command({
+                execute: logExecutionDelegate("child2 executed")
+            });
+            classUnderTest.addCommand(child);
+            classUnderTest.addCommand(child2);
+            
+            // assess
+            commandIsIgnored(child);
+            commandIsNotIgnored(child2);
+            commandIsValid(classUnderTest);
+            commandIsNotIgnored(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+            
+            // assert
+            assertCommandIsExecuted(2);
+        });
+        test("Given valid, inactive composableCommand with extension modules, when all modules are ignored, no commands are executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed"),
+                shouldExecute: returnsFalse,
+            });
+            var child = ko.composableCommand({
+                shouldExecute: returnsFalse,
+            });
+            classUnderTest.addCommand(child);
+
+            // assess
+            commandIsIgnored(child);
+            commandIsValid(child);
+            commandIsIgnored(classUnderTest);
+            commandIsValid(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+
+            // assert
+            assertCommandIsNotExecuted();
+        });
+        test("Given valid, inactive composableCommand with extension modules, when all modules are active, no commands are executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed"),
+                shouldExecute: returnsFalse,
+            });
+            var child = ko.command({
+                execute: logExecutionDelegate("child executed")
+            });
+            var child2 = ko.command({
+                execute: logExecutionDelegate("child2 executed")
+            });
+            classUnderTest.addCommand(child);
+            classUnderTest.addCommand(child2);
+
+            // assess
+            commandIsNotIgnored(child);
+            commandIsNotIgnored(child2);
+            commandIsIgnored(classUnderTest);
+            commandIsValid(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+
+            // assert
+            assertCommandIsNotExecuted();
+        });
+        test("Given invalid, inactive composableCommand with extension modules, when module is invalid, no commands are executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed"),
+                shouldExecute: returnsFalse,
+            });
+            var child = ko.command({
+                execute: logExecutionDelegate("child executed"),
+                canExecute: returnsFalse,
+            });
+            var child2 = ko.command({
+                execute: logExecutionDelegate("child2 executed")
+            });
+            classUnderTest.addCommand(child);
+            classUnderTest.addCommand(child2);
+
+            // assess
+            commandIsNotIgnored(child);
+            commandIsNotIgnored(child2);
+            commandIsIgnored(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+
+            // assert
+            assertCommandIsNotExecuted();
+        });
+        test("Given invalid composableCommand without extension modules, command is not executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed"),
+                shouldExecute: returnsTrue,
+                canExecute: returnsFalse,
+            });
+            
+            // assess
+            commandIsInvalid(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+
+            // assert
+            assertCommandIsNotExecuted();
+        });
+        test("Given invalid composableCommand with extension modules, when all modules are active, no commands are executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed"),
+                shouldExecute: returnsTrue,
+                canExecute: returnsFalse,
+            });
+            var child = ko.command({
+                execute: logExecutionDelegate("child executed")
+            });
+            var child2 = ko.command({
+                execute: logExecutionDelegate("child2 executed")
+            });
+            classUnderTest.addCommand(child);
+            classUnderTest.addCommand(child2);
+
+            // assess
+            commandIsNotIgnored(child);
+            commandIsNotIgnored(child2);
+            commandIsNotIgnored(classUnderTest);
+            commandIsInvalid(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+
+            // assert
+            assertCommandIsNotExecuted();
+        });
+        test("Given invalid composableCommand with extension modules, when all modules are ignored, no commands are executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed"),
+                shouldExecute: returnsTrue,
+                canExecute: returnsFalse,
+            });
+            var child = ko.composableCommand({
+                execute: logExecutionDelegate("child executed"),
+                shouldExecute: returnsFalse,
+            });
+            var child2 = ko.composableCommand({
+                execute: logExecutionDelegate("child2 executed"),
+                shouldExecute: returnsFalse,
+            });
+            classUnderTest.addCommand(child);
+            classUnderTest.addCommand(child2);
+
+            // assess
+            commandIsIgnored(child);
+            commandIsIgnored(child2);
+            commandIsNotIgnored(classUnderTest);
+            commandIsInvalid(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+
+            // assert
+            assertCommandIsNotExecuted();
+        });
+        test("Given invalid composableCommand with extension modules, when some modules are ignored, no commands are executed.", function () {
+            // arrange
+            var classUnderTest = ko.composableCommand({
+                execute: logExecutionDelegate("executed"),
+                shouldExecute: returnsTrue,
+                canExecute: returnsFalse,
+            });
+            var child = ko.composableCommand({
+                execute: logExecutionDelegate("child executed"),
+                shouldExecute: returnsTrue,
+            });
+            var child2 = ko.composableCommand({
+                execute: logExecutionDelegate("child2 executed"),
+                shouldExecute: returnsFalse,
+            });
+            classUnderTest.addCommand(child);
+            classUnderTest.addCommand(child2);
+
+            // assess
+            commandIsNotIgnored(child);
+            commandIsIgnored(child2);
+            commandIsNotIgnored(classUnderTest);
+            commandIsInvalid(classUnderTest);
+
+            // act
+            classUnderTest.execute();
+
+            // assert
+            assertCommandIsNotExecuted();
+        });
+        
+
+        function logExecutionDelegate() {
+            return function(val) { executedCommands.push(val || "executed"); };
+        }
+        function assertCommandIsNotExecuted() {
+            equal(executedCommands.length, 0, "Command is not executed");
+        }
+        function assertCommandIsExecuted(expectedExecutionCount) {
+            equal(executedCommands.length, expectedExecutionCount, "Command is executed " + expectedExecutionCount + " times");
+        }
+        
+        function returnsFalse() { return false; }
+        function returnsTrue() { return true; }
+
+    </script>
+}

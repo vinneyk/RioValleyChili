@@ -1,0 +1,136 @@
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\obj\Debug\RioValleyChili.Client.Mvc.csprojAssemblyReference.cache
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\obj\Debug\RioValleyChili.Client.Mvc.Content.UserMessages.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\obj\Debug\RioValleyChili.Client.Mvc.csproj.GenerateResource.cache
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\AutoMapper.Net4.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Adomd.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Cache.Database.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Cache.StackExchangeRedis.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.OpenXmlRendering.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Service.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Services.ServiceStack.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Services.WebApi.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.XpsRendering.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Mvc.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Silverlight.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.WebForms.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.WinForms.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Wpf.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChiliDataContextViews.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Client.Mvc.dll.config
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Client.Mvc.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Client.Mvc.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Antlr3.Runtime.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\AutoMapper.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Elmah.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Elmah.Mvc.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\EntityFramework.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\EntityFramework.SqlServer.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Glimpse.AspNet.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Glimpse.Core.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Glimpse.Knockout.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Glimpse.Mvc5.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Microsoft.ApplicationInsights.Telemetry.Services.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Microsoft.ApplicationInsights.Telemetry.Web.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Microsoft.Web.Infrastructure.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Moq.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Newtonsoft.Json.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Ninject.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Ninject.Web.Common.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Ninject.Web.Mvc.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Ploeh.AutoFixture.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\PostSharp.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Client.Core.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Client.Reporting.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Core.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Services.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Services.Interfaces.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Services.Models.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Solutionhead.Services.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Net.Http.Formatting.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Helpers.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Http.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Http.WebHost.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Mvc.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Optimization.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Providers.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Razor.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.WebPages.Deployment.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.WebPages.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.WebPages.Razor.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\T4MVCExtensions.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Thinktecture.IdentityModel.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\WebActivatorEx.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\WebGrease.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Telerik.Reporting.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Telerik.Reporting.Service.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Telerik.Reporting.Services.WebApi.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\LinqKit.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Services.Utilities.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Data.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Business.Core.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Solutionhead.Core.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Data.Models.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Solutionhead.EntityKey.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Services.OldContextSynchronization.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Solutionhead.Data.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\EF-Split-Projector.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\EF-Projectors.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Solutionhead.Data.EntityFramework.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Data.DataSeeders.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Client.Core.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Client.Reporting.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Client.Reporting.dll.config
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Core.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Services.Interfaces.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Services.Models.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Services.Models.dll.config
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Services.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Antlr3.Runtime.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\AutoMapper.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\EntityFramework.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\EntityFramework.SqlServer.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Microsoft.ApplicationInsights.Telemetry.Services.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Microsoft.ApplicationInsights.Telemetry.Web.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Moq.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Moq.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Newtonsoft.Json.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Ninject.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Ninject.Web.Common.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Ninject.Web.Mvc.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Ploeh.AutoFixture.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\PostSharp.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Net.Http.Formatting.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Helpers.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Http.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Http.WebHost.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Mvc.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Optimization.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Providers.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.Razor.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.WebPages.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.WebPages.Deployment.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\System.Web.WebPages.Razor.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Thinktecture.IdentityModel.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\Thinktecture.IdentityModel.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Services.Utilities.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Services.Utilities.dll.config
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Data.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Data.dll.config
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Business.Core.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Business.Core.dll.config
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Data.Models.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Data.Models.dll.config
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Services.OldContextSynchronization.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Services.OldContextSynchronization.dll.config
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Data.DataSeeders.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Data.DataSeeders.dll.config
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\bin\RioValleyChili.Client.Mvc.pssym
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\obj\Debug\RioValleyChili.Client.Mvc.csproj.CopyComplete
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\obj\Debug\RioValleyChili.Client.Mvc.dll.postsharp
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\obj\Debug\RioValleyChili.Client.Mvc.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\obj\Debug\RioValleyChili.Client.Mvc.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\obj\Debug\PostSharpHost.config
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Mvc\obj\Debug\RioValleyChili.Client.Mvc.csproj.CoreCompileInputs.cache

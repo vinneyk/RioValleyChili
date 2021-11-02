@@ -1,0 +1,19 @@
+﻿@media print {
+    .lot-path-inputs.lot-path-inputs {
+        margin-bottom: 2px;
+    }
+
+    .lot-path.lot-path-inputs li {
+        font-size: 90%;
+    }
+
+    .lot-trace-output-table .table {
+        margin-bottom: 5px;
+    }
+
+    .lot-trace-output-table .table tr td {
+        font-size: 90%;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+}

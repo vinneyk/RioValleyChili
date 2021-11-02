@@ -1,0 +1,308 @@
+﻿@Html.Partial("ScriptTemplates/_LotScriptTemplates")
+@Html.Partial("ScriptTemplates/_notebookScriptTemplates")
+
+@* Lab Result Table Templates *@
+
+<script id="lots-with-attributes-template" type="text/html">
+    <table id="lotSummaryTable" class="clickable">
+        <thead>
+            <tr>
+                <!-- ko template: 'lot-details-with-defects-thead-cells' --><!-- /ko -->
+                <th>Customer</th>
+            </tr>
+        </thead>
+        <tbody data-bind="template: { name: 'labResultRowTemplate', foreach: LabResultSummaries, afterAdd: animateNewItem }"></tbody>
+    </table>
+</script>
+
+<script type="text/html" id="labResultRowTemplate">
+    <tr data-bind="fadeVisible: true, tooltip: tooltipText, tooltipTrack: true, click: $parent.selectLot">
+        <!-- ko template: 'lot-details-with-defects-table-body-cells' --><!-- /ko -->
+        <td class="no-wrap" data-bind="text: CustomerName"></td>
+    </tr>
+</script>
+
+
+@* Lab Result Details Template *@
+
+<script type="text/html" id="lab-result-details-template">
+    <!-- ko with: LabResult -->
+    <header>
+        <hgroup>
+            <h1 data-bind="text: LotKey + ' (' + QualityStatus.displayValue() + ': ' + ProductionStatus.displayValue() + ')'"></h1>
+            <h2 data-bind="text: Product.ProductName"></h2>
+            <!-- ko if: CustomerName-->
+            <h3>
+                <!-- ko text: CustomerName --><!-- /ko -->
+
+                <!-- ko if: customerValidationDisplay -->
+                <span data-bind="text: customerValidationDisplay, css: { 'error': hasCustomerSpecViolation, 'success': !hasCustomerSpecViolation }" class="message-flag"></span>
+                <!-- /ko -->
+            </h3>
+            <!-- /ko -->
+        </hgroup>
+
+        <!-- ko if: requiresQualityControlIntervention -->
+        <ul class="messages">
+            <li class="error">
+                <strong>Quality Control Intervention</strong>
+                <select data-bind="value: $parent.newLotStatus, options: LotQualityStatusOptions, optionsCaption: 'Mark this lot as...', optionsText: 'text', optionsValue: 'value'"></select>
+                <input type="button" value="Save Status" data-bind="command: $parent.updateLotStatus" />
+                <em style="display: block; clear: left;" data-bind="visible: hasChanges">NOTICE: The lot has pending changes. Before setting the status, you need to save or undo your changes.</em>
+            </li>
+        </ul>
+        <!-- /ko -->
+        <!-- ko if: HoldType -->
+        <span class="hold">
+            <strong data-bind="text: HoldType.displayValue() + ' Hold:'"></strong>
+            <span data-bind="text: HoldDescription"></span>
+            <input type="button" value="Edit" data-bind="click: openHoldView" />
+        </span>
+        <!-- /ko -->
+        <!-- ko ifnot: HoldType -->
+        <input type="button" data-bind="click: openHoldView" value="Hold Lot" />
+        <!-- /ko -->
+        <!-- ko ifnot: requiresQualityControlIntervention -->
+        <div class="message-info">
+            <label>Enable lot to be picked as <strong>Finished Goods</strong> in Access System</label>
+            <input type="checkbox" data-bind="checked: OverrideOldContextLotAsCompleted" />
+        </div>
+        <!-- /ko -->
+
+    </header>
+
+    <fieldset data-bind="pageData: $data">
+        <legend data-bind="text: LotKey"></legend>
+
+        <ol data-bind="foreach: Attributes" class="tabular attributes">
+            <li>
+                <label>
+                    <!-- ko text: Key --><!-- /ko -->
+                    <i data-bind="css: {'fa-calculator': isValueComputed }, attr: { title: isValueComputed ? 'Calculated from inputs' : '' }" class="fa float-right"></i>
+                </label>
+                <input data-bind="value: Value, valueUpdate: 'afterkeydown', cancelKey: revertEditsCommand, keydownBubble: false, 
+                                  css: { 'computed': isValueComputed },
+                                  attr: { readonly: !isEditing() }, 
+                                  click: beginEditingCommand.execute" class="medium" />
+                <!-- ko ifnot: hasChanges -->
+                <span data-bind="text: AttributeDate"></span>
+                <!-- /ko -->
+                <!-- ko if: hasChanges -->
+                <input data-bind="value: AttributeDate, datePicker: true" placeholder="Test Date" />
+                <!-- /ko -->
+                <!-- ko template: { name: 'attribute-defect-template', if: Defect} --><!-- /ko -->
+                <!-- ko if: CustomerSpec && CustomerSpec.Defect -->
+                
+                <!-- ko template: { name: 'defect-template',
+                                    data: { defect: CustomerSpec.Defect, css: { }, title: 'Customer Spec Defect' } }-->
+                <!-- /ko -->
+                <!-- /ko -->
+
+                <input type="button" data-bind="command: revertEditsCommand, fadeVisible: hasChanges" value="undo" class="link" tabindex="-1" />
+            </li>
+        </ol>
+    </fieldset>
+
+
+    <section data-bind="dialog: displayHoldView, title: 'QA Hold', cancelCommand: closeHoldView, customCommands: { 'Remove Hold': removeHoldCommand, 'Save': saveHoldCommand }, width: '600px'">
+        <fieldset data-bind="with: LotHold">
+            <legend>QA Hold</legend>
+            <ol class="tabular">
+                <li>
+                    <label>Hold Type</label>
+                    <select data-bind="value: HoldType, options: HoldType.options, optionsText: 'value', optionsValue: 'key'"></select>
+                </li>
+                <li>
+                    <label>Description</label>
+                    <input data-bind="value: HoldDescription" />
+                </li>
+            </ol>
+        </fieldset>
+    </section>
+    <!-- /ko -->
+    <!-- ko if: ResolveDefect -->
+    <section data-bind="dialog: showResolveDefectDialog, title: 'Resolve Defect', cancelCommand: ResolveDefect() && ResolveDefect().cancelResolutionCommand, customCommands: { 'Resolve Defect': ResolveDefect() && ResolveDefect().resolveDefectCommand }, width: '500px'">
+        <!-- ko with: ResolveDefect -->
+        <h2 data-bind="text: Description"></h2>
+        <fieldset data-bind="with: Resolution">
+            <legend>Resolve Defect</legend>
+            <ol>
+                <li>
+                    <label style="display: block;">Comments</label>
+                    <textarea data-bind="value: Description"></textarea>
+                </li>
+                <li>
+                    <label>Resolution Type</label>
+                    <select data-bind="value: ResolutionType, options: ResolutionType.options, optionsValue: 'key', optionsText: 'value', optionsCaption: ' '"></select>
+                </li>
+            </ol>
+        </fieldset>
+        <!-- /ko -->
+    </section>
+    <!-- /ko -->
+    <!-- ko if: NewDefect -->
+    <section id="new-rvc-defect" data-bind="dialog: showNewDefectDialog, title: 'Create New Lot Defect', cancelCommand: cancelNewDefectCommand, customCommands: { 'Create Defect': saveNewInhouseDefectCommand }, width: '600px'">
+        <fieldset data-bind="with: NewDefect">
+            <legend>Lot Defect Information</legend>
+            <ol class="tabular">
+                <li>
+                    <label>Defect Type</label>
+                    <span data-bind="text: DefectType.displayValue"></span>
+                    <input type="hidden" data-bind="value: DefectType" />
+                </li>
+                <li>
+                    <label>Description</label>
+                    <input data-bind="value: Description, autocomplete: $parent.inhouseDefectOptions, autocompleteOptions: { allowNewValues: true }" />
+                </li>
+            </ol>
+        </fieldset>
+    </section>
+    <!-- /ko -->
+
+</script>
+
+<script id="attribute-defect-template" type="text/html">
+    <!-- ko ifnot: Defect.Resolution -->
+    <!-- ko template: {
+        name: 'defect-template', 
+        data: {defect: Defect, title: 'Defect', css: {'bacteria': hasContaminatedDefect, 'actionable': hasActionableDefect }} }-->
+    <!-- /ko-->
+    <!-- /ko -->
+
+    <!-- ko if: Defect.Resolution -->
+    <!-- ko if: Defect.Resolution().isEditing -->
+    <div class="defect resolved">
+        <strong>Resolve Defect:</strong>
+        <!-- ko with: Defect.Resolution -->
+        <select data-bind="value: ResolutionType, options: ResolutionType.options, optionsText: 'value', optionsValue: 'key', optionsCaption: 'Choose Resolution Type...'"></select>
+        <input data-bind="value: Description" placeholder="Comment..." />
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+    <!-- ko ifnot: isEditing -->
+    <div class="defect resolved">
+        <strong>Resolved:</strong>
+        <!-- ko text: Defect.Resolution().Description -->
+        <!-- /ko -->
+        <!-- ko if: Defect.Resolution().CanDelete -->
+        <input type="button" data-bind="command: $parents[1].deleteDefectResolutionCommand" value="Delete Resolution" />
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+    <!-- /ko -->
+</script>
+
+<script id="defect-template" type="text/html">
+    <!-- ko ifnot: defect.Resolution -->
+    <div class="defect unresolved" data-bind="css: css">
+        <strong data-bind="text: title + ': '"></strong>
+        <span data-bind="text: defect.SummaryText, class: { resolved: defect.Resolution }"></span>
+    </div>
+    <!-- /ko -->
+</script>
+
+<style>
+    /*td.defect {
+        background-color: rgb(217, 82, 82);
+        color: rgb(132, 8, 8);
+        font-weight: bold;
+    }*/
+
+    ol.attributes {
+    }
+
+        ol.attributes li {
+        }
+
+        ol.attributes label {
+        }
+
+    .attributes input[readonly] {
+        background: none !important;
+        border: none !important;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .hold {
+        padding: 2px 5px;
+        -ms-border-radius: 3px;
+        border-radius: 3px;
+        font-size: 1em;
+        background-color: #666666;
+        color: #ebeeef;
+        line-height: 1.2em;
+        margin: 5px 0 10px 0;
+        display: inline-block;
+    }
+
+        .hold span {
+            font-style: italic;
+        }
+
+        .defect input[type='button'],
+        .hold input[type='button'] {
+            font-size: .9em;
+            background-color: #333;
+            padding: 2px;
+            margin: 2px;
+            line-height: 1em;
+            color: #a6dbed;
+        }
+
+    ul.defects {
+        display: inline;
+    }
+
+        ul.defects li,
+        .attributes div.defect {
+            display: inline-block;
+        }
+
+        ul.defects li,
+        .attributes .defect {
+            padding: 2px 5px;
+            -ms-border-radius: 3px;
+            border-radius: 3px;
+            font-style: italic;
+        }
+
+            td.defect,
+            .attributes .defect.unresolved {
+                background-color: rgb(237, 205, 119);
+                color: rgb(255, 106, 0);
+                font-weight: bold;
+            }
+
+                td.defect.actionable,
+                .attributes .defect.unresolved.actionable {
+                    background-color: rgb(217, 82, 82);
+                    color: rgb(132, 8, 8);
+                }
+
+                td.defect.bacteria,
+                .attributes .defect.unresolved.bacteria {
+                    background-color: rgb(29, 27, 27);
+                    color: rgb(220, 220, 220);
+                }
+
+            .attributes .defect.resolved {
+                background-color: #a6dbed;
+                color: #666;
+            }
+
+    td.attribute.computed {
+        color: #999;
+        font-style: italic;
+        background-color: #fafafa;
+    }
+    input.computed {
+        color: #999;
+        font-style: italic;
+    }
+    .fa-calculator {
+        color: #999;
+        cursor: help;
+    }
+
+</style>

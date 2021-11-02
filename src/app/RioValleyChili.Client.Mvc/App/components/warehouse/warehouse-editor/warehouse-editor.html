@@ -1,0 +1,46 @@
+﻿<div class="container-fluid">
+    <section class="col-sm-6" data-bind="with: facilityInfo">
+        <form class="form-horizontal">
+            <div class="form-group " data-bind="validationElement: FacilityName">
+                <label for="facilityname" class="control-label col-md-3">Name</label>
+                <div class="col-sm-9">
+                    <input class="form-control" id="facilityname" Name" data-bind="value: FacilityName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3" for="phonenumber">Phone</label>
+                <div class="col-sm-9">
+                    <input class="form-control" id="phonenumber" data-bind="value: PhoneNumber" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3" for="emailaddress">Email</label>
+                <div class="col-sm-9">
+                    <input class="form-control col-md-9" id="emailaddress" data-bind="value: EmailAddress" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" data-bind="checked: Active"> Active
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+            <div class="col-md-9 col-md-offset-3">
+                <button type="button" class="btn btn-success" data-bind="click: $root.saveFacilityData">Save</button>
+                <button type="button" class="btn btn-link" data-bind="click: $root.cancelFacilityEdit">Cancel</button>
+            </div>
+    </section>
+    <section class="col-sm-6">
+        <div data-bind="component: { name: 'address-editor', params: { input: facilityInfo.Address, output: AddressOutput }}"></div>
+    </section>
+    <!-- ko if: !isNew() -->
+    <br />
+    <br />
+    <!-- Need to edit styles so that br tags are no longer needed -->
+    <div data-bind="component: { name: 'locations-editor', params: { input: facilityInfo, output: LocationsOutput, facilityInfo: facilityInfo }}"></div>
+    <!-- /ko -->
+</div>

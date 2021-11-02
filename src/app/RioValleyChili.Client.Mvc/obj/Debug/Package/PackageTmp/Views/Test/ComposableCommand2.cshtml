@@ -1,0 +1,59 @@
+﻿@{
+    Html.SetPageTitles("ComposableCommand: editStateManager Test", "ComposableCommand: editStateManager Test");
+}
+
+<div>
+    
+</div>
+
+<label for="fname">First Name:</label>
+<input id="fname" data-bind="value: fName"/>
+<input id="lname" data-bind="value: lName"/>
+
+<div>
+    <input type="button" data-bind="command: saveCommand" value="Save"/>
+    <input type="button" data-bind="command: cancelCommand" value="Cancel"/>
+    <input type="button" data-bind="command: editCommand" value="Edit"/>
+    (ViewModel Controls)
+</div>
+
+<div data-bind="with: esm">
+    <input type="button" data-bind="command: saveEditsCommand" value="Save"/>
+    <input type="button" data-bind="command: cancelEditsCommand" value="Cancel"/>
+    <input type="button" data-bind="command: beginEditingCommand" value="Edit"/>
+    (ESM Controls)
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/knockout.command.js"></script>
+    <script src="~/Scripts/knockout.editStateManager.js"></script>
+    <script>
+        ko.DEBUG = true;
+        var vm = {
+            fName: ko.observable(),
+            lName: ko.observable(),
+            cancelCommand: ko.composableCommand(),
+            editCommand: ko.composableCommand(),
+        };
+        
+        vm.saveCommand = ko.composableCommand({
+            canExecute: function() {
+                return vm.fName() != undefined && vm.lName() != undefined;
+            }
+        }),
+            
+
+        vm.esm = ko.EditStateManager(vm, {
+            ignore: ['saveCommand', 'cancelCommand'],
+            initializeAsEditing: true,
+        });
+        vm.saveCommand.addCommand(vm.esm.saveEditsCommand);
+        vm.cancelCommand.addCommand(vm.esm.cancelEditsCommand);
+        vm.editCommand.addCommand(vm.esm.beginEditingCommand);
+
+        $(function() {
+            ko.applyBindings(vm);
+        });
+    </script>
+}

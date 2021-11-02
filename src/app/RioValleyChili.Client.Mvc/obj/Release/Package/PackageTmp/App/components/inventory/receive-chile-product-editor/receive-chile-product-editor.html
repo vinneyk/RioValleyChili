@@ -1,0 +1,155 @@
+﻿<div class="text-right" data-bind="visible: displayReportLinks">
+  <a data-bind="attr: {href: recapReportLink}" class="btn btn-default" target="_blank"><i class="fa fa-print"></i> Print Receiving Recap</a>
+</div>
+<div class="text-right" data-bind="visible: !displayReportLinks()">
+  <button class="disabled">
+    <span class="fa-stack">
+      <i class="fa fa-print fa-stack-1x"></i>  
+      <i class="fa fa-ban text-danger fa-stack-2x"></i>  
+    </span>
+    Print Receiving Recap (Unsaved Changes)
+  </button>
+</div>
+
+<div data-bind="with: editor">
+  <!-- Chile Product header info -->
+  <section>
+    <div class="row">
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: ChileMaterialsReceivedType">
+        <label class="control-label" for="chile-material-type">Chile Materials Type</label>
+        <select id="chile-material-type" class="form-control" data-bind="value: ChileMaterialsReceivedType, options: options.materialTypes, optionsText: 'value', optionsValue: 'key', enable: isMaterialsTypeEnabled"></select>
+      </div>
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: DateReceived">
+        <label class="control-label" for="dateReceived">Production Date</label>
+        <input id="dateReceived" class="form-control" data-bind="datePicker: DateReceived" type="text">
+      </div>
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: Supplier">
+        <label class="control-label">Supplier</label>
+        <select class="form-control" data-bind="value: Supplier, options: options.suppliers, optionsText: 'Name', optionsValue: 'CompanyKey', optionsCaption: ' '"></select>
+      </div>
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: LoadNumber">
+        <label class="control-label">Load</label>
+        <input class="form-control" data-bind="textinput: LoadNumber" type="text">
+      </div>
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: Warehouse">
+        <label class="control-label">Warehouse</label>
+        <select class="form-control" data-bind="value: Warehouse, options: options.warehouses, optionsText: 'FacilityName', optionsValue: 'FacilityKey', disable: isDehydrated() || !loadWarehouseLocations.canExecute()"></select>
+      </div>
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: Treatment">
+        <label class="control-label">Treatment</label>
+        <select class="form-control" data-bind="value: Treatment, options: Treatment.options, optionsText: 'value', optionsValue: 'key'"></select>
+      </div>
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: PurchaseOrder">
+        <label class="control-label">Purchase Order No.</label>
+        <input class="form-control" data-bind="textinput: PurchaseOrder" type="text">
+      </div>
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: ShipperNumber">
+        <label class="control-label">Shipper No.</label>
+        <input class="form-control" data-bind="value: ShipperNumber" type="text">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-4" data-bind="validationElement: Product">
+        <label class="control-label">Product Type</label>
+        <select class="form-control" data-bind="value: chileState, options: chileState.options, optionsText: 'value', optionsValue: 'key', disable: isDehydrated()"></select>
+      </div>
+      <div class="form-group col-xs-8">
+        <label class="control-label">Product</label>
+        <select class="form-control" data-bind="value: Product, options: chileProductOptions, optionsText: 'ProductCodeAndName', optionsValue: 'ProductKey'"></select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editor Table -->
+  <section>
+    <div class="panel panel-default">
+      <div class="table-responsive">
+        <table class="table table-hover" data-bind="tabOnEnter: true">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Tote</th>
+              <th>Variety</th>
+              <th data-bind="visible: isDehydrated()">Grower</th>
+              <th>Location</th>
+              <th>Packaging</th>
+              <th>Qty</th>
+              <th class="calc">Weight</th>
+            </tr>
+          </thead>
+          <tbody id="editor-item-list" data-bind="template: {
+              name: editorTemplateName,
+              foreach: Items
+            }"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5"></td>
+              <td colspan="1" data-bind="visible: isDehydrated()"></td>
+              <td>Total:</td>
+              <td class="calc text-right" data-bind="text: totalWeight"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script id="table-dehydrated" type="text/html">
+  <tr>
+    <td><button class="btn btn-link btn-xs" data-bind="click: $parent.removeItem" tabindex="-1"><i class="fa fa-times fa-lg"></i></button></td>
+    <td class="form-group" data-bind="validationElement: ToteKey">
+      <input class="form-control" type="text" maxlength="10" data-bind="textinput: ToteKey.formattedTote">
+    </td>
+    <td class="form-group" data-bind="validationElement: Variety">
+      <select id="" class="form-control" data-bind="value: Variety, options: $parent.options.varieties, optionsCaption: ' '"></select>
+    </td>
+    <td class="form-group" data-bind="validationElement: GrowerCode">
+      <input class="form-control" type="text" data-bind="value: GrowerCode">
+    </td>
+    <td class="form-group" data-bind="validationElement: Location">
+      <product-selector
+        params="selectedValue: Location,
+          productsSource: $parent.locationOptions,
+          optionsDisplay: 'Description',
+          optionsValue: 'LocationKey',
+      ">
+      </product-selector>
+    </td>
+    <td class="form-group" data-bind="validationElement: PackagingProduct">
+      <select id="" class="form-control" data-bind="value: PackagingProduct, options: $parent.options.packaging, optionsText: 'ProductName', optionsCaption: ' '"></select>
+    </td>
+    <td class="form-group" data-bind="validationElement: Quantity">
+      <input class="form-control text-right" type="number" data-bind="textinput: Quantity">
+    </td>
+    <td data-bind="text: TotalWeight" class="calc text-right"></td>
+  </tr>
+</script>
+
+<script id="table-other-raw" type="text/html">
+  <tr>
+    <td><button class="btn btn-link btn-xs" data-bind="click: $parent.removeItem" tabindex="-1"><i class="fa fa-times fa-lg"></i></button></td>
+    <td class="form-group" data-bind="validationElement: ToteKey">
+      <input class="form-control" type="text" data-bind="textinput: ToteKey">
+    </td>
+    <td class="form-group" data-bind="validationElement: Variety">
+      <select id="" class="form-control" data-bind="value: Variety, options: $parent.options.varieties, optionsCaption: ' '"></select>
+    </td>
+    <td class="form-group" data-bind="validationElement: Location">
+      <product-selector
+        params="selectedValue: Location,
+          productsSource: $parent.locationOptions,
+          optionsDisplay: 'Description',
+          optionsValue: 'LocationKey',
+      ">
+      </product-selector>
+    </td>
+    <td class="form-group" data-bind="validationElement: PackagingProduct">
+      <select id="" class="form-control" data-bind="value: PackagingProduct, options: $parent.options.packaging, optionsText: 'ProductName', optionsCaption: ' '"></select>
+    </td>
+    <td class="form-group" data-bind="validationElement: Quantity">
+      <input class="form-control text-right" type="number" data-bind="textinput: Quantity">
+    </td>
+    <td data-bind="text: TotalWeight" class="calc text-right"></td>
+  </tr>
+</script>

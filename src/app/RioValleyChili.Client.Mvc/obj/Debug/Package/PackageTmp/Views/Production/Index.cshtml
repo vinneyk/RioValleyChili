@@ -1,0 +1,24 @@
+﻿@using RioValleyChili.Client.Mvc.Core.Security
+@{
+    ViewBag.Title = "Production Dashboard";
+    ViewBag.PageTitle = "Production";
+    ViewBag.PageSubtitle = "Dashboard";
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+}
+
+@section controlPanel
+{
+    @Html.SubNavigation("Production Areas", new[] {
+    new NavigationItem("Pack Schedules", MVC.Production.PackSchedules()),
+    new NavigationItem("Schedule Production", MVC.Production.ProductionSchedules()),
+    new NavigationItem("Production Results", MVC.Production.ProductionResults()),
+    new NavigationItem("Mill & Wetdown", MVC.Production.MillAndWetdown()),
+    })
+
+    <fieldset>
+        <legend><i class="fa fa-clipboard"></i> Reports</legend>
+
+        @Html.ActionLink("Production Recap", MVC.Reporting.ProductionReporting.Actions.ProductionRecap(), new { @class = "button", target = "_blank" })
+        @Html.ActionLink("Production Additives", MVC.Reporting.ProductionReporting.Actions.ProductionAdditives(), new { @class = "button", target = "_blank" })
+    </fieldset>
+}

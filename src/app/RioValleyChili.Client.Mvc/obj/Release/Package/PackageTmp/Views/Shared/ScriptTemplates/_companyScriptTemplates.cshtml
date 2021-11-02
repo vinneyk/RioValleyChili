@@ -1,0 +1,134 @@
+﻿@Html.Partial("ScriptTemplates/_addressScriptTemplates")
+
+<script id="company-summary-template" type="text/html">
+    @*
+        NOTE: Consider replacing Depth with an index counter based on UI rendering.
+        This would allow the companyDetailsViewModel to be ignorant of depth rather than
+        having to assign depth to new and updated companies in the saveCompanyCommand's success callback.
+    *@
+    <tr data-bind="click: select, css: { ajaxWorking: 'non-selectable' }" class="selectable">
+        <td data-bind="text: Name, attr: { style: 'padding-left: ' + (10 * ($data.Depth || 0)  + 5) + 'px' }"></td>
+    </tr>
+    <!-- ko template: { name: 'company-summary-template', foreach: childCompanies } -->
+    <!-- /ko -->
+</script>
+
+<script id="company-details-template" type="text/html">
+    <fieldset>
+        <legend>Company Information</legend>
+        <!-- ko template: { name: isEditing() ? 'company-details-edit-template' : 'company-details-display-template' }-->
+        <!-- /ko -->
+        <input type="button" value="Edit Company" data-bind="command: beginEditingCommand, visible: beginEditingCommand.canExecute" class="link" />
+        
+        <h4>Addresses</h4>
+        <ul data-bind="foreach: Addresses" class="addresses">
+            <li data-bind="template: { name: isEditing() ? 'address-editor' : 'address-display' }"></li>
+        </ul>
+        <input type="button" value="New Address" data-bind="command: createAddressCommand" />
+    </fieldset>
+</script>
+
+<script id="company-details-display-template" type="text/html">
+    <ol class="tabular">        
+        <li>
+            <label>Parent Company</label>
+            <span data-bind="text: ParentCompanyName"></span>
+        </li>
+        <li>
+            <label for="isActive">Active</label>
+            <input type="checkbox" id="isActive" data-bind="checked: Active" disabled />
+        </li>
+    </ol>
+    
+    <!-- ko template: { name: 'company-types-display-template' } -->
+    <!-- /ko -->
+</script>
+
+<script id="company-details-edit-template" type="text/html">
+    <ol class="tabular">
+        <li>
+            <label for="companyName">Name</label>
+            <input type="text" data-bind="value: Name" id="companyName" />
+        </li>
+        <li>
+            <label>Is this a sub-company?</label>
+            <input type="checkbox" id="isChildCompany" data-bind="checked: isChildCompany" />
+        </li>
+        <li data-bind="slideVisible: isChildCompany">
+            <label>Parent Company</label>
+            <select data-bind="value: ParentCompany, options: parentCompanyOptions, optionsText: 'Name', optionsCaption: 'Choose parent company...', enable: parentCompanyOptions().length"></select>
+        </li>
+        <li>
+            <label for="isActive">Active</label>
+            <input type="checkbox" id="isActive" data-bind="checked: Active" />
+        </li>
+    </ol>
+
+    <!-- ko template: { name: 'company-types-edit-template' } -->
+    <!-- /ko -->
+</script>
+
+<script id="company-types-edit-template" type="text/html">
+    <ul class="companyTypes">
+        <li>
+            <input type="checkbox" data-bind="attr: {value: $parent.customerTypeOption.key }, checked: CompanyTypes, disable: isNew" id="isCustomer" />
+            <label for="isCustomer">I sell to this company</label>
+        </li>
+        <li>
+            <input type="checkbox" id="isVendor" data-bind="checked: isVendor, disable: isNew" />
+            <label for="isVendor">I buy from this company</label>
+
+            <!-- ko if: isVendor -->
+            <ul data-bind="foreach: $parent.vendorTypeOptions">
+                <li>
+                    <input type="checkbox" data-bind="attr: {value: $data.key, id: 'vendorType_' + $index() }, checked: $parent.CompanyTypes" />
+                    <label data-bind="text: $data.value, attr: {for: 'vendorType_' + $index() }"></label>
+                </li>
+            </ul>
+            <!-- /ko -->
+        </li>
+    </ul>
+</script>
+
+<script id="company-types-display-template" type="text/html">
+    <ul class="companyTypes">
+        <li>
+            <input type="checkbox" data-bind="attr: {value: $parent.customerTypeOption.key }, checked: CompanyTypes" id="isCustomer" disabled />
+            <label for="isCustomer">I sell to this company</label>
+        </li>
+        <li>
+            <input type="checkbox" id="isVendor" data-bind="checked: isVendor" disabled />
+            <label for="isVendor">I buy from this company</label>
+
+            <!-- ko if: isVendor -->
+            <ul data-bind="foreach: $parent.vendorTypeOptions">
+                <li>
+                    <input type="checkbox" data-bind="attr: {value: $data.key, id: 'vendorType_' + $index() }, checked: $parent.CompanyTypes" disabled />
+                    <label data-bind="text: $data.value, attr: {for: 'vendorType_' + $index() }"></label>
+                </li>
+            </ul>
+            <!-- /ko -->
+        </li>
+    </ul>
+</script>
+
+<style>
+    ul.companyTypes {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+    }
+        ul.companyTypes > li {
+            font-weight: 700;
+        }
+        ul.companyTypes li > ul {
+            list-style: none;
+            padding: 0 20px;
+        }
+        ul.companyTypes li > ul li {
+            display: inline-block;
+            margin: 0 10px 0 0;
+            font-weight: normal;
+            zoom: 1;
+        }
+</style>

@@ -1,0 +1,19 @@
+﻿<section class="notebook">
+    <!-- ko foreach: notes -->
+    <article>
+        <p data-bind="text: Text"></p>
+        <footer>
+            <strong data-bind="text: CreatedByUser"></strong>:
+            <span data-bind="text: NoteDate.formattedDate"></span>
+        </footer>
+    </article>
+    <!-- /ko -->
+    
+    <div class="well">
+      <div class="form-group">
+        <label class="control-label">Create New Note</label>
+        <textarea class="form-control" data-bind="value: newNote, valueUpdate: 'input'" rows="3"></textarea>
+      </div>
+      <button type="button" class="btn btn-primary" data-bind="command: insertNoteCommand">Save Note</button>
+    </div>
+</section>

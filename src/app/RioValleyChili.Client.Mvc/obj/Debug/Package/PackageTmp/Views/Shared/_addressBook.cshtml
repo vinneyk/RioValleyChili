@@ -1,0 +1,149 @@
+﻿@{
+    Html.PushJavaScriptResource(Url.Content("~/Scripts/app/viewModels/shared/addressBookViewModel.js"));
+}
+<style>
+    a:hover{
+        cursor: pointer;
+    }
+    input[type=text], select {
+        font-family: Verdana,Arial,sans-serif;
+        /*font-size: 1.2em;*/
+        padding: 5px;
+        margin: 5px 0 6px;
+    }
+    .readonlyAddress p{
+            margin: 0;
+        }
+        .editableAddress input {
+            width: 520px;
+            margin: 0;
+            margin-right: -3px;
+        }
+    .addressBookList {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .addressBookList li {
+        padding: 10px;
+        display: inline-block;
+        width: 90%;
+        border-radius: 2px;
+        border: 1px solid silver;
+    }
+        .addressBookList li:hover {
+            cursor: pointer;
+            background-color: wheat;
+        }
+        .addrRemover, .addrAdder {
+            padding: 3px;
+            border-radius: 2px;
+            border: 1px solid black;
+            text-decoration: none !important;
+        }
+        .addrAdder:hover, .addrRemover:hover{
+            cursor: pointer;
+            box-shadow: 0px 0px 5px black;
+            color: white;
+        }
+    .addrAdder {
+        display: inline-block;
+    }
+    .addrRemover {
+        right: 0;
+        margin-right: 80px;
+        margin-top: 5px;
+        position: absolute;
+    }
+    #addressHeader input[type=text] {
+        width: 90%;
+    }
+    #addressHeader input[type=button] {
+        width: 45%;
+        margin: 0;
+    }
+    .selected {
+        background-color: rgb(98, 154, 175) !important;
+    }
+    
+</style>
+@* Control Panel *@
+<script type="text/html" id="addressBookControls">    
+    <fieldset data-bind="slideVisible: isVisible()">
+        <legend>Address Book</legend>
+        <input type="button" value="Close" data-bind="click: hide" class="delete"/>
+        <label>Company</label>
+        <select data-bind="enable: options.companySelection, value: selectedCompany, options: companies, optionsText: 'Name', optionsCaption: 'Select...'"></select>
+        <label>Contact</label>
+        <select data-bind="enable: selectedCompany() && !isNew(), value: selectedContact, options: contacts, optionsText: 'Name', optionsCaption: 'Select...'"></select>
+        
+        <input type="button" data-bind="value: isNew() ? 'Cancel New' : 'New Contact', click: isNew() ? cancelNew : newContact, css: isNew() ? 'delete': 'save'" />
+        <input type="button" value="Delete Contact" class="delete" data-bind="click: delContact, visible: !isNew() && isEditing(), enable: selectedContact()" />
+        <legend>Controls</legend>
+        <input type="button" data-bind="slideVisible: selectedContact() && !isNew(), speed: 100, click: edit, value: isEditing() ? 'Done Editing' : 'Edit'" />
+        <input type="button" value="Undo" class="delete" data-bind="click: undo, enable: isDirty, slideVisible: isEditing() && !isNew(), speed: 100" />
+        <input type="button" value="Save" class="save" data-bind="click: save, enable: isDirty, slideVisible: canSave, speed: 100" />
+    </fieldset>
+</script>
+@* Address Book *@
+<script type="text/html" id="addressBookTemplate">
+    <div data-bind="popup: isVisible">
+        <h3 data-bind="ifnot: selectedCompany()">No Company Selected.</h3>
+        <div data-bind="if: selectedContact">
+            <div id="addressHeader" style="float: left; width: 30%">
+                <div data-bind="template: { name: (isEditing() ? 'editable' : 'readonly') + 'ContactDetailsTemplate', data: selectedContact}"></div>
+            </div>
+            <div style="float: right; width: 70%">
+                <h3>Addresses</h3>
+                <a href="#" class="addrAdder save" data-bind="click: addAddress, visible: isEditing()" tabindex="-1">Add Address</a>
+                <ul class="addressBookList" data-bind="foreach: addresses">
+                    <li data-bind="template: {name: ($parent.isEditing() ? 'editable' : 'readonly') + 'AddressTemplate',data: Address},
+                                    click: selectMe, css: { 'selected': selected(), 'removableRow': $parent.isEditing() }"></li>
+                    <a class="addrRemover delete" data-bind="click: $parent.removeAddress, visible: $parent.isEditing" tabindex="-1">Remove</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</script>
+
+@* Read/Write Address Templates *@
+<script type="text/html" id="readonlyAddressTemplate">
+    <div class="readonlyAddress">
+        <p data-bind="text: AddressLine1"></p>
+        <p data-bind="text: AddressLine2"></p>
+        <p data-bind="text: AddressLine3"></p>
+        <span data-bind="text: City"></span>,
+        <span data-bind="text: State"></span> 
+        <span data-bind="text: PostalCode"></span>
+        <span data-bind="text: Country"></span>
+    </div>
+</script>
+<script type="text/html" id="editableAddressTemplate">
+    <div class="editableAddress">
+        <input type="text" data-bind="value: AddressLine1" style="display:block"/>
+        <input type="text" data-bind="value: AddressLine2" style="display:block" />
+        <input type="text" data-bind="value: AddressLine3" style="display:block"/>
+        <input type="text" data-bind="value: City" style="width:200px"/>
+        <input type="text" data-bind="value: State" style="width:50px"/>    
+        <input type="text" data-bind="value: PostalCode" style="width:150px"/>
+        <input type="text" data-bind="value: Country" style="width:75px"/>
+    </div>
+</script>
+@* Contact Details *@
+<script type="text/html" id="readonlyContactDetailsTemplate">
+    <h3>Name</h3>
+    <div data-bind="text: Name"></div>
+    <h3>Phone Number</h3>
+    <div data-bind="text: PhoneNumber"></div>
+    <h3>Email</h3>
+    <a data-bind="text: EMailAddress, attr: { href: 'mailto:' + EMailAddress() }" style="color: blue"></a>
+</script>
+<script type="text/html" id="editableContactDetailsTemplate">
+    <h3>Name</h3>
+    <input type="text" data-bind="value: Name || ''"></input>
+    <h3>Phone Number</h3>
+    <input type="text" data-bind="value: PhoneNumber || ''"></input>
+    <h3>Email</h3>
+    <input type="text" data-bind="value: EMailAddress || ''"></input>
+</script>

@@ -1,0 +1,33 @@
+﻿@{
+    Html.SetPageTitles("Receive Inventory", "Receive Inventory");
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+}
+
+@section scripts
+{
+    <script src="~/App/build/inventoryReceiving.bundle.js?v=@Html.AppVersion()"></script>
+}
+
+@section controlPanel
+{
+    <fieldset>
+  <legend>Inventory Receiving Controls</legend>
+  <div class="input-group">
+    <input class="form-control" type="text" data-bind="textInput: searchLot.formattedLot" placeholder="Search Lot #">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="submit" data-bind="command: searchLotCommand"><i class="fa fa-search"></i></button>
+    </span>
+  </div>
+
+  <div data-bind="slideVisible: showArchived">
+    <input type="button" class="btn btn-default" data-bind="command: closeLotCommand" value="Close" />
+  </div>
+
+  <div data-bind="slideVisible: showReceiving">
+    <input type="button" data-bind="command: saveAsyncCommand" class="btn btn-success" value="Save" />
+  </div>
+</fieldset>
+}
+
+<inventory-receiving data-bind="visible: showReceiving" params="exports: inventoryReceivingViewModel"></inventory-receiving>
+<inventory-received data-bind="visible: showArchived" params="values: currentLot"></inventory-received>

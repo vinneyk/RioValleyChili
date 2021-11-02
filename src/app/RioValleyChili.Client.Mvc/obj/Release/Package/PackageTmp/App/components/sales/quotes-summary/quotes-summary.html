@@ -1,0 +1,26 @@
+﻿<div class="panel panel-default">
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Quote #</th>
+          <th>Customer</th>
+          <th>Broker</th>
+          <th>Ship From</th>
+          <th>Quote Date</th>
+          <th>Scheduled Ship Date</th>
+        </tr>
+      </thead>
+      <tbody class="clickable" data-bind="foreach: quotes">
+        <tr data-bind="click: $parent.selectQuote">
+          <td data-bind="text: QuoteNumber"></td>
+          <td data-bind="text: CustomerName"></td>
+          <td data-bind="text: BrokerName"></td>
+          <td data-bind="text: SourceFacilityName"></td>
+          <td data-bind="text: QuoteDate | toDate"></td>
+          <td data-bind="text: ScheduledShipDate | toDate"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

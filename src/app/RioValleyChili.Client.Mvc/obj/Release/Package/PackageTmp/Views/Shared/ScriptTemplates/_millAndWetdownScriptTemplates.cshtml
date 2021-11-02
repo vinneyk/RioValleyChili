@@ -1,0 +1,354 @@
+﻿@{
+    Html.PushJavaScriptResource(Url.Content("~/scripts/app/helpers/resultStateHelper.js"));
+}
+@Html.Partial("ScriptTemplates/_ResultsScriptTemplates")
+
+<script id="mill-and-wetdown-details-template" type="text/html">
+    <!-- ko template: { if: isNew, name: 'result-messages-template', data: $root.saveCommand.results } --><!-- /ko -->
+    <div class="reset panel-default">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <fieldset>
+                    <legend>Mill & Wetdown Header</legend>
+                    <section data-bind="template: { name: '--mill-and-wetdown-header-template' }"></section>
+                </fieldset>
+            </div>
+
+            <div class="panel-body">
+                <section data-bind="template: {name: '--mill-and-wetdown-input-materials-template' }"></section>
+
+                <h3>Inventory Outputs</h3>
+                <section data-bind="template: {name: '--mill-and-wetdown-output-inventory-template'}"></section>
+            </div>
+        </div>
+    </div>
+</script>
+
+@* HEADER TEMPLATES *@
+<script id="--mill-and-wetdown-header-template" type="text/html">
+    <!-- ko template: { if: isNew, name: '--mill-and-wetdown-header-editable-template' } --><!-- /ko -->
+    <!-- ko template: { ifnot: isNew, name: '--mill-and-wetdown-header-display-template' } --><!-- /ko -->
+</script>
+
+<script id="--mill-and-wetdown-header-editable-template" type="text/html">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-4 col-md-3 col-lg-2" for="lotKey">Lot</label>
+            <div class="col-sm-4 col-md-3 col-lg-2">
+                <input id="lotKey" type="text" data-bind="value: OutputChileLotKey.formattedLot, valueUpdate: 'afterkeydown'" class="form-control" />
+                <input type="hidden" data-bind="value: OutputChileLotKey" />
+            </div>
+            <div data-bind="ajaxStatus: checkDuplicateLotKeyCommand" class="col-sm-8 bg-warning"></div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 col-md-3 col-lg-2">Production Date</label>
+            <div class="col-sm-4 col-md-3 col-lg-2">
+                <input data-bind="value: OutputChileLotKey.formattedDate" disabled="disabled" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 col-md-3 col-lg-2" for="shift">Shift</label>
+            <div class="col-sm-4 col-md-3 col-lg-2">
+                <input id="shift" type="text" data-bind="value: ShiftKey" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 col-md-3 col-lg-2" for="produtionLineSelect">Line</label>
+            <div class="col-sm-4 col-md-3 col-lg-2">
+                <select data-bind="value: ProductionLineKey, options: $root.productionLineOptions, optionsText: 'Description', optionsValue: 'LocationKey', optionsCaption: ' '" class="form-control" id="produtionLineSelect"></select>
+                <span data-bind="ajaxStatus: $root.loadProductionLineOptionsCommand"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 col-md-3 col-lg-2" for="productionBeginDate">Production Start</label>
+            <div class="col-sm-4 col-md-3 col-lg-2">
+                <input type="text" data-bind="value: ProductionBeginDate, datePicker: true" class="form-control" id="productionBeginDate" />
+            </div>
+            <div class="col-sm-3 col-md-2">
+                <input type="text" data-bind="value: ProductionBeginTime" class="form-control" maxlength="5" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 col-md-3 col-lg-2" for="productionEndDate">Production End</label>
+            <div class="col-sm-4 col-md-3 col-lg-2">
+                <input type="text" data-bind="value: ProductionEndDate, datePicker: true" class="form-control" id="productionEndDate" />
+            </div>
+            <div class="col-sm-3 col-md-2">
+                <input type="text" data-bind="value: ProductionEndTime" class="form-control" maxlength="5" />
+            </div>
+            <div class="col-sm-8 col-sm-offset-4 col-md-3 col-md-offset-0">
+                <span data-bind="text: 'Total Time: ' + TotalTime()"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 col-md-3 col-lg-2" for="productSelect">Product</label>
+            <div class="col-sm-4">
+                <select data-bind="value: ChileProductKey, options: $root.chileProductOptions, optionsText: 'ProductNameFull', optionsValue: 'ProductKey', optionsCaption: ' '" class="form-control" id="productSelect"></select>
+            </div>
+            <div class="col-sm-1" data-bind="ajaxStatus: $root.loadChileProductOptionsCommand"></div>
+        </div>
+    </div>
+            
+</script>
+
+<script id="--mill-and-wetdown-header-display-template" type="text/html">
+    <div class="container-fluid form-horizontal">
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label class="control-label col-sm-4">Product</label>
+                <div class="col-sm-8 form-control-static" data-bind="text: ChileProductName"></div>
+            </div>
+            <div class="form-group col-sm-4">
+                <label class="control-label col-sm-4">Shift</label>
+                <div class="form-control-static col-sm-8" data-bind="text: ShiftKey"></div>
+            </div>
+            <div class="form-group col-sm-4">
+                <label class="control-label col-sm-4">Line</label>
+                <span class="form-control-static col-sm-8" data-bind="text: ProductionLineDescription"></span>
+            </div>
+            <div class="form-group col-sm-4">
+                <label class="control-label col-sm-4">Production Start</label>
+                <span class="form-control-static col-sm-8" data-bind="text: ProductionBegin.formattedDate"></span>
+            </div>
+            <div class="form-group col-sm-4">
+                <label class="control-label col-sm-4">Production End</label>
+                <span class="form-control-static col-sm-8" data-bind="text: ProductionEnd.formattedDate"></span>
+            </div>
+            <div class="form-group col-sm-4">
+                <label class="control-label col-sm-4">Total Time</label>
+                <span class="form-control-static col-sm-8" data-bind="text: TotalTime"></span>
+            </div>
+        </div>
+    </div>
+</script>
+
+@* INPUT MATERIALS TEMPLATES *@
+<script id="--mill-and-wetdown-input-materials-template" type="text/html">
+    <!-- ko template: { ifnot: isNew, name: '--input-materials-display-template' } --><!-- /ko -->
+    <!-- ko template: { if: isNew, name: '--input-materials-editable-template' } --><!-- /ko -->
+</script>
+
+<script id="--input-materials-display-template" type="text/html">
+    <h3>Material Inputs</h3>
+    <div>
+        <table class="table table-condensed table-striped reset">
+            <thead>
+                <tr>
+                    <th>Lot</th>
+                    <th>Tote</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Packaging</th>
+                    <th class="calc">Weight</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: PickedItems">
+                <tr>
+                    <td data-bind="text: LotKey"></td>
+                    <td data-bind="text: ToteKey"></td>
+                    <td data-bind="text: Product.ProductName"></td>
+                    <td data-bind="text: QuantityPicked"></td>
+                    <td data-bind="text: PackagingProduct.ProductName"></td>
+                    <td data-bind="text: (QuantityPicked() * PackagingProduct.Weight())" class="calc"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" style="text-align: right">Total Weight:</td>
+                    <td data-bind="text: MaterialsWeight()" class="calc"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</script>
+
+<script id="--input-materials-editable-template" type="text/html">
+    <div class="input-materials container-fluid reset">
+        <!-- ko template: { name: '--input-materials-totes-editable-template', data: toteInventoryPickerViewModel } --><!-- /ko -->
+        <!-- ko template: { name: '--input-materials-other-editable-template', data: lotInventoryPickerViewModel } --><!-- /ko -->
+    </div>
+</script>
+
+<script id="--input-materials-totes-editable-template" type="text/html">
+    <form data-bind="submit: addToteCommand.execute">
+        <h3>Dehy Materials</h3>
+        <div class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="toteText">Tote Number</label>
+                <input type="text" data-bind="value: tote.formattedTote, valueUpdate: 'afterkeydown'" placeholder="Tote" class="form-control" id="toteText" />
+            </div>
+            <div class="form-group">
+                <button type="submit" data-bind="enable: addToteCommand.canExecute" class="btn btn-default reset">Add Tote</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-striped table-condensed reset" data-bind="fadeVisible: inventoryItems().length > 0">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Tote</th>
+                <th>Lot</th>
+                <th>Product</th>
+                <th>Packaging</th>
+                <th>Location</th>
+                <th>Treatment</th>
+                <th>Quantity</th>
+                <th class="info">Weight (lbs)</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: inventoryItems">
+            <tr data-bind="css: { 'active': QuantityPicked() === 0 }">
+                <td>
+                    <i class="icon-button fa fa-trash-o" data-bind="command: $parent.removeToteCommand" tabindex="-1"></i>
+                </td>
+                <td><span data-bind="text: ToteKey.formattedTote"></span></td>
+                <td><span data-bind="text: LotKey"></span></td>
+                <td><span data-bind="text: Product.ProductName"></span></td>
+                <td><span data-bind="text: PackagingProduct.ProductName"></span></td>
+                <td><span data-bind="text: Location.Description"></span></td>
+                <td><span data-bind="text: InventoryTreatment.TreatmentName"></span></td>
+                <td><select data-bind="value: QuantityPicked, options: $parent.range(Quantity+1)" tabindex="-1" class="form-control"></select></td>
+                <td class="info"><span data-bind="text: WeightPicked"></span></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="8"></td>
+                <td data-bind="text: 'Total: ' + totalWeightPicked()" class="info"></td>
+            </tr>
+        </tfoot>
+    </table>
+</script>
+
+<script id="--input-materials-other-editable-template" type="text/html">
+    <form data-bind="submit: getLotInventoryCommand.execute" class="form-inline">
+        <h3>Other Materials</h3>
+        <div class="form-group">
+            <label class="sr-only">Enter Lot Number</label>
+            <input type="text" data-bind="value: lotToAdd.formattedLot, valueUpdate: 'afterkeydown'" placeholder="Lot" class="form-control" />
+        </div>
+        <div class="form-group">
+            <button data-bind="enable: getLotInventoryCommand.canExecute" class="btn btn-default">Add Lot</button>
+        </div>
+        <div class="form-group">
+            <button data-bind="command: $parent.addEthoxCommand" class="btn btn-link" type="button">Add Ethox.</button>
+        </div>
+        <div class="form-group">
+            <button data-bind="command: $parent.addSipernatCommand" class="btn btn-link" type="button">Add Sipernat</button>
+        </div>
+    </form>
+
+    <table class="table table-striped table-condensed reset" data-bind="fadeVisible: inventoryItems().length > 0, maxHeight: inventoryItems">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Lot</th>
+                <th>Product</th>
+                <th>Packaging</th>
+                <th>Location</th>
+                <th>Treatment</th>
+                <th>Quantity Picked</th>
+                <th>Quantity Avail.</th>
+                <th class="info">Weight (lbs)</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: inventoryItems">
+            <tr data-bind="fadeVisible: true, css: { danger: isDuplicate }">
+                <td>
+                    <i class="icon-button fa fa-trash-o" data-bind="command: $parent.removeItemCommand" tabindex="-1"></i>
+                </td>
+                <td style="white-space: nowrap" data-bind="text: LotKey"></td>
+                <td data-bind="text: ProductName"></td>
+                <td><select data-bind="value: selectedPackaging, options: packagingOptions, optionsText: 'DisplayText'" class="form-control"></select></td>
+                <td><select data-bind="value: selectedFacilityLocation, options: locationOptions, optionsText: 'DisplayText'" class="form-control"></select></td>
+                <td><select data-bind="value: selectedTreatment, options: treatmentOptions, optionsText: 'DisplayText'" class="form-control"></select></td>
+                <td><input type="number" data-bind="value: QuantityPicked, valueUpdate: 'afterkeydown'" class="form-control" /></td>
+                <td data-bind="text: quantityAvailable"></td>
+                <td class="info">
+                    <span data-bind="text: WeightPicked"></span>
+                    <input type="hidden" data-bind="value: InventoryKey" />
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="8"></td>
+                <td data-bind="text: 'Total: ' + TotalWeightPicked()" class="info"></td>
+            </tr>
+        </tfoot>
+    </table>
+</script>
+
+<script id="--mill-and-wetdown-output-inventory-template" type="text/html">
+    <!-- ko template: { if: isNew, name: '--output-inventory-editable-template' } --><!-- /ko -->
+    <!-- ko template: { ifnot: isNew, name: '--output-inventory-display-template' } --><!-- /ko -->
+</script>
+
+<script id="--output-inventory-display-template" type="text/html">
+    <div>
+        <table class="table table-condensed table-striped reset">
+            <thead>
+                <tr>
+                    <th>Packaging</th>
+                    <th>Quantity</th>
+                    <th>Location</th>
+                    <th class="info">Weight</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: ResultItems">
+                <tr>
+                    <td data-bind="text: PackagingProduct.ProductName"></td>
+                    <td data-bind="text: QuantityProduced"></td>
+                    <td data-bind="text: Location.Description"></td>
+                    <td data-bind="text: (QuantityProduced() * PackagingProduct.Weight())" class="info"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan='3' style="text-align: right">Total Weight:</td>
+                    <td data-bind="text: OutputsWeight()" class="info"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</script>
+
+<script id="--output-inventory-editable-template" type="text/html">
+    <table class="table table-striped table-condensed reset" data-bind="with: outputInventoryViewModel">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Location</th>
+                <th>Packaging</th>
+                <th>Quantity</th>
+                <th class="info">Weight (lbs)</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: outputItems">
+            <tr data-bind="fadeVisible: true">
+                <td>
+                    <i class="icon-button fa fa-trash-o" data-bind="command: $parent.removeOutputCommand" tabindex="-1"></i>
+                </td>
+                <td><select data-bind="value: FacilityLocation, options: $parent.warehouseOptions, optionsText: 'Description', optionsCaption: ' '" class="form-control"></select></td>
+                <td><select data-bind="value: Packaging, options: $parent.packagingOptions, optionsText: 'ProductName', optionsCaption: ' '" class="form-control"></select></td>
+                <td><input data-bind="value: Quantity, valueUpdate: 'afterkeydown'" class="form-control" /></td>
+                <td class="info" data-bind="text: Weight"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr><td colspan="4"></td><td data-bind="text: 'Total: ' + totalOutputWeight()" class="info"></td></tr>
+        </tfoot>
+    </table>
+</script>
+
+<script id="mill-and-wetdown-details-controls-template" type="text/html">
+    <fieldset data-bind="slideVisible: isEditorShowing">
+        <legend>Controls</legend>
+        <p data-bind="if: isNewRecord">
+            <button data-bind="command: saveCommand" style="width: 100%" class="btn btn-primary">Save (Ctrl+S)</button>
+        </p>
+        <button data-bind="command: saveEntry" class="btn btn-primary btn-block">Save</button>
+        <button data-bind="command: closePopupCommand, text: isNewRecord() ? 'Cancel' : 'Close', css: { 'btn-warning': isNewRecord }" class="btn btn-default btn-block">Close</button>
+    </fieldset>
+</script>

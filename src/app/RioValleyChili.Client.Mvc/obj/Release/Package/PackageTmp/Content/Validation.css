@@ -1,0 +1,62 @@
+﻿/* styles for validation helpers */
+
+.field-validation-error {
+    color: rgb(171, 15, 15);
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input[type="text"].input-validation-error,
+input[type="number"].input-validation-error,
+input[type="datetime"].input-validation-error,
+input[type="date"].input-validation-error,
+input[type="time"].input-validation-error,
+input[type="password"].input-validation-error,
+select.input-validation-error {
+    border: 1px solid rgb(171, 15, 15);
+}
+
+.validation-summary-errors {
+    color: rgb(171, 15, 15);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.input-validation-message.overlay {
+    display: inline-block;
+    width: 150px;
+    white-space: normal;
+    position: absolute;
+    margin: -4px 5px 5px 8px;
+    background-color: rgb(171, 15, 15);
+    border-right: rgb(132, 8, 8) 2px solid;
+    border-bottom: rgb(132, 8, 8) 2px solid;
+    border-top: rgb(132, 8, 8) 1px solid;
+    border-left: rgb(217, 82, 82) 1px solid;
+    color: whitesmoke;
+    
+    padding: 5px 10px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px #ccc;
+}
+
+    .input-validation-message.overlay:before {
+        content:"";
+        position: absolute;
+        right: 100%;
+        top: 6px;
+        width: 0;
+        height: 0;
+        border-top: 8px solid transparent;
+        border-right: 15px solid rgb(171, 15, 15);
+        border-bottom: 8px solid transparent;
+    }

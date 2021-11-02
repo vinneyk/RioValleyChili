@@ -1,0 +1,148 @@
+﻿@{
+    Html.PushJavaScriptResource(Url.Content("~/Scripts/jquery.plugins.stickytableheaders.js"));    
+}
+
+@* Contract Details *@
+<script type="text/html" id="readonlyContractDetailsTemplate">
+    <ul class="tabular">
+        <li><label>Type</label><span data-bind="text: ContractType.displayValue"></span></li>
+        <li><label>Status</label><span data-bind="text: ContractStatus.displayValue"></span></li>
+        <li><label>FOB</label><span data-bind="text: FOB().WarehouseName"></span></li>
+        <li><label>Term Begin</label><span data-bind="text: TermBegin.formattedDate"></span></li>
+        <li><label>Term End</label><span data-bind="text: TermEnd.formattedDate"></span></li>
+        <li><label>Broker</label><span data-bind="text: Broker.Name"></span></li>
+        <li><label>Payment Terms</label><span data-bind="text: PaymentTerms"></span></li>
+        <li><label>Notes To Print</label><span data-bind="text: NotesToPrint"></span></li>
+        <li><label>Comments</label><span data-bind="text: Comments"></span></li>
+    </ul>
+</script>
+<script type="text/html" id="editableContractDetailsTemplate">
+    <ul class="tabular">
+        <li><label>Type</label><select data-bind="value: ContractType, options: ContractType.options, optionsText: 'value', optionsValue: 'key'"></select></li>
+        <li><label>Status</label><select data-bind="value: ContractStatus, options: ContractStatus.options, optionsText: 'value', optionsValue: 'key'"></select></li>        
+        <li><label>FOB</label><select data-bind="value: FOB, options: $root.warehouseOptions, optionsText: 'WarehouseName'"></select></li>
+        <li><label>Term Begin</label><input data-bind="value: TermBegin.formattedDate" style="width:initial"/></li>
+        <li><label>Term End</label><input data-bind="value: TermEnd.formattedDate" style="width:initial"/></li>
+        <li><label>Payment Terms</label><input data-bind="value: PaymentTerms, autocomplete: $root.paymentTermsOptions" /></li>
+        <li><label>Notes To Print</label><textarea data-bind="value: NotesToPrint"></textarea></li>
+        <li><label>Comments</label><textarea data-bind="value: Comments"></textarea></li>
+    </ul>
+</script>
+
+@* Contract Line Items *@
+<script type="text/html" id="contractItemsTableTemplate">
+    <div id='tableParent' data-bind="if: data, maxHeight: data.ContractItems, stickyTableHeaders: 'table', tabbedParent: '#tabs', myTab: '#contract-items'" style="overflow-x:auto; margin: -.8em -1.6em .5em;">
+        @*<table data-bind="stickyTableHeaders: this, tabbedParent: '#tabs', myTab: '#contract-items', parent: '#tableParent'">*@
+        <table>
+            <thead>
+                <tr>
+                    <!-- ko if: isEditing -->
+                    <th></th>
+                    <!-- /ko -->
+                    <th>Product</th>
+                    <th>Pkg</th>
+                    <th>Trtmt</th>
+                    <th>Customer Code</th>
+                    <th>Custom Spec</th>
+                    <th>Qty</th>
+                    <th>Wgt</th>
+                    <th>Base $</th>
+                    <th>Freight $</th>
+                    <th>Rebate $</th>
+                    <th>Trtmt $</th>
+                    <th>Wrhouse $</th>
+                    <th>Total $</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: data.ContractItems">
+                <tr data-bind="template: { name: ($parent.isEditing ? 'editable' : 'readonly') + 'ContractItemTemplate', data: { data: $data, onremove: $root.removeContractItem } }"></tr>
+            </tbody>
+            <tfoot>
+                <tr data-bind="with: data">
+                    <td data-bind="attr: {colspan: $parent.isEditing ? 6 : 5}"></td>
+                    <td data-bind="text: TotalQuantity" class="calc"></td>
+                    <td data-bind="text: TotalWeight" class="calc"></td>
+                    <td data-bind="text: AvgPrice.formattedNumber" class="calc"></td>
+                    <td colspan="4"></td>
+                    <td data-bind="text: AvgTotal.formattedNumber" class="calc"></td>
+                    <td data-bind="text: TotalValue" class="calc"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script type="text/html" id="readonlyContractItemTemplate">
+        <!-- ko with: data -->
+        <td data-bind="text: ChileProduct().ProductName" class="noWhiteSpace"></td>
+        <td data-bind="text: PackagingProduct().ProductName"></td>
+        <td data-bind="text: Treatment.displayValue"></td>
+        <td data-bind="text: CustomerProductCode"></td>
+        <td style="position:relative"><span data-bind="css: UseCustomerSpec() ? 'success': 'fail'"></span></td>
+        <td data-bind="text: Quantity" class="calc"></td>
+        <td data-bind="text: TotalWeight" class="calc"></td>
+        <td data-bind="text: PriceBase.formattedNumber" class="calc"></td>
+        <td data-bind="text: PriceFreight.formattedNumber"></td>
+        <td data-bind="text: PriceRebate.formattedNumber"></td>
+        <td data-bind="text: PriceTreatment.formattedNumber"></td>
+        <td data-bind="text: PriceWarehouse.formattedNumber"></td>
+        <td data-bind="text: PriceTotal.formattedNumber" class="calc"></td>
+        <td data-bind="text: Value" class="calc"></td>
+        <!-- /ko -->
+    </script>
+    <script type="text/html" id="editableContractItemTemplate">
+        <td><input type="button" class="circleButton delete" value="-" data-bind="click: $data.onremove"/></td>
+        <!-- ko with: data -->
+        <td><select data-bind="value: ChileProduct, options: $root.chileOptions, optionsText: 'ProductFullName'" style="width: 75px" class="noWhiteSpace"></select></td>
+        <td><select data-bind="value: PackagingProduct, options: $root.packagingOptions, optionsText: 'ProductName'"></select></td>
+        <td><select data-bind="value: Treatment, options: Treatment.options, optionsText: 'value', optionsValue: 'key'"></select></td>
+        <td><input data-bind="value: CustomerProductCode" style="width: 75px"/></td>
+        <td><input type="checkbox" data-bind="checked: UseCustomerSpec" /></td>
+        <td class="calc"><input type="number" data-bind="value: Quantity"/></td>
+        <td data-bind="text: TotalWeight" class="calc"></td>
+
+        <td class="calc"><input type="number" data-bind="value: PriceBase.formattedNumber"/></td>
+        <td><input type="number" data-bind="value: PriceFreight.formattedNumber" /></td>
+        <td><input type="number" data-bind="value: PriceRebate.formattedNumber" /></td>
+        <td><input type="number" data-bind="value: PriceTreatment.formattedNumber" /></td>
+        <td><input type="number" data-bind="value: PriceWarehouse.formattedNumber" /></td>
+
+        <td data-bind="text: PriceTotal.formattedNumber" class="calc"></td>
+        <td data-bind="text: Value" class="calc"></td>
+        <!-- /ko -->
+    </script>
+</script>
+
+
+
+@* Main Contract Summary Table *@
+<script type="text/html" id="contractTableTemplate">
+    <table>
+        <thead>
+            <tr>
+                <th>Broker</th>
+                <th>Status</th>
+                <th>Type</th>                
+                <th>Date</th>
+                <th>Term Begin</th>
+                <th>Term End</th>
+                <th>Weight Drawn</th>
+                <th>Weight On Order</th>
+                <th>Total Weight</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: data">
+            <tr data-bind="click: $parent.onclick, template: { name: 'readonlyContractSummaryTemplate', data: $data }"></tr>
+        </tbody>
+    </table>
+</script>
+<script type="text/html" id="readonlyContractSummaryTemplate">
+    <td data-bind="text: Broker.Name"></td>
+    <td data-bind="text: ContractStatus.displayValue"></td>
+    <td data-bind="text: ContractType.displayValue"></td>
+    <td data-bind="text: DateCreated.formattedDate"></td>
+    <td data-bind="text: TermBegin.formattedDate"></td>
+    <td data-bind="text: TermEnd.formattedDate"></td>
+    <td data-bind="text: WeightDrawn"></td>
+    <td data-bind="text: WeightOnOrder"></td>
+    <td data-bind="text: TotalWeight"></td>
+</script>

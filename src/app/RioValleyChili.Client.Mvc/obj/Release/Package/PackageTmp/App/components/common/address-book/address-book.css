@@ -1,0 +1,6 @@
+﻿address-book {
+    display: block;
+}
+address-book input[type="submit"] {
+    float: right;
+}

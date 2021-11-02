@@ -1,0 +1,26 @@
+﻿<div class="panel panel-default">
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Facility Name</th>
+          <th>Active</th>
+          <th>C/O Name</th>
+          <th>Phone #</th>
+          <th>Email</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody class="clickable" data-bind="foreach: facilities">
+        <tr data-bind="css: { 'info': $parent.selectedFacility() === $data }, click: $parent.selectFacility">
+          <td data-bind="text: FacilityName"></td>
+          <td><input type="checkbox" data-bind="checked: Active, disable: true"></td>
+          <td data-bind="text: COName"></td>
+          <td data-bind="text: PhoneNumber"></td>
+          <td data-bind="text: Email"></td>
+          <td data-bind="text: FullAddress"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

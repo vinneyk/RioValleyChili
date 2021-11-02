@@ -1,0 +1,28 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Rio Valley Chili, Inc.</title>
+
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="fxs-portal" id="web-container">
+        <div id="applicationHost">
+        </div>
+    </div>
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/vendor")
+    @RenderSection("scripts", required: false)
+    
+    <script src="~/Scripts/require.js" data-main="App/main"></script>
+    @Scripts.Render("~/bundles/core")
+</body>
+</html>

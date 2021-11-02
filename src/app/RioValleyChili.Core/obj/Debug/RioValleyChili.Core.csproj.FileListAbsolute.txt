@@ -1,0 +1,6 @@
+C:\ReposLocal\RVC\src\app\RioValleyChili.Core\bin\Debug\RioValleyChili.Core.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Core\bin\Debug\RioValleyChili.Core.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Core\obj\Debug\RioValleyChili.Core.csprojAssemblyReference.cache
+C:\ReposLocal\RVC\src\app\RioValleyChili.Core\obj\Debug\RioValleyChili.Core.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Core\obj\Debug\RioValleyChili.Core.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Core\obj\Debug\RioValleyChili.Core.csproj.CoreCompileInputs.cache

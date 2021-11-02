@@ -1,0 +1,179 @@
+﻿<div class="row" data-bind="with: editorData">
+  <div class="form-group col-sm-6 col-md-4" data-bind="validationElement: originFacility">
+    <label class="control-label" for="">Ship From</label>
+    <select class="form-control" id="" data-bind="value: originFacility, options: $parent.options.facilities, optionsText: 'FacilityName', optionsValue: 'FacilityKey', optionsCaption: ' '"></select>
+  </div>
+  <div class="form-group col-sm-6 col-md-4" data-bind="validationElement: customerKey">
+    <label class="control-label" for="">Customer</label>
+    <input type="text" class="form-control" data-bind="value: customer, autocomplete: { source: $parent.options.customers, allowNewValues: false, label: 'Name', value: 'CompanyKey' }, disable: $parent.isLoadingCustomer">
+  </div>
+  <div class="form-group col-sm-6 col-md-4" data-bind="validationElement: broker">
+    <label class="control-label" for="">Broker</label>
+    <select class="form-control" id="" data-bind="value: broker, options: $parent.options.brokers, optionsText: 'Name', optionsValue: 'CompanyKey', optionsCaption: ' ', disable: $parent.isLoadingCustomer"></select>
+  </div>
+  <div class="form-group col-sm-6 col-md-4" data-bind="validationElement: dateOrderReceived">
+    <label class="control-label" for="">Date Order Received</label>
+    <input type="text" class="form-control" data-bind="value: dateOrderReceived, datePicker: true">
+  </div>
+  <div class="form-group col-sm-6 col-md-4" data-bind="validationElement: shipmentDate">
+    <label class="control-label" for="">Shipment Date</label>
+    <input type="text" class="form-control" data-bind="value: shipmentDate, datePicker: true">
+  </div>
+  <div class="form-group col-sm-6 col-md-4">
+    <label class="control-label" for="">Required Date of Delivery</label>
+    <input type="text" class="form-control" data-bind="value: requiredDeliveryDate, datePicker: true">
+  </div>
+  <div class="form-group col-sm-6 col-md-4">
+    <label class="control-label" for="">Customer PO Number</label>
+    <input type="text" class="form-control" data-bind="value: purchaseOrderNumber">
+  </div>
+  <div class="form-group col-sm-6 col-md-4">
+    <label class="control-label" for="">Order Requested By</label>
+    <input type="text" class="form-control" data-bind="value: orderRequestedBy">
+  </div>
+  <div class="form-group col-sm-6 col-md-4">
+    <label class="control-label" for="">Order Taken By</label>
+    <input type="text" class="form-control" data-bind="value: orderTakenBy">
+  </div>
+  <div class="form-group col-sm-6 col-md-4">
+    <label class="control-label" for="">Ship Via</label>
+    <input type="text" class="form-control" data-bind="value: shipmentMethod, autocomplete: { source: $parent.options.shipmentMethods, allowNewValues: true }">
+  </div>
+  <div class="form-group col-sm-6 col-md-4">
+    <label class="control-label" for="">Payment Terms</label>
+    <input type="text" class="form-control" data-bind="value: paymentTerms, disable: $parent.isLoadingCustomer">
+  </div>
+  <div class="form-group col-sm-6 col-md-4" data-bind="visible: !$parent.isNew()">
+    <label class="control-label" for="">Order Status</label>
+    <p class="form-control-static" data-bind="text: customerOrderStatus.displayValue"></p>
+  </div>
+</div>
+<div class="row" data-bind="with: editorData">
+  <div class="col-xs-12">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" data-bind="checked: preShipmentSampleRequired"> Pre-Shipment Sample
+      </label>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <div class="checkbox">
+      <label data-bind="click: $parent.changeMiscMode">
+        <input type="checkbox" data-bind="checked: IsMiscellaneous, enable: $parent.isNew"> Misc. Invoice
+      </label>
+    </div>
+  </div>
+</div>
+
+<!--Tabbed interface-->
+<!-- Nav Tabs -->
+
+<contact-address-label-helper params="key: editorData.customerKey, 
+  companies: options.customers,
+  buttons: inputs.contactPicker.buttons,
+  visible: inputs.contactPicker.visible">
+</contact-address-label-helper>
+
+<section class="row">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#shippingInformation" data-toggle="tab">Shipping Information</a></li>
+        <li role="presentation"><a href="#notes" data-toggle="tab">Notes</a></li>
+        <li role="presentation"><a href="#items" data-toggle="tab">Items</a></li>
+        <li role="presentation" data-bind="visible: !isNew() && !isMiscellaneous()"><a href="#pickedItems" data-toggle="tab">Picked Items</a></li>
+        <li role="presentation"><a href="#invoicing" data-toggle="tab" data-bind="visible: !isNew()">Invoicing</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <section class="tab-pane active" id="shippingInformation">
+          <br>
+          <button type="button" class="btn btn-default btn-block" data-bind="command: showContactPicker"><i class="fa fa-book"></i> Autofill address labels from contacts</button>
+          <br>
+          <div data-bind="if: editorData.shipment">
+            <shipment-editor params="input: editorData.shipment,
+            soldTo: true,
+            exports: exports.shipmentEditor">
+            </shipment-editor>
+          </div>
+        </section>
+        <section class="tab-pane" id="notes" data-bind="with: editorData.notes">
+          <br>
+          <div class="form-group">
+            <label class="control-label" for="specialInstructionsText">Special Instructions</label>
+            <textarea id="specialInstructionsText" class="form-control" data-bind="textInput: specialInstructions, attr: { 'maxlength': $parent.APP_CONSTANTS.INVOICE_NOTE_LENGTH }"></textarea>
+            <p class="help-block">
+              <span data-bind="text: specialInstructions() | length"></span> / <span data-bind="text: $parent.APP_CONSTANTS.INVOICE_NOTE_LENGTH"></span>
+            </p>
+            <p data-bind="validationMessage: specialInstructions" class="validation-summary-errors"></p>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="internalNotesText">Internal Instructions that Appear on the Pick Sheet</label>
+            <textarea id="internalNotesText" class="form-control" data-bind="textInput: internalNotes, attr: { 'maxlength': $parent.APP_CONSTANTS.INVOICE_NOTE_LENGTH }"></textarea>
+            <p class="help-block">
+              <span data-bind="text: internalNotes() | length"></span> / <span data-bind="text: $parent.APP_CONSTANTS.INVOICE_NOTE_LENGTH"></span>
+            </p>
+            <p data-bind="validationMessage: internalNotes" class="validation-summary-errors"></p>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="externalNotesText">External Instructions that Appear on the Pick Sheet</label>
+            <textarea id="externalNotesText" class="form-control" data-bind="textInput: externalNotes, attr: { 'maxlength': $parent.APP_CONSTANTS.INVOICE_NOTE_LENGTH }"></textarea>
+            <p class="help-block">
+              <span data-bind="text: externalNotes() | length"></span> / <span data-bind="text: $parent.APP_CONSTANTS.INVOICE_NOTE_LENGTH"></span>
+            </p>
+            <p data-bind="validationMessage: externalNotes" class="validation-summary-errors"></p>
+          </div>
+        </section>
+        <section class="tab-pane" id="items">
+          <br>
+          <sales-order-items params="input: inputs.salesOrderItems,
+          options: options,
+          isMiscellaneous: editorData.IsMiscellaneous,
+          exports: exports.orderItemsEditor">
+          </sales-order-items>
+        </section>
+        <section class="tab-pane" id="pickedItems" data-bind="with: editorData.pickedInventory">
+          <br>
+          <div class="table-responsive">
+            <picked-inventory-table params="input: $data">
+            </picked-inventory-table>
+          </div>
+        </section>
+        <section class="tab-pane" id="invoicing" data-bind="with: editorData.invoice">
+          <br>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label" for="">Invoice Date</label>
+              <input type="text" class="form-control" data-bind="value: invoiceDate, datePicker: true">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label" for="">Freight Charge</label>
+              <input type="text" class="form-control" data-bind="textinput: freightCharge">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label" for="credit-memo">Credit Memo</label>
+                <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="credit-memo" data-bind="checked: creditMemo">
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label class="control-label" for="">Invoice Notes</label>
+              <textarea id="" class="form-control" data-bind="textInput: invoiceNotes, attr: { 'maxlength': $parent.APP_CONSTANTS.INVOICE_NOTE_LENGTH }"></textarea>
+              <p class="help-block">
+                <span data-bind="text: invoiceNotes() | length"></span> / <span data-bind="text: $parent.APP_CONSTANTS.INVOICE_NOTE_LENGTH"></span>
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>

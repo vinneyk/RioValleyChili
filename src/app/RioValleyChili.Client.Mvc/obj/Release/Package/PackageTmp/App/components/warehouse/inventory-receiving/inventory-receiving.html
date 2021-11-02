@@ -1,0 +1,119 @@
+﻿<div class="panel panel-default">
+  <div class="panel-heading">{{ headerText }}</div>
+  <div class="panel-body">
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">What are you receiving?</label>
+
+        <div class="radio col-sm-10">
+          {{ #foreach: lotTypeOptions }}
+          <label>
+            <input type="radio" id="invnetory-type" value="{{ key }}" data-bind="checked: $parent.lotType"> {{ value }}
+          </label>
+          {{ /foreach }}
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="date-received">Date Received</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="date-received" data-bind="datePicker: dateReceived" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="product">Product</label>
+        <div class="col-sm-10">
+          <product-selector params="selectedValue: product, lotType: lotType, optionsDisplay: productLabelProp, controlId: 'product'"></product-selector>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="packaging-received">Packaging Received</label>
+        <div class="col-sm-10">
+          <product-selector params="selectedValue: packagingReceived, lotType: 5, optionsDisplay: 'ProductName', controlId: 'packaging-received', disabled: disablePackagingReceived"></product-selector>
+          <span class="help-block">What packaging was this product in when it was received?</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="packaging-received">Quantity Received</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" data-bind="textinput: quantity">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="vendor">Vendor</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="vendor" data-bind="value: vendor">
+            <option> </option>
+            <option data-bind="value: 'new'">[Add New Vendor]</option>
+            {{ #foreach: vendorOptions }}
+            <option data-bind="value: CompanyKey">{{Name}}</option>
+            {{ /foreach }}
+        </select>
+        </div>
+      </div>
+      
+      <div class="form-group" data-bind="visible: vendor() === 'new'">
+        <label class="col-sm-2 control-label" for="">Vendor Name</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" data-bind="textinput: newVendorName">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="purchase-order-num">Purchase Order</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="purchase-order-num" data-bind="value: purchaseOrderNumber">
+        </div>
+
+        <label class="col-sm-2 control-label" for="shipper-number">Shipper Number</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="shipper-number" data-bind="value: shipperNumber">
+        </div>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading"><h4>Inventory To Create</h4></div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Packaging</th>
+                <th>Quantity</th>
+                <th data-bind="visible: showTotalWeight">Total Weight</th>
+                <th>Warehouse</th>
+                <th>Location</th>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach: items">
+            <tr>
+              <td>
+                <button type="button" class="btn btn-link" data-bind="command: $parent.removeItemCommand"><i class="fa fa-times"></i></button>
+              </td>
+              <td><product-selector params="selectedValue: inventoryUnits, lotType: 5, optionsDisplay: 'ProductName'"></product-selector></td>
+              <td><input type="text" data-bind="textInput: quantity" class="form-control"/></td>
+              <td data-bind="visible: $parent.showTotalWeight, text: totalWeight"></td>
+              <td>Rincon</td>
+              <td><select data-bind="value: location, options: $parent.locationOptions, optionsText: 'Description', optionsValue: 'LocationKey', optionsCaption: ' '"></select></td>
+            </tr>
+            </tbody>
+            <tfoot data-bind="visible: showTotalWeight">
+              <tr>
+                <td class="text-right" colspan="3"><b>Total Weight:</b></td>
+                <td colspan="3"><span data-bind="text: totalWeightOfCreated, css: { 'text-danger': !totalWeightOfCreated.isValid() }"></span> / {{totalWeightReceived}}</td>
+              </tr>
+            </tfoot>
+          </table>
+          <button type="button" data-bind="command: addItemCommand" class="btn btn-default" tabindex="-1">
+            <i class="fa fa-plus" /> Add Item
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

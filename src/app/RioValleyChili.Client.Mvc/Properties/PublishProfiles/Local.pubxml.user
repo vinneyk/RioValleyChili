@@ -1,0 +1,2805 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>c:\publish\rvc</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App/bindings/ko.bindingHandlers.datePicker.js">
+      <publishTime>10/16/2017 12:08:39</publishTime>
+    </File>
+    <File Include="App/build/companyMaintenance.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/contracts.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/customerProductSpecs.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/dehydratedMaterials.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/facilityMaintenance.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/interWarehouseMovements.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/inventoryMovements.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/inventoryReceiving.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/labResults.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/lotHistory.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/lotTrace.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/millWetdown.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/packSchedules.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/productionResults.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/productionSchedules.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/productmaintenance.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/quotes.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/receiveChileProduct.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/salesOrders.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/sampleMatching.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/treatmentOrders.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/vendors.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/warehouseInventory.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/warehouseInventoryAdjustments.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/build/warehouseLocations.bundle.js">
+      <publishTime>12/11/2017 23:31:21</publishTime>
+    </File>
+    <File Include="App/components/common/address-book/address-book-contact.css">
+      <publishTime>10/16/2017 12:08:39</publishTime>
+    </File>
+    <File Include="App/components/common/address-book/address-book-contact.html">
+      <publishTime>10/16/2017 12:08:39</publishTime>
+    </File>
+    <File Include="App/components/common/address-book/address-book-contact.js">
+      <publishTime>10/16/2017 12:08:39</publishTime>
+    </File>
+    <File Include="App/components/common/address-book/address-book.css">
+      <publishTime>10/16/2017 12:08:39</publishTime>
+    </File>
+    <File Include="App/components/common/address-book/address-book.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/address-book/address-book.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/address-book/company-address-label-helper.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/address-book/company-address-label-helper.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/address-book/contact-picker.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/address-book/contact-picker.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/loading-screen/loading-screen.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/loading-screen/loading-screen.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/lot-filters/lot-filters.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/lot-filters/lot-filters.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/lot-summary-table/lot-summary-table.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/lot-summary-table/lot-summary-table.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/notebook-control/notebook-control.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/notebook-control/notebook-control.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/product-selector/product-selector.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/product-selector/product-selector.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/common/qc-legend/qc-legend.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/core/fxs-blade-actions.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/core/fxs-blade-actions.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/customer-product-specs/customer-product-specs.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/customer-product-specs/customer-product-specs.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/auto-inventory-picker/auto-inventory-picker.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/auto-inventory-picker/auto-inventory-picker.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/dehydrated-materials-details/dehydrated-materials-details.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/dehydrated-materials-details/dehydrated-materials-details.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/dehydrated-materials-summary/dehydrated-materials-summary.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/dehydrated-materials-summary/dehydrated-materials-summary.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/inventory-adjustments-editor/inventory-adjustments-editor.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/inventory-adjustments-editor/inventory-adjustments-editor.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/inventory-adjustments-summary/inventory-adjustments-summary.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/inventory-adjustments-summary/inventory-adjustments-summary.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/inventory-by-lot-picker/inventory-by-lot-picker.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/inventory-by-lot-picker/inventory-by-lot-picker.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/inventory-filters/inventory-filters.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/inventory-filters/inventory-filters.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/inventory-picker/inventory-picker.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/inventory-picker/inventory-picker.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/inventory-picking-table/inventory-picking-table.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/inventory-picking-table/inventory-picking-table.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/lot-inventory-inputs/lot-inventory-inputs.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/lot-inventory-inputs/lot-inventory-inputs.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/lot-inventory-transactions/lot-inventory-transactions.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/lot-inventory-transactions/lot-inventory-transactions.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/picked-inventory-items-with-destination/picked-inventory-items-with-destination.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/picked-inventory-items-with-destination/picked-inventory-items-with-destination.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/picked-inventory-items/picked-inventory-items.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/picked-inventory-items/picked-inventory-items.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/receive-chile-product-editor/receive-chile-product-editor.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/receive-chile-product-editor/receive-chile-product-editor.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/receive-chile-product-summary/receive-chile-product-summary.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/inventory/receive-chile-product-summary/receive-chile-product-summary.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/orders/sales-orders-details/sales-orders-details.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/orders/sales-orders-details/sales-orders-details.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/orders/sales-orders-summary/sales-orders-summary.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/orders/sales-orders-summary/sales-orders-summary.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/instructions-editor/instructions-editor.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/instructions-editor/instructions-editor.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/mill-and-wetdown-editor/mill-and-wetdown-editor.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/mill-and-wetdown-editor/mill-and-wetdown-editor.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/mill-and-wetdown-summary/mill-and-wetdown-summary.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/mill-and-wetdown-summary/mill-and-wetdown-summary.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/other-input-materials-picker/other-input-materials-picker.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/other-input-materials-picker/other-input-materials-picker.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/output-picker/output-picker.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/output-picker/output-picker.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/production-schedules-editor/production-schedules-editor.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/production-schedules-editor/production-schedules-editor.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/production-schedules-summary/production-schedules-summary.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/production-schedules-summary/production-schedules-summary.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/tote-inventory-picker/tote-inventory-picker.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/production/tote-inventory-picker/tote-inventory-picker.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/allowances-editor/allowances-editor.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/allowances-editor/allowances-editor.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/customer-product-spec-editor/customer-product-spec-editor.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/customer-product-spec-editor/customer-product-spec-editor.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/customer-product-spec-summary/customer-product-spec-summary.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/customer-product-spec-summary/customer-product-spec-summary.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/lab-results-editor/lab-results-editor.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/lab-results-editor/lab-results-editor.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/lot-history/lot-history.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/lot-history/lot-history.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/product-maintenance-editor/product-maintenance-editor.html">
+      <publishTime>06/16/2020 22:58:35</publishTime>
+    </File>
+    <File Include="App/components/quality-control/product-maintenance-editor/product-maintenance-editor.js">
+      <publishTime>06/16/2020 22:51:46</publishTime>
+    </File>
+    <File Include="App/components/quality-control/product-maintenance-summary/product-maintenance-summary.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/product-maintenance-summary/product-maintenance-summary.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/sample-matching-editor/sample-matching-editor.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/sample-matching-editor/sample-matching-editor.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/sample-matching-summary/sample-matching-summary.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/quality-control/sample-matching-summary/sample-matching-summary.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/sales/customer-contract-details/customer-contract-details.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/sales/customer-contract-details/customer-contract-details.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/sales/customer-contract-shipment-summaries/customer-contract-shipment-summaries.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/sales/customer-contract-shipment-summaries/customer-contract-shipment-summaries.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/sales/customer-contract-summaries/customer-contract-summaries.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/sales/customer-contract-summaries/customer-contract-summaries.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/sales/customer-maintenance-editor/customer-maintenance-editor.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/sales/customer-maintenance-editor/customer-maintenance-editor.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/sales/customer-maintenance-summary/customer-maintenance-summary.html">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/components/sales/customer-maintenance-summary/customer-maintenance-summary.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/sales/quotes-editor/quotes-editor.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/sales/quotes-editor/quotes-editor.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/sales/quotes-summary/quotes-summary.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/sales/quotes-summary/quotes-summary.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/sales/sales-order-items/sales-order-items.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/sales/sales-order-items/sales-order-items.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/address-editor/address-editor.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/address-editor/address-editor.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/contact-label-editor/contact-label-editor.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/contact-label-editor/contact-label-editor.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/facility-maintenance-editor/facility-maintenance-editor.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/facility-maintenance-editor/facility-maintenance-editor.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/facility-maintenance-location-editor/facility-maintenance-location-editor.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/facility-maintenance-location-editor/facility-maintenance-location-editor.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/facility-maintenance-summary/facility-maintenance-summary.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/facility-maintenance-summary/facility-maintenance-summary.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/inter-warehouse-movement-editor/inter-warehouse-movement-editor.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/inter-warehouse-movement-editor/inter-warehouse-movement-editor.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/inter-warehouse-movement-summary/inter-warehouse-movement-summary.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/inter-warehouse-movement-summary/inter-warehouse-movement-summary.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/intra-warehouse-inventory-movement-details/intra-warehouse-inventory-movement-details.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/intra-warehouse-inventory-movement-details/intra-warehouse-inventory-movement-details.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/inventory-pick-order/inventory-pick-order.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/inventory-pick-order/inventory-pick-order.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/inventory-received/inventory-received.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/inventory-received/inventory-received.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/inventory-receiving/inventory-receiving.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/inventory-receiving/inventory-receiving.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/locations-editor/locations-editor.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/locations-editor/locations-editor.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/lot-history/lot-history.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/lot-history/lot-history.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/post-and-close-inventory-order/post-and-close-inventory-order.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/post-and-close-inventory-order/post-and-close-inventory-order.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/shipment-editor/shipment-editor.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/shipment-editor/shipment-editor.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/treatment-order-editor/treatment-order-editor.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/treatment-order-editor/treatment-order-editor.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/treatment-order-summary/treatment-order-summary.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/treatment-order-summary/treatment-order-summary.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/warehouse-editor/warehouse-editor.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/components/warehouse/warehouse-editor/warehouse-editor.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/config.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/helpers/disposableHelper.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/helpers/koHelpers.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/helpers/koPunchesFilters.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/helpers/koValidationHelpers.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/helpers/pagedDataHelper.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/helpers/propertyGetter.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/helpers/theoreticalLotAttributesCalculator.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/ko.bindingHandlers.clickableTableHeaders.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/ko.bindingHandlers.sortableTable.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/ko.filters.dateTime.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/koBindings.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/koExtensions.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/main.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/models/DehydratedItemReceived.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/models/EditableLotAttribute.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/models/InterWarehouseSummaryModel.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/models/LotAttribute.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/models/LotDefect.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/models/LotDefectResolution.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/models/LotInventoryItem.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/models/LotSummary.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/models/PickableInventoryItem.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/models/PickedInventoryItemModel.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/models/PickInventoryByLotModel.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/models/PickOrderItemModel.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/models/WarehouseLocationModel.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/rvc.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/scripts/ko.extenders.lotKey.js">
+      <publishTime>02/18/2019 22:22:28</publishTime>
+    </File>
+    <File Include="App/scripts/utils/domGlue.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/scripts/utils/jquery.plugins.stickyTableFooters.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/scripts/utils/jquery.plugins.stickyTableHeaders.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/authService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/dashboardService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/directoryService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/inventoryAdjustmentsService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/inventoryService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/lotService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/notebooksService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/productionBatchingService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/productsService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/qualityControl/labResultsService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/qualityControlService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/salesService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/serviceCore.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/treatmentService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/warehouseLocationsService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/services/warehouseService.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/ShPortal.Base.js">
+      <publishTime>10/16/2017 12:08:40</publishTime>
+    </File>
+    <File Include="App/templates/lotInventoryScriptTemplates.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/templates/lotScriptTemplates.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/viewModels/bladeBaseViewModel.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/viewModels/bladeContextBase.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/viewModels/dashboardTile.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/viewModels/inventory/dehydratedMaterials.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/viewModels/inventory/lotHistory.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/viewModels/inventory/receiveChileProduct.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/viewModels/orders/salesOrders.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/viewModels/production/batching.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/viewModels/production/millAndWetdown.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/viewModels/production/packSchedules.js">
+      <publishTime>12/11/2017 23:35:50</publishTime>
+    </File>
+    <File Include="App/viewModels/production/productionBatches.js">
+      <publishTime>12/11/2017 23:35:50</publishTime>
+    </File>
+    <File Include="App/viewModels/production/productionResultsViewModel.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/viewModels/production/productionSchedules.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/qualityControl/blade_labResults.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/viewModels/qualityControl/customerProductSpecs.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/qualityControl/customerProductSpecsOld.js">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App/viewModels/qualityControl/labResultDetails.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/qualityControl/labResults.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/qualityControl/labResultsOld.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/qualityControl/labResultsStartTile.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/qualityControl/lotHolds.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/qualityControl/lotTrace.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/qualityControl/productMaintenance.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/qualityControl/sampleMatching.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/sales/companyContactMaintenance.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/sales/customerContracts.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/sales/quotes.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/shared/notebooks.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/shell.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/startboard.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/warehouse/facilityMaintenance.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/warehouse/interWarehouseMovements.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/warehouse/inventory.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/warehouse/inventoryAdjustments.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/warehouse/inventoryMovements.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/warehouse/inventoryReceiving.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/warehouse/treatmentOrders.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/viewModels/warehouse/warehouseLocations.js">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/views/avatarMenu.html">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/views/production/batching.html">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/views/production/packSchedules.html">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/views/qualityControl/labResults.html">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/views/qualityControl/labResultsStartTile.html">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/views/shell.html">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App/views/startboard.html">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="ApplicationInsights.config">
+      <publishTime>10/16/2017 12:08:42</publishTime>
+    </File>
+    <File Include="App_Data/templates/lotInventoryScriptTemplates.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="App_Data/templates/lotScriptTemplates.html">
+      <publishTime>10/16/2017 12:08:41</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Home/Index.cshtml">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Areas/Admin/Web.config">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Areas/Admin/_ViewStart.cshtml">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Areas/qunit/Views/ComposableCommand/Index.cshtml">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Areas/qunit/Views/CustomObservableTests/ObservableDate.cshtml">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Areas/qunit/Views/CustomObservableTests/ObservableDateTime.cshtml">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Areas/qunit/Views/CustomObservableTests/ObservableTime.cshtml">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Areas/qunit/Views/Web.config">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Areas/qunit/Views/_ViewStart.cshtml">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Areas/Reporting/Views/Shared/ReportViewer.cshtml">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Areas/Reporting/Views/web.config">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>09/10/2013 16:29:20</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>09/10/2013 16:29:20</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.Reporting.Adomd.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.Reporting.Cache.Database.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.Reporting.Cache.StackExchangeRedis.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.Reporting.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.Reporting.OpenXmlRendering.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.Reporting.Service.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.Reporting.Services.ServiceStack.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.Reporting.Services.WebApi.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.Reporting.XpsRendering.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.ReportViewer.Mvc.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.ReportViewer.Silverlight.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.ReportViewer.WebForms.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.ReportViewer.WinForms.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/App_Libs/Telerik Reporting Q1 2015/Telerik.ReportViewer.Wpf.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>04/25/2014 13:09:16</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.Net4.dll">
+      <publishTime>04/25/2014 13:09:16</publishTime>
+    </File>
+    <File Include="bin/EF-Projectors.dll">
+      <publishTime>06/09/2015 21:19:54</publishTime>
+    </File>
+    <File Include="bin/EF-Split-Projector.dll">
+      <publishTime>08/10/2016 15:41:36</publishTime>
+    </File>
+    <File Include="bin/Elmah.dll">
+      <publishTime>04/12/2012 19:19:36</publishTime>
+    </File>
+    <File Include="bin/Elmah.Mvc.dll">
+      <publishTime>07/09/2013 17:39:38</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>06/10/2014 17:29:24</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>06/10/2014 17:29:24</publishTime>
+    </File>
+    <File Include="bin/Glimpse.AspNet.dll">
+      <publishTime>10/29/2014 12:10:44</publishTime>
+    </File>
+    <File Include="bin/Glimpse.Core.dll">
+      <publishTime>06/25/2014 16:08:12</publishTime>
+    </File>
+    <File Include="bin/Glimpse.Knockout.dll">
+      <publishTime>03/04/2013 21:46:48</publishTime>
+    </File>
+    <File Include="bin/Glimpse.Mvc5.dll">
+      <publishTime>02/04/2014 11:55:28</publishTime>
+    </File>
+    <File Include="bin/LinqKit.dll">
+      <publishTime>03/24/2014 08:19:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.Telemetry.Services.dll">
+      <publishTime>03/20/2014 09:41:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.Telemetry.Web.dll">
+      <publishTime>03/20/2014 09:41:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/Moq.dll">
+      <publishTime>02/08/2011 21:34:04</publishTime>
+    </File>
+    <File Include="bin/Moq.pdb">
+      <publishTime>02/08/2011 21:34:04</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>09/07/2014 10:39:38</publishTime>
+    </File>
+    <File Include="bin/Ninject.dll">
+      <publishTime>04/02/2014 18:40:18</publishTime>
+    </File>
+    <File Include="bin/Ninject.Web.Common.dll">
+      <publishTime>05/15/2014 13:28:02</publishTime>
+    </File>
+    <File Include="bin/Ninject.Web.Mvc.dll">
+      <publishTime>04/29/2014 02:35:10</publishTime>
+    </File>
+    <File Include="bin/Ploeh.AutoFixture.dll">
+      <publishTime>10/15/2014 14:40:44</publishTime>
+    </File>
+    <File Include="bin/PostSharp.dll">
+      <publishTime>10/20/2016 19:45:54</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Business.Core.dll">
+      <publishTime>02/08/2020 13:48:56</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Business.Core.dll.config">
+      <publishTime>10/16/2017 12:08:39</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Business.Core.pdb">
+      <publishTime>02/08/2020 13:48:56</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Client.Core.dll">
+      <publishTime>02/08/2020 13:48:51</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Client.Core.pdb">
+      <publishTime>02/08/2020 13:48:51</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Client.Mvc.dll">
+      <publishTime>06/16/2020 23:15:57</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Client.Mvc.pdb">
+      <publishTime>06/16/2020 23:15:57</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Client.Reporting.dll">
+      <publishTime>06/16/2020 23:15:42</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Client.Reporting.dll.config">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Client.Reporting.pdb">
+      <publishTime>06/16/2020 23:15:42</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Core.dll">
+      <publishTime>06/16/2020 23:15:28</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Core.pdb">
+      <publishTime>06/16/2020 23:15:28</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Data.DataSeeders.dll">
+      <publishTime>02/08/2020 13:49:05</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Data.DataSeeders.dll.config">
+      <publishTime>10/16/2017 12:08:49</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Data.DataSeeders.pdb">
+      <publishTime>02/08/2020 13:49:05</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Data.dll">
+      <publishTime>02/08/2020 13:48:54</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Data.dll.config">
+      <publishTime>10/16/2017 12:08:50</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Data.Models.dll">
+      <publishTime>02/08/2020 13:48:50</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Data.Models.dll.config">
+      <publishTime>10/16/2017 12:08:50</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Data.Models.pdb">
+      <publishTime>02/08/2020 13:48:50</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Data.pdb">
+      <publishTime>02/08/2020 13:48:54</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Services.dll">
+      <publishTime>02/16/2020 08:47:02</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Services.Interfaces.dll">
+      <publishTime>02/08/2020 13:48:51</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Services.Interfaces.pdb">
+      <publishTime>02/08/2020 13:48:51</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Services.Models.dll">
+      <publishTime>02/08/2020 13:49:06</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Services.Models.dll.config">
+      <publishTime>10/16/2017 12:08:52</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Services.Models.pdb">
+      <publishTime>02/08/2020 13:49:06</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Services.OldContextSynchronization.dll">
+      <publishTime>02/08/2020 13:49:09</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Services.OldContextSynchronization.dll.config">
+      <publishTime>10/16/2017 12:08:52</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Services.OldContextSynchronization.pdb">
+      <publishTime>02/08/2020 13:49:09</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Services.pdb">
+      <publishTime>02/16/2020 08:47:02</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Services.Utilities.dll">
+      <publishTime>02/16/2020 08:47:01</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Services.Utilities.dll.config">
+      <publishTime>10/16/2017 12:08:52</publishTime>
+    </File>
+    <File Include="bin/RioValleyChili.Services.Utilities.pdb">
+      <publishTime>02/16/2020 08:47:01</publishTime>
+    </File>
+    <File Include="bin/RioValleyChiliDataContextViews.xml">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="bin/Solutionhead.Core.dll">
+      <publishTime>06/02/2015 14:13:46</publishTime>
+    </File>
+    <File Include="bin/Solutionhead.Data.dll">
+      <publishTime>10/01/2012 14:15:18</publishTime>
+    </File>
+    <File Include="bin/Solutionhead.Data.EntityFramework.dll">
+      <publishTime>06/25/2014 13:01:42</publishTime>
+    </File>
+    <File Include="bin/Solutionhead.EntityKey.dll">
+      <publishTime>06/02/2015 14:23:12</publishTime>
+    </File>
+    <File Include="bin/Solutionhead.Services.dll">
+      <publishTime>06/02/2015 14:29:26</publishTime>
+    </File>
+    <File Include="bin/System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>08/19/2014 10:03:34</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>08/26/2014 04:33:50</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>08/26/2014 04:34:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>08/26/2014 04:35:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/28/2015 04:02:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 15:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Providers.dll">
+      <publishTime>11/22/2013 10:21:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/28/2015 04:02:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/T4MVCExtensions.dll">
+      <publishTime>02/05/2016 06:47:26</publishTime>
+    </File>
+    <File Include="bin/Telerik.Reporting.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/Telerik.Reporting.Service.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/Telerik.Reporting.Services.WebApi.dll">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="bin/Thinktecture.IdentityModel.dll">
+      <publishTime>12/12/2013 09:39:16</publishTime>
+    </File>
+    <File Include="bin/Thinktecture.IdentityModel.pdb">
+      <publishTime>12/12/2013 09:39:16</publishTime>
+    </File>
+    <File Include="bin/WebActivatorEx.dll">
+      <publishTime>03/10/2014 11:33:46</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>01/23/2014 13:57:34</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/css/font-awesome.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/css/font-awesome.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/customer-contracts.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/durandal.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/fonts/fontawesome-webfont.eot">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/fonts/fontawesome-webfont.svg">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/fonts/fontawesome-webfont.ttf">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/fonts/fontawesome-webfont.woff">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/fonts/fontawesome-webfont.woff2">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/fonts/FontAwesome.otf">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/images/glyphicons-halflings-white.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/images/glyphicons-halflings.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/images/icon.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/images/ios-startup-image-landscape.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/images/ios-startup-image-portrait.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Black/editor.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Black/imagebrowser.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Black/indeterminate.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Black/loading-image.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Black/loading.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Black/loading_2x.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Black/markers.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Black/markers_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Black/slider-h.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Black/slider-v.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Black/sprite.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Black/sprite_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/BlueOpal/editor.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/BlueOpal/imagebrowser.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/BlueOpal/indeterminate.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/BlueOpal/loading-image.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/BlueOpal/loading.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/BlueOpal/loading_2x.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/BlueOpal/markers.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/BlueOpal/markers_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/BlueOpal/slider-h.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/BlueOpal/slider-v.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/BlueOpal/sprite.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/BlueOpal/sprite_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Bootstrap/editor.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Bootstrap/imagebrowser.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Bootstrap/indeterminate.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Bootstrap/loading-image.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Bootstrap/loading.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Bootstrap/loading_2x.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Bootstrap/markers.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Bootstrap/markers_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Bootstrap/slider-h.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Bootstrap/slider-v.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Bootstrap/sprite.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Bootstrap/sprite_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Default/editor.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Default/imagebrowser.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Default/indeterminate.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Default/loading-image.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Default/loading.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Default/loading_2x.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Default/markers.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Default/markers_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Default/slider-h.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Default/slider-v.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Default/sprite.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Default/sprite_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Flat/editor.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Flat/imagebrowser.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Flat/indeterminate.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Flat/loading-image.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Flat/loading.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Flat/loading_2x.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Flat/markers.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Flat/markers_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Flat/slider-h.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Flat/slider-v.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Flat/sprite.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Flat/sprite_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/HighContrast/editor.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/HighContrast/imagebrowser.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/HighContrast/indeterminate.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/HighContrast/loading-image.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/HighContrast/loading.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/HighContrast/loading_2x.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/HighContrast/markers.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/HighContrast/markers_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/HighContrast/slider-h.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/HighContrast/slider-v.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/HighContrast/sprite.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/HighContrast/sprite_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/images/back.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/images/kendoui.ttf">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/images/kendoui.woff">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/images/wp8_icons.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/images/wp8_inverseicons.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.black.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.black.mobile.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.blueopal.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.blueopal.mobile.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.bootstrap.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.bootstrap.mobile.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.common-bootstrap.core.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.common-bootstrap.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.common.core.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.common.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.dataviz.black.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.dataviz.blueopal.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.dataviz.bootstrap.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.dataviz.default.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.dataviz.flat.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.dataviz.highcontrast.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.dataviz.metro.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.dataviz.metroblack.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.dataviz.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.dataviz.mobile.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.dataviz.moonlight.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.dataviz.silver.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.dataviz.uniform.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.default.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.default.mobile.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.flat.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.flat.mobile.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.highcontrast.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.highcontrast.mobile.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.metro.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.metro.mobile.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.metroblack.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.metroblack.mobile.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.mobile.all.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.mobile.android.dark.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.mobile.android.light.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.mobile.blackberry.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.mobile.common.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.mobile.flat.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.mobile.ios.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.mobile.meego.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.mobile.wp8.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.moonlight.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.moonlight.mobile.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.rtl.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.silver.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.silver.mobile.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.uniform.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/kendo.uniform.mobile.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Metro/editor.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Metro/imagebrowser.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Metro/indeterminate.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Metro/loading-image.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Metro/loading.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Metro/loading_2x.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Metro/markers.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Metro/markers_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Metro/slider-h.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Metro/slider-v.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Metro/sprite.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Metro/sprite_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/MetroBlack/editor.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/MetroBlack/imagebrowser.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/MetroBlack/indeterminate.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/MetroBlack/loading-image.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/MetroBlack/loading.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/MetroBlack/loading_2x.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/MetroBlack/markers.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/MetroBlack/markers_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/MetroBlack/slider-h.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/MetroBlack/slider-v.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/MetroBlack/sprite.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/MetroBlack/sprite_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Moonlight/editor.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Moonlight/imagebrowser.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Moonlight/indeterminate.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Moonlight/loading-image.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Moonlight/loading.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Moonlight/loading_2x.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Moonlight/markers.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Moonlight/markers_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Moonlight/slider-h.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Moonlight/slider-v.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Moonlight/sprite.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Moonlight/sprite_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Silver/editor.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Silver/imagebrowser.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Silver/indeterminate.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Silver/loading-image.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Silver/loading.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Silver/loading_2x.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Silver/markers.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Silver/markers_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Silver/slider-h.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Silver/slider-v.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Silver/sprite.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Silver/sprite_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/brushed-metal.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/dots1.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/dots10.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/dots11.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/dots12.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/dots13.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/dots2.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/dots3.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/dots4.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/dots5.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/dots6.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/dots7.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/dots8.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/dots9.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/glass-lighter.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/glass.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/highlight.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/hsv-gradient.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/hue.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/leather1.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/leather2.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/noise.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/stripe1.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/stripe2.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/stripe3.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/stripe4.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/stripe5.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/stripe6.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/transparency.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/textures/transtexture.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Uniform/editor.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Uniform/imagebrowser.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Uniform/indeterminate.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Uniform/loading-image.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Uniform/loading.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Uniform/loading_2x.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Uniform/markers.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Uniform/markers_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Uniform/slider-h.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Uniform/slider-v.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Uniform/sprite.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/kendo/2014.1.528/Uniform/sprite_2x.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/notebook.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/panorama.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/panorama.less">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/panorama.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/print-trace.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/Reporting/telerikReportViewer-9.0.15.324.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/Reporting/telerikReportViewerTemplate-9.0.15.324.html">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/shEditorStyles.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/animated-overlay.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.accordion.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.all.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.autocomplete.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.base.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.button.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.core.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.datepicker.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.dialog.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.menu.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.progressbar.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.resizable.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.selectable.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.slider.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.spinner.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.tabs.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.theme.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.tooltip.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/animated-overlay.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_222222_256x240.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_454545_256x240.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_888888_256x240.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery-ui.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.accordion.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.autocomplete.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.button.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.core.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.datepicker.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.dialog.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.menu.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.progressbar.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.resizable.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.selectable.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.slider.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.spinner.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.tabs.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.theme.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.tooltip.min.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Content/Validation.css">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="favico-32x32.ico">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/accent.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/aspNetHome.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/bullet.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/facebook.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/findHosting.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/green-check-16x16.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/heroAccent.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/loading-494b4e.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/loading-696E75.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/loading-transparent.gif">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/NuGetGallery.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/orderedListOne.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/orderedListThree.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/orderedListTwo.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/red-x-16x16.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/twitter.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/usermsg-close.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/windowsLive.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="Images/x-icon.png">
+      <publishTime>10/16/2017 12:08:43</publishTime>
+    </File>
+    <File Include="karma.conf.js">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="package.json">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="RioValleyChiliDataContextViews.xml">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/AjaxLogin.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/almond-custom.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/helpers/ajaxStatusHelper.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/helpers/esmHelper.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/helpers/pagedDataHelper.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/helpers/resultStateHelper.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/koBindings.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/navigation.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/admin/feedbackViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/inventory/existingInventoryViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/inventory/inventoryAdjustmentsViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/inventory/inventoryResultsViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/inventory/pickableInventoryViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/inventory/pickedInventoryViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/inventory/receiveInventoryViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/inventoryOrders/inventoryPickOrderViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/inventoryTreatments/inventoryTreatmentsViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/security/employeePermissionsViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/shared/address.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/shared/addressBookViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/shared/companyContactsViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/shared/notebookViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/shipping/address.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/shipping/ShipmentViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/shipping/ShippingInstructionsViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/shipping/ShippingLabelViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/app/viewModels/shipping/TransitViewModel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/activator.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/app.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/binder.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/composition.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/events.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/dialog.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/history.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/http.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/observable.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/router.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/serializer.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/plugins/widget.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/system.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/transitions/entrance.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/viewEngine.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/durandal/viewLocator.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/glimpse-knockout.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/globals.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.1.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.1.min.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.1.min.map">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.10.0.js">
+      <publishTime>10/16/2017 12:08:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.10.0.min.js">
+      <publishTime>10/16/2017 12:08:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery.mockjax.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/jquery.mousewheel.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/jquery.plugins.sh.popup.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/jquery.plugins.shEditor.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/jquery.plugins.slimscroll.js">
+      <publishTime>10/16/2017 12:08:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery.plugins.stickytablefooters.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/jquery.plugins.stickytableheaders.js">
+      <publishTime>10/16/2017 12:08:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>10/16/2017 12:08:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>10/16/2017 12:08:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>10/16/2017 12:08:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>10/16/2017 12:08:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo.modernizr.custom.js">
+      <publishTime>10/16/2017 12:08:45</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.1.js">
+      <publishTime>10/16/2017 12:08:46</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.3.0.debug.js">
+      <publishTime>10/16/2017 12:08:46</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.3.0.js">
+      <publishTime>10/16/2017 12:08:46</publishTime>
+    </File>
+    <File Include="Scripts/knockout-3.3.0.debug.js">
+      <publishTime>10/16/2017 12:08:46</publishTime>
+    </File>
+    <File Include="Scripts/knockout-3.3.0.js">
+      <publishTime>10/16/2017 12:08:46</publishTime>
+    </File>
+    <File Include="Scripts/knockout-projections.min.js">
+      <publishTime>10/16/2017 12:08:46</publishTime>
+    </File>
+    <File Include="Scripts/knockout.activity.js">
+      <publishTime>10/16/2017 12:08:46</publishTime>
+    </File>
+    <File Include="Scripts/knockout.command.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/knockout.dirtyFlag.js">
+      <publishTime>10/16/2017 12:08:46</publishTime>
+    </File>
+    <File Include="Scripts/knockout.editStateManager.js">
+      <publishTime>10/16/2017 12:08:46</publishTime>
+    </File>
+    <File Include="Scripts/knockout.mapping-latest.debug.js">
+      <publishTime>10/16/2017 12:08:46</publishTime>
+    </File>
+    <File Include="Scripts/knockout.mapping-latest.js">
+      <publishTime>10/16/2017 12:08:46</publishTime>
+    </File>
+    <File Include="Scripts/knockout.optionalModule.js">
+      <publishTime>10/16/2017 12:08:46</publishTime>
+    </File>
+    <File Include="Scripts/knockout.validation.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/knockout.validation.min.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/knockout.validation.min.js.map">
+      <publishTime>10/16/2017 12:08:46</publishTime>
+    </File>
+    <File Include="Scripts/ko.extenders.date.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.8.3.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/productionScheduleDetails.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/productionScheduler.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/Reporting/telerikReportViewer-9.0.15.324.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/Reporting/telerikReportViewer-9.0.15.324.min.js">
+      <publishTime>10/16/2017 12:08:44</publishTime>
+    </File>
+    <File Include="Scripts/require.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/sammy-0.7.4.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/sammy-0.7.4.min.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/sh.core.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/sh.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/sh.knockout.customObservables.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/sh.knockout.observableWithLookup.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/sh.messaging.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/text.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/thirdparty/libs/date-format.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/thirdparty/libs/date.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Scripts/thirdparty/libs/date.parse.js">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Account/ChangePassword.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Account/ChangePasswordSuccess.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Account/Login.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Blade/Index.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Customers/CompanyMaintenance.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Customers/Contracts.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Customers/Index.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Customers/Quotes.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Customers/SalesOrders.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Home/ShutDown.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Home/SiteStatus.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Production/Index.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Production/MillAndWetdown.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Production/PackSchedules.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Production/ProductionResults.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Production/ProductionSchedules.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/QualityControl/CustomerSpecs.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/QualityControl/Index.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/QualityControl/LabResults.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/QualityControl/LotTrace.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/QualityControl/ProductMaintenance.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/QualityControl/ProductSpecs.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/QualityControl/SampleMatching.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Security/Index.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Security/Permissions.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Security/Register.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/Address.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/Boolean.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/SelectList.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Boolean.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Color.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Currency.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Date.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/DateTime-Local.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/DateTime.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Decimal.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Double.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Email.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/EmailAddress.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/GridForeignKey.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/HiddenInput.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Int32.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Integer.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Month.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Number.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Password.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/PhoneNumber.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Search.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/SelectList.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/String.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/TextArea.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Time.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/TransitViewModel.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Url.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Week.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_companyScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_contactsScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_ContractScriptTemplate.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_InventoryAdjustmentScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_InventoryPickOrderScriptTemplate.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_labResultsScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_LotInventoryScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_LotScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_millAndWetdownScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_notebookScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_PackScheduleScriptTemplates.cshtml">
+      <publishTime>12/11/2017 23:35:50</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_ProductIngredientsScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_ProductionBatchScriptTemplates.cshtml">
+      <publishTime>12/11/2017 23:35:50</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_ProductionResultsScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_ProductScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_ProductSpecsScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_ResultsScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTemplates/_ShipmentScriptTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/ScriptTests/_LotHoldUITests.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_addressBook.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_BladesLayout.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_GlobalIncludes.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_InitializeRequireJS.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_knockoutDateFormattingScripts.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_knockoutTemplates.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutMain.cshtml">
+      <publishTime>06/16/2020 23:08:31</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_MainNavigation.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_PageTitle.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_qUnitLayout.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_ReportLayout.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_requireHybridSetup.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_WebpackHtmlHead.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_WebpackLayout.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Test/ComposableCommand2.cshtml">
+      <publishTime>10/16/2017 12:08:47</publishTime>
+    </File>
+    <File Include="Views/Test/EditStateManager.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Test/ModularCommand.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Test/OptionalModule.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Test/ShippingInstructions.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/UITests/Index.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/UITests/LabResultsTests.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/UITests/LotHoldTests.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/UITests/LotInventoryTests.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/UITests/LotsTests.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/UITests/PackSheduleTests.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/UITests/ProductionBatchTests.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/UITests/_UITestsLayout.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/UITests/_UITestsLayoutAMD.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Warehouse/DehydratedMaterialReceiving.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Warehouse/FacilityMaintenance.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Warehouse/Index.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Warehouse/InterWarehouseMovements.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Warehouse/Inventory.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Warehouse/InventoryAdjustments.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Warehouse/LotHistory.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Warehouse/ReceiveChileProduct.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Warehouse/Receiving.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Warehouse/RinconMovements.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Warehouse/Shipments.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Warehouse/TreatmentOrders.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Warehouse/WarehouseLocations.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/16/2020 23:15:59</publishTime>
+    </File>
+    <File Include="webpack.config.js">
+      <publishTime>10/16/2017 12:08:48</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

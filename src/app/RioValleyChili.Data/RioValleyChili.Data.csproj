@@ -1,0 +1,943 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{913719C1-AB84-4D23-A9D0-4637A5B14CFA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RioValleyChili.Data</RootNamespace>
+    <AssemblyName>RioValleyChili.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\..\Rio Valley Chili Internal\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Testing|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Testing\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.Data, Version=1.4.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Data.1.4.7\lib\net45\Solutionhead.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.Data.EntityFramework, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Data.EntityFramework.4.0.0\lib\net45\Solutionhead.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EFRVCUnitOfWork.cs" />
+    <Compile Include="EFUnitOfWorkBase.cs" />
+    <Compile Include="Helpers\ConsoleTicker.cs" />
+    <Compile Include="Helpers\DataTableColumnHelper.cs" />
+    <Compile Include="Helpers\DbContextExtensions.cs" />
+    <Compile Include="Helpers\IQueryableExtensions.cs" />
+    <Compile Include="Helpers\RequiredUserDateTimeSetter.cs" />
+    <Compile Include="IDataContextSeeder.cs" />
+    <Compile Include="IMother.cs" />
+    <Compile Include="Initialization\DataContextInitializationAdapter.cs" />
+    <Compile Include="Initialization\DataSeederBase.cs" />
+    <Compile Include="Initialization\DbContextDataSeederBase.cs" />
+    <Compile Include="Initialization\DoNothingDbContextDataSeeder.cs" />
+    <Compile Include="Initialization\DropCreateAndSeedDatabaseAlways.cs" />
+    <Compile Include="Initialization\IDataContextInitializationAdapter.cs" />
+    <Compile Include="Initialization\IDataSeeder.cs" />
+    <Compile Include="Initialization\MigrationDataContextInitializationAdapter.cs" />
+    <Compile Include="Initialization\RvcMigrationDataContextInitializationAdapter.cs" />
+    <Compile Include="Interfaces\IRVCUnitOfWork.cs" />
+    <Compile Include="Interfaces\IUnitOfWorkContainer.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\IChileLotProductionUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\ICompanyUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\ISalesUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\IMaterialsReceivedUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\ICoreUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\IIntraWarehouseOrderUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\IInventoryPickOrderUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\IInventoryShipmentOrderUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\IInventoryUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\ILotUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\INotebookUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\IPickedInventoryUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\IProductionUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\IProductUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\ISampleOrderUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\IShipmentUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\ITreatmentOrderUnitOfWork.cs" />
+    <Compile Include="Interfaces\UnitsOfWork\IFacilityUnitOfWork.cs" />
+    <Compile Include="Migrations\201305091928058_Initial.cs" />
+    <Compile Include="Migrations\201305091928058_Initial.Designer.cs">
+      <DependentUpon>201305091928058_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305142225425_DehydratedReceived.cs" />
+    <Compile Include="Migrations\201305142225425_DehydratedReceived.Designer.cs">
+      <DependentUpon>201305142225425_DehydratedReceived.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305161946479_MillAndWetdown.cs" />
+    <Compile Include="Migrations\201305161946479_MillAndWetdown.Designer.cs">
+      <DependentUpon>201305161946479_MillAndWetdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305291555142_CustomerContracts.cs" />
+    <Compile Include="Migrations\201305291555142_CustomerContracts.Designer.cs">
+      <DependentUpon>201305291555142_CustomerContracts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306052105430_CustomerOrders.cs" />
+    <Compile Include="Migrations\201306052105430_CustomerOrders.Designer.cs">
+      <DependentUpon>201306052105430_CustomerOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306112104595_ToteKey.cs" />
+    <Compile Include="Migrations\201306112104595_ToteKey.Designer.cs">
+      <DependentUpon>201306112104595_ToteKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306172019416_ContactAddress.cs" />
+    <Compile Include="Migrations\201306172019416_ContactAddress.Designer.cs">
+      <DependentUpon>201306172019416_ContactAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306182234579_CustomerOrderPickedItem.cs" />
+    <Compile Include="Migrations\201306182234579_CustomerOrderPickedItem.Designer.cs">
+      <DependentUpon>201306182234579_CustomerOrderPickedItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306212239133_RemoveChileProductAttributes.cs" />
+    <Compile Include="Migrations\201306212239133_RemoveChileProductAttributes.Designer.cs">
+      <DependentUpon>201306212239133_RemoveChileProductAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306241704464_InventoryAdjustments.cs" />
+    <Compile Include="Migrations\201306241704464_InventoryAdjustments.Designer.cs">
+      <DependentUpon>201306241704464_InventoryAdjustments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307012028410_ProductSpecs.cs" />
+    <Compile Include="Migrations\201307012028410_ProductSpecs.Designer.cs">
+      <DependentUpon>201307012028410_ProductSpecs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307151658019_InstructionType.cs" />
+    <Compile Include="Migrations\201307151658019_InstructionType.Designer.cs">
+      <DependentUpon>201307151658019_InstructionType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307221821488_CompanyType.cs" />
+    <Compile Include="Migrations\201307221821488_CompanyType.Designer.cs">
+      <DependentUpon>201307221821488_CompanyType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307241645307_InventoryPickOrderItem_DropTreatment.cs" />
+    <Compile Include="Migrations\201307241645307_InventoryPickOrderItem_DropTreatment.Designer.cs">
+      <DependentUpon>201307241645307_InventoryPickOrderItem_DropTreatment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307241646346_PackSchID.cs" />
+    <Compile Include="Migrations\201307241646346_PackSchID.Designer.cs">
+      <DependentUpon>201307241646346_PackSchID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307292147131_Dehydrators.cs" />
+    <Compile Include="Migrations\201307292147131_Dehydrators.Designer.cs">
+      <DependentUpon>201307292147131_Dehydrators.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308061643522_ContractWarehouse.cs" />
+    <Compile Include="Migrations\201308061643522_ContractWarehouse.Designer.cs">
+      <DependentUpon>201308061643522_ContractWarehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308141818306_CompanyActive.cs" />
+    <Compile Include="Migrations\201308141818306_CompanyActive.Designer.cs">
+      <DependentUpon>201308141818306_CompanyActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308212058315_NestedCompany_Notebook.cs" />
+    <Compile Include="Migrations\201308212058315_NestedCompany_Notebook.Designer.cs">
+      <DependentUpon>201308212058315_NestedCompany_Notebook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310091530378_CompanyAddress.cs" />
+    <Compile Include="Migrations\201310091530378_CompanyAddress.Designer.cs">
+      <DependentUpon>201310091530378_CompanyAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310142249042_CompanyTypes.cs" />
+    <Compile Include="Migrations\201310142249042_CompanyTypes.Designer.cs">
+      <DependentUpon>201310142249042_CompanyTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310281627084_AdjustmentNotes.cs" />
+    <Compile Include="Migrations\201310281627084_AdjustmentNotes.Designer.cs">
+      <DependentUpon>201310281627084_AdjustmentNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201311041830271_MillAndWetdownLotTrim.cs" />
+    <Compile Include="Migrations\201311041830271_MillAndWetdownLotTrim.Designer.cs">
+      <DependentUpon>201311041830271_MillAndWetdownLotTrim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201311122330003_PickedInventoryDestination.cs" />
+    <Compile Include="Migrations\201311122330003_PickedInventoryDestination.Designer.cs">
+      <DependentUpon>201311122330003_PickedInventoryDestination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201312132109592_EmployeesTable_NonReferential.cs" />
+    <Compile Include="Migrations\201312132109592_EmployeesTable_NonReferential.Designer.cs">
+      <DependentUpon>201312132109592_EmployeesTable_NonReferential.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201312161742045_EmployeeBase.cs" />
+    <Compile Include="Migrations\201312161742045_EmployeeBase.Designer.cs">
+      <DependentUpon>201312161742045_EmployeeBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201312231705343_EmployeeClaims.cs" />
+    <Compile Include="Migrations\201312231705343_EmployeeClaims.Designer.cs">
+      <DependentUpon>201312231705343_EmployeeClaims.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401011728440_DataLoadResult.cs" />
+    <Compile Include="Migrations\201401011728440_DataLoadResult.Designer.cs">
+      <DependentUpon>201401011728440_DataLoadResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401211809443_DataLoadResult_TimeStamp.cs" />
+    <Compile Include="Migrations\201401211809443_DataLoadResult_TimeStamp.Designer.cs">
+      <DependentUpon>201401211809443_DataLoadResult_TimeStamp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401271851021_Employee_Adjustments_Notes.cs" />
+    <Compile Include="Migrations\201401271851021_Employee_Adjustments_Notes.Designer.cs">
+      <DependentUpon>201401271851021_Employee_Adjustments_Notes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401282118043_ProductionResults_Employee.cs" />
+    <Compile Include="Migrations\201401282118043_ProductionResults_Employee.Designer.cs">
+      <DependentUpon>201401282118043_ProductionResults_Employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402241849433_LotAttributeAndResolution_EmployeeBase.cs" />
+    <Compile Include="Migrations\201402241849433_LotAttributeAndResolution_EmployeeBase.Designer.cs">
+      <DependentUpon>201402241849433_LotAttributeAndResolution_EmployeeBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403112056012_RemoveLotAttributeNavFromLotAttributeDefect.cs" />
+    <Compile Include="Migrations\201403112056012_RemoveLotAttributeNavFromLotAttributeDefect.Designer.cs">
+      <DependentUpon>201403112056012_RemoveLotAttributeNavFromLotAttributeDefect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403191555425_LotHold.cs" />
+    <Compile Include="Migrations\201403191555425_LotHold.Designer.cs">
+      <DependentUpon>201403191555425_LotHold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403251810300_PackScheduleDeploy.cs" />
+    <Compile Include="Migrations\201403251810300_PackScheduleDeploy.Designer.cs">
+      <DependentUpon>201403251810300_PackScheduleDeploy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404041625275_LotDefectResolutionMaxDescriptionLength.cs" />
+    <Compile Include="Migrations\201404041625275_LotDefectResolutionMaxDescriptionLength.Designer.cs">
+      <DependentUpon>201404041625275_LotDefectResolutionMaxDescriptionLength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404072101555_PackSchedule_PSNum.cs" />
+    <Compile Include="Migrations\201404072101555_PackSchedule_PSNum.Designer.cs">
+      <DependentUpon>201404072101555_PackSchedule_PSNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404151949525_ProductionBatchInstructionNotebook.cs" />
+    <Compile Include="Migrations\201404151949525_ProductionBatchInstructionNotebook.Designer.cs">
+      <DependentUpon>201404151949525_ProductionBatchInstructionNotebook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404241500587_PackSchedule_Customer.cs" />
+    <Compile Include="Migrations\201404241500587_PackSchedule_Customer.Designer.cs">
+      <DependentUpon>201404241500587_PackSchedule_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405061559274_LotStatus.cs" />
+    <Compile Include="Migrations\201405061559274_LotStatus.Designer.cs">
+      <DependentUpon>201405061559274_LotStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405131450494_LotProductSpecStatus.cs" />
+    <Compile Include="Migrations\201405131450494_LotProductSpecStatus.Designer.cs">
+      <DependentUpon>201405131450494_LotProductSpecStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405191726469_LotProductionStatusChange.cs" />
+    <Compile Include="Migrations\201405191726469_LotProductionStatusChange.Designer.cs">
+      <DependentUpon>201405191726469_LotProductionStatusChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405281459038_LotProductSpecStatuses.cs" />
+    <Compile Include="Migrations\201405281459038_LotProductSpecStatuses.Designer.cs">
+      <DependentUpon>201405281459038_LotProductSpecStatuses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406032036429_LotQualityControlNotebook.cs" />
+    <Compile Include="Migrations\201406032036429_LotQualityControlNotebook.Designer.cs">
+      <DependentUpon>201406032036429_LotQualityControlNotebook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406092235022_ChileLotProduction.cs" />
+    <Compile Include="Migrations\201406092235022_ChileLotProduction.Designer.cs">
+      <DependentUpon>201406092235022_ChileLotProduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406182052109_ComputedAttributes.cs" />
+    <Compile Include="Migrations\201406182052109_ComputedAttributes.Designer.cs">
+      <DependentUpon>201406182052109_ComputedAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406251648552_AttributeDateIndex.cs" />
+    <Compile Include="Migrations\201406251648552_AttributeDateIndex.Designer.cs">
+      <DependentUpon>201406251648552_AttributeDateIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407211744415_RemovedCompanyDepths.cs" />
+    <Compile Include="Migrations\201407211744415_RemovedCompanyDepths.Designer.cs">
+      <DependentUpon>201407211744415_RemovedCompanyDepths.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409012011320_CustomerProductSpecs.cs" />
+    <Compile Include="Migrations\201409012011320_CustomerProductSpecs.Designer.cs">
+      <DependentUpon>201409012011320_CustomerProductSpecs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410211605259_LotPackaging.cs" />
+    <Compile Include="Migrations\201410211605259_LotPackaging.Designer.cs">
+      <DependentUpon>201410211605259_LotPackaging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411122232425_Contracts.cs" />
+    <Compile Include="Migrations\201411122232425_Contracts.Designer.cs">
+      <DependentUpon>201411122232425_Contracts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411171843180_ContractDate.cs" />
+    <Compile Include="Migrations\201411171843180_ContractDate.Designer.cs">
+      <DependentUpon>201411171843180_ContractDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411181820122_ContractItemKDetailID.cs" />
+    <Compile Include="Migrations\201411181820122_ContractItemKDetailID.Designer.cs">
+      <DependentUpon>201411181820122_ContractItemKDetailID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412032202517_CustomerOrders2.cs" />
+    <Compile Include="Migrations\201412032202517_CustomerOrders2.Designer.cs">
+      <DependentUpon>201412032202517_CustomerOrders2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412091815333_Locations.cs" />
+    <Compile Include="Migrations\201412091815333_Locations.Designer.cs">
+      <DependentUpon>201412091815333_Locations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412292050438_IntraWarehouseOrders.cs" />
+    <Compile Include="Migrations\201412292050438_IntraWarehouseOrders.Designer.cs">
+      <DependentUpon>201412292050438_IntraWarehouseOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412311719071_UniqueTrackingSheetNumbers.cs" />
+    <Compile Include="Migrations\201412311719071_UniqueTrackingSheetNumbers.Designer.cs">
+      <DependentUpon>201412311719071_UniqueTrackingSheetNumbers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501132256217_AttributeNameActualRequired.cs" />
+    <Compile Include="Migrations\201501132256217_AttributeNameActualRequired.Designer.cs">
+      <DependentUpon>201501132256217_AttributeNameActualRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501191846161_DataLoadCompletion.cs" />
+    <Compile Include="Migrations\201501191846161_DataLoadCompletion.Designer.cs">
+      <DependentUpon>201501191846161_DataLoadCompletion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501212306036_InventoryShipmentOrders.cs" />
+    <Compile Include="Migrations\201501212306036_InventoryShipmentOrders.Designer.cs">
+      <DependentUpon>201501212306036_InventoryShipmentOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501270006448_OrderMoveNum.cs" />
+    <Compile Include="Migrations\201501270006448_OrderMoveNum.Designer.cs">
+      <DependentUpon>201501270006448_OrderMoveNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502031804142_Facility.cs" />
+    <Compile Include="Migrations\201502031804142_Facility.Designer.cs">
+      <DependentUpon>201502031804142_Facility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503022154482_Facility_WHID.cs" />
+    <Compile Include="Migrations\201503022154482_Facility_WHID.Designer.cs">
+      <DependentUpon>201503022154482_Facility_WHID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503032348233_LocationDescription.cs" />
+    <Compile Include="Migrations\201503032348233_LocationDescription.Designer.cs">
+      <DependentUpon>201503032348233_LocationDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503161751096_LocationUniqueFacilityDescription.cs" />
+    <Compile Include="Migrations\201503161751096_LocationUniqueFacilityDescription.Designer.cs">
+      <DependentUpon>201503161751096_LocationUniqueFacilityDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503182056306_InventoryTransactions.cs" />
+    <Compile Include="Migrations\201503182056306_InventoryTransactions.Designer.cs">
+      <DependentUpon>201503182056306_InventoryTransactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503241910271_InventoryShipmentOrder_SourceFacility.cs" />
+    <Compile Include="Migrations\201503241910271_InventoryShipmentOrder_SourceFacility.Designer.cs">
+      <DependentUpon>201503241910271_InventoryShipmentOrder_SourceFacility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504031603408_ShipmentInformation_Notes.cs" />
+    <Compile Include="Migrations\201504031603408_ShipmentInformation_Notes.Designer.cs">
+      <DependentUpon>201504031603408_ShipmentInformation_Notes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504032225549_PickedItem_NoDestination.cs" />
+    <Compile Include="Migrations\201504032225549_PickedItem_NoDestination.Designer.cs">
+      <DependentUpon>201504032225549_PickedItem_NoDestination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504071806490_CustomerCodes.cs" />
+    <Compile Include="Migrations\201504071806490_CustomerCodes.Designer.cs">
+      <DependentUpon>201504071806490_CustomerCodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504082008334_InventoryShipmentOrder_Properties.cs" />
+    <Compile Include="Migrations\201504082008334_InventoryShipmentOrder_Properties.Designer.cs">
+      <DependentUpon>201504082008334_InventoryShipmentOrder_Properties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504082226255_PickOrderItem_Customer.cs" />
+    <Compile Include="Migrations\201504082226255_PickOrderItem_Customer.Designer.cs">
+      <DependentUpon>201504082226255_PickOrderItem_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504131934597_CustomerNotes.cs" />
+    <Compile Include="Migrations\201504131934597_CustomerNotes.Designer.cs">
+      <DependentUpon>201504131934597_CustomerNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504132312264_PackagingWeights.cs" />
+    <Compile Include="Migrations\201504132312264_PackagingWeights.Designer.cs">
+      <DependentUpon>201504132312264_PackagingWeights.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505051719234_ShippingLabelName_Length.cs" />
+    <Compile Include="Migrations\201505051719234_ShippingLabelName_Length.Designer.cs">
+      <DependentUpon>201505051719234_ShippingLabelName_Length.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505062049210_PalletWeight_Nullable.cs" />
+    <Compile Include="Migrations\201505062049210_PalletWeight_Nullable.Designer.cs">
+      <DependentUpon>201505062049210_PalletWeight_Nullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506161615391_FacilityShippingLabelName.cs" />
+    <Compile Include="Migrations\201506161615391_FacilityShippingLabelName.Designer.cs">
+      <DependentUpon>201506161615391_FacilityShippingLabelName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507071813201_TreatmentOrderReturned.cs" />
+    <Compile Include="Migrations\201507071813201_TreatmentOrderReturned.Designer.cs">
+      <DependentUpon>201507071813201_TreatmentOrderReturned.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507151550311_Transaction_DestinationLot.cs" />
+    <Compile Include="Migrations\201507151550311_Transaction_DestinationLot.Designer.cs">
+      <DependentUpon>201507151550311_Transaction_DestinationLot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507212003072_CustomerOrderItem_LotCodeRemove.cs" />
+    <Compile Include="Migrations\201507212003072_CustomerOrderItem_LotCodeRemove.Designer.cs">
+      <DependentUpon>201507212003072_CustomerOrderItem_LotCodeRemove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507271932464_CustomerOrder_PreShipmentSampleRequired.cs" />
+    <Compile Include="Migrations\201507271932464_CustomerOrder_PreShipmentSampleRequired.Designer.cs">
+      <DependentUpon>201507271932464_CustomerOrder_PreShipmentSampleRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508041819000_CustomerOrders_NonNullable.cs" />
+    <Compile Include="Migrations\201508041819000_CustomerOrders_NonNullable.Designer.cs">
+      <DependentUpon>201508041819000_CustomerOrders_NonNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509281745049_ProductionBegin_Index.cs" />
+    <Compile Include="Migrations\201509281745049_ProductionBegin_Index.Designer.cs">
+      <DependentUpon>201509281745049_ProductionBegin_Index.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511241840472_ChileVariety.cs" />
+    <Compile Include="Migrations\201511241840472_ChileVariety.Designer.cs">
+      <DependentUpon>201511241840472_ChileVariety.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512081911162_Lot_Notes.cs" />
+    <Compile Include="Migrations\201512081911162_Lot_Notes.Designer.cs">
+      <DependentUpon>201512081911162_Lot_Notes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602232106563_CompanyAncestry.cs" />
+    <Compile Include="Migrations\201602232106563_CompanyAncestry.Designer.cs">
+      <DependentUpon>201602232106563_CompanyAncestry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604041815238_SalesOrders.cs" />
+    <Compile Include="Migrations\201604041815238_SalesOrders.Designer.cs">
+      <DependentUpon>201604041815238_SalesOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604061513212_LotAllowances.cs" />
+    <Compile Include="Migrations\201604061513212_LotAllowances.Designer.cs">
+      <DependentUpon>201604061513212_LotAllowances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604261750416_ShipmentMethodIndex.cs" />
+    <Compile Include="Migrations\201604261750416_ShipmentMethodIndex.Designer.cs">
+      <DependentUpon>201604261750416_ShipmentMethodIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605251636341_MoveNum_Index.cs" />
+    <Compile Include="Migrations\201605251636341_MoveNum_Index.Designer.cs">
+      <DependentUpon>201605251636341_MoveNum_Index.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607221949289_CustomerOrder_Invoicing.cs" />
+    <Compile Include="Migrations\201607221949289_CustomerOrder_Invoicing.Designer.cs">
+      <DependentUpon>201607221949289_CustomerOrder_Invoicing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608022124300_Lot_AttributeDefects.cs" />
+    <Compile Include="Migrations\201608022124300_Lot_AttributeDefects.Designer.cs">
+      <DependentUpon>201608022124300_Lot_AttributeDefects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608091932583_Lot_InventoryReceived.cs" />
+    <Compile Include="Migrations\201608091932583_Lot_InventoryReceived.Designer.cs">
+      <DependentUpon>201608091932583_Lot_InventoryReceived.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608172006115_Company_Identifiable.cs" />
+    <Compile Include="Migrations\201608172006115_Company_Identifiable.Designer.cs">
+      <DependentUpon>201608172006115_Company_Identifiable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608231526334_ContactSync.cs" />
+    <Compile Include="Migrations\201608231526334_ContactSync.Designer.cs">
+      <DependentUpon>201608231526334_ContactSync.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608242043040_ShipmentInformation_ShippedDate.cs" />
+    <Compile Include="Migrations\201608242043040_ShipmentInformation_ShippedDate.Designer.cs">
+      <DependentUpon>201608242043040_ShipmentInformation_ShippedDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608292036420_ShipmentInformation_ShipmentDate.cs" />
+    <Compile Include="Migrations\201608292036420_ShipmentInformation_ShipmentDate.Designer.cs">
+      <DependentUpon>201608292036420_ShipmentInformation_ShipmentDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608302241323_ChileProductIngredients_EmployeeIdentifiable.cs" />
+    <Compile Include="Migrations\201608302241323_ChileProductIngredients_EmployeeIdentifiable.Designer.cs">
+      <DependentUpon>201608302241323_ChileProductIngredients_EmployeeIdentifiable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608311735334_ChileProductAttributeRange_EmployeeIdentifiable.cs" />
+    <Compile Include="Migrations\201608311735334_ChileProductAttributeRange_EmployeeIdentifiable.Designer.cs">
+      <DependentUpon>201608311735334_ChileProductAttributeRange_EmployeeIdentifiable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609141713284_SampleOrders.cs" />
+    <Compile Include="Migrations\201609141713284_SampleOrders.Designer.cs">
+      <DependentUpon>201609141713284_SampleOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609262109470_CustomerCodeLengths.cs" />
+    <Compile Include="Migrations\201609262109470_CustomerCodeLengths.Designer.cs">
+      <DependentUpon>201609262109470_CustomerCodeLengths.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610051610478_Company_FeatureTrim.cs" />
+    <Compile Include="Migrations\201610051610478_Company_FeatureTrim.Designer.cs">
+      <DependentUpon>201610051610478_Company_FeatureTrim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610112259223_ChileMaterialsReceived.cs" />
+    <Compile Include="Migrations\201610112259223_ChileMaterialsReceived.Designer.cs">
+      <DependentUpon>201610112259223_ChileMaterialsReceived.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610171641078_ChileMaterialsReceived_RemoveRedundantCodes.cs" />
+    <Compile Include="Migrations\201610171641078_ChileMaterialsReceived_RemoveRedundantCodes.Designer.cs">
+      <DependentUpon>201610171641078_ChileMaterialsReceived_RemoveRedundantCodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610242109480_ProductionSchedules.cs" />
+    <Compile Include="Migrations\201610242109480_ProductionSchedules.Designer.cs">
+      <DependentUpon>201610242109480_ProductionSchedules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611011531380_ChileProduct_Mesh.cs" />
+    <Compile Include="Migrations\201611011531380_ChileProduct_Mesh.Designer.cs">
+      <DependentUpon>201611011531380_ChileProduct_Mesh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611072128073_ChileProduct_IngredientsDescription.cs" />
+    <Compile Include="Migrations\201611072128073_ChileProduct_IngredientsDescription.Designer.cs">
+      <DependentUpon>201611072128073_ChileProduct_IngredientsDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611142131521_MiscOrders.cs" />
+    <Compile Include="Migrations\201611142131521_MiscOrders.Designer.cs">
+      <DependentUpon>201611142131521_MiscOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611212110594_LotHistory.cs" />
+    <Compile Include="Migrations\201611212110594_LotHistory.Designer.cs">
+      <DependentUpon>201611212110594_LotHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611291628406_SampleOrders_GenericProduct.cs" />
+    <Compile Include="Migrations\201611291628406_SampleOrders_GenericProduct.Designer.cs">
+      <DependentUpon>201611291628406_SampleOrders_GenericProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612052307277_InvoiceNotes_Length.cs" />
+    <Compile Include="Migrations\201612052307277_InvoiceNotes_Length.Designer.cs">
+      <DependentUpon>201612052307277_InvoiceNotes_Length.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612131620393_ShipmentInformation_NoteLengths.cs" />
+    <Compile Include="Migrations\201612131620393_ShipmentInformation_NoteLengths.Designer.cs">
+      <DependentUpon>201612131620393_ShipmentInformation_NoteLengths.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612142210544_SalesQuotes.cs" />
+    <Compile Include="Migrations\201612142210544_SalesQuotes.Designer.cs">
+      <DependentUpon>201612142210544_SalesQuotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612201843187_SalesQuote_PaymentTerms.cs" />
+    <Compile Include="Migrations\201612201843187_SalesQuote_PaymentTerms.Designer.cs">
+      <DependentUpon>201612201843187_SalesQuote_PaymentTerms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="PocoMother.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RioValleyChiliDataContext.cs" />
+    <Compile Include="RVCDataLoadResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RioValleyChili.Core\RioValleyChili.Core.csproj">
+      <Project>{b4a2b7da-4f15-4b75-a65f-025c32564ea0}</Project>
+      <Name>RioValleyChili.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Data.Models\RioValleyChili.Data.Models.csproj">
+      <Project>{12191B6E-B491-4398-83D2-4878ECBDAFD1}</Project>
+      <Name>RioValleyChili.Data.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favico-32x32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201305091928058_Initial.resx">
+      <DependentUpon>201305091928058_Initial.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305142225425_DehydratedReceived.resx">
+      <DependentUpon>201305142225425_DehydratedReceived.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305161946479_MillAndWetdown.resx">
+      <DependentUpon>201305161946479_MillAndWetdown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305291555142_CustomerContracts.resx">
+      <DependentUpon>201305291555142_CustomerContracts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306052105430_CustomerOrders.resx">
+      <DependentUpon>201306052105430_CustomerOrders.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306112104595_ToteKey.resx">
+      <DependentUpon>201306112104595_ToteKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306172019416_ContactAddress.resx">
+      <DependentUpon>201306172019416_ContactAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306182234579_CustomerOrderPickedItem.resx">
+      <DependentUpon>201306182234579_CustomerOrderPickedItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306212239133_RemoveChileProductAttributes.resx">
+      <DependentUpon>201306212239133_RemoveChileProductAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306241704464_InventoryAdjustments.resx">
+      <DependentUpon>201306241704464_InventoryAdjustments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307012028410_ProductSpecs.resx">
+      <DependentUpon>201307012028410_ProductSpecs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307151658019_InstructionType.resx">
+      <DependentUpon>201307151658019_InstructionType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307221821488_CompanyType.resx">
+      <DependentUpon>201307221821488_CompanyType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307241645307_InventoryPickOrderItem_DropTreatment.resx">
+      <DependentUpon>201307241645307_InventoryPickOrderItem_DropTreatment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307241646346_PackSchID.resx">
+      <DependentUpon>201307241646346_PackSchID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307292147131_Dehydrators.resx">
+      <DependentUpon>201307292147131_Dehydrators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308061643522_ContractWarehouse.resx">
+      <DependentUpon>201308061643522_ContractWarehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308141818306_CompanyActive.resx">
+      <DependentUpon>201308141818306_CompanyActive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308212058315_NestedCompany_Notebook.resx">
+      <DependentUpon>201308212058315_NestedCompany_Notebook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310091530378_CompanyAddress.resx">
+      <DependentUpon>201310091530378_CompanyAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310142249042_CompanyTypes.resx">
+      <DependentUpon>201310142249042_CompanyTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310281627084_AdjustmentNotes.resx">
+      <DependentUpon>201310281627084_AdjustmentNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311041830271_MillAndWetdownLotTrim.resx">
+      <DependentUpon>201311041830271_MillAndWetdownLotTrim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311122330003_PickedInventoryDestination.resx">
+      <DependentUpon>201311122330003_PickedInventoryDestination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312132109592_EmployeesTable_NonReferential.resx">
+      <DependentUpon>201312132109592_EmployeesTable_NonReferential.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312161742045_EmployeeBase.resx">
+      <DependentUpon>201312161742045_EmployeeBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312231705343_EmployeeClaims.resx">
+      <DependentUpon>201312231705343_EmployeeClaims.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401011728440_DataLoadResult.resx">
+      <DependentUpon>201401011728440_DataLoadResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401211809443_DataLoadResult_TimeStamp.resx">
+      <DependentUpon>201401211809443_DataLoadResult_TimeStamp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401271851021_Employee_Adjustments_Notes.resx">
+      <DependentUpon>201401271851021_Employee_Adjustments_Notes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401282118043_ProductionResults_Employee.resx">
+      <DependentUpon>201401282118043_ProductionResults_Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402241849433_LotAttributeAndResolution_EmployeeBase.resx">
+      <DependentUpon>201402241849433_LotAttributeAndResolution_EmployeeBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403112056012_RemoveLotAttributeNavFromLotAttributeDefect.resx">
+      <DependentUpon>201403112056012_RemoveLotAttributeNavFromLotAttributeDefect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403191555425_LotHold.resx">
+      <DependentUpon>201403191555425_LotHold.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403251810300_PackScheduleDeploy.resx">
+      <DependentUpon>201403251810300_PackScheduleDeploy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404041625275_LotDefectResolutionMaxDescriptionLength.resx">
+      <DependentUpon>201404041625275_LotDefectResolutionMaxDescriptionLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404072101555_PackSchedule_PSNum.resx">
+      <DependentUpon>201404072101555_PackSchedule_PSNum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404151949525_ProductionBatchInstructionNotebook.resx">
+      <DependentUpon>201404151949525_ProductionBatchInstructionNotebook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404241500587_PackSchedule_Customer.resx">
+      <DependentUpon>201404241500587_PackSchedule_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405061559274_LotStatus.resx">
+      <DependentUpon>201405061559274_LotStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405131450494_LotProductSpecStatus.resx">
+      <DependentUpon>201405131450494_LotProductSpecStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405191726469_LotProductionStatusChange.resx">
+      <DependentUpon>201405191726469_LotProductionStatusChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405281459038_LotProductSpecStatuses.resx">
+      <DependentUpon>201405281459038_LotProductSpecStatuses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406032036429_LotQualityControlNotebook.resx">
+      <DependentUpon>201406032036429_LotQualityControlNotebook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406092235022_ChileLotProduction.resx">
+      <DependentUpon>201406092235022_ChileLotProduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406182052109_ComputedAttributes.resx">
+      <DependentUpon>201406182052109_ComputedAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406251648552_AttributeDateIndex.resx">
+      <DependentUpon>201406251648552_AttributeDateIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407211744415_RemovedCompanyDepths.resx">
+      <DependentUpon>201407211744415_RemovedCompanyDepths.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409012011320_CustomerProductSpecs.resx">
+      <DependentUpon>201409012011320_CustomerProductSpecs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410211605259_LotPackaging.resx">
+      <DependentUpon>201410211605259_LotPackaging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411122232425_Contracts.resx">
+      <DependentUpon>201411122232425_Contracts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411171843180_ContractDate.resx">
+      <DependentUpon>201411171843180_ContractDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411181820122_ContractItemKDetailID.resx">
+      <DependentUpon>201411181820122_ContractItemKDetailID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412032202517_CustomerOrders2.resx">
+      <DependentUpon>201412032202517_CustomerOrders2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412091815333_Locations.resx">
+      <DependentUpon>201412091815333_Locations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412292050438_IntraWarehouseOrders.resx">
+      <DependentUpon>201412292050438_IntraWarehouseOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412311719071_UniqueTrackingSheetNumbers.resx">
+      <DependentUpon>201412311719071_UniqueTrackingSheetNumbers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501132256217_AttributeNameActualRequired.resx">
+      <DependentUpon>201501132256217_AttributeNameActualRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501191846161_DataLoadCompletion.resx">
+      <DependentUpon>201501191846161_DataLoadCompletion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501212306036_InventoryShipmentOrders.resx">
+      <DependentUpon>201501212306036_InventoryShipmentOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501270006448_OrderMoveNum.resx">
+      <DependentUpon>201501270006448_OrderMoveNum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502031804142_Facility.resx">
+      <DependentUpon>201502031804142_Facility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503022154482_Facility_WHID.resx">
+      <DependentUpon>201503022154482_Facility_WHID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503032348233_LocationDescription.resx">
+      <DependentUpon>201503032348233_LocationDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503161751096_LocationUniqueFacilityDescription.resx">
+      <DependentUpon>201503161751096_LocationUniqueFacilityDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503182056306_InventoryTransactions.resx">
+      <DependentUpon>201503182056306_InventoryTransactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503241910271_InventoryShipmentOrder_SourceFacility.resx">
+      <DependentUpon>201503241910271_InventoryShipmentOrder_SourceFacility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504031603408_ShipmentInformation_Notes.resx">
+      <DependentUpon>201504031603408_ShipmentInformation_Notes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504032225549_PickedItem_NoDestination.resx">
+      <DependentUpon>201504032225549_PickedItem_NoDestination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504071806490_CustomerCodes.resx">
+      <DependentUpon>201504071806490_CustomerCodes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504082008334_InventoryShipmentOrder_Properties.resx">
+      <DependentUpon>201504082008334_InventoryShipmentOrder_Properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504082226255_PickOrderItem_Customer.resx">
+      <DependentUpon>201504082226255_PickOrderItem_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504131934597_CustomerNotes.resx">
+      <DependentUpon>201504131934597_CustomerNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504132312264_PackagingWeights.resx">
+      <DependentUpon>201504132312264_PackagingWeights.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505051719234_ShippingLabelName_Length.resx">
+      <DependentUpon>201505051719234_ShippingLabelName_Length.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505062049210_PalletWeight_Nullable.resx">
+      <DependentUpon>201505062049210_PalletWeight_Nullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506161615391_FacilityShippingLabelName.resx">
+      <DependentUpon>201506161615391_FacilityShippingLabelName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507071813201_TreatmentOrderReturned.resx">
+      <DependentUpon>201507071813201_TreatmentOrderReturned.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507151550311_Transaction_DestinationLot.resx">
+      <DependentUpon>201507151550311_Transaction_DestinationLot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507212003072_CustomerOrderItem_LotCodeRemove.resx">
+      <DependentUpon>201507212003072_CustomerOrderItem_LotCodeRemove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507271932464_CustomerOrder_PreShipmentSampleRequired.resx">
+      <DependentUpon>201507271932464_CustomerOrder_PreShipmentSampleRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508041819000_CustomerOrders_NonNullable.resx">
+      <DependentUpon>201508041819000_CustomerOrders_NonNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509281745049_ProductionBegin_Index.resx">
+      <DependentUpon>201509281745049_ProductionBegin_Index.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511241840472_ChileVariety.resx">
+      <DependentUpon>201511241840472_ChileVariety.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512081911162_Lot_Notes.resx">
+      <DependentUpon>201512081911162_Lot_Notes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602232106563_CompanyAncestry.resx">
+      <DependentUpon>201602232106563_CompanyAncestry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604041815238_SalesOrders.resx">
+      <DependentUpon>201604041815238_SalesOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604061513212_LotAllowances.resx">
+      <DependentUpon>201604061513212_LotAllowances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604261750416_ShipmentMethodIndex.resx">
+      <DependentUpon>201604261750416_ShipmentMethodIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605251636341_MoveNum_Index.resx">
+      <DependentUpon>201605251636341_MoveNum_Index.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607221949289_CustomerOrder_Invoicing.resx">
+      <DependentUpon>201607221949289_CustomerOrder_Invoicing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608022124300_Lot_AttributeDefects.resx">
+      <DependentUpon>201608022124300_Lot_AttributeDefects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608091932583_Lot_InventoryReceived.resx">
+      <DependentUpon>201608091932583_Lot_InventoryReceived.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608172006115_Company_Identifiable.resx">
+      <DependentUpon>201608172006115_Company_Identifiable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608231526334_ContactSync.resx">
+      <DependentUpon>201608231526334_ContactSync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608242043040_ShipmentInformation_ShippedDate.resx">
+      <DependentUpon>201608242043040_ShipmentInformation_ShippedDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608292036420_ShipmentInformation_ShipmentDate.resx">
+      <DependentUpon>201608292036420_ShipmentInformation_ShipmentDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608302241323_ChileProductIngredients_EmployeeIdentifiable.resx">
+      <DependentUpon>201608302241323_ChileProductIngredients_EmployeeIdentifiable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608311735334_ChileProductAttributeRange_EmployeeIdentifiable.resx">
+      <DependentUpon>201608311735334_ChileProductAttributeRange_EmployeeIdentifiable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609141713284_SampleOrders.resx">
+      <DependentUpon>201609141713284_SampleOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609262109470_CustomerCodeLengths.resx">
+      <DependentUpon>201609262109470_CustomerCodeLengths.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610051610478_Company_FeatureTrim.resx">
+      <DependentUpon>201610051610478_Company_FeatureTrim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610112259223_ChileMaterialsReceived.resx">
+      <DependentUpon>201610112259223_ChileMaterialsReceived.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610171641078_ChileMaterialsReceived_RemoveRedundantCodes.resx">
+      <DependentUpon>201610171641078_ChileMaterialsReceived_RemoveRedundantCodes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610242109480_ProductionSchedules.resx">
+      <DependentUpon>201610242109480_ProductionSchedules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611011531380_ChileProduct_Mesh.resx">
+      <DependentUpon>201611011531380_ChileProduct_Mesh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611072128073_ChileProduct_IngredientsDescription.resx">
+      <DependentUpon>201611072128073_ChileProduct_IngredientsDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611142131521_MiscOrders.resx">
+      <DependentUpon>201611142131521_MiscOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611212110594_LotHistory.resx">
+      <DependentUpon>201611212110594_LotHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611291628406_SampleOrders_GenericProduct.resx">
+      <DependentUpon>201611291628406_SampleOrders_GenericProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612052307277_InvoiceNotes_Length.resx">
+      <DependentUpon>201612052307277_InvoiceNotes_Length.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612131620393_ShipmentInformation_NoteLengths.resx">
+      <DependentUpon>201612131620393_ShipmentInformation_NoteLengths.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612142210544_SalesQuotes.resx">
+      <DependentUpon>201612142210544_SalesQuotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612201843187_SalesQuote_PaymentTerms.resx">
+      <DependentUpon>201612201843187_SalesQuote_PaymentTerms.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

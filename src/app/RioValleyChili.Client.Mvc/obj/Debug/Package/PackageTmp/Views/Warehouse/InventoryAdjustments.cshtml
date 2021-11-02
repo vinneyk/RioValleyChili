@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "InventoryAdjustments";
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+}
+
+@section controlPanel
+{
+<fieldset>
+    <form data-bind="submit: searchForKey.execute">
+        <div class="input-group">
+            <input type="search" class="form-control" data-bind="textinput: searchKey">
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-default" data-bind="click: searchForKey.execute, enable: searchForKey.canExecute"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </form>
+</fieldset>
+<fieldset data-bind="visible: !editorData.input()">
+    <legend>Controls</legend>
+    <input type="button" value="Create New" data-bind="command: startNewAdjustment">
+</fieldset>
+<fieldset data-bind="visible: !editorData.input()">
+    <legend>Filters</legend>
+    <form data-bind="submit: loadMore.execute">
+        <div class="form-group">
+            <input type="submit" value="Load More" data-bind="command: loadMore">
+        </div>
+        <lot-filters params="input: {},
+        filters: filtersData.filters,
+        mode: 'inventoryAdjustment',
+        enableFacilityFilter: true">
+        </lot-filters>
+    </form>
+</fieldset>
+<fieldset data-bind="visible: editorData.input">
+    <legend>Editor Controls</legend>
+    <input type="button" class="save" value="Save" data-bind="command: saveDetailsCommand, visible: isNew">
+    <input type="button" value="Close" data-bind="attr: { value: isEditorDirty() ? 'Cancel' : 'Close' }, css: { 'delete': isEditorDirty }, command: closeDetailsCommand">
+</fieldset>
+}
+
+@section scripts
+{
+    <script src="~/App/build/warehouseInventoryAdjustments.bundle.js?v=@Html.AppVersion()"></script>
+}
+
+<section>
+    <header>
+        <h2>Inventory Adjustments</h2>
+    </header>
+
+    <inventory-adjustments-summary params="input: summaryData.input,
+    selected: summaryData.selected">
+    </inventory-adjustments-summary>
+</section>
+
+<section>
+    <div data-bind="popup: editorData.input, closePopupCommand: closeDetailsCommand">
+        <hgroup>
+            <h2>Inventory Adjustment</h2>
+            <h3 data-bind="text: currentKey() === 'new' ? 'New Adjustment' : currentKey"></h3>
+        </hgroup>
+
+        <div class="container-fluid" data-bind="if: editorData.input">
+            <inventory-adjustments-editor params="input: editorData.input, options: editorData.options, exports: editorData.exports">
+            </inventory-adjustments-editor>
+        </div>
+    </div>
+</section>

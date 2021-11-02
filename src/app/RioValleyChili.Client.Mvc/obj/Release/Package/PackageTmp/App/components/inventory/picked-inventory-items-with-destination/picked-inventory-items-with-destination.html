@@ -1,0 +1,89 @@
+﻿<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Inventory to Move</h3>
+  </div>
+  <div class="table-responsive">
+    <table class="reset table table-striped table-hover" data-bind="tabOnEnter: true">
+      <thead>
+        <tr>
+          <th>Lot</th>
+          <th>Product</th>
+          <th>Origin Location</th>
+          <th class="col-sm-2">Packaging</th>
+          <th class="col-sm-1">Treatment</th>
+          <th>Qty. Picked</th>
+          <th>Weight</th>
+          <th>Qty. Remaining</th>
+          <th>Destination Location</th>
+          <th data-bind="visible: isEditable"></th>
+        </tr>
+      </thead>
+      <tbody data-bind="foreach: PickedInventoryItems">
+        <tr data-bind="css: { danger: QuantityPicked() && !IsValidInventory() } ">
+          <td>
+            <div class="form-group" data-bind="css: { 'has-error': LotKey.ajaxFailure() }">
+              <input type="text" class="form-control medium" style="display: inline" 
+                    data-bind="value: LotKey.formattedLot, 
+                    valueUpdate: 'input', 
+                    enable: $parent.isEditable() && !LotKey.ajaxWorking()" />
+            </div>
+          </td>
+          <td data-bind="text: InventoryProductName"></td>
+          <td>
+            <div class="form-group">
+              <select class="form-control small-medium" data-bind="value: OriginWarehouseLocation, options: OriginWarehouseLocationsWithInventory, optionsText: $parent.locationDescription, optionsValue: 'Location', enable: $parent.isEditable, hasFocus: originWarehouseLocationHasFocus"></select>
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <select class="form-control" data-bind="value: PackagingProduct, options: PackagingProductOptions, optionsText: 'ProductName', optionsCaption: ' ', enable: $parent.isEditable, hasFocus: packagingProductOptionsHasFocus"></select>
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <select class="form-control" data-bind="value: InventoryTreatment, options: InventoryTreatment.options, optionsText: 'value', optionsValue: 'key', enable: $parent.isEditable, hasFocus: treatmentOptionsHasFocus"></select>
+            </div>
+          </td>
+          <td data-bind="css: { 'has-error': QuantityPicked() && !IsValidInventory() }" class="form-group">
+            <div class="form-group">
+              <input type="text" class="form-control small" data-bind="value: QuantityPicked, enable: $parent.isEditable" />
+            </div>
+          </td>
+          <td data-bind="text: WeightPicked.formatted" class="calc"></td>
+          <td data-bind="text: QuantityRemaining" class="calc"></td>
+          <td>
+            <div class="form-group" data-bind="css: { 'has-error': !isValidDestination() }">
+              <input type="text" class="form-control" data-bind="jqAuto: { 
+                  value: DestinationWarehouseLocationValue, 
+                  source: DestinationWarehouseLocationOptions, 
+                  options: { minLength: 1, autoFocus: true }
+                }, 
+                enable: $parent.isEditable() && enableDestinationWarehouseLocation()">
+            </div>
+          </td>
+          <td data-bind="visible: $parent.isEditable">
+            <i class="icon-button icon-button-1 fa fa-trash-o" 
+               data-bind="command: $parent.removePickedItemCommand, 
+                          visible: $parent.isEditable" >
+            </i>
+          </td>
+        </tr>
+      </tbody>
+      <tbody data-bind="if: isEditable">
+        <tr>
+          <td colspan="10">
+            <a data-bind="command: addPickedItemCommand" href="#" class="text-button"><i class="fa fa-plus-square icon-button"></i> Add Another Item</a>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="active">
+          <td colspan="5" class="right"><strong>Total</strong></td>
+          <td data-bind="text: TotalQuantityPicked.formatted"></td>
+          <td data-bind="text: TotalWeightPicked.formatted"></td>
+          <td colspan="3"></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

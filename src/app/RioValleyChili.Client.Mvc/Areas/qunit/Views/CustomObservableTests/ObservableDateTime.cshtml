@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "ObservableDateTime Tests";
+}
+
+<h2>Observable DateTime Tests</h2>
+
+@section tests
+{
+    <script src="http://code.jquery.com/qunit/qunit-1.11.0.js"></script>
+    <script src="~/Scripts/knockout-2.3.0.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date-format.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date.js"></script>
+    <script src="~/Scripts/thirdparty/libs/date.parse.js"></script>
+    <script src="~/Scripts/ko.extenders.date.js"></script>
+    <script src="~/Scripts/sh.knockout.customObservables.js"></script>
+    <script type="text/javascript">
+        module("Initialized Values");
+
+        test("Initialized from string",
+            function() {
+                var systemUnderTest = ko.observableDateTime('2/12/2014', 'mm/dd/yyyy');
+                ok(systemUnderTest, "Initialized ok");
+                equal('02/12/2014', systemUnderTest.formattedDate(), 'Date is formatted as expected.');
+            }
+        );
+        test("When initialized with valid ISO date string, ",
+            function() {
+                var input = "2013-10-08T12:50:00";
+                var format = 'mm/dd/yyyy HH:MM'
+                var systemUnderTest = ko.observableDateTime(input, format);
+                ok(systemUnderTest, "Initialized ok");
+                var expected = new Date(Date.parse(input));
+                equal(expected.format(format), systemUnderTest.formattedDate(), 'Date is formatted as expected.');
+            }
+        );
+        test("Initialized from date object",
+            function () {
+                var val = new Date();
+                var systemUnderTest = ko.observableDateTime(val, 'mm/dd/yyyy');
+                equal(val.format('mm/dd/yyyy'), systemUnderTest.formattedDate(), 'Date is formatted as expected.');
+            }
+        );
+        test("Value is in ISO format",
+            function () {
+                var val = new Date();
+                var systemUnderTest = ko.observableDateTime(val, 'mm/dd/yyyy');
+                equal(val.toISOString(), systemUnderTest(), 'Date value is correct.');
+            }
+        );
+        test("Formatted date value is converted to local time when initialized from ISO date value",
+            function () {
+                var dateVal = new Date();
+                var iso = dateVal.toISOString();
+                var format = 'mm/dd/yyyy HH:MM';
+                var systemUnderTest = ko.observableDateTime(iso, format);
+
+                equal(dateVal.format(format), systemUnderTest.formattedDate(), 'Date is formatted as expected.');
+            }
+        );
+
+        module("Updating Observable");
+
+        test("Value is null when input is invalid.",
+            function() {
+                var systemUnderTest = ko.observableDateTime(null, 'mm/dd/yyyy');
+                var val = 'blah!';
+                systemUnderTest(val);
+                equal(null, systemUnderTest());
+            });
+
+        test("Value is correct when input is valid.",
+            function() {
+                var systemUnderTest = ko.observableDateTime(null, 'mm/dd/yyyy HH:MM tt');
+                var val = '5/17/1983 8:00 AM';
+                systemUnderTest(val);
+                equal(new Date(val).toISOString(), systemUnderTest());
+            });
+
+        module("Updating Through formattedDate Property");
+
+        test("Value is correct when input is valid.",
+            function () {
+                var systemUnderTest = ko.observableDateTime(null, 'mm/dd/yyyy');
+                var val = '5/17/1983 8:00 AM';
+                systemUnderTest.formattedDate(val);
+                equal(new Date(val).toISOString(), systemUnderTest());
+            });
+
+        test("Value is null when input is valid.",
+            function () {
+                var systemUnderTest = ko.observableDateTime(null, 'mm/dd/yyyy');
+                var val = 'grrrrr';
+                systemUnderTest.formattedDate(val);
+                equal(null, systemUnderTest.formattedDate());
+            });
+    </script>
+}

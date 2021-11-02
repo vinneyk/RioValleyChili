@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddedAdjust" xml:space="preserve">
+    <value>Added new tblAdjust[{0}] record.</value>
+  </data>
+  <data name="AddedLot" xml:space="preserve">
+    <value>Added new tblLot[{0}] record.</value>
+  </data>
+  <data name="AddedPackSchedule" xml:space="preserve">
+    <value>Added new tblPackSch[{0}] record.</value>
+  </data>
+  <data name="PostedOrder" xml:space="preserve">
+    <value>Posted order[{0}].</value>
+  </data>
+  <data name="ReceivedInventory" xml:space="preserve">
+    <value>Created tblLot[{0}] with tblIncoming records.</value>
+  </data>
+  <data name="RemovedContract" xml:space="preserve">
+    <value>Removed tblContract[{0}] and tblContractDetail record(s).</value>
+  </data>
+  <data name="RemovedPackSchedule" xml:space="preserve">
+    <value>Removed tblPackSch[{0}] record.</value>
+  </data>
+  <data name="RemovedProductionBatch" xml:space="preserve">
+    <value>Removed production batch records for tblLot[{0}] record.</value>
+  </data>
+  <data name="SetPickedItemsForLot" xml:space="preserve">
+    <value>Set picked inventory items for tblLot[{0}] record.</value>
+  </data>
+  <data name="SetShipmentTblMove" xml:space="preserve">
+    <value>Set shipment for tblMove[{0}] record.</value>
+  </data>
+  <data name="SetShipmentTblOrder" xml:space="preserve">
+    <value>Set shipment for tblOrder[{0}] record.</value>
+  </data>
+  <data name="SynchronizedContract" xml:space="preserve">
+    <value>Synchronized tblContract[{0}] record.</value>
+  </data>
+  <data name="SynchronizedIntraWarehouserMovement" xml:space="preserve">
+    <value>Synchronized tblRincon[{0}] record.</value>
+  </data>
+  <data name="SyncTblMove" xml:space="preserve">
+    <value>Synchronized tblMove[{0}] record.</value>
+  </data>
+  <data name="UpdatedBatchInstructions" xml:space="preserve">
+    <value>Updated tblBatchInstr for tblLot[{0}] record.</value>
+  </data>
+  <data name="UpdatedCustomerSpecs" xml:space="preserve">
+    <value>Updated spec for customer[{0}] product[{1}].</value>
+  </data>
+  <data name="UpdatedLot" xml:space="preserve">
+    <value>Updated tblLot[{0}] record.</value>
+  </data>
+  <data name="UpdatedPackSchedule" xml:space="preserve">
+    <value>Updated tblPackSch[{0}] record.</value>
+  </data>
+  <data name="SyncProductionResults" xml:space="preserve">
+    <value>Synchronized production results for tblLot[{0}] record.</value>
+  </data>
+  <data name="CompletedExpiredContracts" xml:space="preserve">
+    <value>Completed {0} expired contracts.</value>
+  </data>
+  <data name="NoExpiredContracts" xml:space="preserve">
+    <value>No expired contracts to complete.</value>
+  </data>
+  <data name="SyncFacility" xml:space="preserve">
+    <value>Synchronized tblWarehouse[{0}] record.</value>
+  </data>
+  <data name="SyncLocation" xml:space="preserve">
+    <value>Synchronized tblLocation[{0}].</value>
+  </data>
+  <data name="ReceivedTreatmentOrder" xml:space="preserve">
+    <value>Received tblMove[{0}] treatment order.</value>
+  </data>
+  <data name="SyncTblOrder" xml:space="preserve">
+    <value>Synchronized tblOrder[{0}] record.</value>
+  </data>
+  <data name="SyncDehydratedReceived" xml:space="preserve">
+    <value>Synchronized dehydrated received for tblLot[{0}].</value>
+  </data>
+  <data name="RemovedTblMove" xml:space="preserve">
+    <value>Removed tblMove[{0}] record.</value>
+  </data>
+  <data name="RemovedTblOrder" xml:space="preserve">
+    <value>Removed tblOrder[{0}] record.</value>
+  </data>
+  <data name="SyncContractsStatus" xml:space="preserve">
+    <value>Synchronized tblContract[{0}] statuses.</value>
+  </data>
+  <data name="InvoicedOrder" xml:space="preserve">
+    <value>Invoiced tblOrder[{0}] record.</value>
+  </data>
+  <data name="SynchedCompany" xml:space="preserve">
+    <value>Synched Company[{0}] record.</value>
+  </data>
+  <data name="SynchedTblPackaging" xml:space="preserve">
+    <value>Synched tblPackaging[{0}] record.</value>
+  </data>
+  <data name="SynchedTblProduct" xml:space="preserve">
+    <value>Synched tblProduct[{0}] record.</value>
+  </data>
+  <data name="SyncTblProductIngrs" xml:space="preserve">
+    <value>Synchronized tblProductIngrs records for ProdID[{0}].</value>
+  </data>
+  <data name="DeletedTblSample" xml:space="preserve">
+    <value>Deleted tblSample[{0}] record(s).</value>
+  </data>
+  <data name="SynchedTblSample" xml:space="preserve">
+    <value>Synchronized tblSample[{0}] record(s).</value>
+  </data>
+  <data name="DeletedTblProfile" xml:space="preserve">
+    <value>Deleted tblProfile[{0}] record.</value>
+  </data>
+  <data name="DeletedContact" xml:space="preserve">
+    <value>Deleted Contact[{0}] record.</value>
+  </data>
+  <data name="SyncProductionSchedule" xml:space="preserve">
+    <value>Synched ProudctionSchedule[{0}-{1}] record.</value>
+  </data>
+  <data name="DeletedTblLot" xml:space="preserve">
+    <value>Deleted tblLot[{0}] record(s).</value>
+  </data>
+  <data name="SyncTblQuote" xml:space="preserve">
+    <value>Synched tblQuote[{0}] record.</value>
+  </data>
+</root>

@@ -1,0 +1,39 @@
+﻿@using RioValleyChili.Client.Mvc.Core.Security
+@{
+    ViewBag.Title = "Inventory";
+    ViewBag.PageTitle = "Inventory";
+    ViewBag.PageSubtitle = "Dashboard";
+}
+
+
+@section controlPanel
+{
+    @Html.SubNavigation(
+        "Move & Ship",
+        new[]
+        {
+            new NavigationItem("Rincon Movements", MVC.Warehouse.RinconMovements()),
+            new NavigationItem("Warehouse Transfers", MVC.Warehouse.InterWarehouseMovements()),
+            new NavigationItem("Treatment Orders", MVC.Warehouse.TreatmentOrders()),
+            new NavigationItem("Sales Orders", MVC.Customers.SalesOrders()),
+            new NavigationItem("Facility Maintenance", MVC.Warehouse.FacilityMaintenance())
+        })
+
+    @Html.SubNavigation(
+        "Inventory & Lots",
+        new[]
+        {
+            new NavigationItem("Inventory Overview", MVC.Warehouse.Inventory()),
+            new NavigationItem("Adjustments", MVC.Warehouse.InventoryAdjustments()),
+            new NavigationItem("Lot History", MVC.Warehouse.LotHistory()),
+            new NavigationItem("Cycle Count", MVC.Reporting.InventoryReporting.CycleCount( RioValleyChili.Core.Helpers.Constants.StaticKeyValues.RinconFacilityKey.ToString(), null ))
+        })
+
+    @Html.SubNavigation(
+        "Receiving",
+        new[]
+        {
+            new NavigationItem("Receive Chile Materials", MVC.Warehouse.ReceiveChileProduct()),
+            new NavigationItem("Receive Other", MVC.Warehouse.Receiving()),
+        })
+}

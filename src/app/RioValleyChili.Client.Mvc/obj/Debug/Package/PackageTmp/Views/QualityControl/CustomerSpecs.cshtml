@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Customer Product Spec";
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+}
+
+
+@section controlPanel
+{
+
+<fieldset data-bind="slideVisible: !editorData.input()">
+    <legend>Spec Controls</legend>
+    <input type="button" value="Create New Override" data-bind="command: startNewOverrideCommand">
+</fieldset>
+<fieldset data-bind="slideVisible: editorData.input">
+    <legend>Editor Controls</legend>
+    <input type="button" class="save" value="Save changes" data-bind="command: saveOverrideCommand">
+    <input type="button" class="delete" value="Delete" data-bind="command: deleteOverrideCommand, visible: !isNew()">
+    <input type="button" value="Close" data-bind="command: closeEditor">
+</fieldset>
+}
+
+<section>
+    <div data-bind="popup: editorData.input, closePopupCommand: closeEditor, if: editorData.input">
+        <hgroup>
+            <h3>Customer Product Spec</h3>
+            <h4 data-bind="text: selectedCustomer().Name"></h4>
+        </hgroup>
+        <div data-bind="with: editorData">
+            <customer-product-spec-editor
+                params="input: input,
+                    options: options,
+                    exports: exports">
+            </customer-product-spec-editor>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>Customer Product Specs</h2>
+            </div>
+        </div>
+
+        <section data-bind="visible: !isInit()">
+            <div class="well text-center">
+                <i class="fa fa-spinner fa-pulse fa-3x"></i>
+            </div>
+        </section>
+
+        <section data-bind="visible: isInit">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Customer</label>
+                        <product-selector 
+                        params="selectedValue: selectedCustomer,
+                        productsSource: options.customers,
+                        optionsValue: 'CompanyKey',
+                        optionsDisplay: 'Name'">
+                        </product-selector>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <section data-bind="with: summaryData">
+                        <customer-product-spec-summary
+                        params="input: input,
+                        selected: selected,
+                        exports: exports">
+                        </customer-product-spec-summary>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+@section scripts
+{
+    <script src="~/App/build/customerProductSpecs.bundle.js?v=@Html.AppVersion()"></script>
+}
+

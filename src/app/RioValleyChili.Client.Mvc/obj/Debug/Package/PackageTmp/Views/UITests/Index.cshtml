@@ -1,0 +1,23 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "UI Unit Tests";
+    Html.SetPageTitles("UI Unit Tests", "UI Unit Tests");
+}
+
+@Html.SubNavigation("Test Modules", new []
+    {
+        @Html.ActionLink("Lots Common", MVC.UITests.LotsTests()),
+        @Html.ActionLink("Lot Inventory Common", MVC.UITests.LotInventoryTests()),
+        @Html.ActionLink("Lab Results", MVC.UITests.LabResultsTests()),
+        @Html.ActionLink("Lot Holds", MVC.UITests.LotHoldTests()),
+        @Html.ActionLink("Pack Schedules", MVC.UITests.PackSheduleTests()),
+        @Html.ActionLink("Production Batches", MVC.UITests.ProductionBatchTests()),
+    })
+
+@*@section tests {
+
+
+    @Html.Partial("ScriptTests/_LotHoldUITests")
+    @Html.Partial("ScriptTests/_LabResultsUITests")
+}*@

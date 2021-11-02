@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.ComponentModel.DataAnnotations;
+
+namespace RioValleyChili.Data.Models
+{
+    public class ProductionBatchInstructionReference
+    {
+        [Key]
+        [Column(Order = 0)]
+        public virtual DateTime ProductionBatchDate { get; set; }
+
+        [Key]
+        [Column(Order = 1)]
+        public virtual int ProductionBatchSequence { get; set; }
+
+        [Key]
+        [Column(Order = 2)]
+        public virtual int InstructionOrder { get; set; }
+
+        public virtual int ProductionBatchInstructionId { get; set; }
+
+        [ForeignKey("ProductionBatchDate, ProductionBatchSequence")]
+        public virtual ProductionBatch ProductionBatch { get; set; }
+
+        [ForeignKey("ProductionBatchInstructionId")]
+        public virtual ProductionBatchInstruction ProductionBatchInstruction { get; set; }
+    }
+}

@@ -1,0 +1,546 @@
+﻿body {
+  background-color: #ebeeef;
+}
+/* Durandal fixes */
+#applicationHost,
+.durandal-wrapper {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.fxs-portal {
+  font-family: wf_segoe-ui_normal, "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+}
+.fxs-portal .fxs-portal-content {
+  height: 100%;
+  color: #333333;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-transition: margin .2s ease;
+  -moz-transition: margin .2s ease;
+  -o-transition: margin .2s ease;
+  transition: margin .2s ease;
+}
+.fxs-portal .fxs-portal-content > * {
+  white-space: normal;
+}
+.fxs-portal .fxs-portal-nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 201;
+}
+.fxs-jumpBar {
+  height: 100%;
+  box-shadow: 5px 0 0 0 rgba(31, 35, 39, 0.02);
+}
+.fxs-jumpBar .fxs-jumpBar-container {
+  height: 100%;
+  position: relative;
+}
+.fxs-jumpBar .fxs-jumpBar-container .fxs-jumpBar-hub {
+  display: none;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  box-shadow: 5px 0 0 0 rgba(31, 35, 39, 0.02);
+}
+.fxs-hubPane {
+  background-color: #32383f;
+  color: #ffffff;
+  width: 435px;
+  border-left: 3px solid #2b3137;
+}
+.fxs-navbar {
+  background-color: #1f2327;
+  font-weight: 400;
+  font-size: 11px;
+  width: 85px;
+  height: 100%;
+  position: relative;
+  min-height: 530px;
+  z-index: 6;
+}
+.fxs-navbar .fxs-navbar-buttons {
+  position: relative;
+  height: 100%;
+}
+.fxs-navbar .fxs-navbar-start {
+  position: absolute;
+  width: 85px;
+  top: 65px;
+}
+.fxs-navbar .fxs-navbar-start a {
+  border: 0;
+}
+.fxs-navbar .fxs-navbar-start a .fxs-hubIcon-icon {
+  height: 30px;
+  width: 30px;
+  margin-bottom: 5px;
+}
+.fxs-hubIcon {
+  text-decoration: none;
+  text-align: center;
+  border-color: transparent;
+}
+.fxs-hubIcon a {
+  display: block;
+  height: 85px;
+  color: #8d9aa6;
+  padding-top: 21px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 10px;
+  border-width: 1px 0;
+  border-style: solid;
+  border-top-color: #2b3137;
+  border-bottom-color: #32383f;
+}
+.fxs-hubIcon a .fxs-hubIcon-icon {
+  height: 21px;
+  width: 21px;
+  margin: 0 auto 10px;
+  border: 0;
+}
+.fxs-panorama {
+  margin-left: 85px;
+}
+.fxs-panorama .fxs-panorama-homearea {
+  position: relative;
+  padding: 0 25px;
+  margin: 0 15px 0 25px;
+  display: inline-block;
+  height: 100%;
+  min-width: 700px;
+}
+.fxs-panorama .fxs-panorama-homearea > header {
+  margin: 20px 0 4px;
+  height: 76px;
+}
+.fxs-panorama .fxs-panorama-homearea > header::after {
+  content: " ";
+  display: block;
+  visibility: hidden;
+  height: 0px;
+  clear: both;
+}
+.fxs-panorama .fxs-panorama-homearea .fxs-panorama-title {
+  margin: 3px 30px 14px 0;
+  float: left;
+  display: inline-block;
+  width: calc(-150%);
+  min-width: 500px;
+}
+.fxs-panorama .fxs-panorama-homearea h1 {
+  color: #61b7da;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 54px;
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  margin-right: 0;
+  font-family: wf_segoe-ui_light, "Segoe UI Light", "Segoe WP Light", "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+}
+.fxs-panorama .fxs-panorama-homearea .fxs-startboard-target {
+  height: calc(0%);
+}
+.fxs-panorama .fxs-avatarmenu-target {
+  display: inline-block;
+  max-width: 220px;
+  min-width: 190px;
+  position: absolute;
+  right: 5px;
+}
+.fxs-panorama .fxs-journey-target {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  margin-right: 85px;
+}
+.fxs-avatarMenu {
+  position: relative;
+  padding: 12px;
+  text-align: right;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.fxs-avatarMenu .fxs-avatarMenu-header {
+  position: relative;
+  font-family: wf_segoe-ui_normal, "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
+  color: #1f2327;
+}
+.fxs-avatarMenu .fxs-avatarMenu-header .fxs-avatarMenu-username {
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+.fxs-avatarMenu .fxs-avatarMenu-header .fxs-avatarMenu-emailaddress {
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  font-family: wf_segoe-ui_normal, "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+.fxs-avatarMenu > a {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  padding: 10px;
+  padding-right: 54px;
+}
+.fxs-avatarMenu > a img {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 35px;
+  width: 32px;
+  border: 0;
+  border-left: 3px solid #7fba00;
+}
+.fxs-journey > .fxs-journey-layout {
+  height: 100%;
+}
+.fxs-journey > .fxs-journey-layout > .fxs-stacklayout-child:first-child {
+  padding-left: 5px;
+}
+.fxs-journey > .fxs-journey-layout > .fxs-stacklayout-child:last-child {
+  padding-right: 5px;
+}
+.fxs-journey > .fxs-journey-layout > .fxs-stacklayout-child > .fxs-blade {
+  box-shadow: -5px 0px 0px rgba(31, 35, 39, 0.2), 5px 0px 0px rgba(31, 35, 39, 0.2);
+}
+.fxs-journey > .fxs-journey-layout .fxs-stacklayout-child:first-child .fxs-blade {
+  border-left-color: transparent;
+  border-left-width: 0px;
+}
+.fxs-stacklayout.fxs-stacklayout-horizontal {
+  overflow: hidden;
+  white-space: nowrap;
+  height: 100%;
+}
+.fxs-stacklayout.fxs-stacklayout-horizontal > .fxs-stacklayout-child {
+  display: inline-block;
+  vertical-align: top;
+  overflow-y: auto;
+  height: 100%;
+  white-space: normal;
+}
+.fxs-blade {
+  border-left-color: rgba(143, 156, 168, 0.8);
+  width: 585px;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-left-style: solid;
+  border-left-width: 2px;
+}
+.fxs-blade.fxs-blade-locked {
+  background-color: #ffffff;
+}
+.fxs-blade.fxs-bladesize-medium {
+  width: 585px;
+}
+.fxs-blade.fxs-bladesize-wide {
+  width: 875px;
+}
+.fxs-blade .fxs-blade-header {
+  padding-bottom: 8px;
+  min-height: 117px;
+  background-color: #32383f;
+  color: #cccccc;
+}
+.fxs-blade .fxs-blade-header .fxs-blade-statusbar-wrapper {
+  background-color: #1f2327;
+}
+.fxs-blade .fxs-blade-header .fxs-blade-statusbar {
+  padding: 5px 0 5px 25px;
+  font-family: wf_segoe-ui_semibold, "Segoe UI Semibold", "Segoe WP Semibold", "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.fxs-blade .fxs-blade-header .fxs-blade-title {
+  padding: 0 25px 2px 7px;
+  margin-left: 18px;
+  color: #ebeeef;
+}
+.fxs-blade .fxs-blade-header .fxs-blade-title h2 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-family: wf_segoe-ui_normal, "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.fxs-blade .fxs-blade-header .fxs-blade-title h2::after {
+  content: " ";
+}
+.fxs-blade .fxs-blade-header .fxs-blade-title h3 {
+  margin: 3px 0 2px 0;
+  font-family: wf_segoe-ui_normal, "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 10px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.fxs-blade .fxs-blade-header .fxs-blade-title h3::after {
+  content: " ";
+}
+.fxs-blade .fxs-blade-header .fxs-blade-actions {
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  float: right;
+  margin-right: 22px;
+  height: 40px;
+}
+.fxs-blade .fxs-blade-header .fxs-blade-actions button {
+  cursor: pointer;
+  border: 0;
+  height: 21px;
+  width: 21px;
+  background-color: transparent;
+  margin-top: 4px;
+  margin-left: 6px;
+  padding: 0;
+  opacity: 0.3;
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+.fxs-blade .fxs-blade-content {
+  padding: 25px;
+  overflow-y: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.fxs-startboard .fxs-startboard-layout {
+  height: 100%;
+  overflow: hidden;
+  margin: 0 -25px;
+  padding: 0 25px;
+  max-width: 800px;
+}
+.fxs-flowlayout > .fxs-flowlayout-childcontainer {
+  position: relative;
+}
+.fxs-flowlayout > .fxs-flowlayout-childcontainer > .fxs-flowlayout-element {
+  float: left;
+  display: inline-block;
+}
+.fxs-tile {
+  background-color: #fff;
+  margin: 0 10px 10px 0;
+}
+.fxs-tile .fxs-tile-content {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  font-size: 12px;
+  color: #333333;
+}
+.fxs-tile.fxs-tilesize-small {
+  height: 85px;
+  width: 175px;
+}
+.fxs-tile.fxs-tilesize-normal {
+  height: 175px;
+  width: 175px;
+}
+.fxs-part {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 15px;
+  box-shadow: inset 1px 0px #dcdfe2;
+}
+.fxs-part .fxs-part-title h2,
+.fxs-part .fxs-part-title h3 {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.fxs-part .fxs-part-title h2 {
+  font-family: wf_segoe-ui_normal, "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  font-weight: 500;
+}
+.fxs-part .fxs-part-title h3 {
+  font-family: wf_segoe-ui_semibold, "Segoe UI Semibold", "Segoe WP Semibold", "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #8d9aa6;
+}
+.fxs-part.fxs-part.fxs-part-clickable:hover {
+  cursor: pointer;
+}
+.fxs-part .fxs-part-svg {
+  pointer-events: none;
+  fill-opacity: 0;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.fxs-part .fxs-part-svg .fxs-part-svg-rect {
+  stroke-width: 4px;
+  stroke: #7ac8e8;
+  stroke-opacity: 0;
+  -moz-transition-property: stroke-opacity;
+  -o-transition-property: stroke-opacity;
+  -webkit-transition-property: stroke-opacity;
+  transition-property: stroke-opacity;
+  -moz-transition-duration: 0.15s;
+  -o-transition-duration: 0.15s;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+.fxs-part.fxs-part.fxs-part-selected {
+  cursor: default;
+}
+.fxs-part.fxs-part.fxs-part-selected .fxs-part-svg .fxs-part-svg-rect {
+  stroke-width: 6px;
+  stroke-opacity: 1;
+  stroke: #00b0f8;
+}
+.fxs-part.fxs-part:hover .fxs-part-svg-rect {
+  stroke-opacity: 1;
+  -moz-transition-property: stroke-opacity;
+  -o-transition-property: stroke-opacity;
+  -webkit-transition-property: stroke-opacity;
+  transition-property: stroke-opacity;
+  -moz-transition-duration: 0.15s;
+  -o-transition-duration: 0.15s;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+.msportalfx-removepartpadding {
+  height: -webkit-calc(130%);
+  height: calc(130%);
+  width: -webkit-calc(130%);
+  width: calc(130%);
+  margin: -15px -15px -15px -15px;
+}
+.msportalfx-bgcolor-themeMain {
+  background-color: #00bcf2;
+}
+.msportalfx-clearfix::after {
+  content: " ";
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0px;
+  font-size: 0px;
+  line-height: 0;
+}
+.rvc-metric {
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+}
+.rvc-metric .rvc-metric-caption {
+  font-family: wf_segoe-ui_semibold, "Segoe UI Semibold", "Segoe WP Semibold", "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
+  color: #333333;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: -0.05em;
+  text-align: left;
+  margin: 0;
+  line-height: 12px;
+}
+.rvc-metric .rvc-metric-data {
+  font-size: 20px;
+  font-family: wf_segoe-ui_semibold, "Segoe UI Semibold", "Segoe WP Semibold", "Segoe UI", "Segoe WP", Tahoma, Arial, sans-serif;
+  font-weight: 400;
+}
+.rvc-metric .warning {
+  border-left: 5px solid #db2424;
+  padding-left: 5px;
+}
+.rvc-metric .information {
+  border-left: 5px solid #7ac8e8;
+  padding-left: 5px;
+}
+.rvc-control ol,
+.rvc-control ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+  max-width: 280px;
+}

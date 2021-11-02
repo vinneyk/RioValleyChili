@@ -1,0 +1,175 @@
+﻿<script id="inventory-adjustments-summary-template" type="text/html">
+    <div data-bind="maxHeight: true">
+        <table>
+            <thead>
+                <tr>
+                    <th>Lot</th>
+                    <th>Warehouse</th>
+                    <th>Location</th>
+                    <th>Product</th>
+                    <th>Treatment</th>
+                    <th>Packaging</th>
+                    <th>Tote</th>
+                    <th class="right">Quantity</th>
+                    <th class="right">Weight</th>
+                </tr>
+            </thead>
+            <tbody data-bind="template: { foreach: filteredItems, afterAdd: animateSummaryItem }">
+                <tr data-bind="fadeVisible: true" class="item-header">
+                    <td data-bind="text: AdjustmentDate.formattedDate()"></td>
+                    <td colspan="6">
+                        <strong data-bind="text: User"></strong>:
+                        <em data-bind="text: Summary"></em>
+                    </td>
+                    <td class="right" style="font-weight: bold" data-bind="text: TotalAdjustmentQuantity"></td>
+                    <td class="right" style="font-weight: bold" data-bind="text: TotalAdjustmentWeight"></td>
+                </tr>
+                <!-- ko foreach: $data.Items -->
+                <tr class="clickable" data-bind="css: { highlight: $parents[1].isTargetLot($data) }">
+                    <td data-bind="text: LotKey" class="no-wrap"></td>
+                    <td data-bind="text: WarehouseName"></td>
+                    <td data-bind="text: WarehouseLocationName"></td>
+                    <td data-bind="text: ProductName"></td>
+                    <td data-bind="text: Treatment.displayValue"></td>
+                    <td data-bind="text: PackagingName"></td>
+                    <td data-bind="text: ToteKey"></td>
+                    <td class="right" data-bind="text: AdjustmentQuantity"></td>
+                    <td class="right" data-bind="text: AdjustmentWeight"></td>
+                </tr>
+                <!-- /ko -->
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<script id="create-inventory-adjustment-template" type="text/html">
+    <h1>Create New Inventory Adjustment</h1>
+    <fieldset>
+        <legend>New Inventory Adjustment</legend>
+        <ol>
+            <li>
+                <label style="display: block;">Comment</label>
+                <textarea data-bind="value: Comment" style="width: 100%; max-width: 700px; height: 80px; box-sizing: border-box;"></textarea>
+            </li>
+        </ol>
+        <section data-bind="template: {name: 'inventory-selector-template' }"></section>
+    </fieldset>
+</script>
+
+<script id="inventory-selector-template" type="text/html">
+    <table class="condensed">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Lot</th>
+                <th>Product</th>
+                <th>Warehouse</th>
+                <th>Location</th>
+                <th>Packaging</th>
+                <th>Treatment</th>
+                <th>Tote</th>
+                <th>Qty. to Adjust</th>
+                <th class="calc">Adjusted Wgt.</th>
+                <th class="calc">New Qty.</th>
+                <th class="calc">New Wgt.</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: adjustmentItems">
+            <tr>
+                <td><input type="button" class="circleButton" value="-" data-bind="command: $parent.removeItemCommand" /></td>
+                <td><input type="text" data-bind="value: LotKey.formattedLot, ajaxStatus: findLotCommand, valueUpdate: 'afterkeydown'" class="medium" /></td>
+                <td data-bind="text: ProductName"></td>
+                <td>
+                    <select data-bind="value: Warehouse, if: isValidLot">
+                        <option value="">Warehouse...</option>
+                        <!-- ko if: warehouseOptions().length -->
+                        <optgroup label="Available" data-bind="foreach: warehouseOptions">
+                            <option data-bind="text: WarehouseName, value: $data"></option>
+                        </optgroup>
+                        <!-- /ko -->
+                         
+                        <!-- ko ifnot: warehouseOptions().length -->
+                        <optgroup label="None Available"></optgroup>
+                        <!-- /ko -->
+
+                        <optgroup label="Other" data-bind="foreach: $parent.warehouseOptions">
+                            <option data-bind="text: WarehouseName, value: $data"></option>
+                        </optgroup>
+                    </select>
+                </td>
+                <td class="no-wrap">
+                    <select data-bind="value: WarehouseLocation, if: Warehouse">
+                        <option value=""></option>
+                        <!-- ko if: Warehouse().WarehouseLocations -->
+                        <optgroup label="Available" data-bind="foreach: Warehouse().WarehouseLocations">
+                            <option data-bind="text: WarehouseLocationName, value: $data"></option>
+                        </optgroup>
+                        <!-- /ko -->
+                         
+                        <!-- ko ifnot: Warehouse().WarehouseLocations -->
+                        <optgroup label="None Available"></optgroup>
+                        <!-- /ko -->
+
+                        <optgroup label="Other" data-bind="foreach: warehouseLocationOptions">
+                            <option data-bind="text: WarehouseLocationName, value: $data"></option>
+                        </optgroup>
+                    </select>
+                    <span data-bind="ajaxStatus: getWarehouseLocationsCommand, visible: getWarehouseLocationsCommand.isExecuting"></span>
+                </td>
+                <td>
+                    <select data-bind="value: Packaging, if: WarehouseLocation">
+                        <option value=""></option>
+                        <!-- ko if: WarehouseLocation().PackagingOptions -->
+                        <optgroup label="Available" data-bind="foreach: WarehouseLocation().PackagingOptions">
+                            <option data-bind="text: ProductName, value: $data"></option>
+                        </optgroup>
+                        <!-- /ko -->
+                         
+                        <!-- ko ifnot: WarehouseLocation().PackagingOptions -->
+                        <optgroup label="None Available"></optgroup>
+                        <!-- /ko -->
+
+                        <optgroup label="Other" data-bind="foreach: $parent.packagingOptions">
+                            <option data-bind="text: ProductName, value: $data"></option>
+                        </optgroup>
+                    </select>
+                </td>
+                <td>
+                    <select data-bind="value: Treatment, if: Packaging, enable: Packaging" style="max-width: 75px">
+                        <option value=""></option>
+
+                        <!-- ko if: Packaging().TreatmentOptions -->
+                        <optgroup label="Available" data-bind="foreach: Packaging().TreatmentOptions">
+                            <option data-bind="text: TreatmentNameShort, value: $data"></option>
+                        </optgroup>
+                        <!-- /ko -->
+                         
+                        <!-- ko ifnot: Packaging().TreatmentOptions -->
+                        <optgroup label="None Available"></optgroup>
+                        <!-- /ko -->
+
+                        <optgroup label="Other" data-bind="foreach: TreatmentKey.options">
+                            <option data-bind="text: value, value: key"></option>
+                        </optgroup>
+                    </select>
+                </td>
+                <td>
+                    <!-- ko if: Treatment() && Treatment().ToteOptions -->
+                    <input type="text" data-bind="value: ToteKey, autocomplete: Treatment().ToteOptions, autocompleteOptions: { allowNewValues: true }" class="medium" />
+                    <!-- /ko -->
+                    <!-- ko if: !Treatment() || !Treatment().ToteOptions -->
+                    <input type="text" data-bind="value: ToteKey" class="medium" />
+                    <!-- /ko -->
+                </td>
+                <td class="no-wrap">
+                    <input type="number" data-bind="value: AdjustmentQuantity" class="short" />
+                    <input type="hidden" data-bind="value: NewQuantity" />
+                    <strong data-bind="if: CurrentQuantity"> (<span data-bind="text: CurrentQuantity"></span>)</strong>
+                </td>
+                <td data-bind="text: AdjustmentWeight" class="calc"></td>
+                <td data-bind="text: NewQuantity" class="calc"></td>
+                <td data-bind="text: NewWeight" class="calc"></td>
+            </tr>
+        </tbody>
+    </table>
+</script>

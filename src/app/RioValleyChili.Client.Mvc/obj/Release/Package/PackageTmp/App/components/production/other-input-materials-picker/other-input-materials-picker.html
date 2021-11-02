@@ -1,0 +1,61 @@
+﻿<form data-bind="submit: getLotInventoryCommand.execute" class="form-inline">
+  <h3>Other Materials</h3>
+  <div class="form-group">
+    <label class="sr-only">Enter Lot Number</label>
+    <input class="form-control" type="text" data-bind="value: lotToAdd.formattedLot, valueUpdate: 'afterkeydown'" placeholder="Lot" maxlength="12" />
+  </div>
+  <div class="form-group">
+    <button data-bind="enable: getLotInventoryCommand.canExecute" class="btn btn-default">Add Lot</button>
+  </div>
+  <div class="form-group">
+    <button data-bind="command: addEthoxCommand" class="btn btn-link" type="button">Add Ethox.</button>
+  </div>
+  <div class="form-group">
+    <button data-bind="command: addSipernatCommand" class="btn btn-link" type="button">Add Sipernat</button>
+  </div>
+</form>
+
+<table class="table table-striped reset" data-bind="fadeVisible: inventoryItems().length > 0">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Lot</th>
+      <th>Product</th>
+      <th>Packaging</th>
+      <th>Location</th>
+      <th>Treatment</th>
+      <th>Quantity Picked</th>
+      <th>Quantity Avail.</th>
+      <th class="info">Weight (lbs)</th>
+    </tr>
+  </thead>
+  <tbody data-bind="foreach: inventoryItems">
+    <tr data-bind="fadeVisible: true, css: { danger: isDuplicate }">
+      <td>
+        <button type="button" class="btn btn-link btn-xs btn-block" data-bind="command: $parent.removeItemCommand">
+          <i class="fa fa-times fa-lg" tabindex="-1"></i>
+        </button>
+      </td>
+      <td style="white-space: nowrap" data-bind="text: LotKey"></td>
+      <td data-bind="text: ProductName"></td>
+      <td><select data-bind="value: selectedPackaging, options: packagingOptions, optionsText: 'DisplayText'" class="form-control"></select></td>
+      <td><select data-bind="value: selectedFacilityLocation, options: locationOptions, optionsText: 'DisplayText'" class="form-control"></select></td>
+      <td><select data-bind="value: selectedTreatment, options: treatmentOptions, optionsText: 'DisplayText'" class="form-control"></select></td>
+      <td>
+        <div class="form-group" data-bind="validationElement: QuantityPicked"><input type="number" data-bind="value: QuantityPicked, valueUpdate: 'afterkeydown'" class="form-control" /></div>
+      </td>
+      <td data-bind="text: quantityAvailable"></td>
+      <td class="info">
+        <span data-bind="text: WeightPicked"></span>
+        <input type="hidden" data-bind="value: InventoryKey" />
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="8"></td>
+      <td data-bind="text: 'Total: ' + TotalWeightPicked()" class="info"></td>
+    </tr>
+  </tfoot>
+</table>
+

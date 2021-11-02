@@ -1,0 +1,28 @@
+﻿<div class="panel panel-default">
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover no-wrap clickable">
+            <thead>
+                <tr>
+                    <th>Lot Key</th>
+                    <th>Production Date</th>
+                    <th>Load</th>
+                    <th>Dehydrator</th>
+                    <th>Product</th>
+                    <th>Purchase Order</th>
+                    <th>Shipper #</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: summaryItems, click: selectItem">
+                <tr>
+                    <td data-bind="text: LotKey"></td>
+                    <td data-bind="text: ProductionDate | toDate"> </td>
+                    <td data-bind="text: Load"> </td>
+                    <td data-bind="text: Dehydrator.Name"></td>
+                    <td data-bind="text: ChileProductName"></td>
+                    <td data-bind="text: PurchaseOrder"> </td>
+                    <td data-bind="text: ShipperNumber"> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

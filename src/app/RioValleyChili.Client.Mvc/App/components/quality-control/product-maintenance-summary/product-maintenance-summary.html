@@ -1,0 +1,26 @@
+﻿<section>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title">Products</h2>
+    </div>
+    <div class="table-responsive" style="max-height: 500px">
+      <table class="table table-condensed table-hover" data-bind="floatThead: products, sortableTable: products">
+        <thead>
+          <tr>
+            <th data-sort="ProductCode">Prod. Code</th>
+            <th data-sort="ProductName">Product</th>
+            <th data-sort="IsActive">Active</th>
+          </tr>
+        </thead>
+        <tbody class="clickable" data-bind="foreach: products, click: selectItem">
+          <tr>
+            <td data-bind="text: ProductCode"></td>
+            <td data-bind="text: ProductName"></td>
+            <td data-bind="text: IsActive"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+  </div>
+</section>

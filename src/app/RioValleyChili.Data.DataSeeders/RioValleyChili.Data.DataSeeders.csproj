@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{85D65F40-441A-4EF2-9247-996F00501568}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RioValleyChili.Data.DataSeeders</RootNamespace>
+    <AssemblyName>RioValleyChili.Data.DataSeeders</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Testing|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Testing\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit">
+      <HintPath>..\..\..\packages\LinqKit.1.1.1\lib\net45\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Solutionhead.Core, Version=1.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Core.1.4.6\lib\net45\Solutionhead.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.Data, Version=1.4.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Data.1.4.7\lib\net45\Solutionhead.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.EntityKey">
+      <HintPath>..\..\..\packages\Solutionhead.EntityKey.1.0.0\lib\net45\Solutionhead.EntityKey.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.Services, Version=1.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Services.1.4.6\lib\net45\Solutionhead.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CompanyDbContactDataSeeder.cs" />
+    <Compile Include="CoreDbContextDataSeeder.cs" />
+    <Compile Include="DataLoadResult.cs" />
+    <Compile Include="Helpers\ChileStateHelper.cs" />
+    <Compile Include="Helpers\ChileTypeHelper.cs" />
+    <Compile Include="Helpers\LotHelper.cs" />
+    <Compile Include="InventoryDbContextDataSeeder.cs" />
+    <Compile Include="InventoryTransactionsDataSeeder.cs" />
+    <Compile Include="InventoryTypeId.cs" />
+    <Compile Include="Logging\IRVCDataLoadLogger.cs" />
+    <Compile Include="Logging\ILoggerCallback.cs" />
+    <Compile Include="Logging\RVCDataLoadLoggerGate.cs" />
+    <Compile Include="Mothers\Base\EntityMotherLogBase.cs" />
+    <Compile Include="Mothers\Base\CallbackParametersBase.cs" />
+    <Compile Include="Mothers\Base\LotInventoryEntityObjectMotherBase.cs" />
+    <Compile Include="Mothers\Base\MovementOrdersMotherBase.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\AdditiveLotInventoryEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\AdditiveProductEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\ChileInventoryItemEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\ChileProductEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\CompanyAndContactsMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\ContactEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\ContractEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\LotHistoryEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\NonInventoryProductEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\SalesOrderEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\CustomerProductCodeMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\CustomerProductSpecMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\ChileMaterialsReceivedEntityMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\EmployeeObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\InstructionEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\InterWarehouseOrdersMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\IntraWarehouseOrdersMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\InventoryAdjustmentsMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\InventoryTransactionsMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\InventoryTreatmentMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\LotAllowancesEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\LotEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\MillAndWetdownMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\PackagingLotInventoryItemEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\PackagingProductEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\PackScheduleEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\ChileProductIngredientsMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\ProductionBatchEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\ProductionScheduleEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\SalesQuoteEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\SampleOrderEntityObjectMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\TreatmentOrdersMother.cs" />
+    <Compile Include="Mothers\EntityObjectMothers\FacilityEntityObjectMother.cs" />
+    <Compile Include="Mothers\PocoMothers\AdditiveProductMother.cs" />
+    <Compile Include="Mothers\PocoMothers\AdditiveTypeMother.cs" />
+    <Compile Include="Mothers\PocoMothers\ChileTypeMother.cs" />
+    <Compile Include="Mothers\PocoMothers\DbContextMother.cs" />
+    <Compile Include="Mothers\PocoMothers\InstructionMother.cs" />
+    <Compile Include="Mothers\PocoMothers\AttributeNameMother.cs" />
+    <Compile Include="Mothers\PocoMothers\InventoryTreatmentForAttributeMother.cs" />
+    <Compile Include="Mothers\PocoMothers\NotebookMother.cs" />
+    <Compile Include="Mothers\PocoMothers\ObjectContextMother.cs" />
+    <Compile Include="Mothers\PocoMothers\PackagingProductMother.cs" />
+    <Compile Include="Mothers\PocoMothers\WorkTypeMother.cs" />
+    <Compile Include="Extensions\tblLotExtensions.cs" />
+    <Compile Include="OldDataModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OldDataModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDbContextDataSeeder.cs" />
+    <Compile Include="PreservedData.cs" />
+    <Compile Include="ProductionDataSeeder.cs" />
+    <Compile Include="ProductsDbContextDataSeeder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializable\SerializableBatchInstruction.cs" />
+    <Compile Include="Serializable\SerializableCompany.cs" />
+    <Compile Include="Serializable\SerializableContract.cs" />
+    <Compile Include="Serializable\SerializableCustomerSpec.cs" />
+    <Compile Include="Serializable\SerializableEmployeeIdentifiable.cs" />
+    <Compile Include="Serializable\Serializable.cs" />
+    <Compile Include="Serializable\SerializableEmployeeKey.cs" />
+    <Compile Include="Serializable\SerializableInventoryTreatmentKey.cs" />
+    <Compile Include="Serializable\SerializableLot.cs" />
+    <Compile Include="Serializable\SerializableMove.cs" />
+    <Compile Include="Serializable\SerializableNote.cs" />
+    <Compile Include="Serializable\SerializableNotesExtensions.cs" />
+    <Compile Include="Serializable\SerializablePackSchedule.cs" />
+    <Compile Include="Sync\ContractKeySync.cs" />
+    <Compile Include="Sync\SalesOrderKeySync.cs" />
+    <Compile Include="Sync\OldContextSyncBase.cs" />
+    <Compile Include="Sync\PackScheduleKeySync.cs" />
+    <Compile Include="Utilities\AddressHelper.cs" />
+    <Compile Include="Utilities\ContactKey.cs" />
+    <Compile Include="Utilities\ContractKeyReservationHelper.cs" />
+    <Compile Include="Utilities\CreateChileLotHelper.cs" />
+    <Compile Include="Utilities\DataConstants.cs" />
+    <Compile Include="Utilities\DataStringPropertyHelper.cs" />
+    <Compile Include="Utilities\DbContextExtensions.cs" />
+    <Compile Include="Utilities\EnumerableExtensions.cs" />
+    <Compile Include="Utilities\Interfaces\IEmployeeIdentifiableDTO.cs" />
+    <Compile Include="Utilities\Interfaces\ILotAttributes.cs" />
+    <Compile Include="Utilities\KeyReservationHelperBase.cs" />
+    <Compile Include="Utilities\MotherLoadCount.cs" />
+    <Compile Include="Utilities\ContextsHelper.cs" />
+    <Compile Include="Utilities\Interfaces\ILocation.cs" />
+    <Compile Include="Utilities\InventoryItemTypeFactory.cs" />
+    <Compile Include="Utilities\ChileMaterialsItemReceivedKeys.cs" />
+    <Compile Include="Utilities\LotNumberParser.cs" />
+    <Compile Include="Utilities\NotebookFactory.cs" />
+    <Compile Include="Utilities\NotesExtensions.cs" />
+    <Compile Include="Utilities\ObjectContextExtensions.cs" />
+    <Compile Include="Utilities\PackScheduleHelperExtensions.cs" />
+    <Compile Include="Utilities\PackScheduleKeyHelper.cs" />
+    <Compile Include="Utilities\PackScheduleKeyReservationHelper.cs" />
+    <Compile Include="Utilities\PackSchedulePackagingHelper.cs" />
+    <Compile Include="Utilities\PackScheduleProductionLineHelper.cs" />
+    <Compile Include="Utilities\PartialModels.cs" />
+    <Compile Include="Utilities\PickedInventoryItemLocationHelper.cs" />
+    <Compile Include="Utilities\NewContextHelper.cs" />
+    <Compile Include="Utilities\PickedInventoryKeyHelper.cs" />
+    <Compile Include="Utilities\ProductionResultHelper.cs" />
+    <Compile Include="Utilities\SequenceHelper.cs" />
+    <Compile Include="Utilities\SerializableType.cs" />
+    <Compile Include="Utilities\SerializedData.cs" />
+    <Compile Include="Utilities\ShipmentInformationKeys.cs" />
+    <Compile Include="Utilities\StringExtensions.cs" />
+    <Compile Include="Utilities\TimeStamper.cs" />
+    <Compile Include="Utilities\WorkTypeFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="OldDataModels.edmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RioValleyChili.Business.Core\RioValleyChili.Business.Core.csproj">
+      <Project>{8C1D922C-F8EE-43CF-B7CF-F75FFF37156A}</Project>
+      <Name>RioValleyChili.Business.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Core\RioValleyChili.Core.csproj">
+      <Project>{b4a2b7da-4f15-4b75-a65f-025c32564ea0}</Project>
+      <Name>RioValleyChili.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Data.Models\RioValleyChili.Data.Models.csproj">
+      <Project>{12191B6E-B491-4398-83D2-4878ECBDAFD1}</Project>
+      <Name>RioValleyChili.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Data\RioValleyChili.Data.csproj">
+      <Project>{913719C1-AB84-4D23-A9D0-4637A5B14CFA}</Project>
+      <Name>RioValleyChili.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OldDataModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OldDataModels.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Add RioAccessSQL Columns.sql" />
+    <Content Include="favico-32x32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

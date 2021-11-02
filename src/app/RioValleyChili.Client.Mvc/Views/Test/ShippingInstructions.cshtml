@@ -1,0 +1,31 @@
+﻿@model RioValleyChili.Client.Mvc.Models.Shipping.ShippingInstructionsViewModel
+
+@{
+    Html.SetPageTitles("Shipping Instructions", "Shipping Instructions");
+}
+
+@section scripts
+{
+    <script src="~/Scripts/knockout.optionalModule.js"></script>
+    <script src="~/Scripts/knockout.editStateManager.js"></script>
+    <script src="~/Scripts/app/viewModels/shipping/address.js"></script>
+    <script src="~/Scripts/app/viewModels/shipping/ShippingLabelViewModel.js"></script>
+    <script src="~/Scripts/app/viewModels/shipping/ShippingInstructionsViewModel.js"></script>
+    <script>
+        $(function() {
+            var vm = ShippingInstructionsViewModel.init(JSON.parse('@Html.RawJson(Model)'));
+            vm.saveCommand = vm.saveCommand;
+            vm.cancelCommand = vm.cancelCommand;
+            ko.applyBindings(vm);
+        });
+    </script>
+}
+
+@section controlPanel
+{
+    <input type="button" data-bind="command: saveCommand" value="Save" />
+    <input type="button" data-bind="command: cancelCommand" value="Cancel" />
+}
+
+
+@*@Html.Partial("_ShippingInstructions", Model)*@

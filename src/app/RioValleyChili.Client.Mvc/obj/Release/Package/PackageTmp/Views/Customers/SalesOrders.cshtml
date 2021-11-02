@@ -1,0 +1,174 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+    Html.SetPageTitles("Sales Orders", "Sales Orders");
+}
+
+@section scripts
+{
+    <script src="~/App/build/salesOrders.bundle.js?v=@Html.AppVersion()"></script>
+}
+
+@section controlPanel
+{
+    <!-- ko template: { ifnot: isShowingDetails, name: 'sales-controls-summary' } -->
+    <!-- /ko -->
+    <!-- ko template: { if: isShowingDetails() && !isShowingContactPicker(), name: 'sales-controls-details' } -->
+    <!-- /ko -->
+    <!-- ko template: { if: isShowingDetails() && isShowingContactPicker() && !isPickingInventory(), name: 'sales-controls-contacts' } -->
+    <!-- /ko -->
+}
+
+<div data-bind="visible: isInit">
+    <sales-orders-summary
+        params="getKey: getSelectedKey,
+            filters: filters,
+            exports: summaryExports">
+    </sales-orders-summary>
+</div>
+<div class="row text-center" data-bind="visible: !isInit()">
+    <div class="well well-lg">
+        <i class="fa fa-spinner fa-4x fa-pulse"></i>
+    </div>
+</div>
+
+<section data-bind="popup: isShowingDetails, closePopupCommand: closeCommand">
+    <hgroup data-bind="if: isShowingDetails">
+      <h2>Sales Orders</h2>
+      <h3>
+          <!-- ko if: isNew -->
+          New Sales Order
+          <!-- /ko -->
+          <!-- ko ifnot: isNew -->
+          Order #: <!-- ko text: orderDetails().OrderNum --><!-- /ko -->
+          <span class="small">
+          (Movement: <!-- ko text: movementKey --><!-- /ko -->)
+          </span>
+          <!-- /ko -->
+      </h3>
+    </hgroup>
+
+    <div class="container-fluid" data-bind="if: isShowingDetails">
+        <sales-orders-details params="input: orderDetails,
+        startPicker: startPicker,
+        filters: filtersExports,
+        options: options,
+        exports: editorExports">
+        </sales-orders-details>
+    </div>
+</section>
+
+<div data-bind="popup: isPickingInventory, closePopupCommand: closePickerCommand">
+    <div data-bind="if: isPickingInventory">
+        <inventory-picker params="data: pickerData,
+            checkOutOfRange: checkOutOfRange,
+            hideTheoretical: true,
+            exports: pickerExports">
+        </inventory-picker>
+    </div>
+</div>
+
+<loading-screen params="displayMessage: loadingMessage, isVisible: isLoading"></loading-screen>
+<loading-screen params="displayMessage: 'Saving picked items', isVisible: isPickSaving"></loading-screen>
+
+<script id="sales-controls-summary" type="text/html">
+    <fieldset>
+        <legend>Controls</legend>
+        <form class="form-group" data-bind="submit: getSearchKey">
+            <div class="input-group">
+                <input type="search" class="form-control" placeholder="Search" data-bind="value: searchString, disable: isWorking">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default" data-bind="disable: isWorking">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+        <input type="button" value="Start New Order" data-bind="command: createNewOrder">
+        <input type="button" value="Load More Orders" data-bind="command: getOrders">
+    </fieldset>
+    <fieldset>
+        <legend>Filters</legend>
+        <div class="form-group">
+            <label class="control-label">Order Status</label>
+            <select id="" class="form-control" data-bind="value: filters.orderStatus, options: orderStatusOptions, optionsText: 'value', optionsValue: 'key', optionsCaption: ' '">
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Customer</label>
+            <select id="" class="form-control" data-bind="value: filters.customerKey, options: options.customers, optionsText: 'Name', optionsValue: 'CompanyKey', optionsCaption: ' '"></select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Broker</label>
+            <select id="" class="form-control" data-bind="value: filters.brokerKey, options: options.brokers, optionsText: 'Name', optionsValue: 'CompanyKey', optionsCaption: ' '"></select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Order Received</label>
+            <input type="text" class="form-control" placeholder="M/D/YYYY" data-bind="datePicker: true, value: filters.orderReceivedRangeStart">
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="M/D/YYYY" data-bind="datePicker: true, value: filters.orderReceivedRangeEnd">
+            </div>
+        </div>
+        <input type="button" value="Apply Filters" data-bind="command: applyFilters">
+    </fieldset>
+</script>
+
+<script id="sales-controls-details" type="text/html">
+  <section data-bind="visible: !isPickingInventory()">
+    <fieldset>
+      <legend>Editor Controls</legend>
+      <input type="button" value="Start New Order" data-bind="command: createNewOrder, visible: !isNew()">
+      <input type="button" class="save" data-bind="command: saveOrderCommand" value="Save">
+      <input type="button" class="delete" data-bind="command: deleteOrderCommand, visible: !isNew()" value="Delete">
+      <input type="button" class="" data-bind="command: closeCommand" value="Close">
+    </fieldset>
+    <fieldset>
+      <legend>Shipping</legend>
+      <input type="button" data-bind="command: postOrderCommand" value="Post Order Shipment">
+      <fieldset data-bind="visible: !isNew()">
+        <legend><span class="fa fa-clipboard"></span> Reports</legend>
+        <ul class="link-list" data-bind="if: editorExports">
+          <li data-bind="foreach: editorExports().reportLinks().warehouse">
+            <a data-bind="attr: { href: url }, text: name" class="button"></a>
+          </li>
+          <li>
+          </li>
+        </ul>
+      </fieldset>
+    </fieldset>
+    <fieldset>
+      <legend>Customer & Invoicing</legend>
+      <input type="button" data-bind="command: postInvoiceCommand" value="Post Order Invoice">
+      <fieldset data-bind="visible: !isNew()">
+        <legend><span class="fa fa-clipboard"></span> Reports</legend>
+        <ul class="link-list" data-bind="if: editorExports">
+          <li data-bind="foreach: editorExports().reportLinks().customer">
+            <a data-bind="attr: { href: url }, text: name" class="button"></a>
+          </li>
+          <li>
+          </li>
+        </ul>
+      </fieldset>
+        </fieldset>        
+    </section>
+    <section data-bind="visible: isPickingInventory">
+        <fieldset>
+            <legend>Editor Controls</legend>
+            <input type="button" class="save" data-bind="command: savePickCommand" value="Pick">
+            <input type="button" data-bind="command: closePickerCommand, css: { 'delete': isPickerDirty }, value: isPickerDirty() ? 'Cancel' : 'Close'" value="Close">
+        </fieldset>
+        <fieldset>
+            <legend>Filters</legend>
+            <input type="button" data-bind="command: loadMorePickerCommand" value="Load More Inventory">
+            <lot-filters params="mode: 'inventory', exports: filtersExports"></lot-filters>
+        </fieldset>
+    </section>
+</script>
+<script id="sales-controls-contacts" type="text/html">
+    <fieldset>
+        <legend>Editor Controls</legend>
+        <input type="button" class="" data-bind="command: closeContactPickerCommand" value="Close">
+    </fieldset>
+</script>

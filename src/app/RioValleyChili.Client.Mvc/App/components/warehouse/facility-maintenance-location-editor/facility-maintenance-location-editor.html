@@ -1,0 +1,66 @@
+﻿<section data-bind="with: editor">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label class="control-label" for="">Street</label>
+        <select id="" class="form-control" data-bind="value: street, options: streetNames"></select>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>
+              <section class="invisible no-wrap">
+                <button class="btn btn-link"><i class="fa fa-save fa-fw"></i></button>
+                <button class="btn btn-link"><i class="fa fa-times fa-fw"></i></button>
+              </section>
+            </th>
+            <th style="width: 33.333%">Group</th>
+            <th style="width: 33.333%">Row</th>
+            <th style="width: 33.333%">Status</th>
+          </tr>
+        </thead>
+        <tbody data-bind="foreach: streetLocations">
+          <!-- ko template: isEditing() ? 'location-edit' : 'location-view' --><!-- /ko -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4"><button class="btn btn-primary btn-block" data-bind="command: addLocation"><i class="fa fa-plus"></i> Add Location</button></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<script id="location-edit" type="text/html">
+  <tr class="no-wrap">
+    <td>
+      <button class="btn btn-link" title="Save edit" data-bind="click: $parent.saveLocation, enable: $parent.save.canExecute"><i class="fa fa-save fa-fw"></i></button>
+      <button class="btn btn-link" title="Cancel edit" data-bind="command: $parent.cancelEditLocation"><i class="fa fa-times fa-fw"></i></button>
+    </td>
+    <td>
+      <select class="form-control" data-bind="value: GroupName, options: $parent.streetNames">
+    </td>
+    <td>
+      <input class="form-control" type="number" data-bind="textinput: Row">
+    </td>
+    <td>
+      <select class="form-control" data-bind="value: Status, options: statusOptions, optionsValue: 'key', optionsText: 'value'">
+    </td>
+  </tr>
+</script>
+
+<script id="location-view" type="text/html">
+  <tr>
+    <td>
+      <button class="btn btn-link" title="Edit location" data-bind="command: $parent.editLocation"><i class="fa fa-edit"></i></button>
+    </td>
+    <td><p class="form-control-static" data-bind="text: GroupName"></p></td>
+    <td><p class="form-control-static" data-bind="text: Row"></p></td>
+    <td><p class="form-control-static"><i class="fa fa-fw" data-bind="css: statusIcon"></i></p></td>
+  </tr>
+</script>

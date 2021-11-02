@@ -1,0 +1,162 @@
+﻿
+@{
+ViewBag.Title = "Receive Chile Product";
+Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+}
+
+@section controlPanel
+{
+<!-- ko if: isInit -->
+<section>
+  <fieldset>
+    <legend></legend>
+    <form class="input-group" data-bind="submit: searchForKey">
+      <input class="form-control" data-bind="textinput: searchKey.formattedLot, enable: loadDetails.canExecute" type="search" placeholder="Go to lot..." tabindex="-1" />
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-default" data-bind="enable: loadDetails.canExecute"><i class="fa fa-search"></i></button>
+      </span>
+    </form>
+  </fieldset>
+</section>
+
+<loading-screen
+  params="isVisible: !loadDetails.canExecute(),
+    displayMessage: 'Loading request details'">
+</loading-screen>
+<loading-screen
+  params="isVisible: !loadMore.canExecute(),
+    displayMessage: 'Loading summary items'">
+</loading-screen>
+<loading-screen
+  params="isVisible: isDirty() && !saveCommand.canExecute(),
+    displayMessage: 'Saving chile product'">
+</loading-screen>
+
+<section data-bind="visible: !editorData.input()">
+  <fieldset>
+    <legend>Lot Controls</legend>
+    <input type="button" value="Receive Dehydrated" tabindex="-1" data-bind="command: receiveDehydrated">
+    <input type="button" value="Receive Other Raw" tabindex="-1" data-bind="command: receiveOtherRaw">
+  </fieldset>
+
+  <fieldset>
+    <legend>Filters</legend>
+    <input type="button" value="Get More Lots" tabindex="-1" data-bind="command: loadMore">
+    <div class="form-group">
+      <label class="control-label" for="filters-material">Material Type</label>
+      <select id="filters-material" class="form-control" data-bind="value: filters.materialsType, options: options.materialTypes, optionsText: 'value', optionsValue: 'key', optionsCaption: ' '"></select>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="filters-start-date">Start Date</label>
+      <input id="filters-start-date" class="form-control" type="text" data-bind="datePicker: filters.startDate">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="filters-end-date">End Date</label>
+      <input id="filters-end-date" class="form-control" type="text" data-bind="datePicker: filters.endDate">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="filters-supplier">Supplier</label>
+      <select id="filters-supplier" class="form-control" data-bind="value: filters.supplierKey, options: options.suppliers, optionsText: 'Name', optionsValue: 'CompanyKey', optionsCaption: ' '"></select>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="filters-product">Product</label>
+      <select id="filters-product" class="form-control" data-bind="value: filters.chileProductKey, options: options.chileProducts, optionsText: 'ProductCodeAndName', optionsValue: 'ProductKey', optionsCaption: ' '"></select>
+    </div>
+  </fieldset>
+</section>
+
+<section data-bind="visible: editorData.input">
+  <fieldset>
+    <legend>Editor Controls</legend>
+    <input class="save" type="button" value="Save" data-bind="command: saveCommand" tabindex="-1"/>
+    <input type="button" value="Close" data-bind="command: closeEditorCommand, value: isDirty() ? 'Cancel' : 'Close', css: { 'delete': isDirty }" tabindex="-1"/>
+  </fieldset>
+
+  <fieldset>
+    <legend>Editing</legend>
+    <form data-bind="submit: addMultipleMaterials.execute">
+      <div class="form-group">
+        <label class="control-label" for="">Add Materials</label>
+        <div class="input-group">
+          <input class="form-control" type="number" data-bind="textinput: numRowsToAdd">
+          <div class="input-group-btn">
+            <button class="btn btn-primary" type="submit" data-bind="enable: addMultipleMaterials.canExecute"><i class="fa fa-plus"></i> Lines</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <input type="button" value="Add Variety" data-bind="command: startNewVariety" tabindex="-1"/>
+  </fieldset>
+</section>
+
+<section>
+  <fieldset>
+    <legend>Recent Entries</legend>
+    <ul class="link-list" data-bind="foreach: recentEntries, click: recentEntryClicked">
+      <li><a href="#" data-bind="text: $data" tabindex="-1"></a></li>
+    </ul>
+  </fieldset>
+</section>
+<!-- /ko -->
+}
+
+<section data-bind="visible: !isInit()">
+  <div class="well text-center">
+    <i class="fa fa-spinner fa-pulse fa-3x"></i>
+  </div>
+</section>
+<!-- ko if: isInit -->
+<section>
+  <div data-bind="popup: editorData.input, closePopupCommand: closeEditorCommand, if: editorData.input">
+    <hgroup>
+      <h2 data-bind="text: editorData.input().LotKey ? 'Edit Existing Product' : 'Create New Product Request'"></h2>
+      <h3 data-bind="text: editorSubtitleText"></h3>
+    </hgroup>
+    <div data-bind="with: editorData">
+      <receive-chile-editor
+      params="input: input,
+      options: options,
+      exports: exports">
+      </receive-chile-editor>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Receive Chile Product</h2>
+
+  <receive-chile-summary
+  params="input: summaryData.input,
+  selected: summaryData.selected,
+  exports: summaryData.exports">
+  </receive-chile-summary>
+</section>
+<!-- /ko -->
+
+<div class="modal fade" id="new-variety-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">New Variety</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="control-label" for="variety-name">Variety Name</label>
+          <input class="form-control" id="variety-name" type="text" data-bind="textinput: newVarietyName">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" data-bind="command: cancelNewVariety">Cancel</button>
+        <button class="btn btn-primary" data-bind="command: saveNewVariety">Save</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+@section scripts
+{
+<script src="~/App/build/receiveChileProduct.bundle.js?v=@Html.AppVersion()"></script>
+}
+

@@ -1,0 +1,30 @@
+﻿<div class="fxs-startboard-target fxs-startboard">
+    <div class="fxs-startboard-layout fxs-flowlayout">
+        <div class="fxs-flowlayout-childcontainer" data-bind="foreach: tiles">
+            <div class="fxs-tile fxs-flowlayout-element fxs-tilesize-normal" style="left: 0; top: 0"
+                 data-bind="template: {name: 'startboard-tile-standard' }"></div>
+        </div>
+    </div>
+</div>
+
+
+<script id="startboard-tile-standard" type="text/html">
+    <div class="fxs-tile-content">
+        <div class="fxs-part fxs-part-success" data-bind="css: {'fxs-part-selected' : container.selectable && container.selectable.isSelected() , 'fxs-part-clickable' : context.isPartClickable }">
+            <div class="fxs-part-title">
+                <h2 data-bind="text: container.partTitle"></h2>
+                <h3 data-bind="text: container.areaName"></h3>
+            </div>
+
+            <div class="fxs-tile-content" data-bind="compose: container.contentModule, activate: false"></div>
+            
+            <div class="fxs-part-progress" data-bind="visible: container.operations.inProgress">
+                Loading...
+            </div>
+
+            <svg class="fxs-part-svg">
+                <rect class="fxs-part-svg-rect" x="0" y="0" width="100%" height="100%"></rect>
+            </svg>
+        </div>
+    </div>
+</script>

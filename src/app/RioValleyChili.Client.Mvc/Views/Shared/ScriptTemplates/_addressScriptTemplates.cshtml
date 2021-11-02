@@ -1,0 +1,37 @@
+﻿<script type="text/html" id="address-display">
+    <header data-bind="text: Description"></header>
+    <div class="address">
+        <p data-bind="text: AddressLine1"></p>
+        <p data-bind="text: AddressLine2"></p>
+        <p data-bind="text: AddressLine3"></p>
+        <p>
+            <span data-bind="text: City"></span>,
+            <span data-bind="text: State"></span>
+            <span data-bind="text: PostalCode"></span>
+        </p>
+        <p data-bind="text: Country"></p>
+    </div>
+    <input type="button" value="Edit" data-bind="command: beginEditingCommand" class="link" />
+</script>
+
+<script type="text/html" id="address-editor">
+    <fieldset>
+        <legend>Edit Address</legend>
+        <ol>
+            <li><input data-bind="value: Description" placeholder="Description" /></li>
+            <li><input data-bind="value: AddressLine1" placeholder="Street address" /></li>
+            <li><input data-bind="value: AddressLine2" placeholder="Building, appartment, floor" /></li>
+            <li><input data-bind="value: AddressLine3" placeholder="Additional address information" /></li>
+            <li><input data-bind="value: City" placeholder="City" /></li>
+            <li><input data-bind="value: State" placeholder="State" /></li>
+            <li><input data-bind="value: PostalCode" placeholder="Postal Code" /></li>
+            <li><input data-bind="value: Country" placeholder="Country" /></li>
+            <li>
+                <input type="button" data-bind="command: cancelEditsCommand, css: { delete: hasChanges }" value="Cancel" />
+                <!-- ko if: $parent.removeAddressCommand && $parent.removeAddressCommand.execute -->
+                <input type="button" data-bind="command: $parent.removeAddressCommand" value="Delete" class="link" />
+                <!-- /ko -->
+            </li>
+        </ol>
+    </fieldset>
+</script>

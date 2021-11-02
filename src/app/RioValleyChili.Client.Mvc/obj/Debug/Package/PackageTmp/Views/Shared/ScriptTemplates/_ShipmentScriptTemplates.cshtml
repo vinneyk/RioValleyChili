@@ -1,0 +1,168 @@
+﻿@using System.Web.UI.HtmlControls
+@{
+    Html.PushJavaScriptResource(Url.Content("~/Scripts/app/viewModels/shipping/TransitViewModel.js"));
+    Html.PushJavaScriptResource(Url.Content("~/Scripts/app/viewModels/shipping/address.js"));
+    Html.PushJavaScriptResource(Url.Content("~/Scripts/app/viewModels/shipping/ShippingLabelViewModel.js"));
+    Html.PushJavaScriptResource(Url.Content("~/Scripts/app/viewModels/shipping/ShippingInstructionsViewModel.js"));
+    Html.PushJavaScriptResource(Url.Content("~/Scripts/app/viewModels/shipping/ShipmentViewModel.js"));
+}
+
+@Html.Partial("ScriptTemplates/_addressScriptTemplates")
+
+<script type="text/html" id="shipment-details">
+    <fieldset id="shipment" data-bind="with: ShipmentViewModel">
+        <legend>Shipping Details</legend>
+        <!-- ko template: { name: 'result-messages-template', data: saveCommand.results } --><!-- /ko -->
+        
+        <!-- ko ifnot: isNew --> @* isNew is used when creating a new InventoryTreatmentOrder - vk 11/27/13 *@
+        <h3>Shipment</h3>
+        <section id="shipmentHeader" data-bind="template: {name: 'shipment-header-template' }"></section>
+
+        <h3>Transit</h3>
+        <ol data-bind="template: { name: isEditing() ? 'shipment-transit-editor' : 'shipment-transit-display', data: TransitInformation }" class="tabular"></ol>
+        <!-- /ko -->
+
+        <section id="shippingInstructions" data-bind="template: { name: 'shipping-instructions', data: ShippingInstructions }"></section>
+    </fieldset>
+</script>
+
+<script id="shipment-header-template" type="text/html">
+    <ol class="tabular" data-bind="template: isEditing() ? 'shipment-header-editor' : 'shipment-header-display'"></ol>
+</script>
+<script type="text/html" id="shipment-header-display">
+    <li>
+        <label>Shipment Status</label>
+        <span data-bind="text: Status.displayValue"></span>
+    </li>
+    <li>
+        <label>Pallet Weight</label>
+        <span data-bind="text: PalletWeight"></span>
+    </li>
+    <li>
+        <label>Pallet Quantity</label>
+        <span data-bind="text: PalletQuantity"></span>
+    </li>
+</script>
+<script type="text/html" id="shipment-header-editor">
+    <li>
+        <label id="shipmentStatus">Shipment Status</label>
+        <select id="shipmentStatus" data-bind="value: Status, options: Status.options, optionsValue: 'key', optionsText: 'value'"></select>
+    </li>
+    <li>
+        <label>Pallet Weight</label>
+        <input data-bind="value: PalletWeight" />
+    </li>
+    <li>
+        <label>Pallet Quantity</label>
+        <input data-bind="value: PalletQuantity" />
+    </li>
+</script>
+
+<script type="text/html" id="shipping-instructions">
+    <h3 id="instructions">Shipping Instructions</h3>
+    <ol data-bind="template: { name: isEditing() ? 'shipping-instructions-editable' : 'shipping-instructions-display' }" class="tabular"></ol>
+
+    <section class="addressLabels">
+        <ul class="addresses">
+            <li>
+                <h4>Ship To</h4>
+                <div data-bind="template: { name: 'address-label-template', data: ShipToShippingLabel }"></div>
+            </li>
+            <li>
+                <h4>Ship From</h4>
+                <div data-bind="template: { name: 'address-label-template', data: ShipFromShippingLabel }"></div>
+            </li>
+            <li>
+                <h4>Freight Bill To</h4>
+                <div data-bind="template: { name: 'address-label-template', data: FreightBillToShippingLabel }"></div>
+            </li>
+        </ul>
+    </section>
+</script>
+<script type="text/html" id="shipping-instructions-editable">
+    <li>
+        <label for="deliveryDate">Deliver by: </label>
+        <input id="deliveryDate" data-bind="value: RequiredDeliveryDateTime.formattedDate, datePicker: true" />
+    </li>
+    <li>
+        <label for="comments">Shipping Comments:</label>
+        <textarea id="comments" rows="5" data-bind="value: Comments"></textarea>
+    </li>
+</script>
+<script type="text/html" id="shipping-instructions-display">
+    <li>
+        <label for="deliveryDate">Deliver by: </label>
+        <span id="deliveryDate" data-bind="text: RequiredDeliveryDateTime.formattedDate, datePicker: true"></span>
+    </li>
+    <li>
+        <label for="comments">Shipping Comments</label>
+        <span id="comments" data-bind="text: Comments"></span>
+    </li>
+</script>
+<script type="text/html" id="address-label-template">
+    <div data-bind="template: { name: isEditing() ? 'address-editor' : 'address-display' }"></div>
+</script>
+
+<script type="text/html" id="shipment-transit-editor">
+    <li>
+        <label for="driverName">Driver Name</label>
+        <input id="driverName" data-bind="value: DriverName" />
+    </li>
+    <li>
+        <label for="carrierName">Carrier Name</label>
+        <input id="carrierName" data-bind="value: CarrierName" />
+    </li>
+    <li>
+        <label for="trailerLicNo">Trailer License No.</label>
+        <input id="trailerLicNo" data-bind="value: TrailerLicenseNumber" />
+    </li>
+    <li>
+        <label for="containerSeal">Container Seal</label>
+        <input id="containerSeal" data-bind="value: ContainerSeal" />
+    </li>
+    <li>
+        <label for="freightType">Freight Type</label>
+        <input id="freightType" data-bind="value: FreightType" />
+    </li>
+</script>
+<script type="text/html" id="shipment-transit-display">
+    <li>
+        <label>Driver Name</label>
+        <span data-bind="text: DriverName"></span>
+    </li>
+    <li>
+        <label>Carrier Name</label>
+        <span data-bind="text: CarrierName"></span>
+    </li>
+    <li>
+        <label>Trailer License No.</label>
+        <span data-bind="text: TrailerLicenseNumber"></span>
+    </li>
+    <li>
+        <label>Container Seal</label>
+        <span data-bind="text: ContainerSeal"></span>
+    </li>
+    <li>
+        <label>Freight Type</label>
+        <span data-bind="text: FreightType"></span>
+    </li>
+</script>
+
+<script type="text/html" id="shipment-controls-template">
+    <!-- ko with: ShipmentViewModel -->
+    <input type="button" value="Save Changes" data-bind="command: saveCommand, enable: saveCommand.isValid() && !saveCommand.ignore(), visible: isEditing" class="save" />
+    <!-- ko template: { name: 'shipment-controls-base-template' } --><!-- /ko -->
+    <!-- /ko -->
+</script>
+
+<script type="text/html" id="shipment-controls-nosave-template">
+    <!-- ko with: ShipmentViewModel -->
+    <!-- ko template: { name: 'shipment-controls-base-template' } --><!-- /ko -->
+    <!-- /ko -->
+</script>
+
+<script type="text/html" id="shipment-controls-base-template">
+    <input type="button" value="Edit Shipment" data-bind="command: beginEditingCommand, visible: !beginEditingCommand.ignore()" />
+    <input type="button" value="Stop Editing Shipment" data-bind="command: endEditingCommand, visible: isEditing() && !hasChanges()" />
+    <input type="button" value="Undo Shipment Changes" data-bind="command: cancelEditsCommand, visible: hasChanges" class="delete" />
+</script>

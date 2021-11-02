@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Admin";
+    ViewBag.PageTitle = "Admin";
+    ViewBag.PageSubtitle = "Dashboard";
+}
+
+@section controlPanel
+{
+    @Html.SubNavigation("Admin Areas", new[] {
+        Html.ActionLink("Feedback", MVC.Admin.Feedback.Index())
+    })
+}

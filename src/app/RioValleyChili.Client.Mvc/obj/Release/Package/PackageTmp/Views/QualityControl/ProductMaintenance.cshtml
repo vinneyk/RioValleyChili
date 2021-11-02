@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "ProductMaintenance";
+    Layout = "~/Views/Shared/_WebpackLayout.cshtml";
+}
+
+@section controlPanel
+{
+<fieldset data-bind="slideVisible: !editorData.input()">
+    <legend>Maintenance Tools</legend>
+    <input type="button" value="Create new" data-bind="command: createNewProduct">
+</fieldset>
+<fieldset data-bind="slideVisible: editorData.input">
+    <legend>Editor Controls</legend>
+    <input type="button" class="save" value="Save" data-bind="command: save">
+    <input type="button" value="Close" data-bind="command: closeEditor, css: { 'delete': isDirty }, value: isDirty() ? 'Cancel' : 'Close'">
+</fieldset>
+}
+
+<section>
+    <div data-bind="popup: editorData.input, closePopupCommand: closeEditor.execute, if: editorData.input">
+        <hgroup data-bind="with: editorData.input">
+            <h2>Product Maintenance</h2>
+            <h3 data-bind="text: ProductCodeAndName"></h3>
+        </hgroup>
+        <product-maintenance-editor 
+            params="input: editorData.input,
+                options: options,
+                exports: editorData.exports">
+        </product-maintenance-editor>
+    </div>
+</section>
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label" for="summary-inventory-Type">Inventory Type</label>
+                    <select id="summary-inventory-type" class="form-control" data-bind="value: inventoryType, options: options.inventoryType, optionsText: 'value', optionsValue: 'key', optionsCaption: ' '"></select>
+                </div>
+            </div>
+            <div class="col-sm-6" data-bind="visible: !isMisc()">
+                <div class="form-group">
+                    <label class="control-label" for="summary-lot-Type">Lot Type</label>
+                    <select id="summary-lot-type" class="form-control" data-bind="value: lotType, options: options.lotType, optionsText: 'value', optionsCaption: ' '"></select>
+                </div>
+            </div>
+        </div>
+        <product-maintenance-summary 
+            params="input: summaryData.input,
+                selected: summaryData.selected,
+                exports: summaryData.exports">
+        </product-maintenance-summary>
+    </div>
+</section>
+
+@section scripts
+{
+    <script src="~/App/build/productmaintenance.bundle.js?v=@Html.AppVersion()?v=@Html.AppVersion()"></script>
+}
+
+

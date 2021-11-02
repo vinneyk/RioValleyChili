@@ -1,0 +1,1 @@
+﻿<%@ServiceHost Service="RioValleyChili.Client.Reporting.ReportService, RioValleyChili.Client.Reporting" %>

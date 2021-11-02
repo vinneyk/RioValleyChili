@@ -1,0 +1,43 @@
+﻿@model dynamic
+
+@{
+    Layout = "~/Views/Shared/_WebPackLayout.cshtml";
+    Html.SetPageTitles("Lot History", "Lot History");
+}
+
+@section controlPanel
+{
+<fieldset>
+    <legend>Search Lots</legend>
+    <form action="" class="reset" data-bind="submit: goToLotNumber">
+        <div class="form-group">
+            <div class="input-group">
+                <input type="search" class="form-control" maxlength="12" data-bind="value: inputKey.formattedLot, valueUpdate: 'input'">
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</fieldset>
+}
+
+@section scripts
+{
+    <script src="~/App/build/lotHistory.bundle.js?v=@Html.AppVersion()"></script>
+}
+
+<hgroup>
+    <h2 data-bind="text: currentMovementKey"></h2>
+    <h3 data-bind="text: targetProduct"></h3>
+</hgroup>
+
+<section data-bind="if: inputMaterialsData.input">
+    <lot-inventory-inputs params="input: inputMaterialsData.input"></lot-inventory-inputs>
+</section>
+<section data-bind="if: transactionsData.input">
+    <lot-inventory-transactions params="input: transactionsData.input"></lot-inventory-transactions>
+</section>
+
+<loading-screen params="isVisible: !searchLotKeyCommand.canExecute(), displayMessage: loadingMessage"></loading-screen>
+

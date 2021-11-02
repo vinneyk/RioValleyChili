@@ -1,0 +1,36 @@
+﻿<section>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Samples</h3>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover clickable" data-bind="floatThead: samples, sortableTable: samples">
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Date Due</th>
+          <th>Date Received</th>
+          <th>Date Completed</th>
+          <th>Company</th>
+          <th>Broker</th>
+          <th>Status</th>
+          <th>Created By</th>
+        </tr>
+      </thead>
+      <tbody data-bind="foreach: samples, click: selectSample">
+        <tr class="sample-summary">
+          <td class="no-wrap" data-bind="text: SampleRequestKey"></td>
+          <td data-bind="text: DateDue | toDate"></td>
+          <td data-bind="text: DateReceived | toDate"></td>
+          <td data-bind="text: DateCompleted | toDate"></td>
+          <td data-bind="text: RequestedByCompany | name"></td>
+          <td data-bind="text: Broker | name"></td>
+          <td data-bind="text: Status | sampleStatus"></td>
+          <td data-bind="text: CreatedByUser | name"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+</div>
+</section>

@@ -1,0 +1,61 @@
+﻿<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Shipped Orders
+      <span class="badge" data-bind="text: shippedOrders().length"></span>
+    </h3>
+  </div>
+  <div class="table-responsive sales-order-summaries-table" data-bind="template: {
+      name: 'summary-table',
+      data: shippedOrders,
+    }">
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Unshipped Orders
+      <span class="badge" data-bind="text: unshippedOrders().length"></span>
+    </h3>
+  </div>
+  <div class="table-responsive sales-order-summaries-table" data-bind="template: {
+      name: 'summary-table',
+      data: unshippedOrders,
+    }">
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Invoiced Orders
+      <span class="badge" data-bind="text: invoicedOrders().length"></span>
+    </h3>
+  </div>
+  <div class="table-responsive sales-order-summaries-table" data-bind="template: {
+      name: 'summary-table',
+      data: invoicedOrders,
+    }">
+  </div>
+</div>
+
+<script id="summary-table" type="text/html">
+  <table class="table table-hover clickable" data-bind="sortableTable: $data, floatThead: $data">
+    <thead>
+      <tr>
+        <th data-sort="OrderNum">Order #</th>
+        <th data-sort="OrderStatusText">Status</th>
+        <th data-sort="ShipmentDate">Shipment Date</th>
+        <th data-sort="DateOrderReceived">Order Received</th>
+        <th data-sort="Customer">Customer</th>
+        <th data-sort="Broker">Broker</th>
+      </tr>
+    </thead>
+    <tbody data-bind="foreach: $data, click: $parent.selectKey">
+      <tr>
+        <td data-bind="text: OrderNum"></td>
+        <td data-bind="text: OrderStatusText"></td>
+        <td data-bind="text: ShipmentDate | toDate"></td>
+        <td data-bind="text: DateOrderReceived | toDate"></td>
+        <td data-bind="text: Customer"></td>
+        <td data-bind="text: Broker"></td>
+      </tr>
+    </tbody>
+  </table>
+</script>

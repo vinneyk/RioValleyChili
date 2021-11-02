@@ -1,0 +1,7 @@
+﻿<script id="result-messages-template" type="text/html">
+    <div data-bind="visible: $data.messages().length > 0">
+        <ul data-bind="foreach: $data.messages" class="messages">
+            <li data-bind="text: message, css: { info: success, error: error }"></li>
+        </ul>
+    </div>
+</script>

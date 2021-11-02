@@ -1,0 +1,50 @@
+﻿<!-- ko if: !isCreatingGroup() -->
+<label for="location-group-select">Filter by Group: </label>
+<select id="location-group-select" data-bind="options: Groups, value: selectedGroup"></select>
+<i class="icon-button icon-button-1 fa fa-unlock-alt" data-bind="click: unfreezeGroup"></i>
+<i class="icon-button icon-button-1 fa fa-lock" data-bind="click: freezeGroup"></i>
+<i class="icon-button icon-button-1 fa fa-plus" data-bind="click: createGroup"></i>
+<!-- /ko -->
+
+<!-- ko if: isCreatingGroup -->
+<label for="location-group-create">Create New Group: </label>
+<input type="text" id="location-group-create" data-bind="value: newGroupName" />
+<i class="icon-button icon-button-1 fa fa-times" data-bind="click: cancelCreateGroup"></i>
+<!-- /ko -->
+
+
+<table class="reset table table-condensed table-striped table-hover">
+    <thead>
+        <tr>
+            <th class="col-md-7">Row</th>
+            <th class="col-md-3">Status</th>
+            <th class="col-md-2">Tools</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: filteredLocations">
+        <tr>
+            <td><input placeholder="Row text" data-bind="value: Row, enable: isEditing"/></td>
+            <td>
+                <i class="icon-button icon-button-1 fa" data-bind="css: statusIcon()"></i>
+                <select data-bind="value: Status, options: Status.options, optionsText: 'value', optionsValue: 'key', visible: isEditing"></select>
+            </td>
+            <td>
+                <!-- ko if: !isEditing() -->
+                <i class="icon-button icon-button-1 fa fa-pencil" data-bind="click: editLocation"></i>
+                <!-- /ko -->
+                <!-- ko if: isEditing -->
+                <i class="icon-button icon-button-1 fa fa-check" data-bind="click: saveLocation"></i>
+                <i class="icon-button icon-button-1 fa fa-undo" data-bind="visible: !isNew(), click: undoEdit"></i>
+                <i class="icon-button icon-button-1 fa fa-times" data-bind="visible: isNew, click: removeNewLocation"></i>
+                <!-- /ko -->
+            </td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr>
+            <td colspan="3">
+                <a class="text-button" href="#" data-bind="click: addLocation"><i class="icon-button fa fa-plus-square"></i> Add New Location</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

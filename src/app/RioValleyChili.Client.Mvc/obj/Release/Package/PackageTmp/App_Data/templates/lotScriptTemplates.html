@@ -1,0 +1,84 @@
+﻿<!-- Shared lot script templates -->
+<script id="lot-details-with-defects-thead-cells" type="text/html">
+    <!-- ko template: 'core-lot-thead-cells' --><!-- /ko -->
+    <!-- ko template: 'lot-status-thead-cells' --><!-- /ko -->
+    <!-- ko template: 'lot-attribute-thead-cells' --><!-- /ko -->
+</script>
+
+<script id="core-lot-thead-cells" type="text/html">
+    <th data-sort="Product.ProductCode">Product<br />Code</th>
+    <th data-sort="Product.ProductName">Product Nm.</th>
+    <th data-sort="LotKey">Lot</th>
+    <th data-sort="CustomerName" class="truncate" style="max-width: 120px;">Customer</th>
+</script>
+
+<script id="empty-core-lot-cells" type="text/html">
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</script>
+
+<script id="lot-status-thead-cells" type="text/html">
+    <th data-sort="ProductionStatus.displayValue">Production Status</th>
+    <th data-sort="QualityStatus.displayValue">Quality State</th>
+    <th data-sort="HoldType.displayValue" rowspan="2">Hold</th>
+</script>
+
+<script id="lot-attribute-thead-cells" type="text/html">
+    <th data-sort="LoBac">LoBac</th>
+    <th data-sort="InHouseDefects">Defect Flags</th>
+    <!-- ko foreach: AttributeNames -->
+    <th data-bind="text: $data.Key, attr: { 'data-sort': 'Attributes[' + $index() + '].Value' }" style="white-space: nowrap"></th>
+    <!-- /ko -->
+</script>
+
+<script id="lot-details-with-defects-table-body-cells" type="text/html">
+    <!-- ko template: 'core-lot-tbody-cells' --><!-- /ko -->
+    <!-- ko template: 'lot-status-tbody-cells' --><!-- /ko -->
+    <!-- ko template: 'lot-attribute-tbody-cells' --><!-- /ko -->
+</script>
+
+<script id="core-lot-tbody-cells" type="text/html">
+    <td style="white-space: nowrap;" class="truncate" data-bind="text: Product.ProductCode"></td>
+    <td style="white-space: nowrap;" class="truncate" data-bind="text: Product.ProductName"></td>
+    <td style="white-space: nowrap" data-bind="text: LotKey"></td>
+    <td data-bind="text: CustomerName" class="truncate" style="max-width: 120px;"></td>
+</script>
+
+<script id="lot-status-tbody-cells" type="text/html">
+    <td style="white-space: nowrap" data-bind="text: ProductionStatus.displayValue"></td>
+    <td style="white-space: nowrap" data-bind="text: QualityStatus.displayValue"></td>
+    <td data-bind="text: HoldType.displayValue, tooltip: HoldDescription"></td>
+</script>
+
+<script id="lot-attribute-tbody-cells" type="text/html">
+    <td><input type="checkbox" disabled="disabled" tabindex="-1" data-bind="checked: LoBac" /></td>
+    <td data-bind="text: OpenInHouseDefects().map(function(d) { return ko.unwrap(d.SummaryText); }).join(', ')"></td>
+    <!-- ko template: { foreach: Attributes } -->
+    <td data-bind="css: { 'danger': outOfRange }" style="min-width: 30px"><i class="fa" data-bind="css: { 'fa-arrow-up': outOfRange > 0, 'fa-arrow-down': outOfRange < 0 }"></i> <!-- ko text: formattedValue --><!-- /ko --></td><!-- /ko -->
+      <!-- /ko -->
+</script>
+
+<script id="lot-filter-controls-template" type="text/html">
+    <ol>
+        <li>
+          <div class="form-control input-sm">
+              <label class="control-label" for="productTypeFilter">Type</label>
+              <select id="productTypeFilter" class="form-control" data-bind="value: productTypeFilter, options: productTypeFilter.options, optionsText: 'key', optionsValue: 'value'"></select>
+          </div>
+        </li>
+        <li>
+            <label class="control-label" for="lotTypeFilter">Lot Type</label>
+            <select id="lotTypeFilter" class="form-control" data-bind="value: lotTypeFilter, options: lotTypeFilterOptions, optionsCaption: '*', optionsText: 'value'"></select>
+        </li>
+        <li>
+            <label class="control-label" for="ingredientTypeFilter">Ingredient</label>
+            <select id="ingredientTypeFilter" class="form-control" data-bind="value: ingredientTypeFilter, options: ingredientTypeOptions, optionsCaption: ' ', optionsText: 'Description', optionsValue: 'Key', disable: !ingredientTypeOptions().length"></select>
+        </li>
+        <li>
+            <label class="control-label" for="productFilter">Product</label>
+            <select id="productFilter" class="form-control" data-bind="value: productKeyFilter, options: productOptions, optionsCaption: ' ', optionsText: 'ProductNameFull', optionsValue: 'ProductKey'"></select>
+        </li>
+    </ol>
+</script>

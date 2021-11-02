@@ -1,0 +1,46 @@
+﻿<table class="table table-striped reset" data-bind="validationOptions: {
+        insertMessages: false,
+        decorateInputElement: true,
+        decorateElementOnModified: false,
+        errorElementClass: 'has-error',
+        errorMessageClass: 'help-block'
+    }">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Location</th>
+      <th>Packaging</th>
+      <th>Quantity</th>
+      <th class="info">Weight (lbs)</th>
+    </tr>
+  </thead>
+  <tbody data-bind="foreach: outputItems">
+    <tr data-bind="fadeVisible: true">
+      <td>
+        <button class="btn btn-link btn-xs btn-block" data-bind="command: $parent.removeItem">
+          <i class="fa fa-times fa-lg" tabindex="-1"></i>
+        </button>
+      </td>
+      <td data-bind="validationElement: FacilityLocation">
+        <select class="form-control" data-bind="value: FacilityLocation, options: $parent.options.warehouseOptions, optionsText: 'Description', optionsCaption: ' '"></select>
+      </td>
+      <td data-bind="validationElement: Packaging">
+        <select class="form-control" data-bind="value: Packaging, options: $parent.options.packagingOptions, optionsText: 'ProductName', optionsCaption: ' '"></select>
+      </td>
+      <td data-bind="validationElement: Quantity">
+        <input class="form-control" type="number" data-bind="value: Quantity, valueUpdate: 'afterkeydown'" />
+      </td>
+      <td class="info" data-bind="text: Weight"></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4">
+        <button class="btn btn-default btn-block" data-bind="click: addNewItem"><i class="fa fa-plus-square-o"></i> Add Item</button>
+      </td>
+      <td class="info">
+        Total: <!-- ko text: totalWeight --><!-- /ko -->
+      </td>
+    </tr>
+  </tfoot>
+</table>

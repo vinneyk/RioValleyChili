@@ -1,0 +1,132 @@
+﻿<div class="container-fluid" dat-bind="if: isInit">
+  <h2 data-bind="text: headerText"></h2>
+  <div data-bind="with: editorData">
+
+    <div data-bind="template: $parent.editorMode"></div>
+
+    <div class="panel panel-default">
+      <div class="table-responsive">
+        <table class="table" data-bind="stickyTableHeaders: true">
+          <thead>
+            <tr>
+              <th data-bind="visible: $parent.isEditing"></th>
+              <th>Tote</th>
+              <th>Variety</th>
+              <th>Grower</th>
+              <th>Warehouse</th>
+              <th>Packaging</th>
+              <th>Qty</th>
+              <th class="calc">Weight</th>
+            </tr>
+          </thead>
+          <tbody data-bind="foreach: Items">
+            <tr data-bind="ifnot: isEditing">
+              <td data-bind="text: Tote | toteKey"></td>
+              <td data-bind="text: Variety"></td>
+              <td data-bind="text: Grower"></td>
+              <td data-bind="text: LocationDescription"></td>
+              <td data-bind="text: PackagingName"></td>
+              <td data-bind="text: Quantity"></td>
+              <td data-bind="text: Weight" class="calc"></td>
+            </tr>
+            <tr data-bind="if: isEditing">
+              <td><button class="btn btn-link btn-xs" data-bind="click: $parentContext.$parent.removeItem"><i class="fa fa-times fa-lg"></i></button></td>
+              <td class="form-group">
+                <input class="form-control" type="text" maxlength="10" data-bind="value: Tote.formattedTote, valueUpdate: 'input', hasFocus: toteHasFocus" tabindex="10">
+              </td>
+              <td class="form-group">
+                <select id="" class="form-control" data-bind="value: Variety, options: $parentContext.$parent.options.varietyOptions, optionsCaption: ' ', hasFocus: varietyHasFocus" tabindex="10"></select>
+              </td>
+              <td class="form-group">
+                <input class="form-control" type="text" data-bind="value: Grower, hasFocus: growerHasFocus" tabindex="10">
+              </td>
+              <td class="form-group">
+                <input class="form-control" type="text" data-bind="jqAuto: { value: Location, source: $parentContext.$parent.options.warehouseLocations, labelProp: 'Description', options: { minLength: 2, autoFocus: true }}, hasFocus: warehouseHasFocus" tabindex="10">
+              </td>
+              <td class="form-group">
+                <select id="" class="form-control" data-bind="value: PackagingProduct, options: $parentContext.$parent.options.packagingProductOptions, optionsText: 'ProductName', optionsCaption: ' ', hasFocus: packagingHasFocus" tabindex="10"></select>
+              </td>
+              <td class="form-group">
+                <input class="form-control" type="text" data-bind="value: Quantity, hasFocus: quantityHasFocus" tabindex="10">
+              </td>
+              <td data-bind="text: Weight" class="calc"></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="1" data-bind="visible: $parent.isEditing"></td>
+              <td colspan="5"></td>
+              <td>Total:</td>
+              <td class="calc" data-bind="text: totalWeight"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script id="viewLot" type="text/html">
+  <div>
+    <fieldset class="tabular">
+      <legend>Product</legend>
+      <ol id="productView">
+        <li>
+          <label>Production Date</label>
+          <span data-bind="text: ProductionDate | toDate"></span>
+        </li>
+        <li>
+          <label>Load</label>
+          <span data-bind="text: Load"></span>
+        </li>
+        <li>
+          <label>Product</label>
+          <span data-bind="text: Product"></span>
+        </li>
+        <li>
+          <label>Purchase Order</label>
+          <span data-bind="text: PurchaseOrder"></span>
+        </li>
+        <li>
+          <label>Shipper #</label>
+          <span data-bind="text: ShipperNumber"></span>
+        </li>
+        <li>
+          <label>Count of Items</label>
+          <span data-bind="text: Items().length"></span>
+        </li>
+      </ol>
+    </fieldset>
+  </div>
+</script>
+
+<script id="editLot" type="text/html">
+  <div>
+    <div class="row">
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: ProductionDate">
+          <label class="control-label" for="productionDate">Production Date</label>
+          <input id="productionDate" class="form-control" data-bind="value: ProductionDate, datePicker: true, hasFocus: productionDateHasFocus" type="text" tabindex="1" />
+      </div>
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: Supplier">
+        <label class="control-label">Supplier</label>
+        <select class="form-control" data-bind="value: Supplier, options: $parent.options.supplierOptions, optionsText: 'Name', optionsValue: 'CompanyKey', optionsCaption: ' '" tabindex="2"></select>
+      </div>
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: Load">
+        <label class="control-label">Load</label>
+        <input class="form-control" data-bind="value: Load, valueUpdate: 'input'" type="text" tabindex="3" />
+      </div>
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: Product">
+        <label class="control-label">Product</label>
+        <select class="form-control" data-bind="value: Product, options: $parent.options.chileProductOptions, optionsText: 'ProductName', optionsValue: 'ProductKey'" tabindex="4"></select>
+      </div>
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: PurchaseOrder">
+        <label class="control-label">Purchase Order No.</label>
+        <input class="form-control" data-bind="value: PurchaseOrder, valueUpdate: 'input'" type="text" tabindex="5" />
+      </div>
+      <div class="form-group col-sm-6 col-md-4 col-lg-3" data-bind="validationElement: ShipperNumber">
+        <label class="control-label">Shipper No.</label>
+        <input class="form-control" data-bind="value: ShipperNumber" type="text" tabindex="6" />
+      </div>
+    </div>
+  </div>
+</script>

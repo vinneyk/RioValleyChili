@@ -1,0 +1,36 @@
+﻿<div class="panel">
+  <div class="panel-body table-responsive">
+    <div class="text-center" data-bind="ifnot: isInit">
+      <i class="fa fa-spinner fa-pulse fa-3x"></i>
+    </div>
+    <table class="clickable no-wrap table table-condensed table-hover reset" data-bind="if: isInit">
+      <thead>
+        <tr>
+          <th>Lot</th>
+          <th>Shift</th>
+          <th>Product</th>
+          <th>Line</th>
+          <th>Production Start</th>
+          <th>Production End</th>
+          <th class="calc">Total Time</th>
+          <th class="calc">Total Weight</th>
+        </tr>
+      </thead>
+      <!-- ko with: summaryData -->
+      <tbody data-bind="foreach: lots, click: $parent.select">
+        <tr>
+          <td data-bind="text: OutputChileLotKey"></td>
+          <td data-bind="text: ShiftKey">  </td>
+          <td data-bind="text: ChileProductName"></td>
+          <td data-bind="text: ProductionLineDescription"></td>
+          <td data-bind="text: ProductionBegin | toDate"></td>
+          <td data-bind="text: ProductionEnd | toDate"></td>
+          <td data-bind="text: TotalProductionTimeMinutes" class="calc"></td>
+          <td data-bind="text: TotalWeightProduced" class="calc"></td>
+        </tr>
+      </tbody>
+      <!-- /ko -->
+    </table>
+  </div>
+</div>
+

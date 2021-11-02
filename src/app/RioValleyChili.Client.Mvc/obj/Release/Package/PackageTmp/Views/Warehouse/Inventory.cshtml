@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Inventory";
+    Layout = "~/Views/Shared/_WebPackLayout.cshtml";
+}
+
+@section controlPanel
+{
+<fieldset data-bind="with: filters">
+    <legend>Filters</legend>
+    <div class="form-group">
+        <input type="button" value="Load more" data-bind="command: $parent.loadMore">
+    </div>
+    @*<div class="checkbox">
+        Load all inventory for filters <input type="checkbox" data-bind="checked: $parent.enableAutoLoad"> 
+    </div>*@
+    <lot-filters params="input: {},
+        filters: filters,
+        mode: 'inventory',
+        enableFacilityFilter: true">
+    </lot-filters>
+</fieldset>
+}
+
+@section scripts
+{
+    <script src="~/App/build/warehouseInventory.bundle.js?v=@Html.AppVersion()"></script>
+}
+
+<section data-bind="template: {
+    name: 'inventory-tables',
+    afterRender: floatHeader
+    }">
+    
+</section>
+
+<loading-screen params="displayMessage: 'Loading inventory...', isVisible: !loadMore.canExecute()"></loading-screen>
+
+<script id="inventory-tables" type="text/html">
+  <!-- ko ifnot: isInit -->
+  <div class="well text-center">
+    <i class="fa fa-spinner fa-pulse fa-3x"></i>
+  </div>
+  <!-- /ko -->
+  <!-- ko if: isInit -->
+  <div class="alert alert-info text-center" data-bind="visible: isLoadingMultiple">
+    Loading more data (page {{ loadPageCounter }}) <i class="fa fa-spinner fa-pulse"></i>
+  </div>
+  <div data-bind="foreach: tableVMs">
+    <div class="panel panel-default" data-bind="visible: $parent.showTable( $data )">
+      <div class="pick-table-wrap">
+        <inventory-table params="input: $data, viewOnly: true, exports: inventoryTableExport"></inventory-table>
+        <label style="">Total Pounds:</label>
+        <label data-bind="text: $parent.totalPounds() | toNumber"></label>
+        (<label data-bind="text: totalPoundsOnScreen() | toNumber"></label> shown)
+      </div>
+    </div>
+  </div>
+  <!-- /ko -->
+</script>

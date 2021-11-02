@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8C1D922C-F8EE-43CF-B7CF-F75FFF37156A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RioValleyChili.Business.Core</RootNamespace>
+    <AssemblyName>RioValleyChili.Business.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Testing|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Testing\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\LinqKit.1.1.1\lib\net45\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.Data, Version=1.4.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Data.1.4.7\lib\net45\Solutionhead.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.EntityKey">
+      <HintPath>..\..\..\packages\Solutionhead.EntityKey.1.0.0\lib\net45\Solutionhead.EntityKey.dll</HintPath>
+    </Reference>
+    <Reference Include="Solutionhead.Services, Version=1.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Solutionhead.Services.1.4.6\lib\net45\Solutionhead.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\AstaCalculator.cs" />
+    <Compile Include="Helpers\ChileProductAttributeRangeExtensions.cs" />
+    <Compile Include="Helpers\DBFunctions.cs" />
+    <Compile Include="Helpers\EnumerableExtensions.cs" />
+    <Compile Include="Helpers\ExpressionExtensions.cs" />
+    <Compile Include="Helpers\GlobalKeyHelpers.cs" />
+    <Compile Include="Helpers\InventoryTransactionsHelper.cs" />
+    <Compile Include="Helpers\IRepositoryExtensions.cs" />
+    <Compile Include="Helpers\IResultExtensions.cs" />
+    <Compile Include="Helpers\LotNumberBuilder.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
+    <Compile Include="Helpers\LotStatusHelper.cs" />
+    <Compile Include="Keys\AdditiveProductKey.cs" />
+    <Compile Include="Keys\AdditiveTypeKey.cs" />
+    <Compile Include="Keys\AttributeNameKey.cs" />
+    <Compile Include="Keys\ChileProductAttributeRangeKey.cs" />
+    <Compile Include="Keys\ChileProductIngredientKey.cs" />
+    <Compile Include="Keys\ChileProductKey.cs" />
+    <Compile Include="Keys\ChileTypeKey.cs" />
+    <Compile Include="Keys\CompanyKey.cs" />
+    <Compile Include="Keys\CompanyTypeRecordKey.cs" />
+    <Compile Include="Keys\ContactAddressKey.cs" />
+    <Compile Include="Keys\ContactKey.cs" />
+    <Compile Include="Keys\ContractItemKey.cs" />
+    <Compile Include="Keys\ContractKey.cs" />
+    <Compile Include="Keys\CustomerKey.cs" />
+    <Compile Include="Keys\CustomerNoteKey.cs" />
+    <Compile Include="Keys\SalesOrderItemKey.cs" />
+    <Compile Include="Keys\SalesOrderKey.cs" />
+    <Compile Include="Keys\SalesOrderPickedItemKey.cs" />
+    <Compile Include="Keys\CustomerProductAttributeRangeKey.cs" />
+    <Compile Include="Keys\CustomerProductCodeKey.cs" />
+    <Compile Include="Keys\DateSequenceKeyBase.cs" />
+    <Compile Include="Keys\ChileMaterialsReceivedItemKey.cs" />
+    <Compile Include="Keys\EmployeeKey.cs" />
+    <Compile Include="Keys\InstructionKey.cs" />
+    <Compile Include="Keys\IntraWarehouseOrderKey.cs" />
+    <Compile Include="Keys\InventoryAdjustmentItemKey.cs" />
+    <Compile Include="Keys\InventoryAdjustmentKey.cs" />
+    <Compile Include="Keys\InventoryKey.cs" />
+    <Compile Include="Keys\InventoryShipmentOrderKey.cs" />
+    <Compile Include="Keys\InventoryTransactionKey.cs" />
+    <Compile Include="Keys\LocationKey.cs" />
+    <Compile Include="Keys\LotAttributeKey.cs" />
+    <Compile Include="Keys\LotDefectKey.cs" />
+    <Compile Include="Keys\LotDefectResolutionKey.cs" />
+    <Compile Include="Keys\LotAttributeDefectKey.cs" />
+    <Compile Include="Keys\NotebookKey.cs" />
+    <Compile Include="Keys\NoteKey.cs" />
+    <Compile Include="Keys\LotProductionResultItemKey.cs" />
+    <Compile Include="Keys\PickedInventoryItemKey.cs" />
+    <Compile Include="Keys\PickedInventoryKey.cs" />
+    <Compile Include="Keys\InventoryTreatmentKey.cs" />
+    <Compile Include="Keys\LotKey.cs" />
+    <Compile Include="Keys\InventoryPickOrderItemKey.cs" />
+    <Compile Include="Keys\InventoryPickOrderKey.cs" />
+    <Compile Include="Keys\PackagingProductKey.cs" />
+    <Compile Include="Keys\PackScheduleKey.cs" />
+    <Compile Include="Keys\ProductionScheduleItemKey.cs" />
+    <Compile Include="Keys\ProductionScheduleKey.cs" />
+    <Compile Include="Keys\ProductKey.cs" />
+    <Compile Include="Keys\SalesQuoteItemKey.cs" />
+    <Compile Include="Keys\SalesQuoteKey.cs" />
+    <Compile Include="Keys\SampleOrderItemKey.cs" />
+    <Compile Include="Keys\SampleOrderJournalEntryKey.cs" />
+    <Compile Include="Keys\SampleOrderKey.cs" />
+    <Compile Include="Keys\ShipmentInformationKey.cs" />
+    <Compile Include="Keys\TreatmentOrderKey.cs" />
+    <Compile Include="Keys\FacilityKey.cs" />
+    <Compile Include="Keys\WorkTypeKey.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\UserMessages.Designer.cs">
+      <DependentUpon>UserMessages.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\UserMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserMessages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favico-32x32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RioValleyChili.Core\RioValleyChili.Core.csproj">
+      <Project>{b4a2b7da-4f15-4b75-a65f-025c32564ea0}</Project>
+      <Name>RioValleyChili.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RioValleyChili.Data.Models\RioValleyChili.Data.Models.csproj">
+      <Project>{12191b6e-b491-4398-83d2-4878ecbdafd1}</Project>
+      <Name>RioValleyChili.Data.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

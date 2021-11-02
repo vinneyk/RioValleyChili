@@ -1,0 +1,67 @@
+﻿<section data-bind="with: editor">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Scheduled Items</h3>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>
+            </th><!-- Editor Tools -->
+            <th>PS #</th>
+            <th>Product</th>
+            <th>Avg. Gran</th>
+            <th>Avg. Asta</th>
+            <th>Avg. Scan</th>
+            <th>Avg. A/B</th>
+            <th>Due Date</th>
+            <th>Flush Before</th>
+            <th>Flush Before Instructions</th>
+            <th>Flush After</th>
+            <th>Flush After Instructions</th>
+            <th>Operator Instructions</th>
+          </tr>
+        </thead>
+        <tbody class="draggable" data-bind="sortable: ScheduledItems">
+          <tr>
+            <td class="no-wrap">
+              <span class="text-muted draggable-grip">
+                <i class="fa fa-ellipsis-v"></i> <i class="fa fa-ellipsis-v"></i> 
+              </span>
+              <button class="btn btn-default btn-sm" data-bind="click: $parent.moveItemToTop, enable: canMoveUp" tabindex="-1"><i class="fa fa-angle-double-up"></i></button>
+              <button class="btn btn-default btn-sm" data-bind="click: $parent.moveItemUp, enable: canMoveUp" tabindex="-1"><i class="fa fa-angle-up"></i></button>
+              <button class="btn btn-default btn-sm" data-bind="click: $parent.moveItemDown, enable: canMoveDown" tabindex="-1"><i class="fa fa-angle-down"></i></button>
+              <button class="btn btn-default btn-sm" data-bind="click: $parent.moveItemToBottom, enable: canMoveDown" tabindex="-1"><i class="fa fa-angle-double-down"></i></button>
+            </td>
+            <td class="no-wrap" data-bind="text: PackSchedule.PackScheduleKey"></td>
+            <td class="no-wrap" data-bind="text: PackSchedule.ChileProduct.ProductCodeAndName"></td>
+            <td class="text-right" data-bind="text: PackSchedule.AverageGranularity"></td>
+            <td class="text-right" data-bind="text: PackSchedule.AverageAoverB | toFixed:2"></td>
+            <td class="text-right" data-bind="text: PackSchedule.AverageScoville | toFixed:2"></td>
+            <td class="text-right" data-bind="text: PackSchedule.AverageScan | toFixed:2"></td>
+            <td data-bind="text: PackSchedule.ProductionDeadline | toDate"></td>
+            <td class="valign-middle text-right">
+              <input type="checkbox" data-bind="checked: FlushBefore">
+            </td>
+            <td>
+              <textarea class="form-control textarea" rows="1" data-bind="textinput: FlushBeforeInstructions, enable: FlushBefore"></textarea>
+            </td>
+            <td class="valign-middle text-right">
+              <input type="checkbox" data-bind="checked: FlushAfter">
+            </td>
+            <td>
+              <textarea class="form-control textarea" rows="1" data-bind="textinput: FlushAfterInstructions, enable: FlushAfter"></textarea>
+            </td>
+            <td class="textarea" data-bind="text: PackSchedule.Instructions"></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="13"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>

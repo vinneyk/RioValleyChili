@@ -1,0 +1,89 @@
+﻿<script id="product-ingredients-template" type="text/html">
+    <ul class="product-ingredients" data-bind="if: hasIngredients">
+        <!-- ko foreach: ProductIngredients -->
+        <!-- ko if: isEditing -->
+        <li data-bind="template: { name: isEditing() ? 'product-ingredients-editor-template' : 'product-ingredients-display-template' }"></li>
+        <!-- /ko -->
+        <!-- ko ifnot: isEditing -->
+        <li data-bind="template: { name: 'product-ingredients-display-template', ifnot: isNew }"></li>
+        <!-- /ko -->
+        <!-- /ko -->
+
+
+        <li class="total">
+            <label>Total</label>
+            <span data-bind="text: totalPartsDisplay"></span>
+        </li>
+
+    </ul>
+</script>
+
+<script id="product-ingredients-display-template" type="text/html">
+    <label data-bind="text: AdditiveTypeName"></label>
+    <span class="percentDisplay" data-bind="text: percentDisplay"></span>
+    <input type="button" data-bind="command: beginEditingCommand" value="edit" class="link" />
+    <input type="button" data-bind="command: $parent.removeIngredientCommand, visible: !isNew()" class="link" value="delete" />
+    <span data-bind="ajaxStatus: $data"></span>
+    <span data-bind="if: ajaxSuccess" style="color: #2e8b57">Ingredient Saved Successfully</span>
+</script>
+
+<script id="product-ingredients-editor-template" type="text/html">
+    <!-- ko if: isNew -->
+    <select data-bind="value: AdditiveTypeKey, options: $parent.additiveTypeOptions, optionsText: 'Description', optionsValue: 'Key', optionsCaption: ' '"></select>
+    <!-- /ko -->
+    
+    <!-- ko ifnot: isNew -->
+    <label data-bind="text: AdditiveTypeName"></label>
+    <!-- /ko -->
+
+    <input type="text" data-bind="value: Percent, enable: AdditiveTypeKey" />
+    <span class="percentDisplay" data-bind="text: percentDisplay"></span>
+    <input type="button" data-bind="command: $parent.cancelIngredientCommand, visible: !isNew() || hasChanges(), value: hasChanges() ? 'undo' : 'cancel'" value="cancel" class="link" />
+    <input type="button" data-bind="command: $parent.removeIngredientCommand, visible: !isNew()" class="link" value="delete" />
+</script>
+
+<style>
+    .percentDisplay {
+        width: 50px;
+        display: inline-block;
+        text-align: right;
+    }
+    
+    ul.product-ingredients {
+    }
+
+    .product-ingredients li {
+        padding: 3px 5px;
+    }
+
+    .product-ingredients li:nth-child(even) {
+        background-color: #e2e2e2;
+    }
+
+    .product-ingredients li label {
+        display: inline-block;
+        width: 25%;
+        min-width: 150px;
+        max-width: 200px;
+        overflow: hidden;
+    }
+
+    .product-ingredients li label:after {
+        content: ':';
+    }
+
+    .product-ingredients li select {
+        width: 25%;
+        min-width: 150px;
+        max-width: 200px;
+    }
+
+    .product-ingredients input[type='text'] {
+        width: 50px;
+    }
+
+    .product-ingredients .total {
+        font-weight: bold;
+        border-top: 1px solid #666;
+    }
+</style>

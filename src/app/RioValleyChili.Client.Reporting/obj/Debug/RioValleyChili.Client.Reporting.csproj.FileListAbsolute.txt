@@ -1,0 +1,115 @@
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.csprojAssemblyReference.cache
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Content.ReportStrings.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.AddressLabelReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.BillOfLadingReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.CertificateOfAnalysisReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.CustomerContract.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.SalesQuoteReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.InventoryCycleCountReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.MiscOrderInternalAcknowledgementReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.MiscOrderCustomerAcknowledgementReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.MiscOrderInvoiceReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.PackingListBarcodeReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.ChileProductReceivedRecapReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.CustomerOrderAcknowledgementReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.CustomerContractDrawSummaryReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.CustomerNotesSubReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.CustomerOrderInvoiceReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.LabResultsReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.PackListShippingLabel.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.PackSchedulePickSheetReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.PickListShippingLabel.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.ProductionAdditiveInputsReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.ProductionBatchPacketReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.ProductionRecapReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.ProductionRecapReport_Details.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.ProductionRecapReport_TestResults.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.ProductionRecapReport_TimeResults.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.ProductionRecapReport_WeightResults.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.PendingOrderDetailsReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.InHouseInvoiceCopyReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.ProductionScheduleReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.SampleMatchSummary.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.SampleRequestReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.WarehouseOrderPackingListReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.WarehouseOrderAcknowledgementReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.Reports.WarehouseOrderPickSheetReport.resources
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.csproj.GenerateResource.cache
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\AutoMapper.Net4.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Adomd.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Cache.Database.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Cache.StackExchangeRedis.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.OpenXmlRendering.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Service.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Services.ServiceStack.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.Services.WebApi.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.Reporting.XpsRendering.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Mvc.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Silverlight.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.WebForms.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.WinForms.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\App_Libs\Telerik Reporting Q1 2015\Telerik.ReportViewer.Wpf.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\RioValleyChili.Client.Reporting.dll.config
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\RioValleyChili.Client.Reporting.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\RioValleyChili.Client.Reporting.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\AutoMapper.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\EntityFramework.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\EntityFramework.SqlServer.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\LinqKit.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Newtonsoft.Json.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Ninject.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Ploeh.AutoFixture.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\RioValleyChili.Client.Core.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\RioValleyChili.Core.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\RioValleyChili.Services.Interfaces.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Solutionhead.Services.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Net.Http.Formatting.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.Helpers.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.Http.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.Http.WebHost.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.Mvc.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.Razor.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.WebPages.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.WebPages.Razor.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.Reporting.Adomd.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.Reporting.Cache.Database.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.Reporting.Cache.StackExchangeRedis.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.Reporting.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.Reporting.OpenXmlRendering.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.Reporting.Service.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.Reporting.Services.ServiceStack.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.Reporting.Services.WebApi.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.Reporting.XpsRendering.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.ReportViewer.Mvc.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.ReportViewer.Silverlight.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.ReportViewer.WebForms.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.ReportViewer.WinForms.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Telerik.ReportViewer.Wpf.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Moq.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\RioValleyChili.Client.Core.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\RioValleyChili.Core.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\RioValleyChili.Services.Interfaces.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\AutoMapper.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\EntityFramework.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\EntityFramework.SqlServer.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Newtonsoft.Json.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Ninject.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Ploeh.AutoFixture.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Net.Http.Formatting.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.Helpers.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.Http.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.Http.WebHost.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.Mvc.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.Razor.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.WebPages.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\System.Web.WebPages.Razor.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Moq.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\bin\Debug\Moq.xml
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.csproj.CopyComplete
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.dll
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.pdb
+C:\ReposLocal\RVC\src\app\RioValleyChili.Client.Reporting\obj\Debug\RioValleyChili.Client.Reporting.csproj.CoreCompileInputs.cache

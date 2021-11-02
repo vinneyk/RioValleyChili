@@ -1,0 +1,253 @@
+﻿
+@using System.Configuration
+@using RioValleyChili.Client.Mvc.Utilities.Helpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Rio Valley Chili, Inc.</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    @* APPLICATION INSIGHTS *@
+    <script type="text/javascript">
+      window.appInsights = { queue: [], applicationInsightsId: null, accountId: null, appUserId: null, configUrl: null, start: function (n) { function u(n, t) { n[t] = function () { var i = arguments; n.queue.push(function () { n[t].apply(n, i) }) } } function f(n) { var t = document.createElement("script"); return t.type = "text/javascript", t.src = n, t.async = !0, t } function r() { i.appendChild(f("//az416426.vo.msecnd.net/scripts/ai.0.js")) } var i, t; this.applicationInsightsId = n; u(this, "logEvent"); u(this, "logPageView"); i = document.getElementsByTagName("script")[0].parentNode; this.configUrl === null ? r() : (t = f(this.configUrl), t.onload = r, t.onerror = r, i.appendChild(t)); this.start = function () { } } };
+      appInsights.start("91a62e2b-368f-4db2-b1ee-2d9eedaa0ff5");
+      appInsights.logPageView();
+    </script>
+    
+
+    <link href="@Links.Content.Site_css" rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/themes/base/jquery.ui.all.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/shEditorStyles.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/Validation.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    @RenderSection("htmlHead", false)
+    <script>
+      $(function() {
+        window.appConstants = {
+          stringLengths: @Html.RawJson(RioValleyChili.Core.Helpers.Constants.StringLengths.ToObject())
+        }
+      });
+    </script>
+</head>
+<body>
+    @Html.AntiForgeryToken()
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">@Html.ActionLink("Rio Valley Chili", MVC.Home.Index())</p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+
+                <nav>
+                    @if (!KillSwitch.IsEngaged)
+                    {
+                        @Html.Action(MVC.Home.MainNavigation())
+                    }
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        @if (ViewBag.IncludeCvp ?? true)
+        {
+            <div id="cvp">
+                @if (!bool.Parse(ConfigurationManager.AppSettings["OldContextSynchronizationEnabled"]))
+                {
+                    <ul class="messages">
+                        <li class="info">Old Context Sync is Disabled</li>
+                    </ul>
+                }
+                @RenderSection("controlPanel", false)
+            </div>
+        }
+
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+
+            @Html.UserMessage()
+
+            @Html.Partial(MVC.Shared.Views._PageTitle)
+
+            @RenderBody()
+        </section>
+    </div>
+    <footer id="page-footer">
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - Rio Valley Chili, Inc.<br/>v111</p>
+            </div>
+        </div>
+    </footer>
+    @RenderSection("absolute", false)
+    @if (KillSwitch.IsEngaged)
+    {
+        <div class="modal-message">
+            <span>The website has been shut down.</span>
+        </div>
+    }
+</body>
+</html>
+
+@Html.Partial(MVC.Shared.Views._knockoutTemplates)
+
+<script type="text/javascript">
+  var $userMessage = $("#usermsg");
+
+  (function (root, $, undefined) {
+    var app = root.rvc || {};
+    app.fixlayout = fixlayout;
+    init();
+
+    function fixlayout() {
+      $("#cvp").slimscroll({
+        color: "#333",
+        width: null,
+        height: null,
+        size: '10px',
+        //alwaysVisible: true
+      });
+    }
+    function init() {
+      // init
+      if ($userMessage.html() != '') {
+        showUserMessage();
+      }
+      fixlayout();
+    }
+
+    return self;
+  }(window, jQuery));
+
+
+  function showUserMessage(message, args) {
+    var self = {
+      isClosing: false,
+    };
+
+    self.options = $.extend({}, defaultOptions, args);
+
+    $("#usermsg").hide().empty();
+    clearTimeout(window.userMessageTimeout);
+
+    if (message != '') {
+      var $header = $("<header></header>").html(message);
+      $("#usermsg").append($header);
+    }
+
+    if (self.options.description) {
+      var descriptionContainer = $("<div></div>").html(self.options.description);
+      $("#usermsg").append(descriptionContainer);
+    }
+
+    if (self.options.type) {
+      switch (self.options.type) {
+      case 'yesno':
+      case 'yesnocancel':
+        var $yes = createUserPromptButton("Yes", { click: self.options.onYesClick });
+        var $no = createUserPromptButton("No", { click: self.options.onNoClick });
+        var $inputContainer;
+
+        if (self.options.type === 'yesnocancel') {
+          var $cancel = createUserPromptButton("Cancel", { click: self.options.onCancelClick || function() {} });
+          $inputContainer = $("<footer></footer>").append($yes).append($no).append($cancel);
+        } else {
+          $inputContainer = $("<footer></footer>").append($yes).append($no);
+        }
+
+        $("#usermsg").append($inputContainer);
+
+        self.options.autoClose = false;
+
+        break;
+      default:
+        var $closeButton = $("<span></span>")
+          .addClass("close")
+          .bind('click', function () { closeUserMessage(0); });
+        $("#usermsg").append($closeButton);
+        break;
+      }
+    }
+
+    var cssClass = '';
+    switch (self.options.mode) {
+    case 'error':
+      cssClass = 'error';
+      break;
+    default:
+      cssClass = 'basic';
+      break;
+    }
+    $userMessage.css(cssClass);
+
+    if (self.options.autoClose) {
+      setUserMessageTimeout();
+    }
+
+    $userMessage.fadeIn(1000);
+  }
+
+  var defaultOptions = {
+    type: 'basic',
+    autoClose: true,
+    mode: 'informational',
+  };
+
+  function createUserPromptButton(text, args) {
+    var button = $("<a></a>")
+      .attr({
+        'class': 'button'
+      })
+      .html(text)
+
+      // it is important to define this click binding before the
+      // callback func so that the call back can display a follow up message
+      // without having the message immediately closed.
+      .bind('click', function () { closeUserMessage(); });
+
+    if (args.click) {
+      button.bind('click', args.click);
+    }
+
+    return button;
+  }
+
+  function setUserMessageTimeout() {
+    window.userMessageTimeout = window.setTimeout(function () {
+      closeUserMessage(3000);
+    }, 10000);
+  }
+
+  function closeUserMessage(duration) {
+    self.isClosing = true;
+    if (duration > 0) {
+      $userMessage.fadeOut(duration, function () { self.isClosing = false; });
+      $userMessage.mouseover(function () {
+        cancelMessageClosing();
+      });
+    } else {
+      $userMessage.hide();
+      self.isClosing = false;
+    }
+  }
+
+  function cancelMessageClosing() {
+    if (self.isClosing === true) {
+      self.isClosing = false;
+      $userMessage.stop(true).animate({ opacity: '100' }, 1000);
+      $userMessage.mouseleave(function () {
+        setUserMessageTimeout();
+      });
+    }
+  }
+    
+</script>
+@Html.RenderJavaScriptIncludes()
+@Html.RenderEmbeddedJavaScript()
+@RenderSection("scripts", false)

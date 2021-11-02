@@ -1,0 +1,127 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h4 class="panel-title" data-bind="text: editorData() ? 'Edit a contact' : 'Contacts'">Contacts</h4>
+  </div>
+  <div class="panel-body">
+    <div class="address-book">
+      <div data-bind="template: editorData() ? 'address-book-editor' : 'address-book-contact'">
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="text-right" data-bind="visible: editorData">
+      <button class="btn btn-default" data-bind="click: cancelEdit">Cancel</button>
+      <button class="btn btn-primary" data-bind="command: saveContact">Save</button>
+    </div>
+  </div>
+</div>
+
+<script id="address-book-editor" type="text/html">
+  <!-- ko with: editorData -->
+  <section>
+    <button class="btn btn-danger btn-sm pull-right" data-bind="command: $parent.removeContact"><i class="fa fa-trash"></i> Delete Contact</button>
+    <h4>Contact Info</h4>
+    <div class="form-group">
+      <label class="control-label" for="editor-address-line-1">Name</label>
+      <input class="form-control" id="editor-address-line-1" type="text" data-bind="textinput: Name">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="editor-address-line-1">Phone</label>
+      <input class="form-control" id="editor-address-line-1" type="text" data-bind="textinput: Phone">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="editor-address-line-1">Email</label>
+      <input class="form-control" id="editor-address-line-1" type="text" data-bind="textinput: EMail">
+    </div>
+  </section>
+  <hr>
+  <section>
+    <h4>Addresses</h4>
+    <div>
+        <div class="address-list row">
+            <!-- ko foreach: Addresses -->
+            <div class="col-md-6 col-lg-4">
+              <a href="#" class="contact-address btn btn-block" data-bind="css: { 'btn-primary': isSelected, 'btn-default': !isSelected() }, click: $parent.selectAddress, with: Address">
+                <p data-bind="text: $parent.AddressDescription, visible: $parent.AddressDescription"></p>
+                <span class="center-block" data-bind="text: AddressLine1"></span>
+                <span class="center-block" data-bind="text: AddressLine2"></span>
+                <span class="center-block" data-bind="text: AddressLine3"></span>
+                <span class="center-block" data-bind="text: CityStatePost"></span>
+              </a>
+            </div>
+            <!-- /ko -->
+        </div>
+        <div class="address-list row">
+            <div class="col-md-6 col-lg-4">
+              <button class="contact-address btn btn-default btn-block" data-bind="click: addAddress, visible: isNew">
+                <p><i class="fa fa-plus-square"></i> New Address</p>
+              </button>
+            </div>
+        </div>
+    </div>
+  </section>
+  <section data-bind="with: selectedAddress">
+    <hr>
+    <!-- ko with: Address -->
+    <h4>Address Details</h4>
+    <div class="form-group">
+      <label class="control-label" for="editor-address-line-1">Address Line 1</label>
+      <input class="form-control" id="editor-address-line-1" type="text" data-bind="textinput: AddressLine1">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="editor-address-line-2">Address Line 2</label>
+      <input class="form-control" id="editor-address-line-2" type="text" data-bind="textinput: AddressLine2">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="editor-address-line-3">Address Line 3</label>
+      <input class="form-control" id="editor-address-line-3" type="text" data-bind="textinput: AddressLine3">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="editor-city">City</label>
+      <input class="form-control" id="editor-city" type="text" data-bind="textinput: City">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="editor-state">State</label>
+      <input class="form-control" id="editor-state" type="text" data-bind="textinput: State">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="editor-postal-code">Postal Code</label>
+      <input class="form-control" id="editor-postal-code" type="text" data-bind="textinput: PostalCode">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="editor-country">Country</label>
+      <input class="form-control" id="editor-country" type="text" data-bind="textinput: Country">
+    </div>
+    <!-- /ko -->
+
+    <div class="form-group">
+      <label class="control-label" for="editor-address-description">Description</label>
+      <textarea class="form-control vertical-resize" id="editor-address-description" data-bind="textinput: AddressDescription"></textarea>
+    </div>
+  </section>
+  <!-- /ko -->
+</script>
+<script id="address-book-contact" type="text/html">
+<button class="btn btn-default btn-sm pull-right" data-bind="click: startNewContact"><i class="fa fa-plus"></i> Add Contact</button>
+<div class="well" data-bind="visible: contacts().length === 0">No contacts for the selected company</div>
+<!-- ko foreach: contacts -->
+<section class="address-book-contact container-fluid">
+    <h4 class="contact-name" data-bind="text: Name || '( No name )'"></h4>
+
+    <div class="address-list row" data-bind="foreach: Addresses">
+        <div class="col-md-6 col-lg-4">
+          <a href="#" class="contact-address btn btn-block" data-bind="css: { 'btn-primary': isSelected, 'btn-default': !isSelected() }, click: $parents[1].select, with: Address">
+            <button class="pull-right btn btn-link btn-sm" data-bind="click: $parents[2].editContact">
+              <i class="fa fa-edit fa-lg"></i>
+            </button>
+              <p data-bind="text: $parent.AddressDescription, visible: $parent.AddressDescription"></p>
+              <span class="center-block" data-bind="text: AddressLine1"></span>
+              <span class="center-block" data-bind="text: AddressLine2"></span>
+              <span class="center-block" data-bind="text: AddressLine3"></span>
+              <span class="center-block" data-bind="text: CityStatePost"></span>
+          </a>
+        </div>
+    </div>
+</section>
+<!-- /ko -->
+</script>

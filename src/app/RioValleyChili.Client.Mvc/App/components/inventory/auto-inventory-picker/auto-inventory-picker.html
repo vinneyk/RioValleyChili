@@ -1,0 +1,14 @@
+﻿<div class="auto-inventory-picker">
+    <!-- ko if: !staticType -->
+    <label>Inventory Type</label>
+    <select data-bind="value: inventoryType, options: inventoryOpts, optionsText: 'key', optionsValue: 'value'"></select>
+    <!-- /ko -->
+
+    <label>Product</label>
+    <select data-bind="value: product, options: productOpts, optionsText: 'ProductName'"></select>
+
+    <label>Quantity</label>
+    <input type="number" data-bind="value: quantity, valueUpdate: 'input'" />
+
+    <input type="button" value="Pick" data-bind="command: getInventoryPicks" />
+</div>

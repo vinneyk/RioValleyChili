@@ -1,0 +1,36 @@
+﻿
+address-book-contact {
+    display: block;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+    address-book-contact .address-book-contact {
+        border-bottom: 1px solid grey;
+        padding: 1em;
+    }
+
+    address-book-contact:hover {
+        cursor: pointer;
+    }
+
+    address-book-contact.active {
+        background-color: rgb(188, 231, 244);
+    }
+
+    address-book-contact .contact-name, address-book-contact .address-list {
+        text-align: center;
+    }
+    address-book-contact .contact-address {
+        display: inline-block;
+        border: 1px solid;
+        border-radius: 3px;
+        padding: 1em;
+        margin: 0.5em;
+    }
+    address-book-contact .address-list .active-addr {
+        color: green;
+        border-width: thick;
+    }

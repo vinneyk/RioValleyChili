@@ -1,0 +1,16 @@
+﻿@{
+    // NOTE: The Read-only SelectList element was being rendered with the text binding rather than the value binding.
+    // This is a little hacky but it's a needed quick fix. 
+    
+    var selectListSource = Html.GetSelectListSource(m => m).SetSelected((object)Model);
+    var htmlAttributes = Html.BuildHtmlAttributesForView<object>(new { disabled = "disabled" }).ToDictionary(d => d.Key, d => d.Value);
+
+    var bindingAttributes = htmlAttributes["data-bind"].ToString().Split(',')
+        .Select(arg => arg.Split(':')).ToList();
+        
+    var newBindingAttributes = bindingAttributes.ToDictionary(vals => vals[0] == "text" ? "value"  : vals[0], vals => vals.Length > 1 ? vals[1] ?? string.Empty : string.Empty);
+
+    htmlAttributes["data-bind"] = string.Join(", ", newBindingAttributes.Select(d => string.Format("{0}: {1}", d.Key, d.Value)));
+}
+
+@Html.DropDownList("", selectListSource, htmlAttributes)

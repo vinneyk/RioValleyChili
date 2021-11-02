@@ -1,0 +1,114 @@
+<!-- ko template: uiTemplate  -->
+<!-- /ko -->
+
+<script id="filters-lotkey-only" type="text/html">
+  <div class="form-group form-group-sm">
+      <label class="control-label sr-only" for="filters-lot">Lot</label>
+      <input class="form-control" id="filters-lot" type="text" placeholder="Find by Lot #" data-bind="value: lotKey.formattedLot, valueUpdate: 'input', disable: isAllDisabled">
+  </div>
+</script>
+
+<script id="filters-base" type="text/html">
+  <div class="form-group form-group-sm">
+      <label class="control-label sr-only" for="filters-lot">Lot</label>
+      <input class="form-control" id="filters-lot" type="text" placeholder="Find by Lot #" data-bind="value: lotKey.formattedLot, valueUpdate: 'input', disable: isAllDisabled">
+  </div>
+  <!-- ko ifnot: includeInventoryAdjustmentFilters -->
+  <div class="form-group form-group-sm">
+      <label class="control-label sr-only" for="filters-inventory-type">Type</label>
+      <select class="form-control" id="filters-inventory-type" name="Inventory Type" data-bind="value: inventoryType, options: inventoryType.options, optionsText: 'key', optionsValue: 'value', disable: isDisabled"></select>
+  </div>
+  <div class="form-group form-group-sm">
+      <label class="control-label sr-only" for="filters-lot-type">Lot Type</label>
+      <select class="form-control" id="filters-lot-type" name="Lot Type" data-bind="value: lotType, options: lotTypeOptions, optionsText: 'value', optionsCaption: '[Filter by Lot Type]', enable: enableLotTypeFilter, disable: isDisabled"></select>
+  </div>
+  <div class="form-group form-group-sm" data-bind="slideVisible: isInventoryChile">
+      <label class="control-label sr-only" for="filters-chile-type">Chile Type</label>
+      <select class="form-control" id="filters-chile-type" name="Chile Type" data-bind="value: chileType, options: chileTypeOptions, optionsText: 'value', optionsValue: 'value', optionsCaption: '[Filter by Chile Type]'"></select>
+  </div>
+  <div class="form-group form-group-sm">
+      <label class="control-label sr-only" for="filters-product-type">Product</label>
+      <select class="form-control" id="filters-product-type" name="Product Type" data-bind="value: productKey, options: productKeyOptions, optionsValue: 'ProductKey', optionsText: 'ProductCodeAndName', optionsCaption: '[Filter by Product]', enable: enableProductFilter, disable: isDisabled"></select>
+  </div>
+  <!-- /ko -->
+  <!-- ko template: { name: 'filters-inventory', if: includeInventoryFilters } -->
+  <!-- /ko -->
+  <!-- ko template: { name: 'filters-quality-control', if: includeQualityControlFilters } -->
+  <!-- /ko -->
+  <!-- ko template: { name: 'filters-inventory-adjustment', if: includeInventoryAdjustmentFilters } -->
+  <!-- /ko -->
+</script>
+
+<script id="filters-inventory-adjustment" type="text/html">
+  <div class="form-group">
+    <label class="control-label" for="adjustment-start-filter">Begin Date</label>
+    <input type="text" class="form-control" id="adjustment-start-filter" data-bind="datePickerSm: beginningDate"/>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="adjustment-end-filter">End Date</label>
+    <input type="text" class="form-control" id="adjustment-end-filter" data-bind="datePickerSm: endingDate"/>
+  </div>
+</script>
+
+<script id="filters-inventory" type="text/html">
+  <div class="form-group form-group-sm">
+    <label class="control-label sr-only" for="filters-ingredient-type">Ingredient</label>
+    <select class="form-control" id="filters-ingredient-type" name="Ingredient Type" data-bind="value: ingredientType, options: ingredientTypeOptions, optionsValue: 'Key', optionsText: 'Description', optionsCaption: '[Filter by Ingredient]', enable: hasIngredients, disable: isDisabled"></select>
+  </div>
+  <div class="form-group form-group-sm">
+    <label class="control-label sr-only" for="filters-packaging-product">Packaging</label>
+    <select class="form-control" id="filters-packaging-product" name="Packaging Product" data-bind="value: packagingProductKey, options: packagingProductKeyOptions, optionsValue: 'ProductKey', optionsText: 'ProductName', optionsCaption: '[Filter by Packaging]', disable: isDisabled"></select>
+  </div>
+  <div class="form-group form-group-sm">
+    <label class="control-label sr-only" for="filters-treatment-type">Treatment</label>
+    <select class="form-control" id="filters-treatment-type" name="Treatment Type" data-bind="value: treatmentKey, options: treatmentKey.options, optionsText: 'value', optionsValue: 'key', optionsCaption: '[All Treatments]', disable: isDisabled"></select>
+  </div>
+  <div class="form-group form-group-sm">
+    <label class="control-label sr-only" for="filters-warehouse">Warehouse</label>
+    <select class="form-control" id="filters-warehouse" name="Warehouse" data-bind="value: facilityKey, options: facilityOptions, optionsText: 'FacilityName', optionsValue: 'FacilityKey', enable: enableFacilityFilter && getFacilityLocations.canExecute()">
+    </select>
+  </div>
+  <div class="form-group form-group-sm">
+    <label class="control-label sr-only" for="">Street</label>
+    <select class="form-control" data-bind="value: streetFilter, options: streetFilterOptions, optionsCaption: '[Filter by Street]'"></select>
+  </div>
+  <div class="form-group form-group-sm">
+      <label class="control-label sr-only" for="filters-warehouse-location">Location</label>
+      <select class="form-control" id="filters-warehouse-location" name="Warehouse Location" data-bind="value: warehouseLocationKey, options: warehouseLocationOptions, optionsValue: 'LocationKey', optionsText: 'Description', optionsCaption: '[All Locations]', disable: isDisabled || !getFacilityLocations.canExecute()"></select>
+  </div>
+</script>
+<script id="filters-quality-control" type="text/html">
+  <div class="form-group form-group-sm">
+    <label class="control-label sr-only" for="production-status-select">Production Status</label>
+    <select type="text" class="form-control" id="production-status-select" data-bind="value: productionStatus, options: productionStatus.options, optionsText: 'value', optionsValue: 'key', optionsCaption: '[Filter by Production Status]', disable: isDisabled"></select>
+  </div>
+
+  <div class="form-group form-group-sm">
+    <label class="control-label sr-only" for="quality-status-select">Quality Status</label>
+    <select type="text" class="form-control" id="quality-status-select" data-bind="value: qualityStatus, options: qualityStatus.options, optionsText: 'value', optionsValue: 'key', optionsCaption: '[Filter by Quality Status]', disable: isDisabled"></select>
+  </div>
+
+  <!-- ko ifnot: isDisabled -->
+  <div class="form-group">
+    <label class="control-label" for="production-start-filter">Production Start</label>
+    <input type="text" class="form-control" id="production-start-filter" data-bind="datePickerSm: productionStart, disable: isDisabled"/>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="production-end-filter">Production End</label>
+    <input type="text" class="form-control" id="production-end-filter" data-bind="datePickerSm: productionEnd, disable: isDisabled"/>
+  </div>
+  <!-- /ko -->
+  <!-- ko if: isDisabled -->
+    <div class="form-group">
+      <label class="control-label" for="production-start-filter">Production Start</label>
+      <input type="text" class="form-control input-sm" id="production-start-filter" data-bind="disable: isDisabled"/>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="production-end-filter">Production End</label>
+      <input type="text" class="form-control input-sm" id="production-end-filter" data-bind="disable: isDisabled"/>
+    </div>
+  <!-- /ko -->
+</script>

@@ -1,0 +1,191 @@
+﻿<!-- ko with: adjustmentEditor -->
+<section data-bind="template: $parent.isNew() ? 'editor-create-mode' : 'editor-view-mode'">
+</section>
+<!-- /ko -->
+
+<script id="editor-create-mode" type="text/html">
+  <section>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <label class="form-control-label" for="">Notes</label>
+          <textarea class="form-control" data-bind="textinput: Comment"></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Adjustments</h4>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-condensed table-hover no-wrap">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Lot Key</th>
+                  <th>Product</th>
+                  <th>Facility</th>
+                  <th>Location</th>
+                  <th>Packaging</th>
+                  <th>Treatment</th>
+                  <th>Adj. Qty</th>
+                  <th class="text-right">Weight</th>
+                  <th class="text-right">New Quantity</th>
+                  <th class="text-right">New Weight</th>
+                </tr>
+              </thead>
+              <tbody data-bind="foreach: InventoryAdjustments, tabOnEnter: true">
+                <tr>
+                  <td><button class="btn btn-link" data-bind="click: $parent.removeItem, enable: $parent.canRemove"><i class="fa fa-times"></i></button></td>
+                  <td><input type="text" class="form-control form-control-sm table-form-control" data-bind="textinput: LotKey.formattedLot, disable: LotKey.ajaxWorking"></td>
+                  <td><span class="form-control-static" data-bind="text: ProductName"> </span></td>
+                  <td data-bind="validationElement: WarehouseKey">
+                    <select class="form-control" data-bind="value: WarehouseKey, disable: !lotExists(), with: facilityOptions">
+                      <option>-</option>
+                      <optgroup label="Has Inventory" data-bind="foreach: optionsWithInventory">
+                        <option data-bind="value: FacilityKey, text: FacilityName"></option>
+                      </optgroup>
+                      <optgroup label="Other Facilities" data-bind="foreach: optionsWithoutInventory">
+                        <option data-bind="value: FacilityKey, text: FacilityName"></option>
+                      </optgroup>
+                    </select>
+                  </td>
+                  <td data-bind="validationElement: WarehouseLocationKey">
+                    <select class="form-control" data-bind="value: WarehouseLocationKey, disable: !lotExists(), with: locationOptions">
+                      <option>-</option>
+                      <optgroup label="Has Inventory" data-bind="foreach: optionsWithInventory">
+                        <option data-bind="value: LocationKey, text: Description"></option>
+                      </optgroup>
+                      <optgroup label="Other Locations" data-bind="foreach: optionsWithoutInventory">
+                        <option data-bind="value: LocationKey, text: Description"></option>
+                      </optgroup>
+                    </select>
+                  </td>
+                  <td data-bind="validationElement: PackagingProductKey">
+                    <select class="form-control" data-bind="value: PackagingProductKey, disable: !lotExists(), with: packagingOptions">
+                      <option>-</option>
+                      <optgroup label="Has Inventory" data-bind="foreach: optionsWithInventory">
+                        <option data-bind="value: ProductKey, text: ProductName"></option>
+                      </optgroup>
+                      <optgroup label="Other Packaging" data-bind="foreach: optionsWithoutInventory">
+                        <option data-bind="value: ProductKey, text: ProductName"></option>
+                      </optgroup>
+                    </select>
+                  </td>
+                  <td data-bind="validationElement: TreatmentKey">
+                    <select class="form-control" data-bind="value: TreatmentKey, disable: !lotExists(), with: treatmentOptions">
+                      <option>-</option>
+                      <optgroup label="Has Inventory" data-bind="foreach: optionsWithInventory">
+                        <option data-bind="value: key, text: value"></option>
+                      </optgroup>
+                      <optgroup label="Other Treatments" data-bind="foreach: optionsWithoutInventory">
+                        <option data-bind="value: key, text: value"></option>
+                      </optgroup>
+                    </select>
+                  </td>
+                  <td data-bind="validationElement: newQuantity">
+                    <input class="form-control form-control-sm table-form-control text-right" type="number" data-bind="textinput: Adjustment, disable: !lotExists()">
+                  </td>
+                  <td class="text-right" data-bind="text: adjustmentWeight | number"></td>
+                  <td class="text-right" data-bind="text: newQuantity | number"></td>
+                  <td class="text-right" data-bind="text: newWeight | number"></td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr class="clickable text-primary" data-bind="click: addAdjustment">
+                  <td class="text-center"><i class="fa fa-plus-square"></i></td>
+                  <td colspan="11">
+                    Add adjustment
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td class="text-right" colspan="7"><b>Total Adjustments:</b></td>
+                  <td class="text-right"><span class="form-control-static" data-bind="text: totalAdjustments"></span></td>
+                  <td colspan="3"></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+</script>
+<script id="editor-view-mode" type="text/html">
+  <section>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <label class="form-control-label" for="">Adjustment Date</label>
+          <span class="form-control-static" data-bind="text: AdjustmentDate | toDate"></span>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <label class="form-control-label" for="">User</label>
+          <span class="form-control-static" data-bind="text: User"></span>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <label class="form-control-label" for="">Timestamp</label>
+          <span class="form-control-static" data-bind="text: TimeStamp | toDateTime"></span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <label class="control-label">Notes</label>
+          <div class="well">
+            <p class="form-control-static" data-bind="text: Notebook && Notebook.Text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Adjustments</h4>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-condensed no-wrap">
+              <thead>
+                <tr>
+                  <th>Lot Key</th>
+                  <th>Product</th>
+                  <th>Location</th>
+                  <th>Adj. Qty</th>
+                  <th>Treatment</th>
+                  <th>Packaging</th>
+                </tr>
+              </thead>
+              <tbody data-bind="foreach: InventoryAdjustments">
+                <tr>
+                  <td data-bind="text: LotKey"></td>
+                  <td data-bind="text: InventoryProduct.ProductName"></td>
+                  <td data-bind="text: Location.LocationName"></td>
+                  <td class="text-right" data-bind="text: AdjustmentQuantity"></td>
+                  <td data-bind="text: InventoryTreatment.TreatmentName"></td>
+                  <td data-bind="text: PackagingProduct.ProductName"></td>
+                </tr>
+              </tbody>
+              <tfoot></tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</script>
